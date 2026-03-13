@@ -1,0 +1,7 @@
+{
+  "name": "claimguardians-workspace",
+  "private": true,
+  "workspaces": [
+    "apps/*"
+  ]
+}
