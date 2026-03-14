@@ -1,1 +1,87 @@
 @import "tailwindcss";
+@import "@fontsource-variable/inter/index.css";
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/600.css";
+@import "@fontsource/inter/700.css";
+@import "@fontsource/inter/800.css";
+
+@theme {
+  /* 
+   * 1. 8pt System (Tailwind inherently uses a 4pt/0.25rem scale, 
+   *    so p-2=8px, p-4=16px, p-6=24px, p-8=32px are already aligned.
+   *    We just reinforce it by strictly using those classes in components).
+   */
+
+  /* 
+   * 2. Typography 
+   */
+  --font-sans: "Inter Variable", "Inter", sans-serif;
+  --font-heading: "Inter Variable", "Inter", sans-serif;
+  
+  /* Base Backgrounds */
+  --color-base-bg: #F5F5F7; /* Ultra-soft gray/cream */
+  --color-card-bg: #FFFFFF; /* Pure white for elevation */
+  
+  /* Primary/Accent (Action & Urgency - Modern Blue) */
+  --color-primary-50: #eff6ff;
+  --color-primary-100: #dbeafe;
+  --color-primary-500: #3b82f6;
+  --color-primary-600: #2563EB; /* Strong Blue Action */
+  --color-primary-700: #1d4ed8;
+  
+  /* Alternative Action (Warm Orange) */
+  --color-accent-500: #f97316;
+  --color-accent-600: #EA580C; /* Warm Orange Action */
+  --color-accent-700: #C2410C; /* Added accent-700 for hover state */
+  
+  /* Text Colors (High Contrast) */
+  --color-text-main: #1F2937; /* Very dark gray for WCAG AA */
+  --color-text-muted: #4B5563; /* Secondary text */
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    background-color: var(--color-base-bg);
+    color: var(--color-text-main);
+    line-height: 1.5; /* WCAG 2.2 line-height minimum */
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: #111827;
+    letter-spacing: -0.02em; /* Geometric/modern feel */
+  }
+
+  p, li, a {
+    font-weight: 400;
+  }
+}
+
+@layer components {
+  /* 4. Interactive Elements */
+
+  /* CTAs & Buttons */
+  .btn-primary {
+    @apply inline-flex justify-center items-center px-8 py-3 bg-primary-600 text-white font-bold rounded-xl shadow-sm transition-all duration-200 ease-in-out hover:-translate-y-0.5 hover:shadow-md hover:bg-primary-700 focus:outline-none focus:ring-4 focus:ring-primary-100 active:translate-y-0;
+    min-height: 44px; /* 44x44px Tap Target Rule */
+    min-width: 44px;
+  }
+
+  .btn-secondary {
+    @apply inline-flex justify-center items-center px-8 py-3 bg-white text-text-main font-bold border-2 border-slate-200 rounded-xl transition-all duration-200 ease-in-out hover:-translate-y-0.5 hover:border-slate-300 hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-slate-100 active:translate-y-0;
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  .btn-accent {
+    @apply inline-flex justify-center items-center px-8 py-3 bg-accent-600 text-white font-bold rounded-xl shadow-sm transition-all duration-200 ease-in-out hover:-translate-y-0.5 hover:shadow-md hover:bg-accent-700 focus:outline-none focus:ring-4 focus:ring-orange-100 active:translate-y-0;
+    min-height: 44px;
+  }
+
+  /* Cards */
+  .card-surface {
+    @apply bg-card-bg rounded-2xl p-8 border border-slate-100 shadow-sm transition-all duration-200 ease-in-out hover:shadow-md hover:border-slate-200;
+  }
+}

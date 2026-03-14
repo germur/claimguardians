@@ -1,0 +1,182 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout 
+  title="Claim Guardians | Florida Public Adjuster Service Areas" 
+  description="Florida weather destroys homes and businesses. Our local public adjusters respond rapidly to your location. We handle insurance claims in every major Florida county."
+>
+  <Fragment slot="head">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [{
+          "@type": "Question",
+          "name": "Does Claim Guardians cover my specific county in Florida?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Claim Guardians serves all 67 counties in Florida. We maintain a network of licensed adjusters across the state. We dispatch an expert to your property within 24 hours of your call."
+          }
+        }, {
+          "@type": "Question",
+          "name": "Can an out-of-state adjuster handle my Florida claim?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Florida law requires public adjusters to hold a specific state license. Claim Guardians strictly employs Florida-licensed adjusters. We protect you from illegal, out-of-state operators."
+          }
+        }]
+      }
+    </script>
+  </Fragment>
+
+  <!-- 1. Hero Section -->
+  <header class="relative bg-[#0A0F1C] overflow-hidden pt-24 pb-32">
+    <!-- Dynamic Glowing Gradient Mesh Background -->
+    <div class="absolute top-0 inset-x-0 h-[600px] bg-gradient-to-b from-primary-900/50 to-transparent pointer-events-none"></div>
+    <div class="absolute -top-[300px] -right-[200px] w-[800px] h-[800px] rounded-full bg-primary-600/20 blur-[120px] pointer-events-none"></div>
+    <div class="absolute -bottom-[200px] -left-[200px] w-[600px] h-[600px] rounded-full bg-accent-600/10 blur-[100px] pointer-events-none"></div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 mt-8">
+      <!-- Breadcrumbs -->
+      <nav aria-label="Breadcrumb" class="mb-12 inline-flex">
+        <ol class="flex items-center space-x-2 text-sm text-slate-300 font-medium bg-white/5 backdrop-blur-md px-4 py-2 rounded-full border border-white/10 shadow-lg">
+          <li><a href="/" class="hover:text-white transition-colors">Home</a></li>
+          <li><span class="mx-2 text-slate-500">›</span></li>
+          <li class="text-white" aria-current="page">Service Areas</li>
+        </ol>
+      </nav>
+
+      <div class="max-w-4xl">
+        <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-8 leading-[1.1] tracking-tight drop-shadow-2xl">
+          Claim Guardians <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-blue-200">Serves Property Owners</span> Across Florida.
+        </h1>
+        <h2 class="text-xl md:text-2xl text-slate-300 mb-12 leading-relaxed max-w-3xl font-light">
+          Florida weather destroys homes and businesses. Our local public adjusters respond rapidly to your location. We handle insurance claims in every major Florida county.
+        </h2>
+      </div>
+    </div>
+    
+    <!-- Decorative bottom wave/fade -->
+    <div class="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-t from-base-bg to-transparent"></div>
+  </header>
+
+  <!-- 2. Top Service Areas Grid -->
+  <section class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-[#111827] mb-6">
+        We Dispatch Experts to Your City.
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- South Florida -->
+      <div class="card-surface group">
+        <h3 class="text-2xl font-bold text-primary-700 mb-6 flex items-center gap-3">
+          <span class="text-3xl">🌴</span> South Florida
+        </h3>
+        <ul class="space-y-4">
+          <li><a href="/service-areas/miami" class="text-lg font-medium text-text-muted hover:text-primary-600 transition-colors flex items-center gap-2"><span class="text-primary-400">›</span> Miami</a></li>
+          <li><a href="/service-areas/fort-lauderdale" class="text-lg font-medium text-text-muted hover:text-primary-600 transition-colors flex items-center gap-2"><span class="text-primary-400">›</span> Fort Lauderdale</a></li>
+          <li><a href="/service-areas/west-palm-beach" class="text-lg font-medium text-text-muted hover:text-primary-600 transition-colors flex items-center gap-2"><span class="text-primary-400">›</span> West Palm Beach</a></li>
+          <li><a href="/service-areas/boca-raton" class="text-lg font-medium text-text-muted hover:text-primary-600 transition-colors flex items-center gap-2"><span class="text-primary-400">›</span> Boca Raton</a></li>
+        </ul>
+      </div>
+
+      <!-- Central Florida -->
+      <div class="card-surface group">
+        <h3 class="text-2xl font-bold text-primary-700 mb-6 flex items-center gap-3">
+          <span class="text-3xl">🎢</span> Central Florida
+        </h3>
+        <ul class="space-y-4">
+          <li><a href="/service-areas/orlando" class="text-lg font-medium text-text-muted hover:text-primary-600 transition-colors flex items-center gap-2"><span class="text-primary-400">›</span> Orlando</a></li>
+          <li><a href="/service-areas/kissimmee" class="text-lg font-medium text-text-muted hover:text-primary-600 transition-colors flex items-center gap-2"><span class="text-primary-400">›</span> Kissimmee</a></li>
+          <li><a href="/service-areas/daytona-beach" class="text-lg font-medium text-text-muted hover:text-primary-600 transition-colors flex items-center gap-2"><span class="text-primary-400">›</span> Daytona Beach</a></li>
+          <li><a href="/service-areas/lakeland" class="text-lg font-medium text-text-muted hover:text-primary-600 transition-colors flex items-center gap-2"><span class="text-primary-400">›</span> Lakeland</a></li>
+        </ul>
+      </div>
+
+      <!-- West Coast -->
+      <div class="card-surface group">
+        <h3 class="text-2xl font-bold text-primary-700 mb-6 flex items-center gap-3">
+          <span class="text-3xl">🌅</span> West Coast
+        </h3>
+        <ul class="space-y-4">
+          <li><a href="/service-areas/tampa" class="text-lg font-medium text-text-muted hover:text-primary-600 transition-colors flex items-center gap-2"><span class="text-primary-400">›</span> Tampa</a></li>
+          <li><a href="/service-areas/fort-myers" class="text-lg font-medium text-text-muted hover:text-primary-600 transition-colors flex items-center gap-2"><span class="text-primary-400">›</span> Fort Myers</a></li>
+          <li><a href="/service-areas/cape-coral" class="text-lg font-medium text-text-muted hover:text-primary-600 transition-colors flex items-center gap-2"><span class="text-primary-400">›</span> Cape Coral</a></li>
+          <li><a href="/service-areas/naples" class="text-lg font-medium text-text-muted hover:text-primary-600 transition-colors flex items-center gap-2"><span class="text-primary-400">›</span> Naples</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-16 text-center">
+      <a href="tel:5551234567" class="btn-accent text-lg px-10 shadow-orange-600/20">
+        Don't see your city? Call us now.
+      </a>
+    </div>
+  </section>
+
+  <!-- 3. Local Expertise -->
+  <section class="bg-primary-50 border-y border-primary-100 py-24">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-[#111827] mb-12 text-center">
+        Claim Guardians Understands Florida Building Codes.
+      </h2>
+      <div class="card-surface shadow-md">
+        <ul class="space-y-6">
+          <li class="flex items-start gap-4">
+            <span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-primary-100 text-primary-600 mt-1">✓</span>
+            <span class="text-xl font-medium text-[#111827]">Our adjusters live and work in Florida.</span>
+          </li>
+          <li class="flex items-start gap-4">
+            <span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-primary-100 text-primary-600 mt-1">✓</span>
+            <span class="text-xl font-medium text-[#111827]">We apply specific county building codes to your claim.</span>
+          </li>
+          <li class="flex items-start gap-4">
+            <span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-primary-100 text-primary-600 mt-1">✓</span>
+            <span class="text-xl font-medium text-[#111827]">Our team forces insurers to pay for mandatory code upgrades.</span>
+          </li>
+          <li class="flex items-start gap-4">
+            <span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-primary-100 text-primary-600 mt-1">✓</span>
+            <span class="text-xl font-medium text-[#111827]">You receive enough money to rebuild legally and safely.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. AEO FAQs -->
+  <section class="py-24 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-3xl md:text-4xl font-extrabold text-[#111827] mb-12 text-center">
+      Florida Public Adjuster Service Areas FAQs
+    </h2>
+
+    <div class="space-y-4">
+      <details class="group card-surface p-0 [&_summary::-webkit-details-marker]:hidden hover:border-primary-200">
+        <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-xl text-[#111827] group-hover:text-primary-600 transition-colors">
+          <span>Does Claim Guardians cover my specific county in Florida?</span>
+          <span class="transition group-open:rotate-180 flex-shrink-0 ml-4">
+            <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+          </span>
+        </summary>
+        <div class="text-text-muted px-6 pb-6 text-lg leading-relaxed border-t border-slate-100 pt-4 m-0">
+          Claim Guardians serves all 67 counties in Florida. We maintain a network of licensed adjusters across the state. We dispatch an expert to your property within 24 hours of your call.
+        </div>
+      </details>
+
+      <details class="group card-surface p-0 [&_summary::-webkit-details-marker]:hidden hover:border-primary-200">
+        <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-xl text-[#111827] group-hover:text-primary-600 transition-colors">
+          <span>Can an out-of-state adjuster handle my Florida claim?</span>
+          <span class="transition group-open:rotate-180 flex-shrink-0 ml-4">
+            <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+          </span>
+        </summary>
+        <div class="text-text-muted px-6 pb-6 text-lg leading-relaxed border-t border-slate-100 pt-4 m-0">
+          Florida law requires public adjusters to hold a specific state license. Claim Guardians strictly employs Florida-licensed adjusters. We protect you from illegal, out-of-state operators.
+        </div>
+      </details>
+    </div>
+  </section>
+
+</BaseLayout>
