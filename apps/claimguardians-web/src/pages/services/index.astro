@@ -1,0 +1,223 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const services = [
+  {
+    title: "Hurricane & Wind Damage",
+    description: "Florida's coastal storms inflict catastrophic structural damage. We force insurers to cover complete repairs, not just temporary patches.",
+    icon: "🌪️",
+    href: "/services/hurricane-damage",
+    accent: "from-blue-500 to-cyan-400"
+  },
+  {
+    title: "Water Damage & Leaks",
+    description: "Burst pipes and hidden leaks rapidly destroy drywall and flooring. We deploy thermal imaging to prove sudden and accidental loss.",
+    icon: "💧",
+    href: "/services/water-damage",
+    accent: "from-blue-400 to-teal-400"
+  },
+  {
+    title: "Roof Replacements",
+    description: "Insurers love to claim 'wear and tear' to deny roof claims. We use forensic meteorology to prove storm damage and demand full replacement.",
+    icon: "🏠",
+    href: "/services/roof-damage",
+    accent: "from-slate-400 to-slate-200"
+  },
+  {
+    title: "Fire & Smoke Damage",
+    description: "Toxic soot permanently compromises porous materials. We rely on industrial hygienists to prove items must be fully replaced, not just cleaned.",
+    icon: "🔥",
+    href: "/services/fire-damage",
+    accent: "from-orange-500 to-red-500"
+  },
+  {
+    title: "Toxic Mold Claims",
+    description: "Insurance companies exploit policy caps to deny mold claims. We prove sudden water intrusion to bypass caps and fund safe remediation.",
+    icon: "🦠",
+    href: "/services/mold-claims",
+    accent: "from-green-500 to-emerald-400"
+  },
+  {
+    title: "Denied & Underpaid Claims",
+    description: "A denial is just a negotiation tactic. We re-open closed claims, expose adjuster 'bad faith', and force them to pay what you legally deserve.",
+    icon: "⚖️",
+    href: "/services/denied-claims",
+    accent: "from-purple-500 to-indigo-400"
+  }
+];
+---
+
+<BaseLayout 
+  title="Florida Property Damage Services | Claim Guardians" 
+  description="Claim Guardians specializes in maximizing insurance settlements for Hurricane, Water, Roof, Fire, and Mold damage across Florida."
+>
+  <Fragment slot="head">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "serviceType": "Public Adjusting Services",
+        "provider": {
+          "@type": "LocalBusiness",
+          "name": "Claim Guardians LLC"
+        },
+        "areaServed": {
+          "@type": "State",
+          "name": "Florida"
+        },
+        "description": "Florida's premier public adjusting firm specializing in maximizing residential and commercial property damage claims.",
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Property Claim Adjusting Services",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Hurricane Damage Claims"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Water Damage Claims"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Roof Damage Claims"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Fire & Smoke Damage Claims"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Mold Remediation Claims"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Denied Claim Appeals"
+              }
+            }
+          ]
+        }
+      }
+    </script>
+  </Fragment>
+
+  <!-- 1. Hero Section -->
+  <header class="relative bg-primary-600 overflow-hidden pt-24 pb-32">
+    <!-- Dynamic Glowing Gradient Mesh Background -->
+    <div class="absolute top-0 inset-x-0 h-[600px] bg-gradient-to-b from-primary-700/80 to-transparent pointer-events-none"></div>
+    <div class="absolute top-0 right-0 w-[800px] h-[800px] rounded-full bg-primary-600/20 blur-[120px] pointer-events-none translate-x-1/3 -translate-y-1/3"></div>
+    <div class="absolute bottom-0 left-0 w-[600px] h-[600px] rounded-full bg-accent-600/10 blur-[100px] pointer-events-none -translate-x-1/3 translate-y-1/3"></div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+      
+      <!-- Breadcrumbs -->
+      <nav aria-label="Breadcrumb" class="mb-12 inline-flex justify-center w-full">
+        <ol class="flex items-center space-x-2 text-sm text-slate-300 font-medium bg-white/5 backdrop-blur-md px-4 py-2 rounded-full border border-white/10 shadow-lg">
+          <li><a href="/" class="hover:text-white transition-colors">Home</a></li>
+          <li><span class="mx-2 text-slate-500">›</span></li>
+          <li class="text-white" aria-current="page">Services Directory</li>
+        </ol>
+      </nav>
+
+      <div class="max-w-4xl mx-auto">
+        <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-8 leading-[1.1] tracking-tight drop-shadow-2xl">
+          We Defend Your Property Against <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-blue-200">the Elements & Insurers.</span>
+        </h1>
+        <p class="text-xl md:text-2xl text-slate-300 mb-12 leading-relaxed max-w-3xl mx-auto font-light">
+          Whether you're facing catastrophic hurricane destruction, silent water leaks, or an unjustly denied claim, Claim Guardians has a specialized forensic team ready to force your insurer to pay.
+        </p>
+      </div>
+    </div>
+    
+    <!-- Decorative bottom wave/fade -->
+    <div class="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-t from-base-bg via-base-bg/80 to-transparent"></div>
+  </header>
+
+  <!-- 2. Services Grid (Premium Bento Layout) -->
+  <section class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative -mt-20 z-20">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {services.map((service) => (
+        <a href={service.href} class="group relative bg-white rounded-3xl p-8 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.08)] border border-slate-100 hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.15)] transition-all duration-500 hover:-translate-y-2 overflow-hidden flex flex-col h-full">
+          <!-- Hover Gradient Background -->
+          <div class="absolute inset-0 bg-gradient-to-br from-slate-50/50 to-white opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          
+          <!-- Top Accent Line -->
+          <div class={`absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r ${service.accent} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
+
+          <div class="relative z-10 flex flex-col h-full">
+            <div class="w-16 h-16 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center text-3xl mb-6 shadow-sm group-hover:scale-110 transition-transform duration-500">
+              {service.icon}
+            </div>
+            
+            <h3 class="text-2xl font-bold text-slate-900 mb-4 tracking-tight group-hover:text-primary-600 transition-colors">
+              {service.title}
+            </h3>
+            
+            <p class="text-slate-500 leading-relaxed mb-8 flex-grow">
+              {service.description}
+            </p>
+            
+            <div class="mt-auto inline-flex items-center text-primary-600 font-bold group-hover:text-primary-700 transition-colors">
+              Consult an Expert 
+              <svg class="w-5 h-5 ml-2 group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- 3. Why Choose Us (Dark UI Trust Banner) -->
+  <section class="py-24 bg-primary-900 mt-12 relative overflow-hidden">
+    <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/dark-matter.png')] opacity-10"></div>
+    <div class="absolute right-0 top-0 w-1/2 h-full bg-gradient-to-l from-primary-800/80 to-transparent pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-6">Florida's Most Feared Elite Adjusters.</h2>
+          <p class="text-xl text-primary-200 mb-8 leading-relaxed font-light">
+            When Claim Guardians takes a case, insurance companies know the negotiation is over. We do not accept partial settlements or surface-level cleaning. 
+          </p>
+          <ul class="space-y-4 mb-10">
+            <li class="flex items-center text-white font-medium">
+              <span class="flex items-center justify-center w-6 h-6 rounded bg-[#00B5A6] text-primary-900 mr-4 shadow-[0_0_15px_-3px_#00B5A6]">✓</span> No Upfront Fees Ever
+            </li>
+            <li class="flex items-center text-white font-medium">
+              <span class="flex items-center justify-center w-6 h-6 rounded bg-[#00B5A6] text-primary-900 mr-4 shadow-[0_0_15px_-3px_#00B5A6]">✓</span> Thermal Imaging & Forensic Sweeps included
+            </li>
+            <li class="flex items-center text-white font-medium">
+              <span class="flex items-center justify-center w-6 h-6 rounded bg-[#00B5A6] text-primary-900 mr-4 shadow-[0_0_15px_-3px_#00B5A6]">✓</span> 5-Star BBB Rated Firm
+            </li>
+          </ul>
+        </div>
+        
+        <div class="bg-primary-800/50 backdrop-blur-md rounded-3xl p-10 border border-primary-700/50">
+          <h3 class="text-2xl font-bold text-white mb-4">Request Immediate Response</h3>
+          <p class="text-primary-300 mb-8">Select the service you need help with and our duty adjuster will call you within 15 minutes.</p>
+          <a href="tel:5551234567" class="btn-accent flex w-full h-16 text-lg items-center justify-center shadow-[0_0_30px_-5px_var(--color-brand-teal)]">
+            Urgent Hotline: (555) 123-4567
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

@@ -22,20 +22,36 @@
   --color-base-bg: #F5F5F7; /* Ultra-soft gray/cream */
   --color-card-bg: #FFFFFF; /* Pure white for elevation */
   
-  /* Primary/Accent (Action & Urgency - Modern Blue) */
-  --color-primary-50: #eff6ff;
-  --color-primary-100: #dbeafe;
-  --color-primary-500: #3b82f6;
-  --color-primary-600: #2563EB; /* Strong Blue Action */
-  --color-primary-700: #1d4ed8;
+  /* Official Brand Colors (Deep Marine to Turquoise Gradient) */
+  --color-brand-marine: #002D51; /* Dark Blue Base */
+  --color-brand-teal: #00808C;   /* Turquoise Middle */
+  --color-brand-cyan: #00B5A6;   /* Light Turquoise Green */
+  --color-brand-navy: #082142;   /* Deep Navy Solid for Text/Buttons */
+
+  /* Override Primary/Accent with Brand Colors */
+  --color-primary-50: #eff6ff; /* Restored for soft backgrounds */
+  --color-primary-100: #dbeafe; /* Restored for light hover states and focus rings */
+  --color-primary-200: #bfdbfe;
+  --color-primary-300: #93c5fd;
+  --color-primary-400: var(--color-brand-cyan);
+  --color-primary-500: var(--color-brand-teal);
+  --color-primary-600: var(--color-brand-marine);
+  --color-primary-700: var(--color-brand-navy);
+  --color-primary-900: #041224; /* Even deeper navy for ultra dark backgrounds */
   
-  /* Alternative Action (Warm Orange) */
-  --color-accent-500: #f97316;
-  --color-accent-600: #EA580C; /* Warm Orange Action */
-  --color-accent-700: #C2410C; /* Added accent-700 for hover state */
+  --color-accent-50: #fff7ed; /* Soft warm backgrounds */
+  --color-accent-100: #ffedd5;
+  --color-accent-400: var(--color-brand-cyan);
+  --color-accent-500: var(--color-brand-teal);
+  --color-accent-600: var(--color-brand-teal); /* Main CTAs */
+  --color-accent-700: var(--color-brand-marine); /* Hover CTAs */
   
-  /* Text Colors (High Contrast) */
-  --color-text-main: #1F2937; /* Very dark gray for WCAG AA */
+  /* Missing ring colors */
+  --color-orange-100: #ffedd5;
+  --color-orange-600: #ea580c;
+  
+  /* Text Colors */
+  --color-text-main: var(--color-brand-navy); /* Deep Navy Solid */
   --color-text-muted: #4B5563; /* Secondary text */
 }
 
