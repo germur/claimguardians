@@ -76,28 +76,179 @@
 }
 
 @layer components {
-  /* 4. Interactive Elements */
 
-  /* CTAs & Buttons */
+  /* =========================================================
+   * BUTTONS
+   * ========================================================= */
   .btn-primary {
     @apply inline-flex justify-center items-center px-8 py-3 bg-primary-600 text-white font-bold rounded-xl shadow-sm transition-all duration-200 ease-in-out hover:-translate-y-0.5 hover:shadow-md hover:bg-primary-700 focus:outline-none focus:ring-4 focus:ring-primary-100 active:translate-y-0;
-    min-height: 44px; /* 44x44px Tap Target Rule */
-    min-width: 44px;
+    min-height: 48px;
+    min-width: 48px;
   }
 
   .btn-secondary {
-    @apply inline-flex justify-center items-center px-8 py-3 bg-white text-text-main font-bold border-2 border-slate-200 rounded-xl transition-all duration-200 ease-in-out hover:-translate-y-0.5 hover:border-slate-300 hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-slate-100 active:translate-y-0;
-    min-height: 44px;
-    min-width: 44px;
+    @apply inline-flex justify-center items-center px-8 py-3 bg-white text-text-main font-bold border-2 border-slate-200 rounded-xl transition-all duration-200 ease-in-out hover:-translate-y-0.5 hover:border-slate-300 hover:bg-slate-50 focus:outline-none active:translate-y-0;
+    min-height: 48px;
+    min-width: 48px;
   }
 
   .btn-accent {
-    @apply inline-flex justify-center items-center px-8 py-3 bg-accent-600 text-white font-bold rounded-xl shadow-sm transition-all duration-200 ease-in-out hover:-translate-y-0.5 hover:shadow-md hover:bg-accent-700 focus:outline-none focus:ring-4 focus:ring-orange-100 active:translate-y-0;
-    min-height: 44px;
+    @apply inline-flex justify-center items-center px-8 py-3 font-bold rounded-xl shadow-sm transition-all duration-300 ease-in-out hover:-translate-y-1 active:translate-y-0;
+    min-height: 48px;
+    background-color: var(--color-brand-marine);
+    color: #ffffff;
+  }
+  .btn-accent:hover {
+    background-color: var(--color-brand-teal);
+    box-shadow: 0 10px 40px -10px rgba(0, 128, 140, 0.5);
   }
 
-  /* Cards */
+  /* =========================================================
+   * SECTION BACKGROUNDS (use on <section> or <div>)
+   * ========================================================= */
+
+  /* Pure white — primary surface */
+  .section-white {
+    @apply bg-white border-b border-slate-100;
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+
+  /* Soft off-white — alternate surface for rhythm */
+  .section-muted {
+    background-color: var(--color-base-bg); /* #F5F5F7 */
+    border-bottom: 1px solid #e5e7eb;
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+
+  /* Brand Deep Marine — hero / dark CTA panels */
+  .section-dark {
+    background-color: var(--color-brand-marine); /* #002D51 */
+    color: #ffffff;
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* =========================================================
+   * TYPOGRAPHY UTILITIES
+   * ========================================================= */
+
+  /* Small uppercase label above main heading (eyebrow) */
+  .eyebrow {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-brand-teal); /* #00808C */
+    margin-bottom: 0.75rem;
+  }
+
+  /* Standard section heading — dark navy */
+  .section-heading {
+    @apply text-3xl md:text-4xl font-extrabold;
+    color: var(--color-brand-navy); /* #082142 */
+    letter-spacing: -0.02em;
+  }
+
+  /* Section heading in dark/dark CTA contexts */
+  .section-heading-light {
+    @apply text-3xl md:text-4xl font-extrabold;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+  }
+
+  /* =========================================================
+   * CARD COMPONENTS
+   * ========================================================= */
+
+  /* Base card — pure white, subtle shadow */
   .card-surface {
-    @apply bg-card-bg rounded-2xl p-8 border border-slate-100 shadow-sm transition-all duration-200 ease-in-out hover:shadow-md hover:border-slate-200;
+    @apply bg-card-bg rounded-2xl p-8 border border-slate-100 shadow-sm transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-1;
+  }
+
+  /* Service/feature card with hover gradient-bar accent at top */
+  .card-hover {
+    @apply relative bg-white rounded-2xl p-8 border border-slate-100 shadow-sm overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+  }
+  .card-hover::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(
+      to right,
+      var(--color-brand-marine),
+      var(--color-brand-teal),
+      var(--color-brand-cyan)
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .card-hover:hover::before {
+    opacity: 1;
+  }
+
+  /* Testimonial card */
+  .card-testimonial {
+    @apply relative bg-white rounded-3xl p-10 border border-slate-100 shadow-sm overflow-hidden transition-all duration-500 hover:shadow-xl;
+  }
+  .card-testimonial::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(
+      to right,
+      var(--color-brand-marine),
+      var(--color-brand-teal),
+      var(--color-brand-cyan)
+    );
+  }
+
+  /* =========================================================
+   * DECORATIVE UTILITIES
+   * ========================================================= */
+
+  /* Inner container width limit */
+  .section-inner {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Gradient top-border accent line (used on white/muted sections too) */
+  .gradient-accent-bar {
+    position: relative;
+  }
+  .gradient-accent-bar::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(
+      to right,
+      var(--color-brand-marine),
+      var(--color-brand-teal),
+      var(--color-brand-cyan)
+    );
+  }
+
+  /* Step number (01, 02, 03) ghost numeral */
+  .step-number {
+    font-size: 4rem;
+    font-weight: 900;
+    color: var(--color-brand-marine);
+    opacity: 0.08;
+    line-height: 1;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.04em;
   }
 }

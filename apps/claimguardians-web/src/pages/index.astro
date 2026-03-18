@@ -6,22 +6,23 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   title="Claim Guardians LLC | Maximizes Your Property Insurance Settlement in Florida" 
   description="Insurance companies underpay property damage claims. Claim Guardians forces your insurer to pay your maximum legal entitlement. You pay zero upfront fees."
 >
-  <!-- 2. Hero Section (Premium 2026 Refined) -->
-  <header aria-label="Hero and Value Proposition" class="relative bg-primary-900 overflow-hidden pt-32 pb-40">
-    <!-- Optimized Background Image -->
+
+  <!-- 1. Hero Section -->
+  <header aria-label="Hero and Value Proposition" class="relative bg-[#041224] overflow-hidden pt-32 pb-40">
+    <!-- Optimized Background Image (CWV: fetchpriority high) -->
     <div class="absolute inset-0 z-0">
       <img 
         src="/images/florida-damaged-house-hero.png" 
         alt="Damaged luxury Florida home after a hurricane" 
-        class="w-full h-full object-cover opacity-40 shadow-2xl scale-105"
+        class="w-full h-full object-cover opacity-35 scale-105"
         fetchpriority="high"
         loading="eager"
       />
-      <!-- Pro Dark Overlay for WCAG 2.2 AA Contrast -->
-      <div class="absolute inset-0 bg-gradient-to-b from-primary-950/90 via-primary-900/70 to-base-bg"></div>
+      <!-- WCAG 2.2 AA Dark Overlay -->
+      <div class="absolute inset-0 bg-gradient-to-b from-[#041224]/90 via-[#002D51]/70 to-[#041224]"></div>
     </div>
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="section-inner relative z-10">
       <div class="max-w-4xl">
         <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-8 leading-[1.1] tracking-tight drop-shadow-2xl">
           Claim Guardians Maximizes Your Property Insurance Settlement in Florida.
@@ -31,30 +32,28 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </p>
         
         <div class="flex flex-col sm:flex-row gap-5 mb-16">
-          <!-- Primary CTA (Solid Accent) -->
-          <a href="/free-claim-review" class="group relative inline-flex justify-center items-center px-10 py-5 text-xl font-extrabold text-white bg-accent-600 rounded-xl overflow-hidden shadow-[0_0_40px_-5px_var(--color-brand-cyan)] hover:shadow-[0_0_60px_-15px_var(--color-brand-cyan)] transition-all duration-300 transform hover:-translate-y-1 min-w-[280px] min-h-[64px]">
-            <span class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-[100%] group-hover:animate-[shimmer_1.5s_infinite]"></span>
-            <span class="relative">Get a Free Claim Review</span>
+          <!-- Primary CTA -->
+          <a href="/free-claim-review" class="group inline-flex justify-center items-center px-10 py-5 text-xl font-extrabold text-white bg-[#00808C] rounded-xl hover:bg-[#00B5A6] transition-all duration-300 transform hover:-translate-y-1 shadow-[0_0_40px_-5px_rgba(0,128,140,0.6)] hover:shadow-[0_0_60px_-5px_rgba(0,181,166,0.7)] min-w-[280px] min-h-[64px]">
+            Get a Free Claim Review
           </a>
-          
-          <!-- Secondary CTA (Outline/Ghost) -->
-          <a href="tel:5551234567" class="inline-flex justify-center items-center px-10 py-5 text-xl font-extrabold text-white bg-white/5 backdrop-blur-md border-2 border-white/20 rounded-xl hover:bg-white/10 transition-all duration-300 transform hover:-translate-y-1 shadow-xl min-w-[280px] min-h-[64px]">
+          <!-- Secondary CTA -->
+          <a href="tel:5551234567" class="inline-flex justify-center items-center px-10 py-5 text-xl font-extrabold text-white bg-white/5 backdrop-blur-md border-2 border-white/20 rounded-xl hover:bg-white/10 transition-all duration-300 transform hover:-translate-y-1 min-w-[280px] min-h-[64px]">
             Emergency? Call Us Now
           </a>
         </div>
         
         <!-- Trust Bar (EEAT) -->
         <div class="flex flex-wrap items-center gap-x-12 gap-y-6 pt-8 border-t border-white/10">
-          <div class="flex items-center gap-3 text-slate-300 font-semibold group">
-            <span class="text-2xl group-hover:scale-125 transition-transform duration-300">🛡️</span>
+          <div class="flex items-center gap-3 text-slate-300 font-semibold">
+            <span class="text-2xl">🛡️</span>
             <span class="text-sm md:text-base tracking-wide uppercase">State Licensed Adjusters (FAPIA)</span>
           </div>
-          <div class="flex items-center gap-3 text-slate-300 font-semibold group">
-            <span class="text-2xl group-hover:scale-125 transition-transform duration-300">⭐</span>
+          <div class="flex items-center gap-3 text-slate-300 font-semibold">
+            <span class="text-2xl">⭐</span>
             <span class="text-sm md:text-base tracking-wide uppercase">5-Star Google Reviews</span>
           </div>
-          <div class="flex items-center gap-3 text-slate-300 font-semibold group">
-            <span class="text-2xl group-hover:scale-125 transition-transform duration-300">🤝</span>
+          <div class="flex items-center gap-3 text-slate-300 font-semibold">
+            <span class="text-2xl">🤝</span>
             <span class="text-sm md:text-base tracking-wide uppercase">No Recovery, No Fee Guarantee</span>
           </div>
         </div>
@@ -62,100 +61,85 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </div>
   </header>
 
-  <!-- 3. Quick Solution Grid -->
-  <section class="bg-white border-b border-slate-100 py-24">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <!-- 2. Services Grid -->
+  <section class="section-white">
+    <div class="section-inner">
       <div class="max-w-3xl mb-16">
-        <p class="text-sm font-bold uppercase tracking-widest text-[#00808C] mb-3">Our Specialties</p>
-        <h2 class="text-3xl md:text-4xl font-extrabold text-[#082142] mb-6">
-          Claim Guardians Resolves Every Type of Property Damage.
-        </h2>
-        <p class="text-lg text-slate-500">
-          Property owners face complex insurance policies. Our licensed public adjusters simplify the claims process. Select your damage type below.
-        </p>
+        <span class="eyebrow">Our Specialties</span>
+        <h2 class="section-heading mb-4">Claim Guardians Resolves Every Type of Property Damage.</h2>
+        <p class="text-lg text-slate-500">Our licensed public adjusters simplify the claims process. Select your damage type below.</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Card 1 -->
-        <a href="/services/water-damage" class="group bg-white rounded-2xl p-8 shadow-sm border border-slate-100 hover:shadow-xl hover:border-[#00808C]/30 transition-all duration-300 hover:-translate-y-1">
+        <a href="/services/water-damage" class="card-hover group">
           <div class="text-4xl mb-4">💧</div>
           <h3 class="text-xl font-bold text-[#082142] mb-3 group-hover:text-[#00808C] transition-colors">Water &amp; Leak Damage</h3>
           <p class="text-slate-500">Claim Guardians uncovers hidden moisture and burst pipe damage.</p>
-          <div class="mt-4 text-[#00808C] font-semibold text-sm flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">Learn more →</div>
+          <div class="mt-4 text-[#00808C] font-semibold text-sm opacity-0 group-hover:opacity-100 transition-opacity">Learn more →</div>
         </a>
-        
-        <!-- Card 2 -->
-        <a href="/services/hurricane-damage" class="group bg-white rounded-2xl p-8 shadow-sm border border-slate-100 hover:shadow-xl hover:border-[#00808C]/30 transition-all duration-300 hover:-translate-y-1">
+
+        <a href="/services/hurricane-damage" class="card-hover group">
           <div class="text-4xl mb-4">🌪️</div>
           <h3 class="text-xl font-bold text-[#082142] mb-3 group-hover:text-[#00808C] transition-colors">Hurricane &amp; Storm Damage</h3>
           <p class="text-slate-500">Our experts evaluate wind, hail, and severe weather impacts.</p>
-          <div class="mt-4 text-[#00808C] font-semibold text-sm flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">Learn more →</div>
+          <div class="mt-4 text-[#00808C] font-semibold text-sm opacity-0 group-hover:opacity-100 transition-opacity">Learn more →</div>
         </a>
 
-        <!-- Card 3 -->
-        <a href="/services/roof-damage" class="group bg-white rounded-2xl p-8 shadow-sm border border-slate-100 hover:shadow-xl hover:border-[#00808C]/30 transition-all duration-300 hover:-translate-y-1">
+        <a href="/services/roof-damage" class="card-hover group">
           <div class="text-4xl mb-4">🏠</div>
           <h3 class="text-xl font-bold text-[#082142] mb-3 group-hover:text-[#00808C] transition-colors">Roof Leak &amp; Damage</h3>
           <p class="text-slate-500">We prove structural roof failures to stubborn insurers.</p>
-          <div class="mt-4 text-[#00808C] font-semibold text-sm flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">Learn more →</div>
+          <div class="mt-4 text-[#00808C] font-semibold text-sm opacity-0 group-hover:opacity-100 transition-opacity">Learn more →</div>
         </a>
 
-        <!-- Card 4 -->
-        <a href="/services/fire-damage" class="group bg-white rounded-2xl p-8 shadow-sm border border-slate-100 hover:shadow-xl hover:border-[#00808C]/30 transition-all duration-300 hover:-translate-y-1">
+        <a href="/services/fire-damage" class="card-hover group">
           <div class="text-4xl mb-4">🔥</div>
           <h3 class="text-xl font-bold text-[#082142] mb-3 group-hover:text-[#00808C] transition-colors">Fire &amp; Smoke Damage</h3>
           <p class="text-slate-500">Our team assesses structural loss and toxic smoke damage.</p>
-          <div class="mt-4 text-[#00808C] font-semibold text-sm flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">Learn more →</div>
+          <div class="mt-4 text-[#00808C] font-semibold text-sm opacity-0 group-hover:opacity-100 transition-opacity">Learn more →</div>
         </a>
 
-        <!-- Card 5 -->
-        <a href="/services/mold-claims" class="group bg-white rounded-2xl p-8 shadow-sm border border-slate-100 hover:shadow-xl hover:border-[#00808C]/30 transition-all duration-300 hover:-translate-y-1">
+        <a href="/services/mold-claims" class="card-hover group">
           <div class="text-4xl mb-4">🦠</div>
           <h3 class="text-xl font-bold text-[#082142] mb-3 group-hover:text-[#00808C] transition-colors">Mold Damage</h3>
           <p class="text-slate-500">Claim Guardians documents toxic mold growth after water exposure.</p>
-          <div class="mt-4 text-[#00808C] font-semibold text-sm flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">Learn more →</div>
+          <div class="mt-4 text-[#00808C] font-semibold text-sm opacity-0 group-hover:opacity-100 transition-opacity">Learn more →</div>
         </a>
 
-        <!-- Card 6 -->
-        <a href="/services/denied-claims" class="group bg-white rounded-2xl p-8 shadow-sm border border-slate-100 hover:shadow-xl hover:border-[#00808C]/30 transition-all duration-300 hover:-translate-y-1">
+        <a href="/services/denied-claims" class="card-hover group">
           <div class="text-4xl mb-4">⚖️</div>
           <h3 class="text-xl font-bold text-[#082142] mb-3 group-hover:text-[#00808C] transition-colors">Denied &amp; Underpaid Claims</h3>
           <p class="text-slate-500">We appeal unfair insurance decisions and demand full payment.</p>
-          <div class="mt-4 text-[#00808C] font-semibold text-sm flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">Learn more →</div>
+          <div class="mt-4 text-[#00808C] font-semibold text-sm opacity-0 group-hover:opacity-100 transition-opacity">Learn more →</div>
         </a>
       </div>
     </div>
   </section>
 
-
-  <!-- 4. Social Proof -->
-  <section class="py-24 bg-[#F5F5F7]">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <!-- 3. Social Proof / Results -->
+  <section class="section-muted">
+    <div class="section-inner">
       <div class="text-center mb-16">
-        <p class="text-sm font-bold uppercase tracking-widest text-[#00808C] mb-3">Real Results</p>
-        <h2 class="text-3xl md:text-4xl font-extrabold text-[#082142]">
-          Claim Guardians Delivers Real Financial Results.
-        </h2>
+        <span class="eyebrow">Real Results</span>
+        <h2 class="section-heading">Claim Guardians Delivers Real Financial Results.</h2>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         <!-- Testimonial 1 -->
-        <div class="bg-white rounded-3xl p-10 shadow-sm border border-slate-100 hover:shadow-xl hover:border-[#00808C]/20 transition-all duration-500 relative group overflow-hidden">
-          <div class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#002D51] via-[#00808C] to-[#00B5A6] rounded-t-3xl"></div>
-
+        <div class="card-testimonial">
           <div class="mb-8 border-b border-slate-100 pb-8">
-            <span class="inline-flex px-4 py-2 bg-primary-50 text-[#002D51] text-sm font-bold rounded-full mb-6 border border-primary-100">
+            <span class="inline-flex px-4 py-2 bg-blue-50 text-[#002D51] text-sm font-bold rounded-full mb-6 border border-blue-100">
               📍 Water Damage in Miami, FL
             </span>
             <div class="space-y-6">
-              <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center text-lg gap-2">
+              <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
                 <span class="text-slate-500 font-medium tracking-wide text-sm uppercase">Insurance Initial Offer</span>
                 <span class="text-red-400 line-through font-bold text-2xl">~$14,500</span>
               </div>
               <div class="h-px w-full bg-gradient-to-r from-transparent via-slate-100 to-transparent"></div>
-              <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center text-xl gap-4">
+              <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
                 <span class="text-[#082142] font-bold tracking-wide text-sm uppercase">Claim Guardians Settlement</span>
-                <span class="text-green-600 font-black text-4xl tracking-tighter drop-shadow-sm">$82,300</span>
+                <span class="text-green-600 font-black text-4xl tracking-tighter">$82,300</span>
               </div>
             </div>
           </div>
@@ -166,22 +150,20 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </div>
 
         <!-- Testimonial 2 -->
-        <div class="bg-white rounded-3xl p-10 shadow-sm border border-slate-100 hover:shadow-xl hover:border-[#00808C]/20 transition-all duration-500 relative group overflow-hidden">
-          <div class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#002D51] via-[#00808C] to-[#00B5A6] rounded-t-3xl"></div>
-
+        <div class="card-testimonial">
           <div class="mb-8 border-b border-slate-100 pb-8">
-            <span class="inline-flex px-4 py-2 bg-primary-50 text-[#002D51] text-sm font-bold rounded-full mb-6 border border-primary-100">
+            <span class="inline-flex px-4 py-2 bg-blue-50 text-[#002D51] text-sm font-bold rounded-full mb-6 border border-blue-100">
               📍 Roof Damage in Fort Myers, FL
             </span>
             <div class="space-y-6">
-              <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center text-lg gap-2">
+              <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
                 <span class="text-slate-500 font-medium tracking-wide text-sm uppercase">Insurance Initial Offer</span>
                 <span class="text-red-400 font-bold text-2xl">Claim Denied</span>
               </div>
               <div class="h-px w-full bg-gradient-to-r from-transparent via-slate-100 to-transparent"></div>
-              <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center text-xl gap-4">
+              <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
                 <span class="text-[#082142] font-bold tracking-wide text-sm uppercase">Claim Guardians Settlement</span>
-                <span class="text-green-600 font-black text-4xl tracking-tighter drop-shadow-sm">$65,000</span>
+                <span class="text-green-600 font-black text-4xl tracking-tighter">$65,000</span>
               </div>
             </div>
           </div>
@@ -194,43 +176,34 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </div>
   </section>
 
-
-  <!-- 5. How We Work (White with Brand Blue Accents) -->
-  <section class="py-24 bg-white border-y border-slate-100">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <!-- 4. How We Work -->
+  <section class="section-white">
+    <div class="section-inner">
       <div class="text-center mb-16">
-        <p class="text-sm font-bold uppercase tracking-widest text-[#00808C] mb-3">Our Process</p>
-        <h2 class="text-4xl md:text-5xl font-extrabold text-[#082142] mb-5">
-          Claim Guardians Manages Your Entire Claim Process.
-        </h2>
+        <span class="eyebrow">Our Process</span>
+        <h2 class="section-heading mb-4">Claim Guardians Manages Your Entire Claim Process.</h2>
         <p class="text-lg text-slate-500 max-w-2xl mx-auto">Three streamlined steps — zero paperwork headaches for you.</p>
       </div>
       
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <!-- Step 1 -->
-        <div class="group relative bg-white rounded-3xl p-10 border border-slate-100 shadow-sm hover:shadow-xl hover:border-[#00808C]/20 transition-all duration-300 hover:-translate-y-1">
-          <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#002D51] via-[#00808C] to-[#00B5A6] rounded-t-3xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
-          <div class="text-6xl font-black text-[#002D51]/10 mb-6">01</div>
+        <div class="card-hover group">
+          <div class="step-number">01</div>
           <h3 class="text-2xl font-bold mb-4 text-[#082142]">Free Property Inspection.</h3>
           <p class="text-slate-500 leading-relaxed text-lg">
             Claim Guardians inspects your property for free. Our state-licensed adjusters document all hidden damages.
           </p>
         </div>
 
-        <!-- Step 2 -->
-        <div class="group relative bg-white rounded-3xl p-10 border border-slate-100 shadow-sm hover:shadow-xl hover:border-[#00808C]/20 transition-all duration-300 hover:-translate-y-1">
-          <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#002D51] via-[#00808C] to-[#00B5A6] rounded-t-3xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
-          <div class="text-6xl font-black text-[#002D51]/10 mb-6">02</div>
+        <div class="card-hover group">
+          <div class="step-number">02</div>
           <h3 class="text-2xl font-bold mb-4 text-[#082142]">We Handle the Insurance.</h3>
           <p class="text-slate-500 leading-relaxed text-lg">
             Our team files your claim paperwork. We negotiate the maximum payout directly with your insurance company.
           </p>
         </div>
 
-        <!-- Step 3 -->
-        <div class="group relative bg-white rounded-3xl p-10 border border-slate-100 shadow-sm hover:shadow-xl hover:border-[#00808C]/20 transition-all duration-300 hover:-translate-y-1">
-          <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#002D51] via-[#00808C] to-[#00B5A6] rounded-t-3xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
-          <div class="text-6xl font-black text-[#002D51]/10 mb-6">03</div>
+        <div class="card-hover group">
+          <div class="step-number">03</div>
           <h3 class="text-2xl font-bold mb-4 text-[#082142]">You Get Paid.</h3>
           <p class="text-slate-500 leading-relaxed text-lg">
             You receive your settlement check. Claim Guardians collects a fee only after you get paid.
@@ -240,22 +213,19 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </div>
   </section>
 
-
-  <!-- 6. Objection Handling -->
-  <section class="py-24 bg-[#F5F5F7]">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <!-- 5. Objection Handling — Who Works For You? -->
+  <section class="section-muted">
+    <div class="section-inner">
       <div class="text-center mb-16">
-        <p class="text-sm font-bold uppercase tracking-widest text-[#00808C] mb-3">Who Works For You?</p>
-        <h2 class="text-3xl md:text-4xl font-extrabold text-[#082142]">
-          Claim Guardians Protects You, Not the Insurance Company.
-        </h2>
+        <span class="eyebrow">Who Works For You?</span>
+        <h2 class="section-heading">Claim Guardians Protects You, Not the Insurance Company.</h2>
       </div>
 
       <div class="max-w-5xl mx-auto bg-white rounded-3xl shadow-sm overflow-hidden border border-slate-100">
         <div class="grid grid-cols-1 md:grid-cols-2">
           <!-- Column 1: The Insurer -->
           <div class="p-10 md:border-r border-slate-100 relative">
-            <div class="absolute top-0 left-0 right-0 h-1 bg-red-400 opacity-30"></div>
+            <div class="absolute top-0 left-0 right-0 h-1 bg-red-300 opacity-50 rounded-t-3xl"></div>
             <h3 class="text-2xl font-bold text-slate-700 mb-8 flex items-center gap-3">
               <span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-red-50 text-red-500">✗</span>
               The Insurance Company's Adjuster
@@ -276,9 +246,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             </ul>
           </div>
 
-          <!-- Column 2: Us -->
-          <div class="p-10 bg-[#002D51] text-white relative">
-            <div class="absolute top-0 left-0 right-0 h-1 bg-[#00B5A6]"></div>
+          <!-- Column 2: Claim Guardians -->
+          <div class="section-dark rounded-br-3xl rounded-tr-3xl p-10">
+            <div class="absolute top-0 left-0 right-0 h-1 bg-[#00B5A6] rounded-tr-3xl"></div>
             <h3 class="text-2xl font-bold mb-8 flex items-center gap-3">
               <span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-white text-[#002D51]">✓</span>
               Claim Guardians (Your Public Adjuster)
@@ -303,38 +273,33 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </div>
   </section>
 
-
-  <!-- 6.5 Mid-Page Conversion CTA -->
-  <section class="py-20 bg-white border-y border-slate-100 relative overflow-hidden">
-    <!-- Subtle brand gradient border top -->
-    <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#002D51] via-[#00808C] to-[#00B5A6]"></div>
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-      <p class="text-sm font-bold uppercase tracking-widest text-[#00808C] mb-4">No-Risk Consultation</p>
-      <h2 class="text-4xl md:text-5xl font-extrabold text-[#082142] mb-4 leading-tight">
-        Get Your Maximum Settlement.
-      </h2>
+  <!-- 6. Mid-Page Conversion CTA -->
+  <section class="gradient-accent-bar section-white text-center">
+    <div class="section-inner">
+      <span class="eyebrow">No-Risk Consultation</span>
+      <h2 class="section-heading mb-4">Get Your Maximum Settlement.</h2>
       <p class="text-xl text-slate-500 mb-8 font-light max-w-2xl mx-auto leading-relaxed">
         Claim Guardians evaluates your property damage for free. You pay nothing until we secure your check.
       </p>
-      <a href="/free-claim-review" class="inline-flex justify-center items-center px-12 py-5 text-xl font-extrabold text-white bg-[#002D51] rounded-xl hover:bg-[#00808C] transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-[0_10px_40px_-10px_rgba(0,128,140,0.5)] min-h-[64px]">
+      <a href="/free-claim-review" class="btn-accent px-12 py-5 text-xl min-h-[64px]">
         Start Free Case Review →
       </a>
       <p class="text-sm text-slate-400 mt-4">Zero upfront cost. Ever.</p>
     </div>
   </section>
 
-
   <!-- 7. Frequently Asked Questions -->
-  <section class="bg-slate-50 border-t border-slate-200 py-24">
+  <section class="section-muted">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-12 text-center">
-        Frequently Asked Questions
-      </h2>
+      <div class="text-center mb-12">
+        <span class="eyebrow">Common Questions</span>
+        <h2 class="section-heading">Frequently Asked Questions</h2>
+      </div>
 
       <div class="space-y-4">
         <!-- FAQ 1 -->
         <details class="group bg-white border border-slate-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden">
-          <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-xl text-slate-900 group-hover:text-blue-600 transition-colors">
+          <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-xl text-[#082142] group-hover:text-[#00808C] transition-colors">
             <span>How much does a public adjuster cost in Florida?</span>
             <span class="transition group-open:rotate-180">
               <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
@@ -347,7 +312,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
         <!-- FAQ 2 -->
         <details class="group bg-white border border-slate-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden">
-          <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-xl text-slate-900 group-hover:text-blue-600 transition-colors">
+          <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-xl text-[#082142] group-hover:text-[#00808C] transition-colors">
             <span>When should I hire a public adjuster?</span>
             <span class="transition group-open:rotate-180">
               <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
@@ -360,7 +325,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
         <!-- FAQ 3 -->
         <details class="group bg-white border border-slate-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden">
-          <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-xl text-slate-900 group-hover:text-blue-600 transition-colors">
+          <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-xl text-[#082142] group-hover:text-[#00808C] transition-colors">
             <span>What is the difference between an independent adjuster and a public adjuster?</span>
             <span class="transition group-open:rotate-180">
               <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
@@ -371,7 +336,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           </div>
         </details>
       </div>
-
     </div>
   </section>
 
