@@ -1,0 +1,246 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const floridaCities = [
+    {
+      city: "Miami",
+      county: "Miami-Dade County",
+      localRisk: "hurricane and flood",
+      zipCodes: ["33101", "33129", "33132"]
+    },
+    {
+      city: "Fort Lauderdale",
+      county: "Broward County",
+      localRisk: "hurricane and severe storm",
+      zipCodes: ["33301", "33304", "33316"]
+    },
+    {
+      city: "West Palm Beach",
+      county: "Palm Beach County",
+      localRisk: "windstorm and hurricane",
+      zipCodes: ["33401", "33405", "33409"]
+    },
+    {
+      city: "Boca Raton",
+      county: "Palm Beach County",
+      localRisk: "storm and water",
+      zipCodes: ["33431", "33432", "33486"]
+    },
+    {
+      city: "Orlando",
+      county: "Orange County",
+      localRisk: "tornado and sinkhole",
+      zipCodes: ["32801", "32803", "32804"]
+    },
+    {
+      city: "Tampa",
+      county: "Hillsborough County",
+      localRisk: "flood and severe storm",
+      zipCodes: ["33602", "33606", "33609"]
+    },
+    {
+      city: "Fort Myers",
+      county: "Lee County",
+      localRisk: "catastrophic hurricane and storm surge",
+      zipCodes: ["33901", "33916", "33919"]
+    },
+    {
+      city: "Naples",
+      county: "Collier County",
+      localRisk: "hurricane and wind",
+      zipCodes: ["34102", "34103", "34105"]
+    },
+    {
+      city: "Jacksonville",
+      county: "Duval County",
+      localRisk: "windstorm and flood",
+      zipCodes: ["32202", "32204", "32207"]
+    }
+  ];
+
+  return floridaCities.map((data) => ({
+    params: { city: data.city.toLowerCase().replace(/\s+/g, '-') },
+    props: { data },
+  }));
+}
+
+const { data } = Astro.props;
+const { city, county, localRisk, zipCodes } = data;
+---
+
+<BaseLayout 
+  title={`Public Adjuster in ${city}, FL | Claim Guardians`}
+  description={`Claim Guardians maximizes property damage settlements in ${city}, ${county}. We handle ${localRisk} claims for local homeowners and businesses.`}
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": `Claim Guardians - ${city}`,
+      "image": "https://www.claimguardians.com/images/logo-color.svg",
+      "telephone": "(555) 123-4567",
+      "url": `https://www.claimguardians.com/service-areas/${city.toLowerCase().replace(/\s+/g, '-')}`,
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": city,
+        "addressRegion": "FL",
+        "addressCountry": "US"
+      },
+      "areaServed": {
+        "@type": "GeoCircle",
+        "geoMidpoint": {
+          "@type": "GeoCoordinates",
+          "description": `${city}, ${county}, Florida`
+        },
+        "geoRadius": "50000"
+      },
+      "makesOffer": zipCodes.map(zip => ({
+        "@type": "Offer",
+        "eligibleRegion": {
+          "@type": "PostalCode",
+          "postalCode": zip
+        }
+      })),
+      "description": `Public Adjusting firm serving ${county}, specializing in ${localRisk} damage claims.`
+    })} />
+  </Fragment>
+
+  <!-- 1. Localized Hero Section -->
+  <header class="relative bg-primary-600 overflow-hidden pt-24 pb-32">
+    <!-- Dynamic Glowing Gradient Mesh -->
+    <div class="absolute top-0 inset-x-0 h-[600px] bg-gradient-to-b from-primary-700/80 to-transparent pointer-events-none"></div>
+    <div class="absolute -top-[300px] -right-[200px] w-[800px] h-[800px] rounded-full bg-primary-600/20 blur-[120px] pointer-events-none"></div>
+    <div class="absolute -bottom-[200px] -left-[200px] w-[600px] h-[600px] rounded-full bg-accent-600/10 blur-[100px] pointer-events-none"></div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 mt-8">
+      
+      <!-- Breadcrumbs -->
+      <nav aria-label="Breadcrumb" class="mb-12 inline-flex">
+        <ol class="flex items-center space-x-2 text-sm text-slate-300 font-medium bg-white/5 backdrop-blur-md px-4 py-2 rounded-full border border-white/10 shadow-lg">
+          <li><a href="/" class="hover:text-white transition-colors">Home</a></li>
+          <li><span class="mx-2 text-slate-500">›</span></li>
+          <li><a href="/service-areas" class="hover:text-white transition-colors">Service Areas</a></li>
+          <li><span class="mx-2 text-slate-500">›</span></li>
+          <li class="text-white" aria-current="page">{city}</li>
+        </ol>
+      </nav>
+
+      <div class="max-w-4xl">
+        <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-8 leading-[1.1] tracking-tight drop-shadow-2xl">
+          Claim Guardians Maximizes Your Property Claim in <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-blue-200">{city}, FL.</span>
+        </h1>
+        <h2 class="text-xl md:text-2xl text-slate-300 mb-12 leading-relaxed max-w-3xl font-light">
+          Claim Guardians evaluates <span class="text-white font-semibold">{localRisk}</span> damage for properties across {county}. Our local public adjusters force your insurance company to pay what you legally deserve.
+        </h2>
+        
+        <div class="flex flex-col sm:flex-row gap-5 mb-14">
+          <a href="/free-claim-review" class="group relative inline-flex justify-center items-center px-10 py-4 text-lg font-bold text-white bg-accent-600 rounded-xl overflow-hidden shadow-[0_0_40px_-10px_rgba(234,88,12,0.6)] hover:shadow-[0_0_60px_-15px_rgba(234,88,12,0.8)] transition-all duration-300 hover:-translate-y-1">
+            <span class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-[100%] group-hover:animate-[shimmer_1.5s_infinite]"></span>
+            <span class="relative">Free {city} Property Inspection</span>
+          </a>
+          <a href="tel:5551234567" class="inline-flex justify-center items-center px-10 py-4 text-lg font-bold text-white bg-white/10 backdrop-blur-md border border-white/20 rounded-xl hover:bg-white/20 transition-all duration-300 hover:-translate-y-1 shadow-xl">
+            Call a Local Expert
+          </a>
+        </div>
+        
+        <!-- Trust Badges -->
+        <div class="flex flex-wrap items-center gap-4 text-sm font-semibold text-slate-300">
+          <div class="flex items-center gap-3 bg-white/5 px-4 py-2 rounded-lg border border-white/10">
+            <span class="text-green-400">✓</span> Serving all of {county}
+          </div>
+          <div class="flex items-center gap-3 bg-white/5 px-4 py-2 rounded-lg border border-white/10">
+            <span class="text-green-400">✓</span> No Recovery, No Fee
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Decorative bottom wave/fade -->
+    <div class="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-t from-base-bg via-base-bg/80 to-transparent"></div>
+  </header>
+
+  <!-- 2. Localized Problem/Solution Context -->
+  <section class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+      
+      <!-- Problem -->
+      <div class="prose prose-lg prose-slate pr-0 lg:pr-8">
+        <h2 class="text-3xl font-extrabold text-[#111827] mb-6">
+          Insurance Companies Routinely Underpay {city} Residents.
+        </h2>
+        <p class="text-text-muted leading-relaxed">
+          Due to the high frequency of <span class="font-bold text-slate-700">{localRisk}</span> in {county}, insurance adjusters are trained to minimize payouts to protect corporate profits. They often blame damage on "pre-existing conditions" or "wear and tear," leaving honest homeowners footing the bill for essential structural repairs.
+        </p>
+        <p class="text-text-muted leading-relaxed mt-4">
+          You need a local advocate who understands the specific building codes and weather permutations of the {city} area.
+        </p>
+      </div>
+
+      <!-- Solution -->
+      <div class="card-surface border-primary-100 shadow-md">
+        <h3 class="text-2xl font-bold text-primary-700 mb-6 flex items-center gap-3">
+          <span class="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-full bg-primary-100 text-primary-600">✓</span>
+          We Represent Policyholders in {city}.
+        </h3>
+        <ul class="space-y-5">
+          <li class="flex items-start gap-4">
+            <span class="text-primary-500 mt-1 flex-shrink-0">📍</span>
+            <span class="text-lg font-medium text-text-main">Local presence ensuring rapid dispatch to any address in {county}.</span>
+          </li>
+          <li class="flex items-start gap-4">
+            <span class="text-primary-500 mt-1 flex-shrink-0">🔍</span>
+            <span class="text-lg font-medium text-text-main">Mastery of {city} municipal building codes to enforce compliance upgrades.</span>
+          </li>
+          <li class="flex items-start gap-4">
+            <span class="text-primary-500 mt-1 flex-shrink-0">⚖️</span>
+            <span class="text-lg font-medium text-text-main">We aggressively negotiate until your insurer pays the true cost of local repair.</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 3. Dynamic Local Coverage Zones -->
+  <section class="bg-slate-50 border-t border-slate-200 py-24">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-[#111827] mb-6">
+        Dedicated Coverage Across {county}
+      </h2>
+      <p class="text-lg text-text-muted mb-12">
+        Our {city} field adjusters are actively responding to claims in the following primary zip codes, and all surrounding neighborhoods.
+      </p>
+      
+      <div class="flex flex-wrap justify-center gap-4">
+        {zipCodes.map((zip) => (
+          <div class="px-6 py-3 bg-white border border-slate-200 rounded-full shadow-sm text-lg font-bold text-primary-600">
+            {zip}
+          </div>
+        ))}
+        <div class="px-6 py-3 bg-white border border-slate-200 rounded-full shadow-sm text-lg font-bold text-slate-500">
+          + All surrounding areas
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Global Services CTA -->
+  <section class="py-24 text-center px-4 bg-primary-900 text-white relative overflow-hidden">
+    <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/dark-matter.png')] opacity-10"></div>
+    <div class="max-w-3xl mx-auto relative z-10">
+      <h2 class="text-4xl font-extrabold mb-6">
+        Was Your {city} Property Damaged?
+      </h2>
+      <p class="text-xl text-primary-200 mb-10 font-light">
+        Don't let the insurance company dictate the outcome of your claim. Get a free, expert settlement review today.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="/free-claim-review" class="btn-accent px-10 py-4 text-lg shadow-[0_0_30px_-5px_var(--color-brand-teal)] hover:scale-105 transition-transform duration-300">
+          Request Free Case Review
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
