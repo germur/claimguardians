@@ -3,298 +3,108 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout 
-  title="Claim Guardians | Maximizes Your Roof Damage Insurance Claim" 
-  description="Severe storms and hail compromise your roof's integrity. Claim Guardians forces your insurer to pay for a full roof replacement."
+  title="Claim Guardians | Roof Damage Insurance Claim Florida" 
+  description="Insurers downplay roof damage. Claim Guardians documents structural failure and forces your insurance company to cover a complete roof replacement in Florida."
 >
-  <Fragment slot="head">
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Service",
-        "serviceType": "Roof Damage Public Adjuster",
-        "provider": {
-          "@type": "LocalBusiness",
-          "name": "Claim Guardians LLC"
-        },
-        "areaServed": {
-          "@type": "State",
-          "name": "Florida"
-        },
-        "description": "Claim Guardians forces your insurer to pay for a full roof replacement after storms and hail, preventing unfair patch-job settlements."
-      }
-    </script>
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [{
-          "@type": "Question",
-          "name": "Can my insurance company force me to patch my roof instead of replacing it?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Insurance companies often try to force you into inexpensive patch-jobs by claiming the damage is localized. However, Florida Building Code (the 25% rule) often dictates that if enough of the roof is compromised, the entire roof must be replaced. Claim Guardians uses forensic inspections to prove full replacement is mandatory."
-          }
-        }, {
-          "@type": "Question",
-          "name": "Why did my insurance claim get denied for 'wear and tear'?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Adjusters maliciously classify legitimate storm damage, like lifted shingles or micro-fractures, as 'wear and tear' to deny your claim. They act to protect company profits. Claim Guardians pulls historic weather data to prove the specific date of loss and overturns these bad-faith denials."
-          }
-        }, {
-          "@type": "Question",
-          "name": "Should I have my roofing contractor negotiate my claim?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "It is illegal in Florida for roofing contractors to negotiate insurance claims on your behalf. Only a licensed Public Adjuster or an attorney can legally interpret your policy and negotiate the financial payout. Claim Guardians works independently to maximize your funds before you hire a contractor."
-          }
-        }]
-      }
-    </script>
-  </Fragment>
-
-  <!-- 1. Hero Section (Urgency + Premium 2026 Aesthetic) -->
-  <header class="relative bg-primary-600 overflow-hidden pt-24 pb-32">
-    <!-- Dynamic Glowing Gradient Mesh Background -->
-    <div class="absolute top-0 inset-x-0 h-[600px] bg-gradient-to-b from-primary-700/80 to-transparent pointer-events-none"></div>
-    <div class="absolute -top-[300px] -right-[200px] w-[800px] h-[800px] rounded-full bg-primary-600/20 blur-[120px] pointer-events-none"></div>
-    <div class="absolute -bottom-[200px] -left-[200px] w-[600px] h-[600px] rounded-full bg-accent-600/10 blur-[100px] pointer-events-none"></div>
-    
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 mt-8">
-      
-      <!-- Breadcrumbs (Glassmorphism Pilled) -->
-      <nav aria-label="Breadcrumb" class="mb-12 inline-flex">
-        <ol class="flex items-center space-x-2 text-sm text-slate-300 font-medium bg-white/5 backdrop-blur-md px-4 py-2 rounded-full border border-white/10 shadow-lg">
+  <!-- 1. Hero -->
+  <header class="section-dark" style="padding-top:8rem; padding-bottom:8rem;">
+    <div class="section-inner">
+      <nav aria-label="Breadcrumb" class="mb-10 inline-flex">
+        <ol class="flex items-center space-x-2 text-sm text-slate-400 font-medium bg-white/5 px-4 py-2 rounded-full border border-white/10">
           <li><a href="/" class="hover:text-white transition-colors">Home</a></li>
-          <li><span class="mx-2 text-slate-500">›</span></li>
+          <li><span class="mx-2 text-slate-600">›</span></li>
           <li><a href="/services" class="hover:text-white transition-colors">Services</a></li>
-          <li><span class="mx-2 text-slate-500">›</span></li>
+          <li><span class="mx-2 text-slate-600">›</span></li>
           <li class="text-white" aria-current="page">Roof Damage</li>
         </ol>
       </nav>
-
       <div class="max-w-4xl">
-        <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-8 leading-[1.1] tracking-tight drop-shadow-2xl">
-          Claim Guardians <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-blue-200">Maximizes</span> Your Roof Damage Insurance Claim.
+        <span class="eyebrow" style="color:#00B5A6;">Property Damage — Roof &amp; Structure</span>
+        <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-8 leading-[1.1] tracking-tight">
+          Claim Guardians Proves Your Roof Damage and Forces Full Replacement.
         </h1>
-        <h2 class="text-xl md:text-2xl text-slate-300 mb-12 leading-relaxed max-w-3xl font-light">
-          Severe storms and hail compromise your roof's integrity. Insurance adjusters maliciously classify storm damage as "wear and tear." Claim Guardians forces your insurer to pay for a full roof replacement. You pay nothing upfront.
-        </h2>
-        
-        <div class="flex flex-col sm:flex-row gap-5 mb-14">
-          <a href="/free-claim-review" class="group relative inline-flex justify-center items-center px-10 py-4 text-lg font-bold text-white bg-accent-600 rounded-xl overflow-hidden shadow-[0_0_40px_-10px_rgba(234,88,12,0.6)] hover:shadow-[0_0_60px_-15px_rgba(234,88,12,0.8)] transition-all duration-300 hover:-translate-y-1">
-            <span class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-[100%] group-hover:animate-[shimmer_1.5s_infinite]"></span>
-            <span class="relative">Get a Free Roof Inspection</span>
-          </a>
-          <a href="tel:5551234567" class="inline-flex justify-center items-center px-10 py-4 text-lg font-bold text-white bg-white/10 backdrop-blur-md border border-white/20 rounded-xl hover:bg-white/20 transition-all duration-300 hover:-translate-y-1 shadow-xl">
-            Emergency? Call Us Now
-          </a>
+        <p class="text-xl text-slate-300 mb-12 leading-relaxed max-w-3xl">
+          Insurance companies patch roofs when they should replace them. Claim Guardians documents structural failure and forces your insurer to pay for a proper, code-compliant replacement. You pay nothing upfront.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-5 mb-12">
+          <a href="/free-claim-review" class="btn-accent px-10 py-5 text-lg min-h-[60px]">Get a Free Roof Damage Inspection</a>
+          <a href="tel:5551234567" class="inline-flex justify-center items-center px-10 py-5 text-lg font-bold text-white bg-white/5 border-2 border-white/20 rounded-xl hover:bg-white/10 transition-all transform hover:-translate-y-1 min-h-[60px]">Call a Roof Expert Now</a>
         </div>
-        
-        <!-- Trust Badges -->
-        <div class="flex flex-wrap items-center gap-8 text-sm font-semibold text-slate-300">
-          <div class="flex items-center gap-3 bg-white/5 px-4 py-2 rounded-lg border border-white/10">
-            <span class="flex items-center justify-center w-6 h-6 rounded-full bg-green-500/20 text-green-400 text-xs">✓</span>
-            FAPIA Licensed
-          </div>
-          <div class="flex items-center gap-3 bg-white/5 px-4 py-2 rounded-lg border border-white/10">
-            <span class="flex items-center justify-center w-6 h-6 rounded-full bg-green-500/20 text-green-400 text-xs">✓</span>
-            No Recovery, No Fee
-          </div>
-          <div class="flex items-center gap-3 bg-white/5 px-4 py-2 rounded-lg border border-white/10">
-            <span class="flex items-center justify-center w-6 h-6 rounded-full bg-green-500/20 text-green-400 text-xs">✓</span>
-            Forensic Roof Experts
-          </div>
+        <div class="flex flex-wrap items-center gap-x-10 gap-y-4 pt-6 border-t border-white/10">
+          <div class="flex items-center gap-2 text-slate-300 font-semibold text-sm"><span class="text-[#00B5A6]">✓</span> FAPIA Licensed</div>
+          <div class="flex items-center gap-2 text-slate-300 font-semibold text-sm"><span class="text-[#00B5A6]">✓</span> No Recovery, No Fee</div>
+          <div class="flex items-center gap-2 text-slate-300 font-semibold text-sm"><span class="text-[#00B5A6]">✓</span> FL Building Code Specialists</div>
         </div>
       </div>
     </div>
-    
-    <!-- Decorative bottom wave/fade -->
-    <div class="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-t from-base-bg via-base-bg/80 to-transparent"></div>
   </header>
 
-  <!-- 2. The Problem vs. The Solution -->
-  <section class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-      
-      <!-- Problem -->
-      <div class="prose prose-lg prose-slate pr-0 lg:pr-8">
-        <h2 class="text-3xl font-extrabold text-[#111827] mb-6">
-          Adjusters Ignore Micro-Fractures and Uplift.
-        </h2>
-        <p class="text-text-muted leading-relaxed">
-          Insurance companies send their own favorable engineers to minimize your claim. They purposefully overlook hidden uplift from winds and micro-fractures from hail. They offer you cheap patch-jobs instead of the full replacements you deserve.
-        </p>
-      </div>
-
-      <!-- Solution -->
-      <div class="card-surface border-primary-100 shadow-md">
-        <h3 class="text-2xl font-bold text-primary-700 mb-6 flex items-center gap-3">
-          <span class="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-full bg-primary-100 text-primary-600">✓</span>
-          Claim Guardians Conducts Forensic Roof Inspections.
-        </h3>
-        <ul class="space-y-5">
-          <li class="flex items-start gap-4">
-            <span class="text-primary-500 mt-1 flex-shrink-0">📸</span>
-            <span class="text-lg font-medium text-text-main">Our experts physically document lifting shingles and hail strikes.</span>
-          </li>
-          <li class="flex items-start gap-4">
-            <span class="text-primary-500 mt-1 flex-shrink-0">⛈️</span>
-            <span class="text-lg font-medium text-text-main">We pull historic weather reports to pinpoint the storm date.</span>
-          </li>
-          <li class="flex items-start gap-4">
-            <span class="text-primary-500 mt-1 flex-shrink-0">🏗️</span>
-            <span class="text-lg font-medium text-text-main">Claim Guardians leverages the Florida Building Code 25% rule.</span>
-          </li>
-          <li class="flex items-start gap-4">
-            <span class="text-primary-500 mt-1 flex-shrink-0">⚖️</span>
-            <span class="text-lg font-medium text-text-main">Our team forces the insurer to replace the entire roof system.</span>
-          </li>
-        </ul>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- 3. The Danger of Delay (High Threat 2026 UI) -->
-  <section class="relative bg-primary-600 py-32 overflow-hidden border-y border-slate-800">
-    <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/dark-matter.png')] opacity-20"></div>
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-red-600/20 blur-[150px] rounded-full pointer-events-none"></div>
-
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-      <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-red-500/10 border border-red-500/20 text-4xl mb-8 shadow-[0_0_30px_rgba(220,38,38,0.3)]">
-        💧
-      </div>
-      <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-8 tracking-tight">
-        A Compromised Roof Destroys Your Home's <span class="text-red-500">Interior.</span>
-      </h2>
-      <p class="text-xl text-slate-300 leading-relaxed mb-12 font-light">
-        Every rainstorm introduces more water into your attic and walls, leading to catastrophic mold. <strong class="text-white font-semibold">Claim Guardians documents the initial roof breach. We prevent the insurer from denying secondary interior damage claims.</strong>
-      </p>
-      <a href="tel:5551234567" class="btn-accent text-xl px-12 py-5 shadow-[0_0_40px_-5px_rgba(234,88,12,0.8)] hover:shadow-[0_0_60px_-5px_rgba(234,88,12,1)] hover:scale-105 transition-all duration-300">
-        Request Immediate Tarps & Inspection
-      </a>
-    </div>
-  </section>
-
-  <!-- 4. Proof of Success (Premium UI Card) -->
-  <section class="py-32 bg-base-bg relative overflow-hidden">
-    <div class="absolute right-0 top-0 w-1/3 h-full bg-gradient-to-l from-green-50/50 to-transparent pointer-events-none"></div>
-
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <h2 class="text-4xl md:text-5xl font-extrabold text-[#111827] mb-16 text-center tracking-tight">
-        Claim Guardians Secures Massive Roof Replacements.
-      </h2>
-
-      <div class="max-w-3xl mx-auto bg-white rounded-3xl p-10 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] border border-slate-100 hover:shadow-[0_30px_80px_-15px_rgba(0,0,0,0.1)] transition-all duration-500 relative group overflow-hidden">
-        
-        <!-- Glowing Edge Effect on Hover -->
-        <div class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-transparent via-green-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-        <div class="mb-8 border-b border-slate-100 pb-8">
-          <span class="inline-flex items-center px-4 py-2 bg-slate-50 text-slate-600 text-sm font-bold rounded-full mb-8 border border-slate-200">
-            📍 Hail Storm: Residential Home, Orlando, FL.
-          </span>
-          <div class="space-y-6">
-            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center text-lg gap-2">
-              <span class="text-slate-500 font-medium tracking-wide text-sm uppercase">Insurance Initial Offer</span>
-              <span class="text-red-500/60 line-through font-bold text-2xl">
-                $1,200 <span class="text-xs font-normal ml-2 text-slate-400 block sm:inline">(For "temporary tarps and 3 shingles")</span>
-              </span>
-            </div>
-            
-            <div class="h-px w-full bg-gradient-to-r from-transparent via-slate-100 to-transparent"></div>
-
-            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center text-xl gap-4">
-              <span class="text-[#111827] font-bold tracking-wide text-sm uppercase">Claim Guardians Settlement</span>
-              <div class="flex flex-col items-end">
-                <span class="text-green-600 font-black text-4xl tracking-tighter drop-shadow-sm">
-                  $48,000
-                </span>
-                <span class="text-xs font-medium mt-1 text-green-700/70 uppercase tracking-wider">(For complete roof system tear-off and replacement)</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="bg-slate-50 -mx-10 -mb-10 p-10">
-          <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">Action Taken</h4>
-          <p class="text-xl font-medium text-[#111827] leading-relaxed">
-            Claim Guardians proved the hail impacts compromised the entire structural underlayment. We reversed the insurance company's patchwork offer.
+  <!-- 2. Problem / Solution -->
+  <section class="section-white">
+    <div class="section-inner">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div>
+          <span class="eyebrow">The Problem</span>
+          <h2 class="section-heading mb-6">Insurers Offer Patches Instead of Replacements.</h2>
+          <p class="text-lg text-slate-500 leading-relaxed">
+            Insurance adjusters classify roof damage as "minor" to avoid paying for a full replacement. They ignore shingle granule loss, decking damage, and structural weakening that compromises your home's integrity.
           </p>
         </div>
+        <div class="card-hover p-10">
+          <h3 class="text-2xl font-bold text-[#082142] mb-6 flex items-center gap-3">
+            <span class="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-full bg-[#002D51]/10 text-[#00808C]">✓</span>
+            Claim Guardians Documents the Full Extent.
+          </h3>
+          <ul class="space-y-5">
+            <li class="flex items-start gap-4"><span class="text-[#00808C] mt-1">🏠</span><span class="text-lg font-medium text-[#082142]">We inspect decking, underlayment, flashing, and gutters.</span></li>
+            <li class="flex items-start gap-4"><span class="text-[#00808C] mt-1">📐</span><span class="text-lg font-medium text-[#082142]">We apply Florida building code upgrades to your claim (Code Upgrade Coverage).</span></li>
+            <li class="flex items-start gap-4"><span class="text-[#00808C] mt-1">⚖️</span><span class="text-lg font-medium text-[#082142]">We force your insurer to pay for a code-compliant full replacement.</span></li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- 5. AEO / LLM Optimized FAQs -->
-  <section class="bg-primary-50 border-t border-primary-100 py-24">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl md:text-4xl font-extrabold text-[#111827] mb-12 text-center">
-        Frequently Asked Questions About Roof Damage Claims
-      </h2>
-
-      <div class="space-y-4">
-        <details class="group card-surface p-0 [&_summary::-webkit-details-marker]:hidden hover:border-primary-200">
-          <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-xl text-[#111827] group-hover:text-primary-600 transition-colors">
-            <span>Can my insurance company force me to patch my roof instead of replacing it?</span>
-            <span class="transition group-open:rotate-180 flex-shrink-0 ml-4">
-              <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
-            </span>
-          </summary>
-          <div class="text-text-muted px-6 pb-6 text-lg leading-relaxed border-t border-slate-100 pt-4 m-0">
-            Insurance companies often try to force you into inexpensive patch-jobs by claiming the damage is localized. However, Florida Building Code (the 25% rule) often dictates that if enough of the roof is compromised, the entire roof must be replaced. Claim Guardians uses forensic inspections to prove full replacement is mandatory.
-          </div>
-        </details>
-
-        <details class="group card-surface p-0 [&_summary::-webkit-details-marker]:hidden hover:border-primary-200">
-          <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-xl text-[#111827] group-hover:text-primary-600 transition-colors">
-            <span>Why did my insurance claim get denied for 'wear and tear'?</span>
-            <span class="transition group-open:rotate-180 flex-shrink-0 ml-4">
-              <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
-            </span>
-          </summary>
-          <div class="text-text-muted px-6 pb-6 text-lg leading-relaxed border-t border-slate-100 pt-4 m-0">
-            Adjusters maliciously classify legitimate storm damage, like lifted shingles or micro-fractures, as 'wear and tear' to deny your claim. They act to protect company profits. Claim Guardians pulls historic weather data to prove the specific date of loss and overturns these bad-faith denials.
-          </div>
-        </details>
-
-        <details class="group card-surface p-0 [&_summary::-webkit-details-marker]:hidden hover:border-primary-200">
-          <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-xl text-[#111827] group-hover:text-primary-600 transition-colors">
-            <span>Should I have my roofing contractor negotiate my claim?</span>
-            <span class="transition group-open:rotate-180 flex-shrink-0 ml-4">
-              <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
-            </span>
-          </summary>
-          <div class="text-text-muted px-6 pb-6 text-lg leading-relaxed border-t border-slate-100 pt-4 m-0">
-            It is illegal in Florida for roofing contractors to negotiate insurance claims on your behalf. Only a licensed Public Adjuster or an attorney can legally interpret your policy and negotiate the financial payout. Claim Guardians works independently to maximize your funds before you hire a contractor.
-          </div>
-        </details>
+  <!-- 3. Result Proof -->
+  <section class="section-muted">
+    <div class="section-inner">
+      <div class="text-center mb-16">
+        <span class="eyebrow">Proven Results</span>
+        <h2 class="section-heading">We Turn Denied Claims into Full Replacements.</h2>
       </div>
-
+      <div class="max-w-3xl mx-auto card-testimonial">
+        <span class="inline-flex px-4 py-2 bg-blue-50 text-[#002D51] text-sm font-bold rounded-full mb-8 border border-blue-100">📍 Storm Damage Claim, Fort Lauderdale, FL.</span>
+        <div class="space-y-6 mb-8 pb-8 border-b border-slate-100">
+          <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
+            <span class="text-slate-500 font-medium text-sm uppercase">Insurance Initial Offer</span>
+            <span class="text-red-400 line-through font-bold text-2xl">Claim Denied</span>
+          </div>
+          <div class="h-px bg-slate-100"></div>
+          <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
+            <span class="text-[#082142] font-bold text-sm uppercase">Claim Guardians Settlement</span>
+            <span class="text-green-600 font-black text-4xl tracking-tighter">$65,000</span>
+          </div>
+        </div>
+        <div class="bg-slate-50 -mx-10 -mb-10 p-10 rounded-b-3xl">
+          <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">Action Taken</h4>
+          <p class="text-xl font-medium text-[#082142] leading-relaxed">We documented hidden structural roof damage the insurer's adjuster failed to report. The denied claim became a complete roof replacement settlement.</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- 6. Service Area Context -->
-  <section class="py-24 text-center px-4">
-    <div class="max-w-2xl mx-auto">
-      <h2 class="text-2xl font-extrabold text-[#111827] mb-4">
-        Claim Guardians Serves All of Florida.
-      </h2>
-      <p class="text-lg text-text-muted mb-8">
-        From Miami to Jacksonville, our licensed public adjusters respond rapidly to your roof emergency.
-      </p>
-      <a href="/service-areas" class="inline-flex items-center text-primary-600 font-bold hover:text-primary-700 transition-colors text-lg group">
-        View All Florida Service Areas 
-        <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-      </a>
+  <!-- 4. Final CTA -->
+  <section class="gradient-accent-bar section-white text-center">
+    <div class="section-inner">
+      <span class="eyebrow">No-Risk Consultation</span>
+      <h2 class="section-heading mb-4">Does Your Florida Roof Show Storm Damage?</h2>
+      <p class="text-xl text-slate-500 mb-8 max-w-2xl mx-auto">Our licensed adjusters inspect for free. We fight for a complete, code-compliant roof replacement.</p>
+      <a href="/free-claim-review" class="btn-accent px-12 py-5 text-xl min-h-[64px]">Start Free Roof Claim Review →</a>
+      <p class="text-sm text-slate-400 mt-4">Zero upfront cost. Ever.</p>
     </div>
   </section>
 
-  <!-- Mobile Sticky CTA (Bottom Tab Bar substitute for BOF pages) -->
   <div class="fixed bottom-0 left-0 right-0 p-4 bg-white/95 backdrop-blur-md border-t border-slate-200 shadow-[0_-10px_40px_rgba(0,0,0,0.1)] z-50 sm:hidden">
-    <a href="tel:5551234567" class="btn-accent w-full text-lg animate-pulse">
-      🚨 Emergency? Call Now
-    </a>
+    <a href="tel:5551234567" class="btn-accent w-full text-lg">🚨 Emergency? Call Now</a>
   </div>
-
 </BaseLayout>

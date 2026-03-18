@@ -3,298 +3,108 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout 
-  title="Claim Guardians | Maximizes Your Fire Damage Insurance Claim" 
-  description="Fire, smoke, and water drastically compromise your home's structural integrity. Claim Guardians forces your insurer to pay for total property restoration."
+  title="Claim Guardians | Fire &amp; Smoke Damage Insurance Claims Florida" 
+  description="Insurance companies undervalue fire and smoke damage. Claim Guardians forces your insurer to cover the true cost of structural and contents restoration."
 >
-  <Fragment slot="head">
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Service",
-        "serviceType": "Fire Damage Public Adjuster",
-        "provider": {
-          "@type": "LocalBusiness",
-          "name": "Claim Guardians LLC"
-        },
-        "areaServed": {
-          "@type": "State",
-          "name": "Florida"
-        },
-        "description": "Claim Guardians forces your insurer to pay for full structural teardowns and replacements after fire, smoke, and water damage."
-      }
-    </script>
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [{
-          "@type": "Question",
-          "name": "Will my insurance cover the water damage from extinguishing the fire?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes, water damage caused by firefighters putting out the blaze is considered part of the fire claim. However, insurers often underestimate the extent of this water intrusion. Claim Guardians uses thermal imaging to ensure all water-damaged areas are properly remediated and paid for."
-          }
-        }, {
-          "@type": "Question",
-          "name": "The insurance company wants to clean my smoke-damaged items instead of replacing them. Is this fair?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Often, no. Toxic soot is acidic and permanently compromises porous materials, electronics, and HVAC systems. Insurers prefer cheap surface cleaning to save money. Claim Guardians relies on industrial hygienists to prove when items are irreparably contaminated and demand full replacement."
-          }
-        }, {
-          "@type": "Question",
-          "name": "How does claim guardians handle Additional Living Expenses (ALE) after a fire?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "If your home is uninhabitable, your policy covers Additional Living Expenses (ALE) for temporary housing and food. Insurers routinely delay or underpay these critical funds. Claim Guardians aggressively manages your ALE claim to ensure your family remains comfortable while we negotiate the structural settlement."
-          }
-        }]
-      }
-    </script>
-  </Fragment>
-
-  <!-- 1. Hero Section (Urgency + Premium 2026 Aesthetic) -->
-  <header class="relative bg-primary-600 overflow-hidden pt-24 pb-32">
-    <!-- Dynamic Glowing Gradient Mesh Background -->
-    <div class="absolute top-0 inset-x-0 h-[600px] bg-gradient-to-b from-primary-700/80 to-transparent pointer-events-none"></div>
-    <div class="absolute -top-[300px] -right-[200px] w-[800px] h-[800px] rounded-full bg-primary-600/20 blur-[120px] pointer-events-none"></div>
-    <div class="absolute -bottom-[200px] -left-[200px] w-[600px] h-[600px] rounded-full bg-accent-600/10 blur-[100px] pointer-events-none"></div>
-    
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 mt-8">
-      
-      <!-- Breadcrumbs (Glassmorphism Pilled) -->
-      <nav aria-label="Breadcrumb" class="mb-12 inline-flex">
-        <ol class="flex items-center space-x-2 text-sm text-slate-300 font-medium bg-white/5 backdrop-blur-md px-4 py-2 rounded-full border border-white/10 shadow-lg">
+  <!-- 1. Hero -->
+  <header class="section-dark" style="padding-top:8rem; padding-bottom:8rem;">
+    <div class="section-inner">
+      <nav aria-label="Breadcrumb" class="mb-10 inline-flex">
+        <ol class="flex items-center space-x-2 text-sm text-slate-400 font-medium bg-white/5 px-4 py-2 rounded-full border border-white/10">
           <li><a href="/" class="hover:text-white transition-colors">Home</a></li>
-          <li><span class="mx-2 text-slate-500">›</span></li>
+          <li><span class="mx-2 text-slate-600">›</span></li>
           <li><a href="/services" class="hover:text-white transition-colors">Services</a></li>
-          <li><span class="mx-2 text-slate-500">›</span></li>
+          <li><span class="mx-2 text-slate-600">›</span></li>
           <li class="text-white" aria-current="page">Fire Damage</li>
         </ol>
       </nav>
-
       <div class="max-w-4xl">
-        <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-8 leading-[1.1] tracking-tight drop-shadow-2xl">
-          Claim Guardians <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-blue-200">Maximizes</span> Your Fire Damage Claim.
+        <span class="eyebrow" style="color:#00B5A6;">Property Damage — Fire &amp; Smoke</span>
+        <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-8 leading-[1.1] tracking-tight">
+          Claim Guardians Maximizes Your Fire and Smoke Damage Settlement.
         </h1>
-        <h2 class="text-xl md:text-2xl text-slate-300 mb-12 leading-relaxed max-w-3xl font-light">
-          Fire, smoke, and water drastically compromise your home's structural integrity. Insurance adjusters attempt to clean rather than replace irreparably damaged assets. Claim Guardians forces your insurer to pay for total property restoration. You pay nothing upfront.
-        </h2>
-        
-        <div class="flex flex-col sm:flex-row gap-5 mb-14">
-          <a href="/free-claim-review" class="group relative inline-flex justify-center items-center px-10 py-4 text-lg font-bold text-white bg-accent-600 rounded-xl overflow-hidden shadow-[0_0_40px_-10px_rgba(234,88,12,0.6)] hover:shadow-[0_0_60px_-15px_rgba(234,88,12,0.8)] transition-all duration-300 hover:-translate-y-1">
-            <span class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-[100%] group-hover:animate-[shimmer_1.5s_infinite]"></span>
-            <span class="relative">Get a Free Fire Damage Assessment</span>
-          </a>
-          <a href="tel:5551234567" class="inline-flex justify-center items-center px-10 py-4 text-lg font-bold text-white bg-white/10 backdrop-blur-md border border-white/20 rounded-xl hover:bg-white/20 transition-all duration-300 hover:-translate-y-1 shadow-xl">
-            Emergency? Call Us Now
-          </a>
+        <p class="text-xl text-slate-300 mb-12 leading-relaxed max-w-3xl">
+          Fire damage destroys both structure and contents. Insurance companies undervalue smoke contamination and restoration costs. Claim Guardians documents the true cost and forces your insurer to pay in full.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-5 mb-12">
+          <a href="/free-claim-review" class="btn-accent px-10 py-5 text-lg min-h-[60px]">Get a Free Fire Damage Inspection</a>
+          <a href="tel:5551234567" class="inline-flex justify-center items-center px-10 py-5 text-lg font-bold text-white bg-white/5 border-2 border-white/20 rounded-xl hover:bg-white/10 transition-all transform hover:-translate-y-1 min-h-[60px]">Call a Fire Expert Now</a>
         </div>
-        
-        <!-- Trust Badges -->
-        <div class="flex flex-wrap items-center gap-8 text-sm font-semibold text-slate-300">
-          <div class="flex items-center gap-3 bg-white/5 px-4 py-2 rounded-lg border border-white/10">
-            <span class="flex items-center justify-center w-6 h-6 rounded-full bg-green-500/20 text-green-400 text-xs">✓</span>
-            FAPIA Licensed
-          </div>
-          <div class="flex items-center gap-3 bg-white/5 px-4 py-2 rounded-lg border border-white/10">
-            <span class="flex items-center justify-center w-6 h-6 rounded-full bg-green-500/20 text-green-400 text-xs">✓</span>
-            No Recovery, No Fee
-          </div>
-          <div class="flex items-center gap-3 bg-white/5 px-4 py-2 rounded-lg border border-white/10">
-            <span class="flex items-center justify-center w-6 h-6 rounded-full bg-green-500/20 text-green-400 text-xs">✓</span>
-            Smoke & Soot Experts
-          </div>
+        <div class="flex flex-wrap items-center gap-x-10 gap-y-4 pt-6 border-t border-white/10">
+          <div class="flex items-center gap-2 text-slate-300 font-semibold text-sm"><span class="text-[#00B5A6]">✓</span> FAPIA Licensed</div>
+          <div class="flex items-center gap-2 text-slate-300 font-semibold text-sm"><span class="text-[#00B5A6]">✓</span> No Recovery, No Fee</div>
+          <div class="flex items-center gap-2 text-slate-300 font-semibold text-sm"><span class="text-[#00B5A6]">✓</span> Smoke &amp; Soot Specialists</div>
         </div>
       </div>
     </div>
-    
-    <!-- Decorative bottom wave/fade -->
-    <div class="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-t from-base-bg via-base-bg/80 to-transparent"></div>
   </header>
 
-  <!-- 2. The Problem vs. The Solution -->
-  <section class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-      
-      <!-- Problem -->
-      <div class="prose prose-lg prose-slate pr-0 lg:pr-8">
-        <h2 class="text-3xl font-extrabold text-[#111827] mb-6">
-          Adjusters Underestimate Smoke and Water Damage.
-        </h2>
-        <p class="text-text-muted leading-relaxed">
-          Insurance companies focus only on what visibly burned. They ignore the hidden structural weakness caused by high-pressure fire hoses and the pervasive, toxic smoke damage embedded deeply in your walls and HVAC system.
-        </p>
-      </div>
-
-      <!-- Solution -->
-      <div class="card-surface border-primary-100 shadow-md">
-        <h3 class="text-2xl font-bold text-primary-700 mb-6 flex items-center gap-3">
-          <span class="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-full bg-primary-100 text-primary-600">✓</span>
-          Claim Guardians Conducts Forensic Fire Assessments.
-        </h3>
-        <ul class="space-y-5">
-          <li class="flex items-start gap-4">
-            <span class="text-primary-500 mt-1 flex-shrink-0">🔍</span>
-            <span class="text-lg font-medium text-text-main">Our experts utilize thermal imaging to find hidden water intrusion.</span>
-          </li>
-          <li class="flex items-start gap-4">
-            <span class="text-primary-500 mt-1 flex-shrink-0">🧪</span>
-            <span class="text-lg font-medium text-text-main">We deploy industrial hygienists to test for toxic soot levels.</span>
-          </li>
-          <li class="flex items-start gap-4">
-            <span class="text-primary-500 mt-1 flex-shrink-0">🏗️</span>
-            <span class="text-lg font-medium text-text-main">Claim Guardians documents structural degradation of framing.</span>
-          </li>
-          <li class="flex items-start gap-4">
-            <span class="text-primary-500 mt-1 flex-shrink-0">⚖️</span>
-            <span class="text-lg font-medium text-text-main">We force the insurer to cover full tear-outs and replacements, not just surface cleaning.</span>
-          </li>
-        </ul>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- 3. The Danger of Delay (High Threat 2026 UI) -->
-  <section class="relative bg-primary-600 py-32 overflow-hidden border-y border-slate-800">
-    <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/dark-matter.png')] opacity-20"></div>
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-red-600/20 blur-[150px] rounded-full pointer-events-none"></div>
-
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-      <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-red-500/10 border border-red-500/20 text-4xl mb-8 shadow-[0_0_30px_rgba(220,38,38,0.3)]">
-        🔥
-      </div>
-      <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-8 tracking-tight">
-        Smoke and Soot Cause Permanent <span class="text-red-500">Toxic Corrosion.</span>
-      </h2>
-      <p class="text-xl text-slate-300 leading-relaxed mb-12 font-light">
-        Leaving acidic soot on surfaces causes rapid, irreversible damage to electronics, plumbing fixtures, and structural elements. <strong class="text-white font-semibold">Claim Guardians initiates immediate emergency mitigation to stop the deterioration and secure your payout.</strong>
-      </p>
-      <a href="tel:5551234567" class="btn-accent text-xl px-12 py-5 shadow-[0_0_40px_-5px_rgba(234,88,12,0.8)] hover:shadow-[0_0_60px_-5px_rgba(234,88,12,1)] hover:scale-105 transition-all duration-300">
-        Request Emergency Board-up & Mitigation
-      </a>
-    </div>
-  </section>
-
-  <!-- 4. Proof of Success (Premium UI Card) -->
-  <section class="py-32 bg-base-bg relative overflow-hidden">
-    <div class="absolute right-0 top-0 w-1/3 h-full bg-gradient-to-l from-green-50/50 to-transparent pointer-events-none"></div>
-
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <h2 class="text-4xl md:text-5xl font-extrabold text-[#111827] mb-16 text-center tracking-tight">
-        Claim Guardians Secures Massive Fire Settlements.
-      </h2>
-
-      <div class="max-w-3xl mx-auto bg-white rounded-3xl p-10 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] border border-slate-100 hover:shadow-[0_30px_80px_-15px_rgba(0,0,0,0.1)] transition-all duration-500 relative group overflow-hidden">
-        
-        <!-- Glowing Edge Effect on Hover -->
-        <div class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-transparent via-green-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-        <div class="mb-8 border-b border-slate-100 pb-8">
-          <span class="inline-flex items-center px-4 py-2 bg-slate-50 text-slate-600 text-sm font-bold rounded-full mb-8 border border-slate-200">
-            📍 Residential Kitchen Fire, Tampa, FL.
-          </span>
-          <div class="space-y-6">
-            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center text-lg gap-2">
-              <span class="text-slate-500 font-medium tracking-wide text-sm uppercase">Insurance Initial Offer</span>
-              <span class="text-red-500/60 line-through font-bold text-2xl">
-                $12,000 <span class="text-xs font-normal ml-2 text-slate-400 block sm:inline">(For "cleaning and painting")</span>
-              </span>
-            </div>
-            
-            <div class="h-px w-full bg-gradient-to-r from-transparent via-slate-100 to-transparent"></div>
-
-            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center text-xl gap-4">
-              <span class="text-[#111827] font-bold tracking-wide text-sm uppercase">Claim Guardians Settlement</span>
-              <div class="flex flex-col items-end">
-                <span class="text-green-600 font-black text-4xl tracking-tighter drop-shadow-sm">
-                  $185,000
-                </span>
-                <span class="text-xs font-medium mt-1 text-green-700/70 uppercase tracking-wider">(For complete structural remodel and full HVAC replacement)</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="bg-slate-50 -mx-10 -mb-10 p-10">
-          <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">Action Taken</h4>
-          <p class="text-xl font-medium text-[#111827] leading-relaxed">
-            Claim Guardians proved the toxic soot had permanently compromised the entire HVAC ductwork system and structural framing, necessitating a full tear-out.
+  <!-- 2. Problem / Solution -->
+  <section class="section-white">
+    <div class="section-inner">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div>
+          <span class="eyebrow">The Problem</span>
+          <h2 class="section-heading mb-6">Insurers Undervalue Smoke Damage and Restoration Costs.</h2>
+          <p class="text-lg text-slate-500 leading-relaxed">
+            Fire doesn't have to destroy a room to render it uninhabitable. Toxic smoke and soot permeate walls, HVAC systems, and personal property. Insurance adjusters routinely minimize smoke damage to reduce your payout.
           </p>
         </div>
+        <div class="card-hover p-10">
+          <h3 class="text-2xl font-bold text-[#082142] mb-6 flex items-center gap-3">
+            <span class="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-full bg-[#002D51]/10 text-[#00808C]">✓</span>
+            Claim Guardians Quantifies Every Loss.
+          </h3>
+          <ul class="space-y-5">
+            <li class="flex items-start gap-4"><span class="text-[#00808C] mt-1">🔥</span><span class="text-lg font-medium text-[#082142]">We document structural char damage, beam compromise, and smoke infiltration.</span></li>
+            <li class="flex items-start gap-4"><span class="text-[#00808C] mt-1">📦</span><span class="text-lg font-medium text-[#082142]">We inventory and value all damaged personal property and contents.</span></li>
+            <li class="flex items-start gap-4"><span class="text-[#00808C] mt-1">⚖️</span><span class="text-lg font-medium text-[#082142]">We force your insurer to fund professional remediation and full restoration.</span></li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- 5. AEO / LLM Optimized FAQs -->
-  <section class="bg-primary-50 border-t border-primary-100 py-24">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl md:text-4xl font-extrabold text-[#111827] mb-12 text-center">
-        Frequently Asked Questions About Fire Claims
-      </h2>
-
-      <div class="space-y-4">
-        <details class="group card-surface p-0 [&_summary::-webkit-details-marker]:hidden hover:border-primary-200">
-          <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-xl text-[#111827] group-hover:text-primary-600 transition-colors">
-            <span>Will my insurance cover the water damage from extinguishing the fire?</span>
-            <span class="transition group-open:rotate-180 flex-shrink-0 ml-4">
-              <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
-            </span>
-          </summary>
-          <div class="text-text-muted px-6 pb-6 text-lg leading-relaxed border-t border-slate-100 pt-4 m-0">
-            Yes, water damage caused by firefighters putting out the blaze is considered part of the fire claim. However, insurers often underestimate the extent of this water intrusion. Claim Guardians uses thermal imaging to ensure all water-damaged areas are properly remediated and paid for.
-          </div>
-        </details>
-
-        <details class="group card-surface p-0 [&_summary::-webkit-details-marker]:hidden hover:border-primary-200">
-          <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-xl text-[#111827] group-hover:text-primary-600 transition-colors">
-            <span>The insurance company wants to clean my smoke-damaged items instead of replacing them. Is this fair?</span>
-            <span class="transition group-open:rotate-180 flex-shrink-0 ml-4">
-              <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
-            </span>
-          </summary>
-          <div class="text-text-muted px-6 pb-6 text-lg leading-relaxed border-t border-slate-100 pt-4 m-0">
-            Often, no. Toxic soot is acidic and permanently compromises porous materials, electronics, and HVAC systems. Insurers prefer cheap surface cleaning to save money. Claim Guardians relies on industrial hygienists to prove when items are irreparably contaminated and demand full replacement.
-          </div>
-        </details>
-
-        <details class="group card-surface p-0 [&_summary::-webkit-details-marker]:hidden hover:border-primary-200">
-          <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-xl text-[#111827] group-hover:text-primary-600 transition-colors">
-            <span>How does claim guardians handle Additional Living Expenses (ALE) after a fire?</span>
-            <span class="transition group-open:rotate-180 flex-shrink-0 ml-4">
-              <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
-            </span>
-          </summary>
-          <div class="text-text-muted px-6 pb-6 text-lg leading-relaxed border-t border-slate-100 pt-4 m-0">
-            If your home is uninhabitable, your policy covers Additional Living Expenses (ALE) for temporary housing and food. Insurers routinely delay or underpay these critical funds. Claim Guardians aggressively manages your ALE claim to ensure your family remains comfortable while we negotiate the structural settlement.
-          </div>
-        </details>
+  <!-- 3. Result Proof -->
+  <section class="section-muted">
+    <div class="section-inner">
+      <div class="text-center mb-16">
+        <span class="eyebrow">Proven Results</span>
+        <h2 class="section-heading">We Recover the Full Cost of Your Fire Loss.</h2>
       </div>
-
+      <div class="max-w-3xl mx-auto card-testimonial">
+        <span class="inline-flex px-4 py-2 bg-blue-50 text-[#002D51] text-sm font-bold rounded-full mb-8 border border-blue-100">📍 Kitchen Fire &amp; Smoke Damage, Orlando, FL.</span>
+        <div class="space-y-6 mb-8 pb-8 border-b border-slate-100">
+          <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
+            <span class="text-slate-500 font-medium text-sm uppercase">Insurance Initial Offer</span>
+            <span class="text-red-400 line-through font-bold text-2xl">$22,000</span>
+          </div>
+          <div class="h-px bg-slate-100"></div>
+          <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
+            <span class="text-[#082142] font-bold text-sm uppercase">Claim Guardians Settlement</span>
+            <span class="text-green-600 font-black text-4xl tracking-tighter">$94,500</span>
+          </div>
+        </div>
+        <div class="bg-slate-50 -mx-10 -mb-10 p-10 rounded-b-3xl">
+          <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">Action Taken</h4>
+          <p class="text-xl font-medium text-[#082142] leading-relaxed">We documented HVAC smoke contamination and full contents loss the insurer's adjuster omitted. Settlement funded a complete home restoration.</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- 6. Service Area Context -->
-  <section class="py-24 text-center px-4">
-    <div class="max-w-2xl mx-auto">
-      <h2 class="text-2xl font-extrabold text-[#111827] mb-4">
-        Claim Guardians Serves All of Florida.
-      </h2>
-      <p class="text-lg text-text-muted mb-8">
-        From Miami to Jacksonville, our licensed public adjusters respond rapidly to your fire emergency.
-      </p>
-      <a href="/service-areas" class="inline-flex items-center text-primary-600 font-bold hover:text-primary-700 transition-colors text-lg group">
-        View All Florida Service Areas 
-        <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-      </a>
+  <!-- 4. Final CTA -->
+  <section class="gradient-accent-bar section-white text-center">
+    <div class="section-inner">
+      <span class="eyebrow">No-Risk Consultation</span>
+      <h2 class="section-heading mb-4">Did Fire or Smoke Damage Your Florida Property?</h2>
+      <p class="text-xl text-slate-500 mb-8 max-w-2xl mx-auto">Get the full settlement you deserve, not what the insurance company is willing to offer.</p>
+      <a href="/free-claim-review" class="btn-accent px-12 py-5 text-xl min-h-[64px]">Start Free Fire Claim Review →</a>
+      <p class="text-sm text-slate-400 mt-4">Zero upfront cost. Ever.</p>
     </div>
   </section>
 
-  <!-- Mobile Sticky CTA (Bottom Tab Bar substitute for BOF pages) -->
   <div class="fixed bottom-0 left-0 right-0 p-4 bg-white/95 backdrop-blur-md border-t border-slate-200 shadow-[0_-10px_40px_rgba(0,0,0,0.1)] z-50 sm:hidden">
-    <a href="tel:5551234567" class="btn-accent w-full text-lg animate-pulse">
-      🚨 Emergency? Call Now
-    </a>
+    <a href="tel:5551234567" class="btn-accent w-full text-lg">🚨 Emergency? Call Now</a>
   </div>
-
 </BaseLayout>
