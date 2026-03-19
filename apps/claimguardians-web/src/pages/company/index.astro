@@ -35,146 +35,134 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   </Fragment>
 
   <!-- 1. Hero Section (Maximum Authority & Trust) -->
-  <header class="relative bg-primary-600 overflow-hidden pt-24 pb-32">
-    <!-- Sophisticated Deep Blue/Gold Trust Gradient -->
-    <div class="absolute top-0 inset-x-0 h-[600px] bg-gradient-to-b from-slate-900 to-transparent pointer-events-none"></div>
-    <div class="absolute -top-[200px] -right-[100px] w-[600px] h-[600px] rounded-full bg-blue-600/10 blur-[120px] pointer-events-none"></div>
-    <div class="absolute -bottom-[200px] -left-[100px] w-[500px] h-[500px] rounded-full bg-yellow-500/5 blur-[100px] pointer-events-none"></div>
+  <header class="relative bg-[#041224] overflow-hidden" style="padding-top:8rem; padding-bottom:8rem;">
+    <div class="absolute inset-0 z-0">
+      <img 
+        src="/images/hero-team-adjusters.png" 
+        alt="Claim Guardians public adjusters team inspecting property damage in Florida" 
+        class="w-full h-full object-cover opacity-25 scale-105" 
+        fetchpriority="high"
+        loading="eager"
+      />
+      <div class="absolute inset-0 bg-gradient-to-b from-[#041224]/85 via-[#002D51]/65 to-[#041224]"></div>
+    </div>
     
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 mt-8 text-center text-white">
-      <!-- Breadcrumbs -->
-      <nav aria-label="Breadcrumb" class="mb-12 inline-flex">
-        <ol class="flex items-center space-x-2 text-sm text-slate-300 font-medium bg-white/5 backdrop-blur-md px-4 py-2 rounded-full border border-white/10 shadow-lg">
+    <div class="section-inner relative z-10 text-center">
+      <nav aria-label="Breadcrumb" class="mb-10 inline-flex">
+        <ol class="flex items-center space-x-2 text-sm text-slate-400 font-medium bg-white/5 px-4 py-2 rounded-full border border-white/10">
           <li><a href="/" class="hover:text-white transition-colors">Home</a></li>
-          <li><span class="mx-2 text-slate-500">›</span></li>
-          <li class="text-white" aria-current="page">Company</li>
+          <li><span class="mx-2 text-slate-600">›</span></li>
+          <li class="text-white font-bold" aria-current="page">Company</li>
         </ol>
       </nav>
 
-      <h1 class="text-5xl md:text-6xl font-extrabold mb-8 leading-[1.1] tracking-tight drop-shadow-2xl">
-        Claim Guardians <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-yellow-200">Fights the Insurance Giants</span> For You.
-      </h1>
-      <h2 class="text-xl md:text-2xl text-slate-300 mb-12 leading-relaxed font-light">
-        We founded Claim Guardians to level the playing field. Large insurance corporations employ armies of adjusters to protect their profits. We work exclusively for property owners to protect your financial future.
-      </h2>
+      <div class="max-w-4xl mx-auto">
+        <span class="eyebrow" style="color:#00B5A6;">The Advocacy Firm</span>
+        <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-8 leading-[1.1] tracking-tight">
+          Claim Guardians <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#00808C] to-[#00B5A6]">Fights the Insurance Giants</span> For You.
+        </h1>
+        <p class="text-xl md:text-2xl text-slate-300 mb-12 leading-relaxed font-medium">
+          We founded Claim Guardians to level the playing field. Large insurance corporations employ armies of adjusters to protect their profits. We work exclusively for property owners to protect your financial future.
+        </p>
+      </div>
     </div>
-    
-    <div class="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-t from-base-bg via-base-bg/80 to-transparent"></div>
   </header>
 
-  <!-- 2. Our Financial Guarantee (Highlighted Design) -->
-  <section class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative -mt-32 z-20">
-    <div class="bg-gradient-to-br from-primary-700 to-primary-600 rounded-3xl p-1 md:p-1.5 shadow-[0_20px_50px_-10px_rgba(0,0,0,0.5)]">
-      <div class="bg-white rounded-[22px] md:rounded-[20px] p-10 md:p-16 relative overflow-hidden">
-        <!-- Golden Edge Glow -->
-        <div class="absolute top-0 inset-x-0 h-2 bg-gradient-to-r from-transparent via-yellow-400 to-transparent"></div>
-        <div class="absolute -right-20 -top-20 w-64 h-64 bg-yellow-400/10 rounded-full blur-3xl pointer-events-none"></div>
-
-        <div class="flex flex-col md:flex-row gap-12 items-center">
-          <div class="md:w-1/3 text-center md:text-left">
-            <div class="inline-flex items-center justify-center w-24 h-24 rounded-full bg-green-50 text-green-600 text-5xl mb-6 shadow-sm border border-green-100">
-              🛡️
+  <!-- 2. Our Financial Guarantee -->
+  <section class="section-white" style="margin-top: -4rem;">
+    <div class="section-inner relative z-20">
+      <div class="card-hover p-1 md:p-1.5 shadow-2xl">
+        <div class="bg-white rounded-[22px] md:rounded-[20px] p-10 md:p-16 relative overflow-hidden">
+          <div class="flex flex-col md:flex-row gap-12 items-center">
+            <div class="md:w-1/3 text-center md:text-left">
+              <div class="inline-flex items-center justify-center w-24 h-24 rounded-full bg-blue-50 text-4xl mb-6 border border-blue-100 shadow-inner">🛡️</div>
+              <h2 class="text-3xl font-extrabold text-[#082142] leading-tight mb-4">
+                The Claim Guardians <br/><span class="text-[#00808C]">No-Recovery, No-Fee</span> Promise.
+              </h2>
             </div>
-            <h2 class="text-3xl font-extrabold text-[#111827] leading-tight mb-4">
-              The Claim Guardians<br/><span class="text-green-600">"No Recovery, No Fee"</span> Promise.
-            </h2>
-          </div>
-          
-          <div class="md:w-2/3">
-            <ul class="space-y-6">
-              <li class="flex items-start gap-4">
-                <span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-slate-100 text-green-600 mt-1">✓</span>
-                <span class="text-xl font-medium text-slate-700">We charge $0 for your initial property inspection.</span>
-              </li>
-              <li class="flex items-start gap-4">
-                <span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-slate-100 text-green-600 mt-1">✓</span>
-                <span class="text-xl font-medium text-slate-700">You pay zero out-of-pocket costs during the process.</span>
-              </li>
-              <li class="flex items-start gap-4">
-                <span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-slate-100 text-green-600 mt-1">✓</span>
-                <span class="text-xl font-medium text-slate-700">Claim Guardians advances all costs for experts and documentation.</span>
-              </li>
-              <li class="flex items-start gap-4">
-                <span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-slate-100 text-green-600 mt-1">✓</span>
-                <span class="text-xl font-medium text-slate-700">We collect a state-regulated percentage ONLY after you receive your check.</span>
-              </li>
-            </ul>
+            
+            <div class="md:w-2/3">
+              <ul class="space-y-6">
+                <li class="flex items-start gap-5">
+                  <span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-slate-50 text-[#00808C] font-bold mt-1 shadow-sm">✓</span>
+                  <span class="text-xl font-bold text-[#082142]">We charge $0 for your initial property inspection.</span>
+                </li>
+                <li class="flex items-start gap-5">
+                  <span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-slate-50 text-[#00808C] font-bold mt-1 shadow-sm">✓</span>
+                  <span class="text-xl font-bold text-[#082142]">You pay zero out-of-pocket costs during the process.</span>
+                </li>
+                <li class="flex items-start gap-5">
+                  <span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-slate-50 text-[#00808C] font-bold mt-1 shadow-sm">✓</span>
+                  <span class="text-xl font-bold text-[#082142]">Claim Guardians advances all costs for experts and documentation.</span>
+                </li>
+                <li class="flex items-start gap-5">
+                  <span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-slate-50 text-[#00808C] font-bold mt-1 shadow-sm">✓</span>
+                  <span class="text-xl font-bold text-[#082142]">We collect a state-regulated percentage ONLY after you receive your check.</span>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 3. Our Credentials (EEAT Section) -->
-  <section class="py-24 bg-slate-50 border-y border-slate-200">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="text-3xl md:text-4xl font-extrabold text-[#111827] mb-8">
-        State-Licensed and Certified Experts.
-      </h2>
-      <p class="text-xl text-slate-600 leading-relaxed mb-16 max-w-3xl mx-auto">
+  <!-- 3. Credentials (EEAT) -->
+  <section class="section-muted text-center border-y border-slate-200">
+    <div class="section-inner">
+      <span class="eyebrow">Proven Authority</span>
+      <h2 class="section-heading mb-8">State-Licensed and Certified Experts.</h2>
+      <p class="text-xl text-slate-500 leading-relaxed mb-16 max-w-3xl mx-auto font-medium">
         Florida strictly regulates public adjusters. Claim Guardians holds active licenses from the Florida Department of Financial Services. Our team members belong to the Florida Association of Public Insurance Adjusters (FAPIA).
       </p>
 
-      <!-- Trust Logos Placeholder Row -->
-      <div class="flex flex-wrap justify-center items-center gap-12 opacity-70 grayscale hover:grayscale-0 transition-all duration-300">
-        <div class="h-16 w-32 bg-slate-200 rounded flex items-center justify-center font-bold text-slate-400">FL Dept. Finance</div>
-        <div class="h-16 w-32 bg-slate-200 rounded flex items-center justify-center font-bold text-slate-400">FAPIA Member</div>
-        <div class="h-16 w-32 bg-slate-200 rounded flex items-center justify-center font-bold text-slate-400">BBB A+ Rated</div>
+      <div class="flex flex-wrap justify-center items-center gap-12 grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-500">
+        <div class="h-16 w-32 bg-slate-200 rounded-xl flex items-center justify-center font-bold text-slate-500 shadow-sm">FL Dept. Finance</div>
+        <div class="h-16 w-32 bg-slate-200 rounded-xl flex items-center justify-center font-bold text-slate-500 shadow-sm">FAPIA Member</div>
+        <div class="h-16 w-32 bg-slate-200 rounded-xl flex items-center justify-center font-bold text-slate-500 shadow-sm">BBB A+ Rated</div>
       </div>
     </div>
   </section>
 
-  <!-- 4. Meet the Guardians -->
-  <section class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-16">
-      <h2 class="text-3xl md:text-4xl font-extrabold text-[#111827] mb-6">
-        Your Dedicated Advocacy Team.
-      </h2>
-    </div>
-
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-      <!-- Profile 1 -->
-      <div class="card-surface group text-center hover:border-blue-300">
-        <div class="w-32 h-32 mx-auto bg-slate-200 rounded-full mb-6 relative overflow-hidden border-4 border-white shadow-xl group-hover:scale-105 transition-transform">
-          <!-- Placeholder avatar -->
-          <div class="absolute inset-0 flex items-center justify-center text-4xl text-slate-400">👤</div>
-        </div>
-        <h3 class="text-2xl font-bold text-[#111827] mb-1">Jane Doe</h3>
-        <p class="text-primary-600 font-semibold mb-3">Senior Public Adjuster</p>
-        <div class="inline-block px-4 py-1.5 bg-slate-100 text-slate-600 text-sm font-bold rounded-full font-mono">
-          FL License # 123456
-        </div>
+  <!-- 4. The Team -->
+  <section class="section-white">
+    <div class="section-inner">
+      <div class="text-center mb-16">
+        <span class="eyebrow">Your Guardians</span>
+        <h2 class="section-heading">The Elite Advocacy Team.</h2>
       </div>
 
-      <!-- Profile 2 -->
-      <div class="card-surface group text-center hover:border-blue-300">
-        <div class="w-32 h-32 mx-auto bg-slate-200 rounded-full mb-6 relative overflow-hidden border-4 border-white shadow-xl group-hover:scale-105 transition-transform">
-          <!-- Placeholder avatar -->
-          <div class="absolute inset-0 flex items-center justify-center text-4xl text-slate-400">👤</div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+        <div class="card-testimonial text-center group">
+          <div class="w-40 h-40 mx-auto bg-slate-100 rounded-full mb-8 relative overflow-hidden border-4 border-white shadow-2xl group-hover:scale-105 transition-transform">
+             <div class="absolute inset-0 flex items-center justify-center text-5xl opacity-20 grayscale">👤</div>
+          </div>
+          <h3 class="text-2xl font-black text-[#082142] mb-1">Jane Doe</h3>
+          <p class="text-[#00808C] font-black text-sm uppercase tracking-widest mb-4">Senior Public Adjuster</p>
+          <div class="inline-block px-5 py-2 bg-slate-50 text-slate-500 text-xs font-black rounded-full border border-slate-100 tracking-tighter">FL LICENSE # 123456</div>
         </div>
-        <h3 class="text-2xl font-bold text-[#111827] mb-1">John Smith</h3>
-        <p class="text-primary-600 font-semibold mb-3">Lead Claim Appraiser</p>
-        <div class="inline-block px-4 py-1.5 bg-slate-100 text-slate-600 text-sm font-bold rounded-full font-mono">
-          FL License # 654321
+
+        <div class="card-testimonial text-center group">
+          <div class="w-40 h-40 mx-auto bg-slate-100 rounded-full mb-8 relative overflow-hidden border-4 border-white shadow-2xl group-hover:scale-105 transition-transform">
+             <div class="absolute inset-0 flex items-center justify-center text-5xl opacity-20 grayscale">👤</div>
+          </div>
+          <h3 class="text-2xl font-black text-[#082142] mb-1">John Smith</h3>
+          <p class="text-[#00808C] font-black text-sm uppercase tracking-widest mb-4">Lead Claim Appraiser</p>
+          <div class="inline-block px-5 py-2 bg-slate-50 text-slate-500 text-xs font-black rounded-full border border-slate-100 tracking-tighter">FL LICENSE # 654321</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 5. Call to Action Final -->
-  <section class="py-24 bg-primary-900 relative overflow-hidden">
-    <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
-    <div class="relative z-10 max-w-4xl mx-auto px-4 text-center">
-      <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-6">
-        Stop Fighting Your Insurance Company Alone.
-      </h2>
-      <p class="text-xl text-primary-200 mb-10 font-light max-w-2xl mx-auto">
-        Claim Guardians takes over the stress today.
+  <!-- 5. Final CTA -->
+  <section class="gradient-accent-bar section-white text-center">
+    <div class="section-inner">
+      <h2 class="section-heading mb-6">Stop Fighting Your Insurance Company Alone.</h2>
+      <p class="text-xl text-slate-500 mb-10 font-medium max-w-2xl mx-auto leading-relaxed">
+        Claim Guardians takes over the stress today. We focus on the policy so you can focus on your recovery.
       </p>
-      <a href="/free-claim-review" class="group relative inline-flex justify-center items-center px-12 py-5 text-xl font-bold text-white bg-accent-600 rounded-xl overflow-hidden shadow-[0_0_40px_-5px_rgba(234,88,12,0.8)] hover:shadow-[0_0_60px_-5px_rgba(234,88,12,1)] hover:scale-105 transition-all duration-300">
-        <span class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-[100%] group-hover:animate-[shimmer_1.5s_infinite]"></span>
-        <span class="relative">Schedule Your Free Consultation</span>
-      </a>
+      <a href="/free-claim-review" class="btn-accent px-12 py-5 text-2xl min-h-[64px]">Schedule Free Consultation →</a>
+      <p class="text-sm text-slate-400 mt-4">Zero upfront cost. Guaranteed.</p>
     </div>
   </section>
 

@@ -30,111 +30,119 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     </script>
   </Fragment>
 
-  <!-- 1. Hero Section (Knowledge Base Feel) -->
-  <header class="relative bg-primary-600 overflow-hidden pt-24 pb-32">
-    <!-- Dynamic Glowing Gradient Mesh Background -->
-    <div class="absolute top-0 inset-x-0 h-[600px] bg-gradient-to-b from-primary-700/80 to-transparent pointer-events-none"></div>
-    <div class="absolute -top-[300px] -right-[200px] w-[800px] h-[800px] rounded-full bg-primary-600/20 blur-[120px] pointer-events-none"></div>
-    <div class="absolute -bottom-[200px] -left-[200px] w-[600px] h-[600px] rounded-full bg-accent-600/10 blur-[100px] pointer-events-none"></div>
+  <!-- 1. Hero Section -->
+  <header class="relative bg-[#041224] overflow-hidden" style="padding-top:8rem; padding-bottom:8rem;">
+    <div class="absolute inset-0 z-0">
+      <img src="/images/hero-city-florida.png" alt="Florida city skyline - Claim Guardians resources" class="w-full h-full object-cover opacity-25 scale-105" />
+      <div class="absolute inset-0 bg-gradient-to-b from-[#041224]/85 via-[#002D51]/65 to-[#041224]"></div>
+    </div>
     
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 mt-8 text-center text-white">
-      <!-- Breadcrumbs -->
-      <nav aria-label="Breadcrumb" class="mb-12 inline-flex">
-        <ol class="flex items-center space-x-2 text-sm text-slate-300 font-medium bg-white/5 backdrop-blur-md px-4 py-2 rounded-full border border-white/10 shadow-lg">
+    <div class="section-inner relative z-10 text-center">
+      <nav aria-label="Breadcrumb" class="mb-10 inline-flex">
+        <ol class="flex items-center space-x-2 text-sm text-slate-400 font-medium bg-white/5 px-4 py-2 rounded-full border border-white/10">
           <li><a href="/" class="hover:text-white transition-colors">Home</a></li>
-          <li><span class="mx-2 text-slate-500">›</span></li>
-          <li class="text-white" aria-current="page">Resources</li>
+          <li><span class="mx-2 text-slate-600">›</span></li>
+          <li class="text-white font-bold" aria-current="page">Resources</li>
         </ol>
       </nav>
 
-      <h1 class="text-5xl md:text-6xl font-extrabold mb-8 leading-[1.1] tracking-tight drop-shadow-2xl">
-        Claim Guardians Translates <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-blue-200">Complex Insurance Policies.</span>
-      </h1>
-      <h2 class="text-xl md:text-2xl text-slate-300 mb-12 leading-relaxed font-light">
-        Insurance companies use confusing legal jargon to underpay claims. Our resource center breaks down industry terms and claims processes. We empower you with clear, actionable knowledge.
-      </h2>
+      <div class="max-w-4xl mx-auto">
+        <span class="eyebrow" style="color:#00B5A6;">Policyholder Intelligence</span>
+        <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-8 leading-[1.1] tracking-tight">
+          Claim Guardians Translates <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-[#00808C] to-[#00B5A6]">Complex Insurance Policies.</span>
+        </h1>
+        <p class="text-xl md:text-2xl text-slate-300 mb-12 leading-relaxed font-medium">
+          Insurance companies use confusing jargon to underpay claims. Our resource center breaks down industry terms and processes to empower you with clear, actionable knowledge.
+        </p>
 
-      <!-- Visual Search Bar (KB Style) -->
-      <div class="relative max-w-2xl mx-auto">
-        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-          <svg class="h-6 w-6 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-          </svg>
+        {/* Visual Search Box Mockup */}
+        <div class="relative max-w-2xl mx-auto group">
+          <div class="absolute inset-y-0 left-0 pl-6 flex items-center pointer-events-none">
+            <span class="text-2xl opacity-50">🔍</span>
+          </div>
+          <input 
+            type="text" 
+            placeholder="Search insurance terms, guides, or questions..." 
+            class="w-full pl-16 pr-6 py-6 bg-white/10 backdrop-blur-xl border-2 border-white/20 rounded-3xl text-white placeholder-slate-400 focus:outline-none focus:border-[#00B5A6] focus:ring-4 focus:ring-[#00B5A6]/20 shadow-2xl text-xl transition-all font-medium"
+          />
         </div>
-        <input type="text" placeholder="Search insurance terms, guides, or questions..." class="w-full pl-12 pr-4 py-5 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl text-white placeholder-slate-400 focus:outline-none focus:ring-4 focus:ring-primary-500/50 shadow-2xl text-lg transition-all">
       </div>
     </div>
-    
-    <div class="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-t from-base-bg via-base-bg/80 to-transparent"></div>
   </header>
 
   <!-- 2. Knowledge Categories -->
-  <section class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-16">
-      <h2 class="text-3xl md:text-4xl font-extrabold text-[#111827] mb-6">
-        Explore Our Insurance Claim Resources.
-      </h2>
-    </div>
+  <section class="section-white" style="margin-top:-4rem;">
+    <div class="section-inner relative z-20">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Card 1 (Guides) -->
+        <a href="/resources/guides" class="card-hover p-12 group">
+          <div class="text-5xl mb-6">📚</div>
+          <h3 class="text-3xl font-black text-[#082142] mb-4 group-hover:text-[#00808C] transition-colors">Claim Survival Guides</h3>
+          <p class="text-lg text-slate-500 font-medium">Step-by-step instructions for filing and appearing for your insurance damage claims correctly.</p>
+        </a>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-      <!-- Card 1 (Guides) -->
-      <a href="/resources/guides" class="card-surface group hover:border-primary-300">
-        <div class="text-4xl mb-4">📚</div>
-        <h3 class="text-2xl font-bold text-[#111827] mb-3 group-hover:text-primary-600 transition-colors">Claim Survival Guides</h3>
-        <p class="text-lg text-text-muted">Step-by-step instructions for filing and appealing claims.</p>
-      </a>
+        <!-- Card 2 (Glossary) -->
+        <a href="/resources/glossary" class="card-hover p-12 group">
+          <div class="text-5xl mb-6">📖</div>
+          <h3 class="text-3xl font-black text-[#082142] mb-4 group-hover:text-[#00808C] transition-colors">Insurance Glossary</h3>
+          <p class="text-lg text-slate-500 font-medium">Plain-English definitions of complex insurance vocabulary used to confuse property owners.</p>
+        </a>
 
-      <!-- Card 2 (Glossary) -->
-      <a href="/resources/glossary" class="card-surface group hover:border-primary-300">
-        <div class="text-4xl mb-4">📖</div>
-        <h3 class="text-2xl font-bold text-[#111827] mb-3 group-hover:text-primary-600 transition-colors">Insurance Terms Glossary</h3>
-        <p class="text-lg text-text-muted">Plain-English definitions of complex insurance vocabulary.</p>
-      </a>
+        <!-- Card 3 (Comparisons) -->
+        <a href="/resources/comparisons" class="card-hover p-12 group">
+          <div class="text-5xl mb-6">⚖️</div>
+          <h3 class="text-3xl font-black text-[#082142] mb-4 group-hover:text-[#00808C] transition-colors">Public vs. Private</h3>
+          <p class="text-lg text-slate-500 font-medium">The critical difference between public adjusters and your insurance company's "staff" adjusters.</p>
+        </a>
 
-      <!-- Card 3 (Comparisons) -->
-      <a href="/resources/comparisons" class="card-surface group hover:border-primary-300">
-        <div class="text-4xl mb-4">⚖️</div>
-        <h3 class="text-2xl font-bold text-[#111827] mb-3 group-hover:text-primary-600 transition-colors">Us vs. Them</h3>
-        <p class="text-lg text-text-muted">Detailed comparisons between public adjusters and insurance company adjusters.</p>
-      </a>
-
-      <!-- Card 4 (Legal Rights) -->
-      <a href="/resources/rights" class="card-surface group hover:border-primary-300">
-        <div class="text-4xl mb-4">🛡️</div>
-        <h3 class="text-2xl font-bold text-[#111827] mb-3 group-hover:text-primary-600 transition-colors">Florida Policyholder Rights</h3>
-        <p class="text-lg text-text-muted">Understand your legal protections under Florida state law.</p>
-      </a>
+        <!-- Card 4 (Legal Rights) -->
+        <a href="/resources/rights" class="card-hover p-12 group">
+          <div class="text-5xl mb-6">🛡️</div>
+          <h3 class="text-3xl font-black text-[#082142] mb-4 group-hover:text-[#00808C] transition-colors">FL Policyholder Rights</h3>
+          <p class="text-lg text-slate-500 font-medium">Understand your legal protections and mandatory timeframes under Florida State Insurance Law.</p>
+        </a>
+      </div>
     </div>
   </section>
 
   <!-- 3. Featured AEO Answers -->
-  <section class="bg-primary-50 py-24 border-t border-primary-100">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl md:text-4xl font-extrabold text-[#111827] mb-12 text-center">
-        Instant Answers to Common Questions.
-      </h2>
+  <section class="section-muted border-t border-slate-200">
+    <div class="section-inner">
+      <div class="text-center mb-16">
+        <span class="eyebrow">Quick Knowledge</span>
+        <h2 class="section-heading">Instant Professional Answers.</h2>
+      </div>
 
-      <div class="space-y-8">
-        <!-- Block 1 -->
-        <div class="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm relative overflow-hidden">
-          <div class="absolute left-0 top-0 bottom-0 w-1.5 bg-accent-500"></div>
-          <h3 class="text-xl font-bold text-primary-700 mb-4">What is an Estimated Maximum Loss (EML)?</h3>
-          <p class="text-lg text-[#111827] leading-relaxed">
-            <span class="font-bold text-slate-500 uppercase text-xs tracking-wider block mb-1">Definition:</span>
-            EML is the highest potential financial loss a property could suffer from a single event. Claim Guardians calculates your EML to prevent the insurance company from capping your payout.
+      <div class="grid grid-cols-1 gap-8 max-w-4xl mx-auto">
+        <div class="bg-white rounded-3xl p-10 border-2 border-slate-100 shadow-sm relative overflow-hidden group hover:border-[#00808C] transition-colors">
+          <div class="absolute left-0 top-0 bottom-0 w-2 bg-[#00B5A6]"></div>
+          <h3 class="text-2xl font-black text-[#082142] mb-6">What is an Estimated Maximum Loss (EML)?</h3>
+          <p class="text-lg text-slate-500 leading-relaxed font-medium">
+            <span class="font-black text-[#00808C] uppercase text-xs tracking-widest block mb-2">Technical Definition</span>
+            EML is the highest potential financial loss a property could suffer from a single event. Claim Guardians calculates your EML to prevent the insurance company from capping your payout prematurely.
           </p>
         </div>
 
-        <!-- Block 2 -->
-        <div class="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm relative overflow-hidden">
-          <div class="absolute left-0 top-0 bottom-0 w-1.5 bg-accent-500"></div>
-          <h3 class="text-xl font-bold text-primary-700 mb-4">What is the Saffir-Simpson Scale?</h3>
-          <p class="text-lg text-[#111827] leading-relaxed">
-            <span class="font-bold text-slate-500 uppercase text-xs tracking-wider block mb-1">Definition:</span>
-            The Saffir-Simpson Hurricane Wind Scale classifies hurricanes from Category 1 to 5 based on sustained wind speed. Claim Guardians uses this data to prove the severity of your wind damage.
+        <div class="bg-white rounded-3xl p-10 border-2 border-slate-100 shadow-sm relative overflow-hidden group hover:border-[#00808C] transition-colors">
+          <div class="absolute left-0 top-0 bottom-0 w-2 bg-[#00B5A6]"></div>
+          <h3 class="text-2xl font-black text-[#082142] mb-6">What is the Saffir-Simpson Scale?</h3>
+          <p class="text-lg text-slate-500 leading-relaxed font-medium">
+            <span class="font-black text-[#00808C] uppercase text-xs tracking-widest block mb-2">Technical Definition</span>
+            The Saffir-Simpson Hurricane Wind Scale classifies hurricanes from Category 1 to 5 based on sustained wind speed. Claim Guardians uses this data to prove the severity of your wind damage to insurers.
           </p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- 4. Final CTA -->
+  <section class="gradient-accent-bar section-white text-center">
+    <div class="section-inner">
+      <h2 class="section-heading mb-6">Empower Your Claim with Professional Expertise.</h2>
+      <p class="text-xl text-slate-500 mb-10 font-medium max-w-2xl mx-auto">
+        Don't let them win with legal jargon. Let Claim Guardians handle the technical battle for you.
+      </p>
+      <a href="/free-claim-review" class="btn-accent px-12 py-5 text-2xl min-h-[64px]">Secure Your Full Check →</a>
     </div>
   </section>
 
