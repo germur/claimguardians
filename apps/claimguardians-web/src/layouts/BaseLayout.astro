@@ -16,6 +16,7 @@ const { title, description } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
     <meta name="description" content={description} />
     <title>{title}</title>
+    <link rel="icon" type="image/png" href="/favicon Claims.png" />
     
     {/* JSON-LD Schema Placeholder */}
     <script type="application/ld+json">
@@ -39,42 +40,40 @@ const { title, description } = Astro.props;
     <slot name="head" />
   </head>
   <body class="bg-base-bg text-text-main font-sans antialiased min-h-screen flex flex-col">
-    <!-- 1. Global Header (Premium 2026 Glassmorphism) -->
-    <header class="sticky top-0 z-50 bg-[#002D51]/90 backdrop-blur-xl border-b border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.1)] supports-[backdrop-filter]:bg-[#002D51]/60">
-      <div class="absolute inset-0 bg-gradient-to-r from-transparent via-[#00808C]/10 to-transparent pointer-events-none"></div>
+    <!-- 1. Global Header (Premium 2026 White Glassmorphism) -->
+    <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-2xl border-b border-slate-200 shadow-sm supports-[backdrop-filter]:bg-white/60">
+      <div class="absolute inset-0 bg-gradient-to-r from-transparent via-[#00808C]/5 to-transparent pointer-events-none"></div>
       <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-24 flex justify-between items-center relative z-10">
         
         <!-- Logo -->
         <a href="/" class="flex items-center gap-3 font-extrabold text-2xl text-white tracking-tight group">
-          <div class="bg-white px-3 py-1.5 rounded-lg shadow-lg group-hover:shadow-[0_0_20px_-5px_#00B5A6] transition-all duration-300 group-hover:scale-105">
-            <img src="/images/logo-color.svg" alt="Claim Guardians Logo" class="h-10 w-auto" />
-          </div>
+          <img src="/images/logo SVG.svg" alt="Claim Guardians Logo" class="h-12 w-auto transition-all duration-300 group-hover:scale-105" />
         </a>
         
         <!-- Desktop Links -->
         <div class="hidden md:flex items-center space-x-1">
-          <a href="/services" class="px-4 py-2 text-sm font-semibold text-slate-300 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-200">Services</a>
-          <a href="/service-areas" class="px-4 py-2 text-sm font-semibold text-slate-300 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-200">Areas We Serve</a>
-          <a href="/resources" class="px-4 py-2 text-sm font-semibold text-slate-300 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-200">Resources & FAQ</a>
-          <a href="/company" class="px-4 py-2 text-sm font-semibold text-[#00B5A6] hover:text-white hover:bg-white/10 rounded-lg transition-all duration-200">Our Firm</a>
+          <a href="/services" class="px-4 py-2 text-sm font-bold text-slate-600 hover:text-[#00808C] hover:bg-slate-50 rounded-lg transition-all duration-200">Services</a>
+          <a href="/service-areas" class="px-4 py-2 text-sm font-bold text-slate-600 hover:text-[#00808C] hover:bg-slate-50 rounded-lg transition-all duration-200">Areas We Serve</a>
+          <a href="/resources" class="px-4 py-2 text-sm font-bold text-slate-600 hover:text-[#00808C] hover:bg-slate-50 rounded-lg transition-all duration-200">Resources & FAQ</a>
+          <a href="/company" class="px-4 py-2 text-sm font-bold text-[#00808C] hover:text-[#00B5A6] hover:bg-slate-50 rounded-lg transition-all duration-200">Our Firm</a>
         </div>
 
         <!-- CTA Button & Mobile Toggle -->
         <div class="flex items-center gap-4">
-          <a href="tel:5551234567" class="hidden lg:flex items-center gap-2 text-sm font-bold text-white hover:text-[#00B5A6] transition-colors mr-2">
+          <a href="tel:5551234567" class="hidden lg:flex items-center gap-2 text-sm font-black text-[#002D51] hover:text-[#00808C] transition-colors mr-2">
             <span class="relative flex h-3 w-3">
               <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00B5A6] opacity-75"></span>
               <span class="relative inline-flex rounded-full h-3 w-3 bg-[#00B5A6]"></span>
             </span>
             (555) 123-4567
           </a>
-          <a href="/free-claim-review" class="hidden md:inline-flex justify-center items-center px-6 py-2.5 text-sm font-bold text-white bg-accent-600 rounded-lg shadow-[0_0_20px_-5px_var(--color-brand-teal)] hover:shadow-[0_0_30px_-5px_var(--color-brand-cyan)] transition-all duration-300 hover:-translate-y-0.5 relative overflow-hidden group">
+          <a href="/free-claim-review" class="hidden md:inline-flex justify-center items-center px-6 py-2.5 text-sm font-black text-white bg-[#00808C] rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 relative overflow-hidden group">
             <span class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-[100%] group-hover:animate-[shimmer_1.5s_infinite]"></span>
             <span class="relative">Free Claim Review</span>
           </a>
           
           <!-- Mobile Menu Button -->
-          <button class="md:hidden p-2 text-slate-300 hover:text-white hover:bg-white/10 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-[#00B5A6]">
+          <button class="md:hidden p-2 text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-[#00B5A6]">
             <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
             </svg>
@@ -100,8 +99,12 @@ const { title, description } = Astro.props;
             <p class="text-primary-200 text-lg">Florida's elite private insurance advocates. We force them to pay.</p>
           </div>
           <div class="flex flex-col sm:flex-row gap-4">
-            <a href="/free-claim-review" class="btn-accent px-8 py-4 text-base shadow-[0_0_30px_-5px_var(--color-brand-teal)]">Get Your Free Property Inspection</a>
-            <a href="tel:5551234567" class="btn-secondary !bg-primary-800 !text-white !border-primary-600 hover:!bg-primary-700 hover:!border-primary-500 px-8 py-4 text-base">Call (555) 123-4567</a>
+            <a href="/free-claim-review" class="px-8 py-4 text-sm font-black text-white bg-[#00808C] rounded-xl shadow-[0_10px_30px_-10px_rgba(0,128,140,0.5)] hover:shadow-[0_15px_40px_-10px_rgba(0,128,140,0.6)] hover:-translate-y-1 transition-all duration-300 flex items-center justify-center">
+              Get Your Free Property Inspection
+            </a>
+            <a href="tel:5551234567" class="px-8 py-4 text-sm font-black text-[#00B5A6] border-2 border-[#00B5A6]/30 bg-white/5 hover:bg-[#00B5A6]/10 hover:border-[#00B5A6] rounded-xl transition-all duration-300 flex items-center justify-center">
+              Call (555) 123-4567
+            </a>
           </div>
         </div>
       </div>
@@ -113,20 +116,29 @@ const { title, description } = Astro.props;
           <!-- Column 1: Brand & Trust (Takes up 4 cols) -->
           <div class="lg:col-span-4 space-y-8">
             <a href="/" class="inline-block mb-2 group">
-              <img src="/images/logo-white.jpeg" alt="Claim Guardians Logo" class="h-16 w-auto object-contain mix-blend-screen group-hover:scale-105 transition-transform" />
+              <img src="/images/logo SVG.svg" alt="Claim Guardians Logo" class="h-16 w-auto object-contain brightness-0 invert group-hover:scale-105 transition-transform" />
             </a>
             <p class="text-sm leading-relaxed text-slate-400">
-              Claim Guardians LLC is a licensed Florida Public Adjusting firm dedicated strictly to the policyholder. We do not work for insurance companies. We leverage forensic engineers, meteorologists, and policy loopholes to maximize your settlement.
+              Claim Guardians LLC is a licensed Florida Public Adjusting firm dedicated strictly to the policyholder. We leverage forensic technology and policy expertise to maximize your settlement.
             </p>
             
             <div class="flex items-center gap-4 pt-4 border-t border-primary-800">
-              <div class="h-12 w-24 bg-primary-800 rounded flex items-center justify-center font-bold text-xs text-slate-400 border border-primary-700">FAPIA</div>
-              <div class="h-12 w-24 bg-primary-800 rounded flex items-center justify-center font-bold text-xs text-slate-400 border border-primary-700">BBB A+</div>
-              <div class="h-12 w-24 bg-primary-800 rounded flex items-center justify-center font-bold text-xs text-slate-400 border border-primary-700">FL Lic.</div>
+              <div class="h-14 w-28 bg-primary-800/50 rounded-xl flex flex-col items-center justify-center border border-primary-700">
+                <span class="text-[10px] font-black text-[#00B5A6] uppercase tracking-tighter">Florida DFS</span>
+                <span class="text-xs font-black text-white">LICENSED</span>
+              </div>
+              <div class="h-14 w-28 bg-primary-800/50 rounded-xl flex flex-col items-center justify-center border border-primary-700">
+                <span class="text-[10px] font-black text-[#00B5A6] uppercase tracking-tighter">State of FL</span>
+                <span class="text-xs font-black text-white">BONDED</span>
+              </div>
+              <div class="h-14 w-28 bg-primary-800/50 rounded-xl flex flex-col items-center justify-center border border-primary-700">
+                <span class="text-[10px] font-black text-[#00B5A6] uppercase tracking-tighter">Zero-Risk</span>
+                <span class="text-xs font-black text-white">NO FEE</span>
+              </div>
             </div>
             
             <div class="pt-2">
-              <p class="text-xs font-mono text-[#00B5A6]">Florida DFS License # W123456</p>
+              <p class="text-xs font-black text-slate-500 uppercase tracking-widest">Regulated by the Florida Dept. of Financial Services</p>
             </div>
           </div>
 
@@ -179,7 +191,7 @@ const { title, description } = Astro.props;
         <div class="mt-16 pt-8 border-t border-primary-800 flex flex-col md:flex-row justify-between items-center text-sm text-slate-500">
           <p>&copy; {new Date().getFullYear()} Claim Guardians LLC. All rights reserved.</p>
           <p class="mt-4 md:mt-0">
-            Headquarters: <span class="text-slate-400">123 Adjuster Way, Suite 400, Miami, FL 33101</span>
+            Headquarters: <span class="text-slate-400">10890 NW 17th St Suite 138, Miami, FL 33172</span>
           </p>
         </div>
       </div>

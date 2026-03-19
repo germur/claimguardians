@@ -11,21 +11,96 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       {
         "@context": "https://schema.org",
         "@type": "FAQPage",
-        "mainEntity": [{
-          "@type": "Question",
-          "name": "What is an Estimated Maximum Loss (EML)?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "EML is the highest potential financial loss a property could suffer from a single event. Claim Guardians calculates your EML to prevent the insurance company from capping your payout."
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is a Public Adjuster in Florida?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A public adjuster is a state-licensed insurance professional. Property owners hire public adjusters to represent their financial interests. Claim Guardians evaluates your property damage, files the complex paperwork, and forces the insurance company to pay your maximum settlement. We work exclusively for you, not the insurer."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is Claim Guardians licensed in Florida?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Claim Guardians holds active public adjusting licenses from the Florida Department of Financial Services (FLDFS). Our team strictly follows Florida state insurance regulations. Clients can verify our active credentials and state licenses directly through the official FLDFS website."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why should I trust Claim Guardians with my property claim?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Claim Guardians employs state-certified property damage experts. Our adjusters leverage deep Florida insurance industry experience. We provide transparent communication, document every piece of hidden damage using advanced technology, and fight aggressively against unfair insurance company tactics to protect your financial future."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does the Claim Guardians process work?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Claim Guardians simplifies the insurance claim process into three steps. First, our experts inspect your property for free. Second, our team files your claim and negotiates directly with the insurance adjuster. Finally, you receive your maximum financial settlement check."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How long does a property damage claim take in Florida?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Claim duration depends on the damage severity and the insurance company's response time. Claim Guardians expedites the process by submitting accurate, undeniable damage documentation from day one. We consistently pressure the insurance company to meet Florida’s strict statutory payment deadlines."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I hire Claim Guardians if my insurance claim was denied?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Property owners frequently hire Claim Guardians to appeal denied or underpaid insurance claims. Our licensed adjusters reopen closed claims, provide new structural evidence, and demand fair compensation from the insurance company. We routinely reverse unfair claim denials."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How much does a public adjuster cost in Florida?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Claim Guardians charges $0 in upfront fees. Clients pay a contingency fee only after they receive their settlement check. Florida state law legally caps public adjuster fees at 20% for standard claims and 10% during declared state emergencies."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do public adjuster fees reduce my final insurance payout?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Claim Guardians deducts the contingency fee from your final settlement. However, our experts typically negotiate significantly higher payouts than the initial insurance offers. Most clients receive more net money by using our services than by fighting the insurance company alone."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Will hiring a public adjuster get my insurance policy canceled?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Florida law protects your right to hire a public adjuster. Insurance companies cannot legally cancel your policy simply because you hired professional representation. Claim Guardians protects your rights and ensures the insurer honors your policy contract."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What areas in Florida does Claim Guardians serve?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Claim Guardians serves property owners across the entire state of Florida. Our local adjusters quickly respond to claims in Miami, Fort Lauderdale, Orlando, Tampa, and Fort Myers. We dispatch experts immediately after hurricanes, fires, or sudden water damage events."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What should I do immediately after property damage?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Property owners must stop the source of damage and document the scene with photos. Next, you should contact Claim Guardians before calling your insurance company. Our adjusters will guide your initial steps to prevent accidental claim denials or recorded misstatements."
+            }
           }
-        }, {
-          "@type": "Question",
-          "name": "What is the Saffir-Simpson Scale?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "The Saffir-Simpson Hurricane Wind Scale classifies hurricanes from Category 1 to 5 based on sustained wind speed. Claim Guardians uses this data to prove the severity of your wind damage."
-          }
-        }]
+        ]
       }
     </script>
   </Fragment>
@@ -33,8 +108,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   <!-- 1. Hero Section -->
   <header class="relative bg-[#041224] overflow-hidden" style="padding-top:8rem; padding-bottom:8rem;">
     <div class="absolute inset-0 z-0">
-      <img src="/images/hero-city-florida.png" alt="Florida city skyline - Claim Guardians resources" class="w-full h-full object-cover opacity-25 scale-105" />
-      <div class="absolute inset-0 bg-gradient-to-b from-[#041224]/85 via-[#002D51]/65 to-[#041224]"></div>
+      <img src="/images/hero-city-florida.png" alt="Florida city skyline - Claim Guardians resources" class="w-full h-full object-cover opacity-60 scale-105" />
+      <div class="absolute inset-0 bg-gradient-to-b from-[#041224]/40 via-[#002D51]/20 to-[#041224]"></div>
     </div>
     
     <div class="section-inner relative z-10 text-center">
@@ -105,32 +180,116 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     </div>
   </section>
 
-  <!-- 3. Featured AEO Answers -->
-  <section class="section-muted border-t border-slate-200">
+  <!-- 3. Categorized FAQ (High Authority) -->
+  <section id="faq" class="section-muted border-t border-slate-200">
     <div class="section-inner">
       <div class="text-center mb-16">
-        <span class="eyebrow">Quick Knowledge</span>
-        <h2 class="section-heading">Instant Professional Answers.</h2>
+        <span class="eyebrow">Expert Audit</span>
+        <h2 class="section-heading text-[#082142]">Knowledge is Payout Power.</h2>
+        <p class="text-slate-500 mt-4 max-w-2xl mx-auto font-medium">Clear, state-regulated answers to the most common Florida insurance claim questions.</p>
       </div>
 
-      <div class="grid grid-cols-1 gap-8 max-w-4xl mx-auto">
-        <div class="bg-white rounded-3xl p-10 border-2 border-slate-100 shadow-sm relative overflow-hidden group hover:border-[#00808C] transition-colors">
-          <div class="absolute left-0 top-0 bottom-0 w-2 bg-[#00B5A6]"></div>
-          <h3 class="text-2xl font-black text-[#082142] mb-6">What is an Estimated Maximum Loss (EML)?</h3>
-          <p class="text-lg text-slate-500 leading-relaxed font-medium">
-            <span class="font-black text-[#00808C] uppercase text-xs tracking-widest block mb-2">Technical Definition</span>
-            EML is the highest potential financial loss a property could suffer from a single event. Claim Guardians calculates your EML to prevent the insurance company from capping your payout prematurely.
-          </p>
+      <div class="space-y-24 max-w-4xl mx-auto">
+        
+        <!-- Category 1: Trust & Credibility -->
+        <div>
+          <div class="flex items-center gap-4 mb-10">
+            <div class="h-px flex-grow bg-slate-200"></div>
+            <h3 class="text-sm font-black uppercase tracking-[0.3em] text-[#00808C] whitespace-nowrap">Trust & Credibility (E-E-A-T)</h3>
+            <div class="h-px flex-grow bg-slate-200"></div>
+          </div>
+          <div class="space-y-8">
+            <div class="bg-white rounded-3xl p-10 border-2 border-slate-100 shadow-sm relative overflow-hidden group hover:border-[#00808C] transition-all">
+              <div class="absolute left-0 top-0 bottom-0 w-2 bg-[#00B5A6]"></div>
+              <h4 class="text-2xl font-black text-[#082142] mb-6">1. What is a Public Adjuster in Florida?</h4>
+              <p class="text-lg text-slate-600 leading-relaxed font-medium">A public adjuster is a state-licensed insurance professional. Property owners hire public adjusters to represent their financial interests. Claim Guardians evaluates your property damage, files the complex paperwork, and forces the insurance company to pay your maximum settlement. We work exclusively for you, not the insurer.</p>
+            </div>
+            <div class="bg-white rounded-3xl p-10 border-2 border-slate-100 shadow-sm relative overflow-hidden group hover:border-[#00808C] transition-all">
+              <div class="absolute left-0 top-0 bottom-0 w-2 bg-[#00B5A6]"></div>
+              <h4 class="text-2xl font-black text-[#082142] mb-6">2. Is Claim Guardians licensed in Florida?</h4>
+              <p class="text-lg text-slate-600 leading-relaxed font-medium">Yes. Claim Guardians holds active public adjusting licenses from the Florida Department of Financial Services (FLDFS). Our team strictly follows Florida state insurance regulations. Clients can verify our active credentials and state licenses directly through the official FLDFS website.</p>
+            </div>
+            <div class="bg-white rounded-3xl p-10 border-2 border-slate-100 shadow-sm relative overflow-hidden group hover:border-[#00808C] transition-all">
+              <div class="absolute left-0 top-0 bottom-0 w-2 bg-[#00B5A6]"></div>
+              <h4 class="text-2xl font-black text-[#082142] mb-6">3. Why should I trust Claim Guardians with my property claim?</h4>
+              <p class="text-lg text-slate-600 leading-relaxed font-medium">Claim Guardians employs state-certified property damage experts. Our adjusters leverage deep Florida insurance industry experience. We provide transparent communication, document every piece of hidden damage using advanced technology, and fight aggressively against unfair insurance company tactics to protect your financial future.</p>
+            </div>
+          </div>
         </div>
 
-        <div class="bg-white rounded-3xl p-10 border-2 border-slate-100 shadow-sm relative overflow-hidden group hover:border-[#00808C] transition-colors">
-          <div class="absolute left-0 top-0 bottom-0 w-2 bg-[#00B5A6]"></div>
-          <h3 class="text-2xl font-black text-[#082142] mb-6">What is the Saffir-Simpson Scale?</h3>
-          <p class="text-lg text-slate-500 leading-relaxed font-medium">
-            <span class="font-black text-[#00808C] uppercase text-xs tracking-widest block mb-2">Technical Definition</span>
-            The Saffir-Simpson Hurricane Wind Scale classifies hurricanes from Category 1 to 5 based on sustained wind speed. Claim Guardians uses this data to prove the severity of your wind damage to insurers.
-          </p>
+        <!-- Category 2: Process & Value -->
+        <div>
+          <div class="flex items-center gap-4 mb-10">
+            <div class="h-px flex-grow bg-slate-200"></div>
+            <h3 class="text-sm font-black uppercase tracking-[0.3em] text-[#00808C] whitespace-nowrap">Process & Value</h3>
+            <div class="h-px flex-grow bg-slate-200"></div>
+          </div>
+          <div class="space-y-8">
+            <div class="bg-white rounded-3xl p-10 border-2 border-slate-100 shadow-sm relative overflow-hidden group hover:border-[#00808C] transition-all">
+              <div class="absolute left-0 top-0 bottom-0 w-2 bg-[#00B5A6]"></div>
+              <h4 class="text-2xl font-black text-[#082142] mb-6">4. How does the Claim Guardians process work?</h4>
+              <p class="text-lg text-slate-600 leading-relaxed font-medium">Claim Guardians simplifies the insurance claim process into three steps. First, our experts inspect your property for free. Second, our team files your claim and negotiates directly with the insurance adjuster. Finally, you receive your maximum financial settlement check.</p>
+            </div>
+            <div class="bg-white rounded-3xl p-10 border-2 border-slate-100 shadow-sm relative overflow-hidden group hover:border-[#00808C] transition-all">
+              <div class="absolute left-0 top-0 bottom-0 w-2 bg-[#00B5A6]"></div>
+              <h4 class="text-2xl font-black text-[#082142] mb-6">5. How long does a property damage claim take in Florida?</h4>
+              <p class="text-lg text-slate-600 leading-relaxed font-medium">Claim duration depends on the damage severity and the insurance company's response time. Claim Guardians expedites the process by submitting accurate, undeniable damage documentation from day one. We consistently pressure the insurance company to meet Florida’s strict statutory payment deadlines.</p>
+            </div>
+            <div class="bg-white rounded-3xl p-10 border-2 border-slate-100 shadow-sm relative overflow-hidden group hover:border-[#00808C] transition-all">
+              <div class="absolute left-0 top-0 bottom-0 w-2 bg-[#00B5A6]"></div>
+              <h4 class="text-2xl font-black text-[#082142] mb-6">6. Can I hire Claim Guardians if my insurance claim was denied?</h4>
+              <p class="text-lg text-slate-600 leading-relaxed font-medium">Yes. Property owners frequently hire Claim Guardians to appeal denied or underpaid insurance claims. Our licensed adjusters reopen closed claims, provide new structural evidence, and demand fair compensation from the insurance company. We routinely reverse unfair claim denials.</p>
+            </div>
+          </div>
         </div>
+
+        <!-- Category 3: Costs & Risks -->
+        <div>
+          <div class="flex items-center gap-4 mb-10">
+            <div class="h-px flex-grow bg-slate-200"></div>
+            <h3 class="text-sm font-black uppercase tracking-[0.3em] text-[#00808C] whitespace-nowrap">Costs & Risks</h3>
+            <div class="h-px flex-grow bg-slate-200"></div>
+          </div>
+          <div class="space-y-8">
+            <div class="bg-white rounded-3xl p-10 border-2 border-slate-100 shadow-sm relative overflow-hidden group hover:border-[#00808C] transition-all">
+              <div class="absolute left-0 top-0 bottom-0 w-2 bg-[#00B5A6]"></div>
+              <h4 class="text-2xl font-black text-[#082142] mb-6">7. How much does a public adjuster cost in Florida?</h4>
+              <p class="text-lg text-slate-600 leading-relaxed font-medium">Claim Guardians charges $0 in upfront fees. Clients pay a contingency fee only after they receive their settlement check. Florida state law legally caps public adjuster fees at 20% for standard claims and 10% during declared state emergencies.</p>
+            </div>
+            <div class="bg-white rounded-3xl p-10 border-2 border-slate-100 shadow-sm relative overflow-hidden group hover:border-[#00808C] transition-all">
+              <div class="absolute left-0 top-0 bottom-0 w-2 bg-[#00B5A6]"></div>
+              <h4 class="text-2xl font-black text-[#082142] mb-6">8. Do public adjuster fees reduce my final insurance payout?</h4>
+              <p class="text-lg text-slate-600 leading-relaxed font-medium">Claim Guardians deducts the contingency fee from your final settlement. However, our experts typically negotiate significantly higher payouts than the initial insurance offers. Most clients receive more net money by using our services than by fighting the insurance company alone.</p>
+            </div>
+            <div class="bg-white rounded-3xl p-10 border-2 border-slate-100 shadow-sm relative overflow-hidden group hover:border-[#00808C] transition-all">
+              <div class="absolute left-0 top-0 bottom-0 w-2 bg-[#00B5A6]"></div>
+              <h4 class="text-2xl font-black text-[#082142] mb-6">9. Will hiring a public adjuster get my insurance policy canceled?</h4>
+              <p class="text-lg text-slate-600 leading-relaxed font-medium">No. Florida law protects your right to hire a public adjuster. Insurance companies cannot legally cancel your policy simply because you hired professional representation. Claim Guardians protects your rights and ensures the insurer honors your policy contract.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Category 4: Urgency & Action -->
+        <div>
+          <div class="flex items-center gap-4 mb-10">
+            <div class="h-px flex-grow bg-slate-200"></div>
+            <h3 class="text-sm font-black uppercase tracking-[0.3em] text-[#00808C] whitespace-nowrap">Urgency & Action</h3>
+            <div class="h-px flex-grow bg-slate-200"></div>
+          </div>
+          <div class="space-y-8">
+            <div class="bg-white rounded-3xl p-10 border-2 border-slate-100 shadow-sm relative overflow-hidden group hover:border-[#00808C] transition-all">
+              <div class="absolute left-0 top-0 bottom-0 w-2 bg-[#00B5A6]"></div>
+              <h4 class="text-2xl font-black text-[#082142] mb-6">10. What areas in Florida does Claim Guardians serve?</h4>
+              <p class="text-lg text-slate-600 leading-relaxed font-medium">Claim Guardians serves property owners across the entire state of Florida. Our local adjusters quickly respond to claims in Miami, Fort Lauderdale, Orlando, Tampa, and Fort Myers. We dispatch experts immediately after hurricanes, fires, or sudden water damage events.</p>
+            </div>
+            <div class="bg-white rounded-3xl p-10 border-2 border-slate-100 shadow-sm relative overflow-hidden group hover:border-[#00808C] transition-all">
+              <div class="absolute left-0 top-0 bottom-0 w-2 bg-[#00B5A6]"></div>
+              <h4 class="text-2xl font-black text-[#082142] mb-6">11. What should I do immediately after property damage?</h4>
+              <p class="text-lg text-slate-600 leading-relaxed font-medium">Property owners must stop the source of damage and document the scene with photos. Next, you should contact Claim Guardians before calling your insurance company. Our adjusters will guide your initial steps to prevent accidental claim denials or recorded misstatements.</p>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>

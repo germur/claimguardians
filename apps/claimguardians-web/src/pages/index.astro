@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import ClaimCalculator from '../components/ClaimCalculator';
 ---
 
 <BaseLayout 
@@ -14,12 +15,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <img 
         src="/images/florida-damaged-house-hero.png" 
         alt="Damaged luxury Florida home after a hurricane" 
-        class="w-full h-full object-cover opacity-35 scale-105"
+        class="w-full h-full object-cover opacity-60 scale-105"
         fetchpriority="high"
         loading="eager"
       />
       <!-- WCAG 2.2 AA Dark Overlay -->
-      <div class="absolute inset-0 bg-gradient-to-b from-[#041224]/90 via-[#002D51]/70 to-[#041224]"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-[#041224]/40 via-[#002D51]/20 to-[#041224]"></div>
     </div>
 
     <div class="section-inner relative z-10">
@@ -46,7 +47,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <div class="flex flex-wrap items-center gap-x-12 gap-y-6 pt-8 border-t border-white/10">
           <div class="flex items-center gap-3 text-slate-300 font-semibold">
             <span class="text-2xl">🛡️</span>
-            <span class="text-sm md:text-base tracking-wide uppercase">State Licensed Adjusters (FAPIA)</span>
+            <span class="text-sm md:text-base tracking-wide uppercase">Florida DFS Licensed Adjusters</span>
           </div>
           <div class="flex items-center gap-3 text-slate-300 font-semibold">
             <span class="text-2xl">⭐</span>
@@ -269,6 +270,16 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             </ul>
           </div>
         </div>
+      </div>
+
+      <!-- Claim Value Calculator (BOFU Island) -->
+      <div class="mt-24 max-w-4xl mx-auto px-4">
+        <div class="text-center mb-12">
+          <span class="eyebrow">Maximize Your Payout</span>
+          <h2 class="section-heading">Don't settle for your insurer's <span class="text-[#00808C]">low-ball offer.</span></h2>
+          <p class="text-slate-500 mt-4">Calculate the true potential value of your settlement below.</p>
+        </div>
+        <ClaimCalculator client:visible />
       </div>
     </div>
   </section>

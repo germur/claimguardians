@@ -35,8 +35,8 @@ import LeadForm from '../components/LeadForm';
   <!-- 1. Hero Content Zone -->
   <section class="relative bg-[#041224] overflow-hidden" style="padding-top:6rem; padding-bottom:12rem;">
     <div class="absolute inset-0 z-0">
-      <img src="/images/hero-success.png" alt="Successful insurance settlement check" class="w-full h-full object-cover opacity-20 scale-105" />
-      <div class="absolute inset-0 bg-gradient-to-b from-[#041224]/90 via-[#002D51]/70 to-white"></div>
+      <img src="/images/hero-success.png" alt="Successful insurance settlement check" class="w-full h-full object-cover opacity-60 scale-105" />
+      <div class="absolute inset-0 bg-gradient-to-b from-[#041224]/40 via-[#002D51]/20 to-white"></div>
     </div>
     
     <div class="section-inner relative z-10 text-center">
@@ -91,29 +91,36 @@ import LeadForm from '../components/LeadForm';
           <!-- The Guardians Guarantee -->
           <div class="card-hover p-10">
             <h4 class="text-sm font-black uppercase tracking-[0.2em] text-[#00808C] mb-8 border-b border-slate-100 pb-4">The Guarantee</h4>
-            <ul class="space-y-8">
-              <li class="flex items-start gap-5">
-                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-[#082142] font-black shadow-sm">01</div>
-                <div>
-                  <h5 class="text-lg font-extrabold text-[#082142]">Zero Upfront Costs</h5>
-                  <p class="text-slate-500 font-medium">We only collect a fee after you have your settlement check in hand. No recovery, no fee.</p>
+            <ul class="space-y-6">
+              <li class="flex items-start space-x-4">
+                <div class="flex-shrink-0 mt-1">
+                  <svg class="w-6 h-6 text-[#00B5A6]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                 </div>
-              </li>
-              <li class="flex items-start gap-5">
-                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-[#082142] font-black shadow-sm">02</div>
                 <div>
-                  <h5 class="text-lg font-extrabold text-[#082142]">Licensed &amp; Bonded</h5>
-                  <p class="text-slate-500 font-medium">State-licensed Public Adjusters (FAPIA) working exclusively for policyholders, never the insurer.</p>
-                </div>
-              </li>
-              <li class="flex items-start gap-5">
-                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-[#082142] font-black shadow-sm">03</div>
-                <div>
-                  <h5 class="text-lg font-extrabold text-[#082142]">Forensic Documentation</h5>
                   <p class="text-slate-500 font-medium">We use thermal imaging and moisture meters to prove damage adjusters "missed."</p>
                 </div>
               </li>
+              <li class="flex items-start space-x-4">
+                <div class="flex-shrink-0 mt-1">
+                  <svg class="w-6 h-6 text-[#00B5A6]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </div>
+                <div>
+                  <p class="text-slate-500 font-medium">We handle all communication, paperwork, and negotiations with your insurer.</p>
+                </div>
+              </li>
+              <li class="flex items-start space-x-4">
+                <div class="flex-shrink-0 mt-1">
+                  <svg class="w-6 h-6 text-[#00B5A6]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </div>
+                <div>
+                  <p class="text-slate-500 font-medium">You pay nothing unless we win your claim. Zero upfront fees.</p>
+                </div>
+              </li>
             </ul>
+            <div class="pt-8 border-t border-slate-100 mt-8">
+              <p class="text-sm font-black text-[#082142] mb-1">Claim Guardians HQ</p>
+              <p class="text-sm text-slate-500">10890 NW 17th St Suite 138<br/>Miami, FL 33172</p>
+            </div>
           </div>
 
         </div>
@@ -124,12 +131,12 @@ import LeadForm from '../components/LeadForm';
   <!-- 3. Bottom Proof Banner -->
   <section class="section-muted border-t border-slate-200">
     <div class="section-inner text-center">
-      <p class="text-sm font-bold text-slate-400 uppercase tracking-widest mb-8">Claim Guardians is Trusted by Thousands Across Florida</p>
-      <div class="flex flex-wrap justify-center items-center gap-12 grayscale opacity-40">
-        <div class="h-12 w-32 bg-slate-300 rounded flex items-center justify-center font-bold">FL DEPT FINANCE</div>
-        <div class="h-12 w-24 bg-slate-300 rounded flex items-center justify-center font-bold">FAPIA</div>
-        <div class="h-12 w-24 bg-slate-300 rounded flex items-center justify-center font-bold">BBB A+</div>
-        <div class="h-12 w-32 bg-slate-300 rounded flex items-center justify-center font-bold">NAPIA</div>
+      <p class="text-sm font-bold text-slate-400 uppercase tracking-widest mb-8">Florida's Dedicated Policyholder Advocates</p>
+      <div class="flex flex-wrap justify-center items-center gap-12 text-[#082142] font-black opacity-40">
+        <div class="h-12 px-6 bg-slate-100 rounded flex items-center justify-center">DFS LICENSED</div>
+        <div class="h-12 px-6 bg-slate-100 rounded flex items-center justify-center">STATE REGULATED</div>
+        <div class="h-12 px-6 bg-slate-100 rounded flex items-center justify-center">BONDED</div>
+        <div class="h-12 px-6 bg-slate-100 rounded flex items-center justify-center">NO-FEE GUARANTEE</div>
       </div>
     </div>
   </section>

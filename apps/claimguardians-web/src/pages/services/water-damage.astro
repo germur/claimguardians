@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import ClaimCalculator from '../../components/ClaimCalculator';
+import EligibilityTest from '../../components/EligibilityTest';
 ---
 
 <BaseLayout 
@@ -41,8 +43,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   <!-- 1. Hero -->
   <header class="relative bg-[#041224] overflow-hidden" style="padding-top:8rem; padding-bottom:8rem;">
     <div class="absolute inset-0 z-0">
-      <img src="/images/hero-water-damage.png" alt="Water damage to a Florida property" class="w-full h-full object-cover opacity-35 scale-105" fetchpriority="high" loading="eager"/>
-      <div class="absolute inset-0 bg-gradient-to-b from-[#041224]/85 via-[#002D51]/65 to-[#041224]"></div>
+      <img src="/images/hero-water-damage.png" alt="Water damage to a Florida property" class="w-full h-full object-cover opacity-60 scale-105" fetchpriority="high" loading="eager"/>
+      <div class="absolute inset-0 bg-gradient-to-b from-[#041224]/40 via-[#002D51]/20 to-[#041224]"></div>
     </div>
     <div class="section-inner relative z-10">
       <nav aria-label="Breadcrumb" class="mb-10 inline-flex">
@@ -69,10 +71,22 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
             Call a Water Expert Now
           </a>
         </div>
-        <div class="flex flex-wrap items-center gap-x-10 gap-y-4 pt-6 border-t border-white/10">
-          <div class="flex items-center gap-2 text-slate-300 font-semibold text-sm"><span class="text-[#00B5A6]">✓</span> FAPIA Licensed</div>
-          <div class="flex items-center gap-2 text-slate-300 font-semibold text-sm"><span class="text-[#00B5A6]">✓</span> No Recovery, No Fee</div>
-          <div class="flex items-center gap-2 text-slate-300 font-semibold text-sm"><span class="text-[#00B5A6]">✓</span> Thermal Imaging Experts</div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 grayscale opacity-60">
+        <div class="flex flex-col items-center gap-2">
+          <span class="text-2xl">🏛️</span>
+          <span class="text-[10px] uppercase font-black tracking-widest text-slate-400">DFS Licensed</span>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <span class="text-2xl">🛡️</span>
+          <span class="text-[10px] uppercase font-black tracking-widest text-slate-400">Policyholder Advocacy</span>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <span class="text-2xl">⚖️</span>
+          <span class="text-[10px] uppercase font-black tracking-widest text-slate-400">State Bonded</span>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <span class="text-2xl">💰</span>
+          <span class="text-[10px] uppercase font-black tracking-widest text-slate-400">No-Fee Guarantee</span>
         </div>
       </div>
     </div>
@@ -152,6 +166,18 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     </div>
   </section>
 
+  <!-- Claim Value Calculator (BOFU Island) -->
+  <section class="section-white overflow-hidden">
+    <div class="section-inner">
+      <div class="text-center mb-12">
+        <span class="eyebrow">Water Damage Recovery</span>
+        <h2 class="section-heading">Calculate Your True Payout <span class="text-[#00808C]">After a Leak.</span></h2>
+      </div>
+      <ClaimCalculator client:visible />
+    </div>
+  </section>
+
+
   <!-- 5. FAQs -->
   <section class="section-white">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -191,7 +217,19 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     </div>
   </section>
 
+  <!-- Eligibility Test (BOFU Island) -->
+  <section class="section-muted border-t border-slate-100">
+    <div class="section-inner">
+      <div class="text-center mb-16">
+        <span class="eyebrow">Expert Audit</span>
+        <h2 class="section-heading">Qualify Your Water Claim For <span class="text-[#00808C]">a 100% Free Review.</span></h2>
+      </div>
+      <EligibilityTest client:visible />
+    </div>
+  </section>
+
   <!-- 6. Service Area Link -->
+
   <section class="gradient-accent-bar section-white text-center">
     <div class="section-inner">
       <span class="eyebrow">Coverage</span>

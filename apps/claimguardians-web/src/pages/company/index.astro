@@ -4,7 +4,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 <BaseLayout 
   title="Claim Guardians | Company & EEAT Credentials" 
-  description="We work exclusively for property owners to protect your financial future. Florida-licensed, BBB A+ rated public adjusters."
+  description="We work exclusively for property owners to protect your financial future. Florida-licensed, DFS-regulated public adjusters."
 >
   <Fragment slot="head">
     <script type="application/ld+json">
@@ -40,11 +40,11 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       <img 
         src="/images/hero-team-adjusters.png" 
         alt="Claim Guardians public adjusters team inspecting property damage in Florida" 
-        class="w-full h-full object-cover opacity-25 scale-105" 
+        class="w-full h-full object-cover opacity-60 scale-105" 
         fetchpriority="high"
         loading="eager"
       />
-      <div class="absolute inset-0 bg-gradient-to-b from-[#041224]/85 via-[#002D51]/65 to-[#041224]"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-[#041224]/40 via-[#002D51]/20 to-[#041224]"></div>
     </div>
     
     <div class="section-inner relative z-10 text-center">
@@ -113,13 +113,22 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       <span class="eyebrow">Proven Authority</span>
       <h2 class="section-heading mb-8">State-Licensed and Certified Experts.</h2>
       <p class="text-xl text-slate-500 leading-relaxed mb-16 max-w-3xl mx-auto font-medium">
-        Florida strictly regulates public adjusters. Claim Guardians holds active licenses from the Florida Department of Financial Services. Our team members belong to the Florida Association of Public Insurance Adjusters (FAPIA).
+        Florida strictly regulates public adjusters. Claim Guardians holds active licenses from the Florida Department of Financial Services (DFS). Our team members are strictly policyholder advocates dedicated to your recovery.
       </p>
 
-      <div class="flex flex-wrap justify-center items-center gap-12 grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-500">
-        <div class="h-16 w-32 bg-slate-200 rounded-xl flex items-center justify-center font-bold text-slate-500 shadow-sm">FL Dept. Finance</div>
-        <div class="h-16 w-32 bg-slate-200 rounded-xl flex items-center justify-center font-bold text-slate-500 shadow-sm">FAPIA Member</div>
-        <div class="h-16 w-32 bg-slate-200 rounded-xl flex items-center justify-center font-bold text-slate-500 shadow-sm">BBB A+ Rated</div>
+      <div class="flex flex-wrap justify-center items-center gap-12 text-slate-400 font-black">
+        <div class="flex flex-col items-center gap-2">
+          <span class="text-4xl grayscale">🛡️</span>
+          <span class="text-sm uppercase tracking-widest">DFS Licensed</span>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <span class="text-4xl grayscale">⚖️</span>
+          <span class="text-sm uppercase tracking-widest">State Bonded</span>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <span class="text-4xl grayscale">💰</span>
+          <span class="text-sm uppercase tracking-widest">No-Fee Guarantee</span>
+        </div>
       </div>
     </div>
   </section>

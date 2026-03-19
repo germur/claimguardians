@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import ClaimCalculator from '../../components/ClaimCalculator';
+import EligibilityTest from '../../components/EligibilityTest';
 ---
 
 <BaseLayout 
@@ -9,8 +11,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   <!-- 1. Hero -->
   <header class="relative bg-[#041224] overflow-hidden" style="padding-top:8rem; padding-bottom:8rem;">
     <div class="absolute inset-0 z-0">
-      <img src="/images/hero-hurricane-damage.png" alt="Hurricane storm damage to Florida neighborhood" class="w-full h-full object-cover opacity-35 scale-105" fetchpriority="high" loading="eager"/>
-      <div class="absolute inset-0 bg-gradient-to-b from-[#041224]/85 via-[#002D51]/65 to-[#041224]"></div>
+      <img src="/images/hero-hurricane-damage.png" alt="Hurricane storm damage to Florida neighborhood" class="w-full h-full object-cover opacity-60 scale-105" fetchpriority="high" loading="eager"/>
+      <div class="absolute inset-0 bg-gradient-to-b from-[#041224]/40 via-[#002D51]/20 to-[#041224]"></div>
     </div>
     <div class="section-inner relative z-10">
       <nav aria-label="Breadcrumb" class="mb-10 inline-flex">
@@ -35,7 +37,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
           <a href="tel:5551234567" class="inline-flex justify-center items-center px-10 py-5 text-lg font-bold text-white bg-white/5 border-2 border-white/20 rounded-xl hover:bg-white/10 transition-all transform hover:-translate-y-1 min-h-[60px]">Call a Storm Expert Now</a>
         </div>
         <div class="flex flex-wrap items-center gap-x-10 gap-y-4 pt-6 border-t border-white/10">
-          <div class="flex items-center gap-2 text-slate-300 font-semibold text-sm"><span class="text-[#00B5A6]">✓</span> FAPIA Licensed</div>
+          <div class="flex items-center gap-2 text-slate-300 font-semibold text-sm"><span class="text-[#00B5A6]">✓</span> Florida DFS Licensed</div>
           <div class="flex items-center gap-2 text-slate-300 font-semibold text-sm"><span class="text-[#00B5A6]">✓</span> No Recovery, No Fee</div>
           <div class="flex items-center gap-2 text-slate-300 font-semibold text-sm"><span class="text-[#00B5A6]">✓</span> Catastrophic Loss Specialists</div>
         </div>
@@ -89,12 +91,44 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
             <span class="text-green-600 font-black text-4xl tracking-tighter">$198,500</span>
           </div>
         </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 grayscale opacity-60">
+        <div class="flex flex-col items-center gap-2">
+          <span class="text-2xl">🏛️</span>
+          <span class="text-[10px] uppercase font-black tracking-widest text-slate-400">DFS Licensed</span>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <span class="text-2xl">🛡️</span>
+          <span class="text-[10px] uppercase font-black tracking-widest text-slate-400">Policyholder Advocacy</span>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <span class="text-2xl">⚖️</span>
+          <span class="text-[10px] uppercase font-black tracking-widest text-slate-400">State Bonded</span>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <span class="text-2xl">💰</span>
+          <span class="text-[10px] uppercase font-black tracking-widest text-slate-400">No-Fee Guarantee</span>
+        </div>
+      </div>
         <div class="bg-slate-50 -mx-10 -mb-10 p-10 rounded-b-3xl">
           <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">Action Taken</h4>
           <p class="text-xl font-medium text-[#082142] leading-relaxed">We documented full structural displacement and forced coverage for complete rebuild under Florida's Valued Policy Law.</p>
         </div>
       </div>
+
+      <div class="mt-24 max-w-4xl mx-auto">
+        <ClaimCalculator client:visible />
+      </div>
     </div>
+  </section>
+
+  <section class="section-white border-t border-slate-100">
+     <div class="section-inner">
+       <div class="text-center mb-16">
+         <span class="eyebrow">Storm Damage Review</span>
+         <h2 class="section-heading">Qualify Your Hurricane Claim For <span class="text-[#00808C]">a Legal Audit.</span></h2>
+       </div>
+       <EligibilityTest client:visible />
+     </div>
   </section>
 
   <!-- 4. Final CTA -->
