@@ -7,8 +7,12 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   description="Insurers minimize hurricane payouts. Claim Guardians forces them to cover full wind, hail, and structural damage across Florida. Zero upfront fees."
 >
   <!-- 1. Hero -->
-  <header class="section-dark" style="padding-top:8rem; padding-bottom:8rem;">
-    <div class="section-inner">
+  <header class="relative bg-[#041224] overflow-hidden" style="padding-top:8rem; padding-bottom:8rem;">
+    <div class="absolute inset-0 z-0">
+      <img src="/images/hero-hurricane-damage.png" alt="Hurricane storm damage to Florida neighborhood" class="w-full h-full object-cover opacity-35 scale-105" fetchpriority="high" loading="eager"/>
+      <div class="absolute inset-0 bg-gradient-to-b from-[#041224]/85 via-[#002D51]/65 to-[#041224]"></div>
+    </div>
+    <div class="section-inner relative z-10">
       <nav aria-label="Breadcrumb" class="mb-10 inline-flex">
         <ol class="flex items-center space-x-2 text-sm text-slate-400 font-medium bg-white/5 px-4 py-2 rounded-full border border-white/10">
           <li><a href="/" class="hover:text-white transition-colors">Home</a></li>
