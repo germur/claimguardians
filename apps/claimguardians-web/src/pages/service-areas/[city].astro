@@ -2,30 +2,37 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
 export async function getStaticPaths() {
-  const floridaCities = [
-    { city: "Miami", county: "Miami-Dade County", localRisk: "hurricane and flood", zipCodes: ["33101", "33129", "33132"] },
-    { city: "Fort Lauderdale", county: "Broward County", localRisk: "hurricane and severe storm", zipCodes: ["33301", "33304", "33316"] },
-    { city: "West Palm Beach", county: "Palm Beach County", localRisk: "windstorm and hurricane", zipCodes: ["33401", "33405", "33409"] },
-    { city: "Boca Raton", county: "Palm Beach County", localRisk: "storm and water", zipCodes: ["33431", "33432", "33486"] },
-    { city: "Orlando", county: "Orange County", localRisk: "tornado and sinkhole", zipCodes: ["32801", "32803", "32804"] },
-    { city: "Tampa", county: "Hillsborough County", localRisk: "flood and severe storm", zipCodes: ["33602", "33606", "33609"] },
-    { city: "Fort Myers", county: "Lee County", localRisk: "catastrophic hurricane and storm surge", zipCodes: ["33901", "33916", "33919"] },
-    { city: "Naples", county: "Collier County", localRisk: "hurricane and wind", zipCodes: ["34102", "34103", "34105"] },
-    { city: "Jacksonville", county: "Duval County", localRisk: "windstorm and flood", zipCodes: ["32202", "32204", "32207"] }
+  const serviceCities = [
+    // Florida
+    { city: "Miami", county: "Miami-Dade County", stateCode: "FL", stateName: "Florida", localRisk: "hurricane and flood", zipCodes: ["33101", "33129", "33132"] },
+    { city: "Fort Lauderdale", county: "Broward County", stateCode: "FL", stateName: "Florida", localRisk: "hurricane and severe storm", zipCodes: ["33301", "33304", "33316"] },
+    { city: "West Palm Beach", county: "Palm Beach County", stateCode: "FL", stateName: "Florida", localRisk: "windstorm and hurricane", zipCodes: ["33401", "33405", "33409"] },
+    { city: "Boca Raton", county: "Palm Beach County", stateCode: "FL", stateName: "Florida", localRisk: "storm and water", zipCodes: ["33431", "33432", "33486"] },
+    { city: "Orlando", county: "Orange County", stateCode: "FL", stateName: "Florida", localRisk: "tornado and sinkhole", zipCodes: ["32801", "32803", "32804"] },
+    { city: "Tampa", county: "Hillsborough County", stateCode: "FL", stateName: "Florida", localRisk: "flood and severe storm", zipCodes: ["33602", "33606", "33609"] },
+    { city: "Fort Myers", county: "Lee County", stateCode: "FL", stateName: "Florida", localRisk: "catastrophic hurricane and storm surge", zipCodes: ["33901", "33916", "33919"] },
+    { city: "Naples", county: "Collier County", stateCode: "FL", stateName: "Florida", localRisk: "hurricane and wind", zipCodes: ["34102", "34103", "34105"] },
+    { city: "Jacksonville", county: "Duval County", stateCode: "FL", stateName: "Florida", localRisk: "windstorm and flood", zipCodes: ["32202", "32204", "32207"] },
+    
+    // California
+    { city: "Los Angeles", county: "Los Angeles County", stateCode: "CA", stateName: "California", localRisk: "wildfires, smoke damage, and earthquakes", zipCodes: ["90001", "90012", "90014"] },
+    { city: "San Francisco", county: "San Francisco County", stateCode: "CA", stateName: "California", localRisk: "earthquakes and structural damage", zipCodes: ["94102", "94103", "94105"] },
+    { city: "San Diego", county: "San Diego County", stateCode: "CA", stateName: "California", localRisk: "wildfires and coastal flooding", zipCodes: ["92101", "92102", "92103"] },
+    { city: "Sacramento", county: "Sacramento County", stateCode: "CA", stateName: "California", localRisk: "heavy storms and flood damage", zipCodes: ["95814", "95815", "95816"] }
   ];
 
-  return floridaCities.map((data) => ({
+  return serviceCities.map((data) => ({
     params: { city: data.city.toLowerCase().replace(/\s+/g, '-') },
     props: { data },
   }));
 }
 
 const { data } = Astro.props;
-const { city, county, localRisk, zipCodes } = data;
+const { city, county, stateCode, stateName, localRisk, zipCodes } = data;
 ---
 
 <BaseLayout 
-  title={`Public Adjuster in ${city}, FL | Claim Guardians`}
+  title={`Public Adjuster in ${city}, ${stateCode} | Claim Guardians`}
   description={`Claim Guardians maximizes property damage settlements in ${city}, ${county}. We handle ${localRisk} claims for local homeowners and businesses.`}
 >
   <Fragment slot="head">
@@ -39,14 +46,14 @@ const { city, county, localRisk, zipCodes } = data;
       "address": {
         "@type": "PostalAddress",
         "addressLocality": city,
-        "addressRegion": "FL",
+        "addressRegion": stateCode,
         "addressCountry": "US"
       },
       "areaServed": {
         "@type": "GeoCircle",
         "geoMidpoint": {
           "@type": "GeoCoordinates",
-          "description": `${city}, ${county}, Florida`
+          "description": `${city}, ${county}, ${stateName}`
         },
         "geoRadius": "50000"
       },
@@ -61,7 +68,7 @@ const { city, county, localRisk, zipCodes } = data;
   <!-- 1. Localized Hero -->
   <header class="relative bg-[#041224] overflow-hidden" style="padding-top:8rem; padding-bottom:8rem;">
     <div class="absolute inset-0 z-0">
-      <img src="/images/hero-city-florida.png" alt={`${city}, Florida — Claim Guardians service area`} class="w-full h-full object-cover opacity-60 scale-105" fetchpriority="high" loading="eager"/>
+      <img src="/images/hero-city-florida.png" alt={`${city}, ${stateName} — Claim Guardians service area`} class="w-full h-full object-cover opacity-60 scale-105" fetchpriority="high" loading="eager"/>
       <div class="absolute inset-0 bg-gradient-to-b from-[#041224]/40 via-[#002D51]/20 to-[#041224]"></div>
     </div>
     <div class="section-inner relative z-10">
@@ -79,10 +86,10 @@ const { city, county, localRisk, zipCodes } = data;
       <div class="max-w-4xl">
         <span class="eyebrow" style="color:#00B5A6;">Public Adjuster — {county}</span>
         <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-8 leading-[1.1] tracking-tight">
-          Claim Guardians Maximizes Your Property Claim in {city}, FL.
+          Claim Guardians Maximizes Your Property Claim in {city}, {stateCode}.
         </h1>
         <p class="text-xl md:text-2xl text-slate-300 mb-12 leading-relaxed max-w-3xl">
-          Claim Guardians evaluates <strong class="text-white">{localRisk}</strong> damage for properties across {county}. Our local public adjusters force your insurance company to pay what you legally deserve.
+          Claim Guardians evaluates {localRisk} for properties across {county}. Our {stateName}-licensed adjusters force your insurance company to pay your maximum legal settlement.
         </p>
         
         <div class="flex flex-col sm:flex-row gap-5 mb-14">
@@ -100,7 +107,7 @@ const { city, county, localRisk, zipCodes } = data;
             <span class="text-[#00B5A6]">✓</span> Serving all of {county}
           </div>
           <div class="flex items-center gap-3 text-slate-300 font-semibold text-sm">
-            <span class="text-[#00B5A6]">✓</span> Florida DFS Licensed
+            <span class="text-[#00B5A6]">✓</span> {stateName} Licensed
           </div>
           <div class="flex items-center gap-3 text-slate-300 font-semibold text-sm">
             <span class="text-[#00B5A6]">✓</span> No Recovery, No Fee

@@ -208,17 +208,25 @@ const { title, description } = Astro.props;
           <!-- Column 4: Service Areas (Takes up 3 cols) -->
           <div class="lg:col-span-3">
             <h3 class="text-white font-bold mb-6 text-sm uppercase tracking-widest">Coverage Areas</h3>
-            <ul class="space-y-4 text-sm font-medium">
-              <li><a href="/service-areas/miami" class="hover:text-[#00B5A6] transition-colors">Adjusters in Miami</a></li>
-              <li><a href="/service-areas/fort-lauderdale" class="hover:text-[#00B5A6] transition-colors">Adjusters in Fort Lauderdale</a></li>
-              <li><a href="/service-areas/west-palm-beach" class="hover:text-[#00B5A6] transition-colors">Adjusters in West Palm Beach</a></li>
-              <li><a href="/service-areas/orlando" class="hover:text-[#00B5A6] transition-colors">Adjusters in Orlando</a></li>
-              <li><a href="/service-areas/tampa" class="hover:text-[#00B5A6] transition-colors">Adjusters in Tampa</a></li>
-              <li><a href="/service-areas/fort-myers" class="hover:text-[#00B5A6] transition-colors">Adjusters in Fort Myers</a></li>
-            </ul>
+            <div class="grid grid-cols-2 gap-4">
+              <ul class="space-y-4 text-sm font-medium">
+                <li><span class="text-[#00B5A6] font-bold uppercase text-xs tracking-wider">Florida</span></li>
+                <li><a href="/service-areas/miami" class="hover:text-white transition-colors text-slate-400">Miami</a></li>
+                <li><a href="/service-areas/fort-lauderdale" class="hover:text-white transition-colors text-slate-400">Ft. Lauderdale</a></li>
+                <li><a href="/service-areas/orlando" class="hover:text-white transition-colors text-slate-400">Orlando</a></li>
+                <li><a href="/service-areas/tampa" class="hover:text-white transition-colors text-slate-400">Tampa</a></li>
+              </ul>
+              <ul class="space-y-4 text-sm font-medium">
+                <li><span class="text-[#00B5A6] font-bold uppercase text-xs tracking-wider">California</span></li>
+                <li><a href="/service-areas/los-angeles" class="hover:text-white transition-colors text-slate-400">Los Angeles</a></li>
+                <li><a href="/service-areas/san-francisco" class="hover:text-white transition-colors text-slate-400">San Francisco</a></li>
+                <li><a href="/service-areas/san-diego" class="hover:text-white transition-colors text-slate-400">San Diego</a></li>
+                <li><a href="/service-areas/sacramento" class="hover:text-white transition-colors text-slate-400">Sacramento</a></li>
+              </ul>
+            </div>
             <div class="mt-6 pt-6 border-t border-primary-800">
                <a href="/service-areas" class="text-[#00B5A6] font-bold text-sm hover:text-white transition-colors flex items-center gap-1">
-                 View Florida Map <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                 View All Service Areas <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                </a>
             </div>
           </div>
