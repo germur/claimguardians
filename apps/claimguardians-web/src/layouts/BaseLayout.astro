@@ -253,9 +253,15 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         </div>
         
         <!-- Bottom Copyright -->
-        <div class="mt-16 pt-8 border-t border-primary-800 flex flex-col md:flex-row justify-between items-center text-sm text-slate-500">
-          <p>&copy; {new Date().getFullYear()} Claim Guardians LLC. All rights reserved.</p>
-          <p class="mt-4 md:mt-0">
+        <div class="mt-16 pt-8 border-t border-primary-800 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500">
+          <div class="flex flex-col md:flex-row items-center gap-2 md:gap-6 text-center md:text-left">
+            <p>&copy; {new Date().getFullYear()} Claim Guardians LLC. All rights reserved.</p>
+            <div class="flex gap-4">
+              <a href="/privacy-policy" class="hover:text-white transition-colors">Privacy Policy</a>
+              <a href="/terms-of-service" class="hover:text-white transition-colors">Terms of Service</a>
+            </div>
+          </div>
+          <p class="mt-4 md:mt-0 text-center md:text-right">
             Headquarters: <span class="text-slate-400">304 Indian Trace Unit 655, Weston, FL 33326</span>
           </p>
         </div>
