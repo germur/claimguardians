@@ -1,19 +1,42 @@
----
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ClaimCalculator from '../components/ClaimCalculator';
+import { Image } from 'astro:assets';
 ---
 
 <BaseLayout 
   title="Claim Guardians | Maximizes Property Insurance Settlements in Florida & California" 
   description="Insurance companies underpay property damage claims. Claim Guardians forces your insurer to pay your maximum legal entitlement in FL and CA."
 >
+  <Fragment slot="head">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [{
+          "@type": "Question",
+          "name": "How much does a public adjuster cost in Florida?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Claim Guardians charges $0 in upfront fees. Clients pay a contingency fee only after they receive their settlement. Florida state law caps public adjuster fees at 20% for standard claims." }
+        }, {
+          "@type": "Question",
+          "name": "When should I hire a public adjuster?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Property owners should hire a public adjuster immediately after discovering property damage. However, you can hire Claim Guardians even if the insurance company already denied your claim." }
+        }, {
+          "@type": "Question",
+          "name": "What is the difference between an independent adjuster and a public adjuster?",
+          "acceptedAnswer": { "@type": "Answer", "text": "The insurance company hires an independent adjuster to protect their corporate budget. You hire a public adjuster to maximize your financial payout. Claim Guardians represents the policyholder exclusively." }
+        }]
+      }
+    </script>
+  </Fragment>
 
   <!-- 1. Hero Section -->
   <header aria-label="Hero and Value Proposition" class="relative bg-[#041224] overflow-hidden pt-32 pb-40">
     <!-- Optimized Background Image (CWV: fetchpriority high) -->
     <div class="absolute inset-0 z-0">
-      <img 
+      <Image 
         src="/images/florida-damaged-house-hero.png" 
+        width={1920}
+        height={1080}
         alt="Damaged luxury Florida home after a hurricane" 
         class="w-full h-full object-cover opacity-60 scale-105"
         fetchpriority="high"

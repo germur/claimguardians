@@ -1,7 +1,7 @@
----
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ClaimCalculator from '../../components/ClaimCalculator';
 import EligibilityTest from '../../components/EligibilityTest';
+import { Image } from 'astro:assets';
 ---
 
 <BaseLayout 
@@ -26,15 +26,15 @@ import EligibilityTest from '../../components/EligibilityTest';
         "mainEntity": [{
           "@type": "Question",
           "name": "Does homeowners insurance cover water damage in Florida?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Homeowners insurance covers sudden and accidental water damage, such as a burst pipe or a broken water heater. However, insurance companies often deny claims by citing \"gradual wear and tear.\" Claim Guardians fights these unfair denials and secures your payout." }
+          "acceptedAnswer": { "@type": "Answer", "text": "Homeowners insurance covers sudden and accidental water damage, such as a burst pipe or broken water heater. However, insurers often deny claims citing \"gradual wear and tear.\" Claim Guardians fights these unfair denials and secures your payout." }
         }, {
           "@type": "Question",
           "name": "Should I clean up the water before the adjuster arrives?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Property owners must stop the water source to prevent further destruction. However, you should not discard damaged items. Claim Guardians documents all ruined property to ensure the insurance company pays for your total loss." }
+          "acceptedAnswer": { "@type": "Answer", "text": "Stop the water source to prevent further destruction, but do not discard damaged items. Claim Guardians documents all ruined property to ensure the insurance company pays for your total loss." }
         }, {
           "@type": "Question",
           "name": "How much does a water damage public adjuster charge?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Claim Guardians charges $0 for the initial property inspection. We work on a contingency basis. You pay a percentage only after we win your water damage settlement." }
+          "acceptedAnswer": { "@type": "Answer", "text": "Claim Guardians charges $0 for the initial property inspection. We work on a contingency basis — you pay a percentage only after we win your settlement." }
         }]
       }
     </script>
@@ -43,7 +43,7 @@ import EligibilityTest from '../../components/EligibilityTest';
   <!-- 1. Hero -->
   <header class="relative bg-[#041224] overflow-hidden" style="padding-top:8rem; padding-bottom:8rem;">
     <div class="absolute inset-0 z-0">
-      <img src="/images/hero-water-damage.png" alt="Water damage to a Florida property" class="w-full h-full object-cover opacity-60 scale-105" fetchpriority="high" loading="eager"/>
+      <Image src="/images/hero-water-damage.png" width={1920} height={1080} alt="Claim Guardians assessing water damage in a luxury home" class="w-full h-full object-cover opacity-60 scale-105" fetchpriority="high" loading="eager"/>
       <div class="absolute inset-0 bg-gradient-to-b from-[#041224]/40 via-[#002D51]/20 to-[#041224]"></div>
     </div>
     <div class="section-inner relative z-10">

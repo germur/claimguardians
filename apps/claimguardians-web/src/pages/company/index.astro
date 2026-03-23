@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
 ---
 
 <BaseLayout 
@@ -31,8 +32,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   <!-- 1. Hero Section (Maximum Authority & Trust) -->
   <header class="relative bg-[#041224] overflow-hidden" style="padding-top:8rem; padding-bottom:8rem;">
     <div class="absolute inset-0 z-0">
-      <img 
+      <Image 
         src="/images/hero-team-adjusters.png" 
+        width={1920}
+        height={1080}
         alt="Claim Guardians public adjusters team inspecting property damage in Florida" 
         class="w-full h-full object-cover opacity-60 scale-105" 
         fetchpriority="high"
