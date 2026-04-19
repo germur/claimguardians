@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run *)",
+      "Bash(netlify status *)",
+      "Bash(netlify sites:list)",
+      "Bash(netlify link *)",
+      "Bash(netlify deploy *)",
+      "Bash(netlify api *)",
+      "WebFetch(domain:www.claimguardians.com)",
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\('Custom domains:', d.get\\('custom_domain'\\), '\\\\nDomain aliases:', d.get\\('domain_aliases'\\)\\)\")",
+      "Bash(nslookup claimguardians.com)",
+      "Bash(nslookup www.claimguardians.com)",
+      "Bash(nslookup allclaimguardians.com)",
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\(json.dumps\\({'custom_domain': d.get\\('custom_domain'\\), 'domain_aliases': d.get\\('domain_aliases'\\), 'ssl': d.get\\('ssl'\\)}, indent=2\\)\\)\")",
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\('custom_domain:', d.get\\('custom_domain'\\)\\); print\\('domain_aliases:', d.get\\('domain_aliases'\\)\\)\")",
+      "Bash(findstr /i \"custom_domain\\\\|domain_aliases\\\\|allclaim\")",
+      "Bash(findstr \"custom_domain\\\\|domain_aliases\")",
+      "WebFetch(domain:allclaimguardians.com)",
+      "WebFetch(domain:main--claimguardians.netlify.app)",
+      "WebFetch(domain:claimguardians.netlify.app)"
+    ]
+  }
+}
