@@ -1,0 +1,305 @@
+---
+import MinimalAdLayout from '../../../layouts/MinimalAdLayout.astro';
+import DenialClaimForm from '../../../components/DenialClaimForm';
+---
+
+<MinimalAdLayout
+  title="Denied Insurance Claim in NC? We Fight Back | Claim Guardians"
+  description="Your NC insurance claim was denied or underpaid? Licensed public adjusters reverse denials and recover the money you're owed. Free review, no upfront cost."
+  accentColor="#b91c1c"
+  ctaLabel="Free Appeal Review"
+>
+  <Fragment slot="head">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "Can a denied claim really be reversed?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Many denials are based on incomplete information or incorrect damage assessment. A public adjuster brings the evidence the insurer missed." } },
+          { "@type": "Question", "name": "My claim was denied months ago. Is it too late?", "acceptedAnswer": { "@type": "Answer", "text": "Not necessarily. NC has specific timelines for appeals. Contact us for a free review and we will tell you if your window is still open." } },
+          { "@type": "Question", "name": "What if my claim was underpaid, not denied?", "acceptedAnswer": { "@type": "Answer", "text": "Same process. We document the full extent of damage and force the insurer to pay the difference." } },
+          { "@type": "Question", "name": "How much does this cost me?", "acceptedAnswer": { "@type": "Answer", "text": "$0 upfront. We charge a percentage of what we recover for you. If we don't recover anything, you pay nothing." } }
+        ]
+      }
+    </script>
+  </Fragment>
+
+  <!-- 0. URGENCY BAR -->
+  <div class="bg-red-800 text-white text-center text-sm font-bold py-2.5 px-4">
+    <span class="mr-1">&#9888;&#65039;</span> Helene-affected NC homeowners: appeal windows are closing -
+    <a href="tel:3058045489" class="underline underline-offset-2 hover:text-red-200 transition-colors ml-1">call (305) 804-5489</a>
+  </div>
+
+  <!-- 1. HERO -->
+  <section class="relative bg-[#041224] overflow-hidden" style="padding-top:8rem; padding-bottom:8rem;">
+    <div class="absolute inset-0 z-0">
+      <img src="/images/florida-damaged-house-hero.png" alt="Damaged North Carolina home with denied insurance claim" class="w-full h-full object-cover opacity-50 scale-105" fetchpriority="high" />
+      <div class="absolute inset-0 bg-gradient-to-r from-[#041224]/95 via-[#3b0a0a]/85 via-60% to-[#041224]/90"></div>
+    </div>
+    <div class="section-inner relative z-10">
+      <div class="max-w-4xl">
+        <span class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-red-300 mb-4">
+          <span class="relative flex h-2.5 w-2.5">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-red-400"></span>
+          </span>
+          North Carolina - Denied Claim Specialists
+        </span>
+        <h1 class="text-4xl md:text-5xl lg:text-7xl font-extrabold text-white mb-6 tracking-tight leading-[1.1]">
+          Insurance denied your claim? <span class="text-red-300">We fight back.</span>
+        </h1>
+        <p class="text-xl text-slate-300 leading-relaxed font-medium mb-10 max-w-3xl">
+          You paid your premiums on time. You filed your claim properly. And they said no. That's not the end - it's where Claim Guardians begins.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 mb-10">
+          <a href="#claim-form" class="inline-flex items-center justify-center px-8 py-4 text-base font-extrabold text-white bg-red-700 hover:bg-red-800 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all">Free claim appeal review</a>
+          <a href="tel:3058045489" class="inline-flex items-center justify-center px-8 py-4 text-base font-extrabold text-white border-2 border-white/30 bg-white/5 hover:bg-white/10 rounded-xl transition-all">&#128222; Talk to an expert now</a>
+        </div>
+        <div class="flex flex-wrap gap-x-6 gap-y-3 text-sm font-semibold text-slate-300">
+          <span class="flex items-center gap-2"><svg class="w-4 h-4 text-red-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>NC licensed adjusters</span>
+          <span class="flex items-center gap-2"><svg class="w-4 h-4 text-red-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>$0 unless we win</span>
+          <span class="flex items-center gap-2"><svg class="w-4 h-4 text-red-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Se habla espanol</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. VALIDATION WITH DATA -->
+  <section class="section-white">
+    <div class="section-inner">
+      <div class="max-w-3xl mb-12">
+        <span class="eyebrow" style="color:#b91c1c;">You are not alone</span>
+        <h2 class="section-heading mb-4">Insurance companies deny NC claims every day.</h2>
+        <p class="text-lg text-slate-500 font-medium leading-relaxed mt-4">After Hurricane Helene, 1 in 4 homeowner claims in North Carolina were closed with zero payment. Major carriers are dropping customers in hurricane-prone NC zip codes. The system is not on your side - but we are.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="card-hover p-10 text-center">
+          <div class="text-5xl font-black bg-gradient-to-br from-red-600 to-red-800 bg-clip-text text-transparent mb-3">25%</div>
+          <p class="text-slate-600 font-bold">of NC claims denied or closed with <strong class="text-[#082142]">$0</strong> after Helene</p>
+          <p class="text-xs text-slate-400 font-semibold mt-3 uppercase tracking-wider">NC DOI - Helene aftermath</p>
+        </div>
+        <div class="card-hover p-10 text-center">
+          <div class="text-5xl font-black bg-gradient-to-br from-red-600 to-red-800 bg-clip-text text-transparent mb-3">10K+</div>
+          <p class="text-slate-600 font-bold">customers dropped by major carriers in NC hurricane zips</p>
+          <p class="text-xs text-slate-400 font-semibold mt-3 uppercase tracking-wider">Carrier non-renewal filings - NC</p>
+        </div>
+        <div class="card-hover p-10 text-center">
+          <div class="text-5xl font-black bg-gradient-to-br from-[#002D51] to-[#00808C] bg-clip-text text-transparent mb-3">Reversed</div>
+          <p class="text-slate-600 font-bold">thousands recovered for previously denied homeowners</p>
+          <p class="text-xs text-slate-400 font-semibold mt-3 uppercase tracking-wider">Internal case data</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. DENIAL TACTICS -->
+  <section class="section-muted">
+    <div class="section-inner">
+      <div class="max-w-3xl mb-16">
+        <span class="eyebrow" style="color:#b91c1c;">How they say no</span>
+        <h2 class="section-heading mb-4">The most common reasons insurers deny claims in NC.</h2>
+        <p class="text-lg text-slate-500 font-medium leading-relaxed mt-4">Insurance companies use these tactics to avoid paying what they owe. Claim Guardians knows every one - and how to beat them.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="relative bg-white rounded-2xl p-8 border border-slate-100 shadow-sm overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+          <div class="absolute top-0 left-0 right-0 h-1 bg-red-700"></div>
+          <h3 class="text-xl font-extrabold text-[#082142] mb-3">"Pre-existing damage"</h3>
+          <p class="text-slate-500 font-medium">They claim the damage existed before your policy. <strong class="text-[#082142]">We prove the true cause and timeline</strong> with forensic documentation, weather data, and engineering reports.</p>
+        </div>
+        <div class="relative bg-white rounded-2xl p-8 border border-slate-100 shadow-sm overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+          <div class="absolute top-0 left-0 right-0 h-1 bg-red-700"></div>
+          <h3 class="text-xl font-extrabold text-[#082142] mb-3">"Filed too late"</h3>
+          <p class="text-slate-500 font-medium">They cite missed deadlines. <strong class="text-[#082142]">We review NC statutes and challenge wrongful time-bar denials</strong> - many appeal windows are still open even months later.</p>
+        </div>
+        <div class="relative bg-white rounded-2xl p-8 border border-slate-100 shadow-sm overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+          <div class="absolute top-0 left-0 right-0 h-1 bg-red-700"></div>
+          <h3 class="text-xl font-extrabold text-[#082142] mb-3">"Not covered"</h3>
+          <p class="text-slate-500 font-medium">Complex policy language used to exclude valid claims. <strong class="text-[#082142]">We decode your policy</strong> and find every applicable coverage your insurer overlooked.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. DENIED > RECOVERED -->
+  <section class="section-white">
+    <div class="section-inner">
+      <div class="text-center mb-16">
+        <span class="eyebrow" style="color:#b91c1c;">Denials we reversed</span>
+        <h2 class="section-heading">Denied claims we turned into full payouts.</h2>
+        <p class="text-slate-400 mt-4 text-sm italic">North Carolina cases coming soon - current cases shown from FL.</p>
+      </div>
+
+      <!-- Featured card (full width) -->
+      <div class="card-testimonial p-10 mb-8">
+        <span class="inline-block text-xs font-bold bg-red-50 text-red-700 px-3 py-1 rounded-full mb-6 border border-red-200">&#128205; Roof storm damage - Tampa, FL</span>
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
+          <div>
+            <span class="text-sm font-semibold text-slate-400">Insurance decision</span>
+            <div class="text-xl font-black text-red-500 mt-1">&#9940; Full denial</div>
+          </div>
+          <div class="text-right">
+            <span class="text-sm font-bold text-[#082142]">Claim Guardians recovery</span>
+            <div class="text-3xl font-black text-[#00808C] mt-1">$112,000</div>
+          </div>
+        </div>
+        <div class="border-t border-slate-100 pt-4">
+          <p class="text-slate-500 font-medium text-sm">We commissioned a forensic engineering report proving damage from a specific storm event. Insurer reversed denial and paid in full.</p>
+        </div>
+      </div>
+
+      <!-- Two-column pair -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="card-testimonial p-10">
+          <span class="inline-block text-xs font-bold bg-slate-100 text-slate-600 px-3 py-1 rounded-full mb-6 border border-slate-200">&#128205; Water damage - Miami, FL</span>
+          <div class="flex justify-between items-center mb-2">
+            <span class="text-sm font-semibold text-slate-400">Insurance initial offer</span>
+            <span class="text-lg font-black text-red-500 line-through">~$14,500</span>
+          </div>
+          <div class="border-t border-slate-100 my-3"></div>
+          <div class="flex justify-between items-center">
+            <span class="text-sm font-bold text-[#082142]">Claim Guardians settlement</span>
+            <span class="text-2xl font-black text-[#00808C]">$82,300</span>
+          </div>
+          <p class="text-slate-400 text-xs mt-4 font-medium">Insurer lowballed 82% below actual damage.</p>
+        </div>
+        <div class="card-testimonial p-10">
+          <span class="inline-block text-xs font-bold bg-slate-100 text-slate-600 px-3 py-1 rounded-full mb-6 border border-slate-200">&#128205; Roof damage - Fort Myers, FL</span>
+          <div class="flex justify-between items-center mb-2">
+            <span class="text-sm font-semibold text-slate-400">Insurance decision</span>
+            <span class="text-lg font-black text-red-500">&#9940; Denied</span>
+          </div>
+          <div class="border-t border-slate-100 my-3"></div>
+          <div class="flex justify-between items-center">
+            <span class="text-sm font-bold text-[#082142]">Claim Guardians recovery</span>
+            <span class="text-2xl font-black text-[#00808C]">$65,000</span>
+          </div>
+          <p class="text-slate-400 text-xs mt-4 font-medium">Hidden storm damage proven via drone inspection.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. PROCESS FOR APPEALS -->
+  <section class="section-muted">
+    <div class="section-inner">
+      <div class="text-center mb-16">
+        <span class="eyebrow" style="color:#b91c1c;">How we reverse it</span>
+        <h2 class="section-heading">How we reverse your denied claim.</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="card-hover p-8">
+          <div class="text-5xl font-black text-red-700/10 mb-4 leading-none">01</div>
+          <h3 class="text-lg font-extrabold text-[#082142] mb-3">Free denial review</h3>
+          <p class="text-slate-500 font-medium text-sm">We read your denial letter, review your policy, and tell you honestly if you have a case. 100% free, no strings.</p>
+        </div>
+        <div class="card-hover p-8">
+          <div class="text-5xl font-black text-red-700/10 mb-4 leading-none">02</div>
+          <h3 class="text-lg font-extrabold text-[#082142] mb-3">We document what they missed</h3>
+          <p class="text-slate-500 font-medium text-sm">Forensic inspections, engineering reports, moisture mapping - we build the evidence the insurer ignored.</p>
+        </div>
+        <div class="card-hover p-8">
+          <div class="text-5xl font-black text-red-700/10 mb-4 leading-none">03</div>
+          <h3 class="text-lg font-extrabold text-[#082142] mb-3">We file your appeal</h3>
+          <p class="text-slate-500 font-medium text-sm">We submit a forensic counter-argument directly to your insurer. No lawyers, no courtroom, no delays.</p>
+        </div>
+        <div class="card-hover p-8">
+          <div class="text-5xl font-black text-red-700/10 mb-4 leading-none">04</div>
+          <h3 class="text-lg font-extrabold text-[#082142] mb-3">You get your check</h3>
+          <p class="text-slate-500 font-medium text-sm">The insurer pays what they should have paid from the start. We collect our fee only from <strong>your</strong> settlement.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. PA VS LAWYER -->
+  <section class="section-white">
+    <div class="section-inner">
+      <div class="text-center mb-16">
+        <span class="eyebrow" style="color:#b91c1c;">PA vs lawyer</span>
+        <h2 class="section-heading">Why a public adjuster before a lawyer.</h2>
+        <p class="text-lg text-slate-500 font-medium max-w-3xl mx-auto mt-4">Many people whose claims are denied think they need a lawyer. In most cases, a public adjuster resolves the claim faster, cheaper, and without litigation.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div class="rounded-2xl border-2 border-[#00B5A6]/30 bg-[#002D51] p-8 text-white">
+          <h3 class="text-xl font-extrabold mb-6 flex items-center gap-3">
+            <span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#00B5A6]/20 text-[#00B5A6]"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+            Public adjuster
+          </h3>
+          <ul class="space-y-4 font-medium">
+            <li class="flex items-start gap-3"><span class="text-[#00B5A6] mt-0.5">&#10003;</span>Resolves in <strong>weeks</strong>.</li>
+            <li class="flex items-start gap-3"><span class="text-[#00B5A6] mt-0.5">&#10003;</span>No lawsuit. No courtroom.</li>
+            <li class="flex items-start gap-3"><span class="text-[#00B5A6] mt-0.5">&#10003;</span>Fee <strong>10-20%</strong> of settlement.</li>
+            <li class="flex items-start gap-3"><span class="text-[#00B5A6] mt-0.5">&#10003;</span>Handles entire insurance process.</li>
+          </ul>
+        </div>
+        <div class="rounded-2xl border-2 border-slate-200 bg-slate-50 p-8">
+          <h3 class="text-xl font-extrabold text-[#082142] mb-6 flex items-center gap-3">
+            <span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-slate-200 text-slate-500"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v20M2 12h20"/></svg></span>
+            Attorney
+          </h3>
+          <ul class="space-y-4 text-slate-600 font-medium">
+            <li class="flex items-start gap-3"><span class="text-slate-400 mt-0.5">&#8226;</span>Months to <strong>years</strong>.</li>
+            <li class="flex items-start gap-3"><span class="text-slate-400 mt-0.5">&#8226;</span>Involves litigation.</li>
+            <li class="flex items-start gap-3"><span class="text-slate-400 mt-0.5">&#8226;</span>Fee <strong>33-40%</strong> of settlement.</li>
+            <li class="flex items-start gap-3"><span class="text-slate-400 mt-0.5">&#8226;</span>Best for bad-faith lawsuits only.</li>
+          </ul>
+        </div>
+      </div>
+      <p class="text-center text-slate-500 font-medium mt-8 max-w-2xl mx-auto"><strong class="text-[#082142]">Not sure which you need?</strong> Start with a free claim review - we'll tell you honestly if your case needs legal action instead.</p>
+    </div>
+  </section>
+
+  <!-- 7. FAQ -->
+  <section class="section-muted">
+    <div class="section-inner max-w-4xl mx-auto">
+      <div class="text-center mb-12">
+        <span class="eyebrow" style="color:#b91c1c;">Common questions</span>
+        <h2 class="section-heading">Questions about denied claims.</h2>
+      </div>
+      <div class="space-y-4">
+        <details class="group bg-white border border-slate-200 rounded-2xl overflow-hidden">
+          <summary class="flex justify-between items-center px-8 py-6 cursor-pointer font-bold text-[#082142] text-lg hover:bg-slate-50 transition-colors">
+            <span>Can a denied claim really be reversed?</span>
+            <svg class="w-5 h-5 text-slate-400 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+          </summary>
+          <div class="px-8 pb-6 text-slate-500 font-medium leading-relaxed">Yes. Many denials are based on incomplete information or incorrect damage assessment. A public adjuster brings the evidence the insurer missed.</div>
+        </details>
+        <details class="group bg-white border border-slate-200 rounded-2xl overflow-hidden">
+          <summary class="flex justify-between items-center px-8 py-6 cursor-pointer font-bold text-[#082142] text-lg hover:bg-slate-50 transition-colors">
+            <span>My claim was denied months ago. Is it too late?</span>
+            <svg class="w-5 h-5 text-slate-400 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+          </summary>
+          <div class="px-8 pb-6 text-slate-500 font-medium leading-relaxed">Not necessarily. NC has specific timelines for appeals. Contact us for a free review - we'll tell you if your window is still open.</div>
+        </details>
+        <details class="group bg-white border border-slate-200 rounded-2xl overflow-hidden">
+          <summary class="flex justify-between items-center px-8 py-6 cursor-pointer font-bold text-[#082142] text-lg hover:bg-slate-50 transition-colors">
+            <span>What if my claim was underpaid, not denied?</span>
+            <svg class="w-5 h-5 text-slate-400 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+          </summary>
+          <div class="px-8 pb-6 text-slate-500 font-medium leading-relaxed">Same process. We document the full extent of damage and force the insurer to pay the difference.</div>
+        </details>
+        <details class="group bg-white border border-slate-200 rounded-2xl overflow-hidden">
+          <summary class="flex justify-between items-center px-8 py-6 cursor-pointer font-bold text-[#082142] text-lg hover:bg-slate-50 transition-colors">
+            <span>How much does this cost me?</span>
+            <svg class="w-5 h-5 text-slate-400 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+          </summary>
+          <div class="px-8 pb-6 text-slate-500 font-medium leading-relaxed">$0 upfront. We charge a percentage of what we recover for you. If we don't recover anything, you pay nothing.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. FINAL CTA + FORM -->
+  <section class="relative overflow-hidden" id="claim-form" style="padding-top:6rem; padding-bottom:6rem;">
+    <div class="absolute inset-0 bg-gradient-to-b from-white via-red-50/40 to-red-100/30"></div>
+    <div class="section-inner relative z-10">
+      <div class="text-center mb-12">
+        <span class="eyebrow" style="color:#b91c1c;">Free appeal review</span>
+        <h2 class="section-heading mb-4">Find out if your denial is reversible. <span class="text-red-700">Free.</span></h2>
+        <p class="text-lg text-slate-500 font-medium max-w-3xl mx-auto mt-4">Send us the details and a licensed public adjuster will review your case within 24 hours. No cost, no obligation.</p>
+      </div>
+      <DenialClaimForm client:load />
+    </div>
+  </section>
+
+</MinimalAdLayout>

@@ -1,0 +1,98 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  accentColor?: string;
+  ctaLabel?: string;
+  ctaHref?: string;
+}
+
+const {
+  title,
+  description,
+  image = '/images/florida-damaged-house-hero.png',
+  accentColor = '#00808C',
+  ctaLabel = 'Free Claim Review',
+  ctaHref = '#claim-form',
+} = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9WTBNG5905"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-9WTBNG5905');
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="canonical" href={canonicalURL} />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Claim Guardians" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(image, Astro.site)} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={new URL(image, Astro.site)} />
+    <slot name="head" />
+  </head>
+  <body class="bg-base-bg text-text-main font-sans antialiased min-h-screen flex flex-col">
+
+    <header class="sticky top-0 z-50 bg-white border-b border-slate-100 shadow-sm">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-[4.5rem] flex items-center justify-between">
+        <a href="/" class="flex items-center">
+          <img src="/images/logo.svg" alt="Claim Guardians" class="h-9 w-auto" />
+        </a>
+        <div class="flex items-center gap-4">
+          <a href="tel:3058045489" class="hidden sm:inline-flex items-center gap-2 text-sm font-extrabold" style={`color: ${accentColor};`}>
+            <span class="relative flex h-2.5 w-2.5">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75" style={`background: ${accentColor};`}></span>
+              <span class="relative inline-flex rounded-full h-2.5 w-2.5" style={`background: ${accentColor};`}></span>
+            </span>
+            (305) 804-5489
+          </a>
+          <a href={ctaHref} class="inline-flex items-center justify-center px-5 py-2.5 text-sm font-extrabold text-white rounded-lg transition-all duration-200 hover:-translate-y-0.5" style={`background: ${accentColor};`}>
+            {ctaLabel}
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main class="flex-grow">
+      <slot />
+    </main>
+
+    <footer class="bg-[#0b1726] text-slate-400 py-10 px-6 text-center text-sm leading-relaxed">
+      <div class="max-w-4xl mx-auto flex flex-col gap-4">
+        <div class="flex flex-wrap gap-x-6 gap-y-2 justify-center text-xs font-bold text-slate-300 uppercase tracking-wider">
+          <span class="before:content-['✓_'] before:text-[#00B5A6]">NC DOI Licensed</span>
+          <span class="before:content-['✓_'] before:text-[#00B5A6]">FL DFS Licensed</span>
+          <span class="before:content-['✓_'] before:text-[#00B5A6]">State Bonded</span>
+          <span class="before:content-['✓_'] before:text-[#00B5A6]">No Recovery, No Fee</span>
+        </div>
+        <p class="text-slate-500">
+          &copy; {new Date().getFullYear()} Claim Guardians LLC. 304 Indian Trace Unit 655, Weston, FL 33326 &middot;
+          <a href="/privacy-policy/" class="text-slate-300 underline underline-offset-2">Privacy Policy</a> &middot;
+          <a href="/terms-of-service/" class="text-slate-300 underline underline-offset-2">Terms of Service</a>
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,304 @@
+---
+import MinimalAdLayout from '../../../layouts/MinimalAdLayout.astro';
+import NCLeadForm from '../../../components/NCLeadForm';
+---
+
+<MinimalAdLayout
+  title="North Carolina Public Adjuster | Maximize Your Insurance Settlement | Claim Guardians"
+  description="NC-licensed public adjusters fight your insurance company for the maximum legal settlement. No recovery, no fee."
+>
+  <Fragment slot="head">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Claim Guardians LLC - North Carolina",
+        "url": "https://allclaimguardians.com/service-areas/north-carolina",
+        "telephone": "(305) 804-5489",
+        "areaServed": "North Carolina",
+        "priceRange": "No upfront fee - contingency only"
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "How much does a public adjuster cost in North Carolina?", "acceptedAnswer": { "@type": "Answer", "text": "$0 upfront. We charge a contingency fee only after you receive your settlement. NC law regulates public adjuster fees to protect homeowners." } },
+          { "@type": "Question", "name": "When should I hire a public adjuster?", "acceptedAnswer": { "@type": "Answer", "text": "Immediately after discovering damage. But even if your claim was already denied or underpaid, we can still help. We handle appeals." } },
+          { "@type": "Question", "name": "Do you cover storm damage from Hurricane Helene?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. If you were affected by Helene or any other storm in NC and your claim was denied or underpaid, contact us for a free review." } },
+          { "@type": "Question", "name": "Do you offer service in Spanish?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Our team is fully bilingual." } }
+        ]
+      }
+    </script>
+  </Fragment>
+
+  <!-- 1. HERO -->
+  <section class="relative bg-[#041224] overflow-hidden" style="padding-top:8rem; padding-bottom:8rem;">
+    <div class="absolute inset-0 z-0">
+      <img src="/images/florida-damaged-house-hero.png" alt="Damaged North Carolina home after a hurricane" class="w-full h-full object-cover opacity-60 scale-105" fetchpriority="high" />
+      <div class="absolute inset-0 bg-gradient-to-b from-[#041224]/40 via-[#002D51]/20 to-[#041224]"></div>
+    </div>
+    <div class="section-inner relative z-10">
+      <div class="max-w-4xl">
+        <span class="eyebrow" style="color:#00B5A6;">Serving all of North Carolina</span>
+        <h1 class="text-4xl md:text-5xl lg:text-7xl font-extrabold text-white mb-6 tracking-tight leading-[1.1]">
+          Claim Guardians maximizes your property insurance settlement in&nbsp;North&nbsp;Carolina.
+        </h1>
+        <p class="text-xl text-slate-300 leading-relaxed font-medium mb-10 max-w-3xl">
+          Insurance companies underpay property damage claims. Claim Guardians forces your insurer to pay your maximum legal entitlement. We serve homeowners and businesses across all of North Carolina.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 mb-10">
+          <a href="#claim-form" class="inline-flex items-center justify-center px-8 py-4 text-base font-extrabold text-white bg-[#00808C] rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all">Get a Free Claim Review</a>
+          <a href="tel:3058045489" class="inline-flex items-center justify-center px-8 py-4 text-base font-extrabold text-white border-2 border-white/30 bg-white/5 hover:bg-white/10 rounded-xl transition-all">📞 Emergency? (305) 804-5489</a>
+        </div>
+        <div class="flex flex-wrap gap-x-6 gap-y-3 text-sm font-semibold text-slate-300">
+          <span class="flex items-center gap-2"><svg class="w-4 h-4 text-[#00B5A6]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>NC, FL & CA licensed adjusters</span>
+          <span class="flex items-center gap-2"><svg class="w-4 h-4 text-[#00B5A6]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.9 7.5.6-5.7 4.9 1.8 7.3L12 17.8 5.5 21.7l1.8-7.3L1.6 9.5l7.5-.6L12 2z"/></svg>5-star Google reviews</span>
+          <span class="flex items-center gap-2"><svg class="w-4 h-4 text-[#00B5A6]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>No recovery, no fee</span>
+          <span class="flex items-center gap-2"><svg class="w-4 h-4 text-[#00B5A6]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Se habla español</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. NC STATS -->
+  <section class="section-white">
+    <div class="section-inner">
+      <div class="max-w-3xl mb-12">
+        <span class="eyebrow">North Carolina in 2026</span>
+        <h2 class="section-heading mb-4">North Carolina homeowners are losing money on property claims.</h2>
+        <p class="text-lg text-slate-500 font-medium leading-relaxed mt-4">After Hurricane Helene, 25% of NC insurance claims were closed with zero payment. Insurance rates are rising 7.5% in 2025 and another 7.5% in 2026. You deserve a licensed professional fighting for <em>your</em> maximum payout, not theirs.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="card-hover p-10 text-center">
+          <div class="text-5xl font-black text-red-600 mb-3">25%</div>
+          <p class="text-slate-600 font-bold">of NC claims closed with <strong class="text-[#082142]">$0</strong> after Helene</p>
+          <p class="text-xs text-slate-400 font-semibold mt-3 uppercase tracking-wider">NC DOI - Helene aftermath</p>
+        </div>
+        <div class="card-hover p-10 text-center">
+          <div class="text-5xl font-black text-red-600 mb-3">+15%</div>
+          <p class="text-slate-600 font-bold">cumulative insurance rate hikes in NC (<strong class="text-[#082142]">2025-2026</strong>)</p>
+          <p class="text-xs text-slate-400 font-semibold mt-3 uppercase tracking-wider">NC Rate Bureau filings</p>
+        </div>
+        <div class="card-hover p-10 text-center">
+          <div class="text-5xl font-black text-[#00808C] mb-3">$0</div>
+          <p class="text-slate-600 font-bold">upfront cost with Claim Guardians</p>
+          <p class="text-xs text-slate-400 font-semibold mt-3 uppercase tracking-wider">Contingency fee - paid only on recovery</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. SERVICES GRID -->
+  <section class="section-muted">
+    <div class="section-inner">
+      <div class="max-w-3xl mb-16">
+        <span class="eyebrow">Our specialties</span>
+        <h2 class="section-heading mb-4">Claim Guardians resolves every type of property damage in NC.</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="card-hover p-8">
+          <div class="text-3xl mb-4">💧</div>
+          <h3 class="text-xl font-extrabold text-[#082142] mb-2">Water & leak damage</h3>
+          <p class="text-slate-500 font-medium">Hidden moisture and burst pipe damage recovery.</p>
+        </div>
+        <div class="card-hover p-8">
+          <div class="text-3xl mb-4">🌪️</div>
+          <h3 class="text-xl font-extrabold text-[#082142] mb-2">Hurricane & storm</h3>
+          <p class="text-slate-500 font-medium">Wind, hail, and severe weather impacts.</p>
+        </div>
+        <div class="card-hover p-8">
+          <div class="text-3xl mb-4">🏠</div>
+          <h3 class="text-xl font-extrabold text-[#082142] mb-2">Roof damage</h3>
+          <p class="text-slate-500 font-medium">Structural roof failures proven to insurers.</p>
+        </div>
+        <div class="card-hover p-8">
+          <div class="text-3xl mb-4">🔥</div>
+          <h3 class="text-xl font-extrabold text-[#082142] mb-2">Fire & smoke</h3>
+          <p class="text-slate-500 font-medium">Structural loss and toxic smoke assessment.</p>
+        </div>
+        <div class="card-hover p-8">
+          <div class="text-3xl mb-4">🦠</div>
+          <h3 class="text-xl font-extrabold text-[#082142] mb-2">Mold damage</h3>
+          <p class="text-slate-500 font-medium">Toxic mold documentation after water exposure.</p>
+        </div>
+        <div class="card-hover p-8">
+          <div class="text-3xl mb-4">⚖️</div>
+          <h3 class="text-xl font-extrabold text-[#082142] mb-2">Denied & underpaid</h3>
+          <p class="text-slate-500 font-medium">Appeals and forced full payment.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. PROCESS -->
+  <section class="section-white">
+    <div class="section-inner">
+      <div class="text-center mb-16">
+        <span class="eyebrow">Our process</span>
+        <h2 class="section-heading mb-4">Three steps. Zero paperwork for you.</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="card-hover p-10">
+          <div class="step-number">01</div>
+          <h3 class="text-xl font-extrabold text-[#082142] mb-3">Free property inspection</h3>
+          <p class="text-slate-500 font-medium">NC-licensed adjusters document <strong>all</strong> hidden damages at zero cost.</p>
+        </div>
+        <div class="card-hover p-10">
+          <div class="step-number">02</div>
+          <h3 class="text-xl font-extrabold text-[#082142] mb-3">We handle the insurance</h3>
+          <p class="text-slate-500 font-medium">We file paperwork and negotiate maximum payout directly with your insurer.</p>
+        </div>
+        <div class="card-hover p-10">
+          <div class="step-number">03</div>
+          <h3 class="text-xl font-extrabold text-[#082142] mb-3">You get paid</h3>
+          <p class="text-slate-500 font-medium">Settlement check in your hands. We collect a fee only <strong>after</strong> you get paid.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. RESULTS -->
+  <section class="section-muted">
+    <div class="section-inner">
+      <div class="text-center mb-16">
+        <span class="eyebrow">Real results</span>
+        <h2 class="section-heading">Real financial results for NC homeowners.</h2>
+        <p class="text-slate-400 mt-4 text-sm italic">North Carolina case studies coming soon - current cases shown from FL.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div class="card-testimonial p-10">
+          <span class="inline-block text-xs font-bold bg-slate-100 text-slate-600 px-3 py-1 rounded-full mb-6 border border-slate-200">📍 Water damage - Miami, FL</span>
+          <div class="flex justify-between items-center mb-2">
+            <span class="text-sm font-semibold text-slate-400">Insurance initial offer</span>
+            <span class="text-lg font-black text-red-500 line-through">~$14,500</span>
+          </div>
+          <div class="border-t border-slate-100 my-3"></div>
+          <div class="flex justify-between items-center">
+            <span class="text-sm font-bold text-[#082142]">Claim Guardians settlement</span>
+            <span class="text-2xl font-black text-[#00808C]">$82,300</span>
+          </div>
+        </div>
+        <div class="card-testimonial p-10">
+          <span class="inline-block text-xs font-bold bg-slate-100 text-slate-600 px-3 py-1 rounded-full mb-6 border border-slate-200">📍 Roof storm damage - Fort Myers, FL</span>
+          <div class="flex justify-between items-center mb-2">
+            <span class="text-sm font-semibold text-slate-400">Insurance initial offer</span>
+            <span class="text-lg font-black text-red-500">⛔ Claim denied</span>
+          </div>
+          <div class="border-t border-slate-100 my-3"></div>
+          <div class="flex justify-between items-center">
+            <span class="text-sm font-bold text-[#082142]">Claim Guardians settlement</span>
+            <span class="text-2xl font-black text-[#00808C]">$65,000</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. PA VS INSURANCE ADJUSTER -->
+  <section class="section-white">
+    <div class="section-inner">
+      <div class="text-center mb-16">
+        <span class="eyebrow">Who works for you?</span>
+        <h2 class="section-heading">Your adjuster vs. their adjuster.</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div class="rounded-2xl border-2 border-red-200 bg-red-50/50 p-8">
+          <h3 class="text-xl font-extrabold text-[#082142] mb-6 flex items-center gap-3">
+            <span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-red-100 text-red-500"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg></span>
+            Their insurance adjuster
+          </h3>
+          <ul class="space-y-4 text-slate-600 font-medium">
+            <li class="flex items-start gap-3"><span class="text-red-400 mt-0.5">⚠️</span>The insurance company pays them.</li>
+            <li class="flex items-start gap-3"><span class="text-red-400 mt-0.5">⚠️</span>They protect the insurer's budget.</li>
+            <li class="flex items-start gap-3"><span class="text-red-400 mt-0.5">⚠️</span>They use legal jargon to limit YOUR payout.</li>
+          </ul>
+        </div>
+        <div class="rounded-2xl border-2 border-[#00B5A6]/30 bg-[#00808C]/5 p-8">
+          <h3 class="text-xl font-extrabold text-[#082142] mb-6 flex items-center gap-3">
+            <span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#00B5A6]/20 text-[#00808C]"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+            Claim Guardians (your PA)
+          </h3>
+          <ul class="space-y-4 text-slate-600 font-medium">
+            <li class="flex items-start gap-3"><span class="text-[#00B5A6] mt-0.5">✓</span>YOU hire us.</li>
+            <li class="flex items-start gap-3"><span class="text-[#00B5A6] mt-0.5">✓</span>We protect your family and property.</li>
+            <li class="flex items-start gap-3"><span class="text-[#00B5A6] mt-0.5">✓</span>We maximize your financial settlement.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. COVERAGE AREAS -->
+  <section class="section-muted">
+    <div class="section-inner">
+      <div class="max-w-3xl mb-12">
+        <span class="eyebrow">Coverage</span>
+        <h2 class="section-heading mb-4">Serving all of North Carolina.</h2>
+        <p class="text-lg text-slate-500 font-medium">Charlotte, Raleigh, Wilmington, Durham, Greensboro, Winston-Salem, Fayetteville, Asheville, and every county in between. Licensed to operate statewide.</p>
+      </div>
+      <div class="flex flex-wrap gap-4">
+        {["charlotte","raleigh","wilmington","durham","greensboro","asheville","fayetteville","winston-salem"].map(city => (
+          <a href={`/service-areas/${city}/`} class="inline-flex items-center gap-2 px-5 py-3 bg-white rounded-xl border border-slate-200 text-sm font-bold text-[#082142] hover:border-[#00808C] hover:text-[#00808C] hover:-translate-y-0.5 transition-all shadow-sm">
+            <svg class="w-4 h-4 text-[#00808C]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            {city.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')}
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. FAQ -->
+  <section class="section-white">
+    <div class="section-inner max-w-4xl mx-auto">
+      <div class="text-center mb-12">
+        <span class="eyebrow">Common questions</span>
+        <h2 class="section-heading">Common questions from NC homeowners.</h2>
+      </div>
+      <div class="space-y-4">
+        <details class="group bg-white border border-slate-200 rounded-2xl overflow-hidden">
+          <summary class="flex justify-between items-center px-8 py-6 cursor-pointer font-bold text-[#082142] text-lg hover:bg-slate-50 transition-colors">
+            <span>How much does a public adjuster cost in North Carolina?</span>
+            <svg class="w-5 h-5 text-slate-400 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+          </summary>
+          <div class="px-8 pb-6 text-slate-500 font-medium leading-relaxed">$0 upfront. We charge a contingency fee only after you receive your settlement. NC law regulates public adjuster fees to protect homeowners.</div>
+        </details>
+        <details class="group bg-white border border-slate-200 rounded-2xl overflow-hidden">
+          <summary class="flex justify-between items-center px-8 py-6 cursor-pointer font-bold text-[#082142] text-lg hover:bg-slate-50 transition-colors">
+            <span>When should I hire a public adjuster?</span>
+            <svg class="w-5 h-5 text-slate-400 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+          </summary>
+          <div class="px-8 pb-6 text-slate-500 font-medium leading-relaxed">Immediately after discovering damage. But even if your claim was already denied or underpaid, we can still help. We handle appeals.</div>
+        </details>
+        <details class="group bg-white border border-slate-200 rounded-2xl overflow-hidden">
+          <summary class="flex justify-between items-center px-8 py-6 cursor-pointer font-bold text-[#082142] text-lg hover:bg-slate-50 transition-colors">
+            <span>Do you cover storm damage from Hurricane Helene?</span>
+            <svg class="w-5 h-5 text-slate-400 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+          </summary>
+          <div class="px-8 pb-6 text-slate-500 font-medium leading-relaxed">Yes. If you were affected by Helene or any other storm in NC and your claim was denied or underpaid, contact us for a free review.</div>
+        </details>
+        <details class="group bg-white border border-slate-200 rounded-2xl overflow-hidden">
+          <summary class="flex justify-between items-center px-8 py-6 cursor-pointer font-bold text-[#082142] text-lg hover:bg-slate-50 transition-colors">
+            <span>Do you offer service in Spanish?</span>
+            <svg class="w-5 h-5 text-slate-400 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+          </summary>
+          <div class="px-8 pb-6 text-slate-500 font-medium leading-relaxed">Yes. Our team is fully bilingual. Calls, paperwork, and the entire process available in Spanish.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. FINAL CTA + FORM -->
+  <section class="section-muted gradient-accent-bar" id="claim-form">
+    <div class="section-inner">
+      <div class="text-center mb-12">
+        <span class="eyebrow">No-risk consultation</span>
+        <h2 class="section-heading mb-4">Get your maximum settlement.</h2>
+        <p class="text-lg text-slate-500 font-medium max-w-3xl mx-auto mt-4">Claim Guardians evaluates your property damage for free. You pay nothing until we secure your check.</p>
+      </div>
+      <NCLeadForm client:load />
+    </div>
+  </section>
+
+</MinimalAdLayout>
