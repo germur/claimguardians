@@ -1,0 +1,541 @@
+---
+import MinimalAdLayout from '../../../layouts/MinimalAdLayout.astro';
+import NCLeadForm from '../../../components/NCLeadForm';
+
+export async function getStaticPaths() {
+  const ncCities = [
+    {
+      city: "Charlotte",
+      slug: "charlotte",
+      county: "Mecklenburg County",
+      localRisk: "severe thunderstorms, hail, and tropical storm remnants",
+      zipCodes: ["28202", "28203", "28204", "28205", "28206", "28207", "28208", "28209", "28210", "28211"],
+      nearbyAreas: "Concord, Gastonia, Matthews, Huntersville, Mint Hill, Indian Trail, Cornelius, Mooresville, and all of Mecklenburg County",
+      damageAngles: {
+        primary: "Severe storms and hail",
+        primaryDesc: "Charlotte sits in the Carolina hail belt. Severe thunderstorms from March through September regularly produce golf-ball-sized hail that destroys roofs, siding, and vehicles. Insurance companies routinely blame hail damage on 'normal wear and tear' to reduce payouts.",
+        secondary: "Wind and tropical storm damage",
+        secondaryDesc: "Tropical storm remnants reaching the Charlotte metro can cause significant wind damage, fallen trees, and flooding. Hurricane Hugo (1989) devastated the city, and remnants from Florence (2018) and Helene (2024) caused widespread property damage across Mecklenburg County.",
+        tertiary: "Water damage and pipe bursts",
+        tertiaryDesc: "Charlotte's clay-heavy soil shifts dramatically between wet and dry seasons, cracking foundations and rupturing pipes. Insurance carriers often classify water damage as 'gradual deterioration' to deny your claim.",
+      },
+      caseStudies: [
+        { type: "Hail damage — Charlotte, NC", initialOffer: "$6,200", result: "$41,800", icon: "🏠" },
+        { type: "Storm damage — Mecklenburg County", initialOffer: "Claim denied", result: "$58,500", icon: "🌪️" },
+      ],
+      faq: [
+        { q: "How much does a public adjuster charge in Charlotte, NC?", a: "Zero upfront. We work on a contingency fee regulated by the NC Department of Insurance — you only pay a percentage of what we recover. If we don't increase your settlement, you owe us nothing." },
+        { q: "Can I hire a public adjuster if my Charlotte claim was already denied?", a: "Absolutely. Many of our Charlotte cases are denied claims. We gather additional evidence, challenge the denial with documented proof, and force the insurer to reopen and properly evaluate your claim." },
+        { q: "How long does the claims process take with Claim Guardians?", a: "Most Charlotte claims are resolved within 30–90 days. Complex cases with multiple damage types or litigation may take longer, but we keep you informed at every step." },
+        { q: "What types of property damage do you handle in Charlotte?", a: "We handle all property damage: hail, wind, storm, water leaks, pipe bursts, roof damage, fire, smoke, mold, and denied or underpaid claims. If insurance should cover it, we fight for it." },
+        { q: "Do I need a public adjuster if I already have an insurance adjuster?", a: "Yes. The adjuster your insurance company sends works for them, not you. Their job is to minimize your payout. Our job is to maximize it. Homeowners who use a public adjuster recover significantly more on average." },
+      ],
+      stats: {
+        metric1: { value: "$43.78", label: "average CPC for 'public adjuster charlotte' — proof of high-value market", source: "Google Ads data 2026" },
+      }
+    },
+    {
+      city: "Raleigh",
+      slug: "raleigh",
+      county: "Wake County",
+      localRisk: "severe storms, hail, and tropical storm remnants",
+      zipCodes: ["27601", "27603", "27604", "27605", "27606", "27607", "27608", "27609", "27610", "27612"],
+      nearbyAreas: "Durham, Cary, Apex, Holly Springs, Garner, Wake Forest, Knightdale, and all of Wake County",
+      damageAngles: {
+        primary: "Hail and wind storms",
+        primaryDesc: "The Triangle area experiences intense thunderstorms from spring through fall. Wake County's rapid suburban growth means newer construction is often tested by severe hail and straight-line winds. Insurance adjusters frequently underestimate damage to newer roofing materials.",
+        secondary: "Tropical storm and hurricane remnants",
+        secondaryDesc: "While inland, Raleigh still receives significant impact from Atlantic hurricanes. Hurricane Florence (2018) dumped record rainfall across Wake County, and Hurricane Matthew (2016) caused widespread flooding. Tropical remnants from Helene (2024) brought destructive winds to the Triangle.",
+        tertiary: "Water intrusion and mold",
+        tertiaryDesc: "NC's humid climate creates ideal conditions for mold growth after any water event. Insurance companies will deny mold claims if they can argue the damage was 'pre-existing' or 'due to lack of maintenance.' We document the chain of causation to force coverage.",
+      },
+      caseStudies: [
+        { type: "Wind damage — Wake County, NC", initialOffer: "$8,400", result: "$47,200", icon: "🌪️" },
+        { type: "Water damage — Raleigh, NC", initialOffer: "$3,100", result: "$29,800", icon: "💧" },
+      ],
+      faq: [
+        { q: "How much does a public adjuster cost in Raleigh, NC?", a: "Nothing upfront. We charge a contingency fee — a percentage of what we recover for you. NC law regulates public adjuster fees. If we don't recover anything, you pay zero." },
+        { q: "Can you help with a denied claim in the Triangle area?", a: "Yes. We handle denied and underpaid claims across Wake, Durham, and Orange counties. We build a documented case that forces insurers to reconsider their denial." },
+        { q: "What areas near Raleigh do you cover?", a: "We serve the entire Triangle: Raleigh, Durham, Cary, Apex, Holly Springs, Garner, Wake Forest, Knightdale, Fuquay-Varina, and all surrounding communities in Wake County." },
+        { q: "How fast can you inspect my property in Raleigh?", a: "We typically schedule inspections within 24–48 hours. After a major storm event, demand increases but we prioritize the Triangle area with dedicated field adjusters." },
+        { q: "Is a public adjuster worth it for a small claim?", a: "Even claims that seem small often have hidden damage. We've recovered thousands more than initial offers on claims homeowners thought were minor. Our free inspection reveals the full scope." },
+      ],
+    },
+    {
+      city: "Wilmington",
+      slug: "wilmington",
+      county: "New Hanover County",
+      localRisk: "hurricanes, tropical storms, and coastal flooding",
+      zipCodes: ["28401", "28403", "28405", "28409", "28411", "28412"],
+      nearbyAreas: "Wrightsville Beach, Carolina Beach, Leland, Hampstead, Surf City, Jacksonville, and all of New Hanover and Pender counties",
+      damageAngles: {
+        primary: "Hurricane and tropical storm damage",
+        primaryDesc: "Wilmington is ground zero for Atlantic hurricanes hitting North Carolina. Hurricane Florence (2018) made direct landfall near Wrightsville Beach and caused $24 billion in damage. The city has been hit by more named storms than almost any other US metro. Insurance companies use 'wind vs. water' disputes to deny coastal claims.",
+        secondary: "Flood and water damage",
+        secondaryDesc: "Coastal NC faces unique flood risks from storm surge, river flooding, and heavy rainfall. Many Wilmington homeowners discover after a storm that their policy excludes certain flood types. We identify every source of coverage and fight for maximum payment.",
+        tertiary: "Roof and structural wind damage",
+        tertiaryDesc: "Wilmington's hurricane-force winds tear off roofing, damage siding, and compromise structural integrity. Insurance adjusters often claim damage is 'cosmetic' when it actually compromises the building envelope. Our licensed estimators document every deficiency.",
+      },
+      caseStudies: [
+        { type: "Hurricane damage — Wilmington, NC", initialOffer: "$11,200", result: "$73,500", icon: "🌪️" },
+        { type: "Flood damage — New Hanover County", initialOffer: "Claim denied", result: "$45,000", icon: "💧" },
+      ],
+      faq: [
+        { q: "Can a public adjuster help with hurricane damage in Wilmington?", a: "Absolutely. Hurricane claims are our specialty in coastal NC. We handle the complex 'wind vs. water' disputes that insurance companies use to minimize coastal payouts." },
+        { q: "My Wilmington property flooded — does insurance cover it?", a: "It depends on your policy type. Standard homeowners insurance often excludes flood, but wind-driven rain and storm surge may be covered under wind provisions. We analyze your policy and find every available avenue for recovery." },
+        { q: "How much does a public adjuster cost in Wilmington?", a: "Zero upfront. We work on contingency — you pay a percentage only after we recover your settlement. NC regulates public adjuster fees to protect homeowners." },
+        { q: "Do you still handle Florence and Helene damage claims?", a: "Yes. If your claim from Hurricane Florence, Helene, or any other storm was denied, underpaid, or never properly resolved, we can still help. Contact us for a free review of your claim status." },
+        { q: "What is the wind vs. water dispute?", a: "Insurance companies often argue that damage was caused by flooding (excluded in many policies) rather than wind (covered). This tactic saves them millions. We bring engineering evidence and documentation to prove wind damage and force proper payment." },
+      ],
+    },
+    {
+      city: "Asheville",
+      slug: "asheville",
+      county: "Buncombe County",
+      localRisk: "catastrophic flooding, mudslides, and severe storms",
+      zipCodes: ["28801", "28803", "28804", "28805", "28806"],
+      nearbyAreas: "Hendersonville, Waynesville, Black Mountain, Brevard, Weaverville, and all of Buncombe, Henderson, and Haywood counties",
+      damageAngles: {
+        primary: "Catastrophic flood damage (Hurricane Helene)",
+        primaryDesc: "Hurricane Helene (September 2024) devastated Western North Carolina with unprecedented flooding. The Swannanoa and French Broad rivers reached historic levels, destroying homes, businesses, and infrastructure across Buncombe County. 25% of NC claims after Helene were closed with zero payment. If your claim was denied or underpaid, we fight to reverse that decision.",
+        secondary: "Mudslide and landslide damage",
+        secondaryDesc: "WNC's mountainous terrain makes properties vulnerable to mudslides after heavy rain events. Insurance companies frequently deny landslide claims, arguing they fall under 'earth movement' exclusions. We challenge these denials with geological evidence and policy analysis.",
+        tertiary: "Water intrusion and mold",
+        tertiaryDesc: "Post-flood, Asheville homes face severe mold risks from standing water and saturated materials. Insurance companies try to separate mold damage from the original flood event. We document the direct causation chain to ensure full coverage.",
+      },
+      caseStudies: [
+        { type: "Flood damage — Asheville, NC (Helene)", initialOffer: "$4,800", result: "$62,000", icon: "💧" },
+        { type: "Storm damage — Buncombe County", initialOffer: "Claim denied", result: "$38,500", icon: "🌪️" },
+      ],
+      faq: [
+        { q: "Can you help with Hurricane Helene damage in Asheville?", a: "Yes. If your Helene claim was denied, underpaid, or is still unresolved, we can help. We're actively handling Helene claims across all of Western NC and fighting to reverse the 25% denial rate." },
+        { q: "My Asheville home was destroyed by flooding — what are my options?", a: "Even if you didn't have a separate flood policy, there may be coverage available. Wind-driven rain, infrastructure failure, and other causes may fall under your homeowners policy. We analyze every angle for recovery." },
+        { q: "How much does a public adjuster charge in Asheville?", a: "Nothing upfront. We work strictly on contingency — a percentage of what we recover for you. If we don't recover, you pay nothing. NC regulates public adjuster fees." },
+        { q: "Is it too late to file a Helene claim?", a: "Not necessarily. NC has specific timelines for filing and appealing insurance claims. Contact us immediately for a free review — we can tell you if your window is still open and what options remain." },
+        { q: "Do you cover the entire Western NC region?", a: "Yes. We serve all of WNC: Asheville, Hendersonville, Waynesville, Black Mountain, Brevard, Weaverville, Burnsville, Marion, and every county in the Blue Ridge region." },
+      ],
+    },
+    {
+      city: "Fayetteville",
+      slug: "fayetteville",
+      county: "Cumberland County",
+      localRisk: "severe storms, hurricane remnants, and hail",
+      zipCodes: ["28301", "28303", "28304", "28305", "28306", "28311", "28314"],
+      nearbyAreas: "Fort Liberty (Bragg), Spring Lake, Hope Mills, Sanford, Lumberton, and all of Cumberland County",
+      damageAngles: {
+        primary: "Storm and hurricane remnant damage",
+        primaryDesc: "Fayetteville's position in the Carolina Sandhills means it receives significant impact from Atlantic hurricanes moving inland. Hurricanes Florence (2018), Matthew (2016), and Helene (2024) all caused major damage in Cumberland County. Insurance companies delay and underpay military community claims knowing frequent relocations make follow-up harder.",
+        secondary: "Hail and wind damage",
+        secondaryDesc: "Severe thunderstorms bringing large hail and damaging winds are common from spring through fall. Cumberland County's mix of older military housing and newer developments creates complex damage assessments that insurance adjusters often undervalue.",
+        tertiary: "Water and flood damage",
+        tertiaryDesc: "The Cape Fear River basin makes low-lying Fayetteville neighborhoods vulnerable to flooding during major rain events. Insurance carriers dispute whether damage is from covered 'wind-driven rain' or excluded 'rising water.'",
+      },
+      caseStudies: [
+        { type: "Storm damage — Fayetteville, NC", initialOffer: "$5,600", result: "$34,200", icon: "🌪️" },
+        { type: "Roof damage — Cumberland County", initialOffer: "$7,800", result: "$42,100", icon: "🏠" },
+      ],
+      faq: [
+        { q: "Do you serve military families at Fort Liberty?", a: "Yes. We understand the unique challenges military families face with insurance claims — frequent relocations, tight timelines, and managing claims from afar. We handle everything locally so you don't have to." },
+        { q: "How much does a public adjuster cost in Fayetteville?", a: "Zero upfront. Contingency fee only — you pay a percentage of what we recover. NC regulates public adjuster fees. If we don't recover anything, you pay nothing." },
+        { q: "Can you help with an old storm damage claim in Cumberland County?", a: "Possibly. If your claim from Florence, Matthew, Helene, or any other event was denied or underpaid, contact us for a free review. NC has specific appeal timelines and we can tell you if your window is still open." },
+        { q: "What areas near Fayetteville do you cover?", a: "We serve all of Cumberland County and surrounding areas: Fayetteville, Fort Liberty, Spring Lake, Hope Mills, Sanford, Lumberton, Southern Pines, and all communities in between." },
+        { q: "How is a public adjuster different from my insurance company's adjuster?", a: "Your insurance company's adjuster works for them and is incentivized to minimize your payout. We work exclusively for you. We document every detail of damage and negotiate aggressively to maximize your settlement." },
+      ],
+    },
+    {
+      city: "Jacksonville",
+      slug: "jacksonville-nc",
+      county: "Onslow County",
+      localRisk: "hurricanes, coastal storms, and flooding",
+      zipCodes: ["28540", "28546"],
+      nearbyAreas: "Camp Lejeune, Swansboro, Richlands, Holly Ridge, Sneads Ferry, and all of Onslow County",
+      damageAngles: {
+        primary: "Hurricane and coastal storm damage",
+        primaryDesc: "Jacksonville's coastal Onslow County position puts it in the direct path of Atlantic hurricanes. Hurricane Florence (2018) caused catastrophic damage across the Camp Lejeune area. Insurance companies use policy technicalities to deny coastal storm claims. We cut through the red tape.",
+        secondary: "Flood and water damage",
+        secondaryDesc: "Low-lying areas near the New River and coastal zones face serious flood risk during hurricane season. Many Jacksonville homeowners are caught between standard homeowners policies and flood insurance gaps. We identify every coverage avenue.",
+        tertiary: "Roof and wind damage",
+        tertiaryDesc: "Coastal winds take a heavy toll on roofing and siding in Onslow County. Insurance adjusters often attribute damage to 'wear and tear' or 'maintenance issues' rather than covered storm events. Our licensed estimators prove otherwise.",
+      },
+      caseStudies: [
+        { type: "Hurricane damage — Jacksonville, NC", initialOffer: "$9,200", result: "$51,400", icon: "🌪️" },
+        { type: "Water damage — Onslow County", initialOffer: "Claim denied", result: "$28,700", icon: "💧" },
+      ],
+      faq: [
+        { q: "Do you serve the Camp Lejeune area?", a: "Yes. We serve all of Onslow County including Jacksonville, Camp Lejeune, Swansboro, Richlands, and surrounding communities. We're experienced with military family claims and understand the unique challenges you face." },
+        { q: "How much does a public adjuster cost in Jacksonville, NC?", a: "Nothing upfront. We work on contingency — a percentage of what we recover for you. NC regulates fees. No recovery, no fee." },
+        { q: "Can you help with hurricane claims from previous storms?", a: "Yes. If your Florence, Dorian, Helene, or any other storm claim was denied or underpaid, we can review it for free and tell you if recovery is still possible." },
+        { q: "What's the difference between wind and flood damage for insurance?", a: "This distinction is critical. Wind damage is typically covered under standard homeowners insurance. Flood damage may require a separate policy. Insurance companies exploit this to deny claims. We bring evidence to prove what caused the damage." },
+        { q: "How quickly can you inspect my Jacksonville property?", a: "We typically schedule inspections within 24–48 hours. After major storm events, we prioritize the coastal NC region with dedicated field adjusters." },
+      ],
+    },
+  ];
+
+  return ncCities.map((data) => ({
+    params: { city: data.slug },
+    props: { data },
+  }));
+}
+
+const { data } = Astro.props;
+const { city, slug, county, localRisk, zipCodes, nearbyAreas, damageAngles, caseStudies, faq } = data;
+---
+
+<MinimalAdLayout
+  title={`Public Adjuster in ${city}, NC | Claim Guardians`}
+  description={`Property damage in ${city}? Claim Guardians' NC-licensed public adjusters handle your insurance claim from inspection to settlement. No recovery, no fee.`}
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": `Claim Guardians - ${city}, NC`,
+      "image": "https://allclaimguardians.com/images/logo-color.svg",
+      "telephone": "(305) 804-5489",
+      "url": `https://allclaimguardians.com/service-areas/north-carolina/${slug}`,
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": city,
+        "addressRegion": "NC",
+        "addressCountry": "US"
+      },
+      "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": county
+      },
+      "makesOffer": {
+        "@type": "Offer",
+        "description": `Public adjusting services for ${localRisk} claims in ${county}`,
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "price": "0",
+          "priceCurrency": "USD",
+          "description": "No upfront cost - contingency fee only"
+        }
+      },
+      "description": `Licensed public adjusters serving ${city}, NC and all of ${county}. Specializing in ${localRisk} damage claims.`
+    })} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": faq.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": { "@type": "Answer", "text": f.a }
+      }))
+    })} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://allclaimguardians.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Service Areas", "item": "https://allclaimguardians.com/service-areas/" },
+        { "@type": "ListItem", "position": 3, "name": "North Carolina", "item": "https://allclaimguardians.com/service-areas/north-carolina/" },
+        { "@type": "ListItem", "position": 4, "name": city, "item": `https://allclaimguardians.com/service-areas/north-carolina/${slug}/` }
+      ]
+    })} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": `Public Adjusting Services in ${city}, NC`,
+      "provider": { "@type": "LocalBusiness", "name": "Claim Guardians LLC" },
+      "areaServed": { "@type": "AdministrativeArea", "name": county },
+      "description": `Licensed public adjusters handling ${localRisk} damage claims in ${city} and ${county}.`,
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "description": "Free inspection. No recovery, no fee." }
+    })} />
+  </Fragment>
+
+  <!-- 1. HERO -->
+  <section class="relative bg-[#041224] overflow-hidden" style="padding-top:8rem; padding-bottom:8rem;">
+    <div class="absolute inset-0 z-0">
+      <img src="/images/florida-damaged-house-hero.png" alt={`Property damage in ${city}, North Carolina`} class="w-full h-full object-cover opacity-60 scale-105" fetchpriority="high" />
+      <div class="absolute inset-0 bg-gradient-to-b from-[#041224]/40 via-[#002D51]/20 to-[#041224]"></div>
+    </div>
+    <div class="section-inner relative z-10">
+      <nav aria-label="Breadcrumb" class="mb-10 inline-flex">
+        <ol class="flex items-center space-x-2 text-sm text-slate-400 font-medium bg-white/5 backdrop-blur-md px-4 py-2 rounded-full border border-white/10">
+          <li><a href="/" class="hover:text-white transition-colors">Home</a></li>
+          <li><span class="mx-2 text-slate-600">›</span></li>
+          <li><a href="/service-areas" class="hover:text-white transition-colors">Service Areas</a></li>
+          <li><span class="mx-2 text-slate-600">›</span></li>
+          <li><a href="/service-areas/north-carolina" class="hover:text-white transition-colors">North Carolina</a></li>
+          <li><span class="mx-2 text-slate-600">›</span></li>
+          <li class="text-white" aria-current="page">{city}</li>
+        </ol>
+      </nav>
+      <div class="max-w-4xl">
+        <span class="eyebrow" style="color:#00B5A6;">Public Adjuster — {county}</span>
+        <h1 class="text-4xl md:text-5xl lg:text-7xl font-extrabold text-white mb-6 tracking-tight leading-[1.1]">
+          Claim Guardians Maximizes Your Insurance Settlement in&nbsp;{city},&nbsp;NC.
+        </h1>
+        <p class="text-xl text-slate-300 leading-relaxed font-medium mb-10 max-w-3xl">
+          {city} properties face {localRisk}. When your insurance company underpays or denies your claim, our NC-licensed public adjusters fight to get you the maximum legal settlement. You pay nothing unless we win.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 mb-10">
+          <a href="#claim-form" class="inline-flex items-center justify-center px-8 py-4 text-base font-extrabold text-white bg-[#00808C] rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all">
+            Free {city} Property Inspection
+          </a>
+          <a href="tel:3058045489" class="inline-flex items-center justify-center px-8 py-4 text-base font-extrabold text-white border-2 border-white/30 bg-white/5 hover:bg-white/10 rounded-xl transition-all">
+            📞 (305) 804-5489
+          </a>
+        </div>
+        <div class="flex flex-wrap gap-x-6 gap-y-3 text-sm font-semibold text-slate-300">
+          <span class="flex items-center gap-2"><span class="text-[#00B5A6]">✓</span> Serving all of {county}</span>
+          <span class="flex items-center gap-2"><span class="text-[#00B5A6]">✓</span> NC DOI Licensed</span>
+          <span class="flex items-center gap-2"><span class="text-[#00B5A6]">✓</span> No Recovery, No Fee</span>
+          <span class="flex items-center gap-2"><span class="text-[#00B5A6]">✓</span> Se habla español</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. LOCAL DAMAGE TYPES (unique per city) -->
+  <section class="section-white">
+    <div class="section-inner">
+      <div class="max-w-3xl mb-12">
+        <span class="eyebrow">Why {city} needs Claim Guardians</span>
+        <h2 class="section-heading mb-4">Property Damage Risks Specific to {city} and {county}.</h2>
+        <p class="text-lg text-slate-500 font-medium leading-relaxed">Insurance companies operating in {county} know these risks — and they train their adjusters to minimize what they pay you. Here's what we fight for.</p>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div class="card-hover p-8">
+          <div class="text-3xl mb-4">🌪️</div>
+          <h3 class="text-xl font-extrabold text-[#082142] mb-3">{damageAngles.primary}</h3>
+          <p class="text-slate-500 font-medium leading-relaxed">{damageAngles.primaryDesc}</p>
+          <a href="/services/hurricane-damage/" class="inline-flex items-center gap-2 mt-4 text-sm font-bold text-[#00808C] hover:text-[#002D51] transition-colors">Learn about our storm claim process →</a>
+        </div>
+        <div class="card-hover p-8">
+          <div class="text-3xl mb-4">💧</div>
+          <h3 class="text-xl font-extrabold text-[#082142] mb-3">{damageAngles.secondary}</h3>
+          <p class="text-slate-500 font-medium leading-relaxed">{damageAngles.secondaryDesc}</p>
+          <a href="/services/water-damage/" class="inline-flex items-center gap-2 mt-4 text-sm font-bold text-[#00808C] hover:text-[#002D51] transition-colors">Learn about our water damage process →</a>
+        </div>
+        <div class="card-hover p-8">
+          <div class="text-3xl mb-4">🏠</div>
+          <h3 class="text-xl font-extrabold text-[#082142] mb-3">{damageAngles.tertiary}</h3>
+          <p class="text-slate-500 font-medium leading-relaxed">{damageAngles.tertiaryDesc}</p>
+          <a href="/services/denied-claims/" class="inline-flex items-center gap-2 mt-4 text-sm font-bold text-[#00808C] hover:text-[#002D51] transition-colors">Learn about denied claim appeals →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. ALL SERVICES GRID -->
+  <section class="section-muted">
+    <div class="section-inner">
+      <div class="max-w-3xl mb-16">
+        <span class="eyebrow">Full service</span>
+        <h2 class="section-heading mb-4">Every Type of Property Damage Claim in {city}.</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <a href="/services/water-damage/" class="card-hover p-6 block group">
+          <div class="flex items-center gap-4">
+            <span class="text-2xl">💧</span>
+            <div>
+              <h3 class="text-lg font-extrabold text-[#082142] group-hover:text-[#00808C] transition-colors">Water & Leak Damage</h3>
+              <p class="text-sm text-slate-500 font-medium">Pipe bursts, hidden moisture, flood</p>
+            </div>
+          </div>
+        </a>
+        <a href="/services/hurricane-damage/" class="card-hover p-6 block group">
+          <div class="flex items-center gap-4">
+            <span class="text-2xl">🌪️</span>
+            <div>
+              <h3 class="text-lg font-extrabold text-[#082142] group-hover:text-[#00808C] transition-colors">Hurricane & Storm</h3>
+              <p class="text-sm text-slate-500 font-medium">Wind, hail, tropical storm impact</p>
+            </div>
+          </div>
+        </a>
+        <a href="/services/roof-damage/" class="card-hover p-6 block group">
+          <div class="flex items-center gap-4">
+            <span class="text-2xl">🏠</span>
+            <div>
+              <h3 class="text-lg font-extrabold text-[#082142] group-hover:text-[#00808C] transition-colors">Roof Damage</h3>
+              <p class="text-sm text-slate-500 font-medium">Structural failures, hail hits, leaks</p>
+            </div>
+          </div>
+        </a>
+        <a href="/services/fire-damage/" class="card-hover p-6 block group">
+          <div class="flex items-center gap-4">
+            <span class="text-2xl">🔥</span>
+            <div>
+              <h3 class="text-lg font-extrabold text-[#082142] group-hover:text-[#00808C] transition-colors">Fire & Smoke</h3>
+              <p class="text-sm text-slate-500 font-medium">Structural loss and smoke assessment</p>
+            </div>
+          </div>
+        </a>
+        <a href="/services/mold-claims/" class="card-hover p-6 block group">
+          <div class="flex items-center gap-4">
+            <span class="text-2xl">🦠</span>
+            <div>
+              <h3 class="text-lg font-extrabold text-[#082142] group-hover:text-[#00808C] transition-colors">Mold Damage</h3>
+              <p class="text-sm text-slate-500 font-medium">Post-water exposure documentation</p>
+            </div>
+          </div>
+        </a>
+        <a href="/services/denied-claims/" class="card-hover p-6 block group">
+          <div class="flex items-center gap-4">
+            <span class="text-2xl">⚖️</span>
+            <div>
+              <h3 class="text-lg font-extrabold text-[#082142] group-hover:text-[#00808C] transition-colors">Denied & Underpaid</h3>
+              <p class="text-sm text-slate-500 font-medium">Appeals and forced full payment</p>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. PROCESS -->
+  <section class="section-white">
+    <div class="section-inner">
+      <div class="text-center mb-16">
+        <span class="eyebrow">How it works</span>
+        <h2 class="section-heading mb-4">Three Steps to Your Maximum Settlement in {city}.</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="card-hover p-10">
+          <div class="step-number">01</div>
+          <h3 class="text-xl font-extrabold text-[#082142] mb-3">Free property inspection</h3>
+          <p class="text-slate-500 font-medium">Our NC-licensed adjusters visit your {city} property and document <strong>all</strong> damage — including what insurance adjusters miss. This costs you nothing.</p>
+        </div>
+        <div class="card-hover p-10">
+          <div class="step-number">02</div>
+          <h3 class="text-xl font-extrabold text-[#082142] mb-3">We handle the insurance fight</h3>
+          <p class="text-slate-500 font-medium">We prepare a comprehensive claim, file all paperwork, and negotiate directly with your insurer. You don't deal with adjusters, calls, or paperwork.</p>
+        </div>
+        <div class="card-hover p-10">
+          <div class="step-number">03</div>
+          <h3 class="text-xl font-extrabold text-[#082142] mb-3">You get your maximum settlement</h3>
+          <p class="text-slate-500 font-medium">Settlement check in your hands. We collect our fee <strong>only after</strong> you get paid. If we don't recover anything, you owe us nothing.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. RESULTS / CASE STUDIES -->
+  <section class="section-muted">
+    <div class="section-inner">
+      <div class="text-center mb-16">
+        <span class="eyebrow">Real results</span>
+        <h2 class="section-heading">What We Recover for {county} Homeowners.</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        {caseStudies.map((cs) => (
+          <div class="card-testimonial p-10">
+            <span class="inline-block text-xs font-bold bg-slate-100 text-slate-600 px-3 py-1 rounded-full mb-6 border border-slate-200">
+              {cs.icon} {cs.type}
+            </span>
+            <div class="flex justify-between items-center mb-2">
+              <span class="text-sm font-semibold text-slate-400">Insurance initial offer</span>
+              <span class:list={["text-lg font-black", cs.initialOffer === "Claim denied" ? "text-red-500" : "text-red-500 line-through"]}>
+                {cs.initialOffer === "Claim denied" ? "⛔ Claim denied" : `~${cs.initialOffer}`}
+              </span>
+            </div>
+            <div class="border-t border-slate-100 my-3"></div>
+            <div class="flex justify-between items-center">
+              <span class="text-sm font-bold text-[#082142]">Claim Guardians settlement</span>
+              <span class="text-2xl font-black text-[#00808C]">{cs.result}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. YOUR ADJUSTER VS THEIRS -->
+  <section class="section-white">
+    <div class="section-inner">
+      <div class="text-center mb-16">
+        <span class="eyebrow">Who works for you?</span>
+        <h2 class="section-heading">Your Adjuster vs. Their Adjuster.</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div class="rounded-2xl border-2 border-red-200 bg-red-50/50 p-8">
+          <h3 class="text-xl font-extrabold text-[#082142] mb-6 flex items-center gap-3">
+            <span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-red-100 text-red-500">✕</span>
+            Their insurance adjuster
+          </h3>
+          <ul class="space-y-4 text-slate-600 font-medium">
+            <li class="flex items-start gap-3"><span class="text-red-400 mt-0.5">⚠️</span>Paid by the insurance company.</li>
+            <li class="flex items-start gap-3"><span class="text-red-400 mt-0.5">⚠️</span>Trained to minimize your payout.</li>
+            <li class="flex items-start gap-3"><span class="text-red-400 mt-0.5">⚠️</span>Uses policy jargon to exclude coverage.</li>
+            <li class="flex items-start gap-3"><span class="text-red-400 mt-0.5">⚠️</span>May blame damage on "pre-existing conditions."</li>
+          </ul>
+        </div>
+        <div class="rounded-2xl border-2 border-[#00B5A6]/30 bg-[#00808C]/5 p-8">
+          <h3 class="text-xl font-extrabold text-[#082142] mb-6 flex items-center gap-3">
+            <span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#00B5A6]/20 text-[#00808C]">✓</span>
+            Claim Guardians (your PA)
+          </h3>
+          <ul class="space-y-4 text-slate-600 font-medium">
+            <li class="flex items-start gap-3"><span class="text-[#00B5A6] mt-0.5">✓</span><strong>You</strong> hire us. We work for you.</li>
+            <li class="flex items-start gap-3"><span class="text-[#00B5A6] mt-0.5">✓</span>We maximize your financial settlement.</li>
+            <li class="flex items-start gap-3"><span class="text-[#00B5A6] mt-0.5">✓</span>We document every detail of damage.</li>
+            <li class="flex items-start gap-3"><span class="text-[#00B5A6] mt-0.5">✓</span>No recovery, no fee. Zero risk.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. COVERAGE ZIP CODES -->
+  <section class="section-muted">
+    <div class="section-inner text-center">
+      <span class="eyebrow">Local coverage</span>
+      <h2 class="section-heading mb-4">Serving {city} and All of {county}.</h2>
+      <p class="text-lg text-slate-500 mb-8 max-w-2xl mx-auto font-medium">
+        Our field adjusters respond to claims in {city} and surrounding areas including {nearbyAreas}.
+      </p>
+      <div class="flex flex-wrap justify-center gap-3 mb-8">
+        {zipCodes.map((zip) => (
+          <div class="px-5 py-2.5 bg-white border border-slate-200 rounded-full shadow-sm text-base font-bold text-[#002D51]">
+            {zip}
+          </div>
+        ))}
+        <div class="px-5 py-2.5 bg-white border border-slate-200 rounded-full shadow-sm text-base font-bold text-slate-400">
+          + All surrounding areas
+        </div>
+      </div>
+      <a href="/service-areas/north-carolina/" class="inline-flex items-center gap-2 text-sm font-bold text-[#00808C] hover:text-[#002D51] transition-colors">
+        ← View all NC service areas
+      </a>
+    </div>
+  </section>
+
+  <!-- 8. FAQ -->
+  <section class="section-white">
+    <div class="section-inner max-w-4xl mx-auto">
+      <div class="text-center mb-12">
+        <span class="eyebrow">Common questions</span>
+        <h2 class="section-heading">Questions from {city} Homeowners.</h2>
+      </div>
+      <div class="space-y-4">
+        {faq.map((item) => (
+          <details class="group bg-white border border-slate-200 rounded-2xl overflow-hidden">
+            <summary class="flex justify-between items-center px-8 py-6 cursor-pointer font-bold text-[#082142] text-lg hover:bg-slate-50 transition-colors">
+              <span>{item.q}</span>
+              <svg class="w-5 h-5 text-slate-400 transition-transform group-open:rotate-180 flex-shrink-0 ml-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+            </summary>
+            <div class="px-8 pb-6 text-slate-500 font-medium leading-relaxed">{item.a}</div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. FINAL CTA + FORM -->
+  <section class="section-muted gradient-accent-bar" id="claim-form">
+    <div class="section-inner">
+      <div class="text-center mb-12">
+        <span class="eyebrow">No-risk consultation</span>
+        <h2 class="section-heading mb-4">Was Your {city} Property Damaged?</h2>
+        <p class="text-lg text-slate-500 font-medium max-w-3xl mx-auto mt-4">
+          Don't let the insurance company dictate the outcome of your claim. Get a free, expert settlement review from our NC-licensed public adjusters today. You pay nothing unless we win.
+        </p>
+      </div>
+      <NCLeadForm client:load />
+    </div>
+  </section>
+
+</MinimalAdLayout>
