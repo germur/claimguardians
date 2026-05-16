@@ -239,10 +239,17 @@ import NCLeadForm from '../../../components/NCLeadForm';
         <p class="text-lg text-slate-500 font-medium">Charlotte, Raleigh, Wilmington, Durham, Greensboro, Winston-Salem, Fayetteville, Asheville, and every county in between. Licensed to operate statewide.</p>
       </div>
       <div class="flex flex-wrap gap-4">
-        {["charlotte","raleigh","wilmington","durham","greensboro","asheville","fayetteville","winston-salem"].map(city => (
-          <a href={`/service-areas/${city}/`} class="inline-flex items-center gap-2 px-5 py-3 bg-white rounded-xl border border-slate-200 text-sm font-bold text-[#082142] hover:border-[#00808C] hover:text-[#00808C] hover:-translate-y-0.5 transition-all shadow-sm">
+        {[
+          {slug: "charlotte", name: "Charlotte"},
+          {slug: "raleigh", name: "Raleigh"},
+          {slug: "wilmington", name: "Wilmington"},
+          {slug: "asheville", name: "Asheville"},
+          {slug: "fayetteville", name: "Fayetteville"},
+          {slug: "jacksonville-nc", name: "Jacksonville"},
+        ].map(city => (
+          <a href={`/service-areas/north-carolina/${city.slug}/`} class="inline-flex items-center gap-2 px-5 py-3 bg-white rounded-xl border border-slate-200 text-sm font-bold text-[#082142] hover:border-[#00808C] hover:text-[#00808C] hover:-translate-y-0.5 transition-all shadow-sm">
             <svg class="w-4 h-4 text-[#00808C]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            {city.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')}
+            {city.name}
           </a>
         ))}
       </div>

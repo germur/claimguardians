@@ -4,8 +4,8 @@ import LeadForm from '../components/LeadForm';
 ---
 
 <BaseLayout 
-  title="Free Claim Review | Florida & California Public Adjuster | Claim Guardians"
-  description="Request a free, no-obligation property damage inspection and claim review from Florida and California's elite public adjusters. Zero upfront cost."
+  title="Free Claim Review | NC, FL & CA Public Adjuster | Claim Guardians"
+  description="Get a free property damage claim review from NC, FL & CA licensed public adjusters. We handle your insurance company and maximize your settlement. No recovery, no fee."
 >
   <Fragment slot="head">
     <script type="application/ld+json">
@@ -13,12 +13,13 @@ import LeadForm from '../components/LeadForm';
         "@context": "https://schema.org",
         "@type": "ContactPage",
         "name": "Claim Guardians Free Claim Review",
-        "description": "Contact Claim Guardians for a free property damage assessment and insurance claim review in Florida.",
+        "description": "Free property damage assessment and insurance claim review in North Carolina, Florida, and California.",
         "url": "https://allclaimguardians.com/free-claim-review",
         "mainEntity": {
           "@type": "LocalBusiness",
           "name": "Claim Guardians LLC",
           "telephone": "(305) 804-5489",
+          "areaServed": ["North Carolina", "Florida", "California"],
           "address": {
             "@type": "PostalAddress",
             "streetAddress": "304 Indian Trace Unit 655",
@@ -30,113 +31,193 @@ import LeadForm from '../components/LeadForm';
         }
       }
     </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "How much does a free claim review cost?", "acceptedAnswer": { "@type": "Answer", "text": "Nothing. Our initial property inspection and claim review is completely free. We charge a contingency fee only after we successfully recover money for you. If we don't recover anything, you pay nothing." } },
+          { "@type": "Question", "name": "What happens during the free claim review?", "acceptedAnswer": { "@type": "Answer", "text": "A licensed public adjuster inspects your property, documents all damage including hidden damage, reviews your insurance policy, and provides an honest assessment of what your claim is worth. The entire process typically takes 1-2 hours." } },
+          { "@type": "Question", "name": "Can I get a free review if my claim was already denied?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. Many of our cases are denied or underpaid claims. We review the denial, gather additional evidence, and fight to reverse the decision. There is no cost to you for the review." } },
+          { "@type": "Question", "name": "What states do you serve?", "acceptedAnswer": { "@type": "Answer", "text": "Claim Guardians is licensed and operates in North Carolina, Florida, and California. We serve all cities and counties within these states." } },
+          { "@type": "Question", "name": "How long until I hear back after submitting the form?", "acceptedAnswer": { "@type": "Answer", "text": "We respond within 24 hours for standard requests. For emergencies, call our hotline at (305) 804-5489 for immediate dispatch." } }
+        ]
+      }
+    </script>
   </Fragment>
 
-  <!-- 1. Hero Content Zone -->
+  <!-- 1. Hero -->
   <section class="relative bg-[#041224] overflow-hidden" style="padding-top:6rem; padding-bottom:12rem;">
     <div class="absolute inset-0 z-0">
-      <img src="/images/hero-success.png" alt="Successful insurance settlement check" class="w-full h-full object-cover opacity-60 scale-105" />
+      <img src="/images/hero-success.png" alt="Successful insurance settlement check" class="w-full h-full object-cover opacity-60 scale-105" fetchpriority="high" loading="eager" />
       <div class="absolute inset-0 bg-gradient-to-b from-[#041224]/40 via-[#002D51]/20 to-white"></div>
     </div>
-    
     <div class="section-inner relative z-10 text-center">
       <nav aria-label="Breadcrumb" class="mb-8 inline-flex">
         <ol class="flex items-center space-x-2 text-sm text-slate-400 font-medium bg-white/5 px-4 py-2 rounded-full border border-white/10">
           <li><a href="/" class="hover:text-white transition-colors">Home</a></li>
           <li><span class="mx-2 text-slate-600">›</span></li>
-          <li class="text-white font-bold" aria-current="page">Free Review</li>
+          <li class="text-white font-bold" aria-current="page">Free Claim Review</li>
         </ol>
       </nav>
-
       <div class="max-w-3xl mx-auto">
-        <span class="eyebrow" style="color:#00B5A6;">Zero-Cost Policy Review</span>
+        <span class="eyebrow" style="color:#00B5A6;">Zero-Cost Property Inspection</span>
         <h1 class="text-4xl md:text-5xl lg:text-7xl font-extrabold text-white mb-6 tracking-tight leading-[1.1]">
-          Secure Your <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#00808C] to-[#00B5A6]">Maximum Legal Settlement.</span>
+          Get Your <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#00808C] to-[#00B5A6]">Maximum Legal Settlement.</span>
         </h1>
-        <p class="text-xl text-slate-300 leading-relaxed font-medium">
-          Tell us about your loss. Our senior adjusters will review your policy and damage for free, outlining exactly what your insurer legally owes you.
+        <p class="text-xl text-slate-300 leading-relaxed font-medium mb-8">
+          Tell us about your property damage. Our licensed adjusters will inspect your property, review your policy, and tell you exactly what your insurer legally owes you — at zero cost.
         </p>
+        <div class="flex flex-wrap justify-center gap-x-6 gap-y-3 text-sm font-semibold text-slate-300">
+          <span class="flex items-center gap-2"><span class="text-[#00B5A6]">✓</span> NC, FL & CA Licensed</span>
+          <span class="flex items-center gap-2"><span class="text-[#00B5A6]">✓</span> No Recovery, No Fee</span>
+          <span class="flex items-center gap-2"><span class="text-[#00B5A6]">✓</span> 24/7 Emergency Line</span>
+          <span class="flex items-center gap-2"><span class="text-[#00B5A6]">✓</span> Se Habla Español</span>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- 2. Dual Column Conversion Zone -->
+  <!-- 2. Dual Column: Form + Trust -->
   <section class="section-white" style="margin-top: -8rem;">
     <div class="section-inner relative z-20">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-        
-        <!-- FORM COLUMN (7 Cols) -->
         <div class="lg:col-span-7">
           <LeadForm client:load />
         </div>
-
-        <!-- TRUST COLUMN (5 Cols) -->
         <div class="lg:col-span-5 space-y-8 lg:sticky lg:top-32">
-          
-          <!-- Emergency CTA Card -->
+          <!-- Emergency CTA -->
           <div class="section-dark p-8 md:p-10 rounded-3xl relative overflow-hidden shadow-2xl group border border-white/5">
             <div class="absolute top-0 right-0 w-32 h-32 bg-red-500/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-2xl group-hover:bg-red-500/20 transition-colors"></div>
             <div class="relative z-10">
               <div class="text-4xl mb-6 inline-flex items-center justify-center w-16 h-16 rounded-full bg-red-500/10 border border-red-500/20 animate-pulse">🚨</div>
               <h3 class="text-2xl font-bold text-white mb-4">Emergency Situation?</h3>
-              <p class="text-blue-100 text-lg mb-8 font-light leading-relaxed">
-                If you have active fire, water, or storm damage, bypass the form and call our 24/7 hotline immediately for rapid dispatch.
-              </p>
-              <a href="tel:3058045489" class="btn-accent w-full justify-center text-2xl py-6 rounded-2xl shadow-[0_20px_40px_-10px_rgba(0,128,140,0.4)]">
-                (305) 804-5489
-              </a>
+              <p class="text-blue-100 text-lg mb-8 font-light leading-relaxed">Active fire, water, or storm damage? Call our 24/7 hotline for immediate dispatch.</p>
+              <a href="tel:3058045489" class="btn-accent w-full justify-center text-2xl py-6 rounded-2xl shadow-[0_20px_40px_-10px_rgba(0,128,140,0.4)]">(305) 804-5489</a>
             </div>
           </div>
-
-          <!-- The Guardians Guarantee -->
+          <!-- Guarantee -->
           <div class="card-hover p-10">
             <h4 class="text-sm font-black uppercase tracking-[0.2em] text-[#00808C] mb-8 border-b border-slate-100 pb-4">The Guarantee</h4>
             <ul class="space-y-6">
               <li class="flex items-start space-x-4">
-                <div class="flex-shrink-0 mt-1">
-                  <svg class="w-6 h-6 text-[#00B5A6]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                </div>
+                <div class="flex-shrink-0 mt-1"><svg class="w-6 h-6 text-[#00B5A6]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
                 <div>
-                  <p class="text-slate-500 font-medium">We use thermal imaging and moisture meters to prove damage adjusters "missed."</p>
+                  <p class="text-slate-700 font-bold mb-1">We find what adjusters miss</p>
+                  <p class="text-slate-500 font-medium text-sm">Thermal imaging and moisture meters reveal hidden damage insurance adjusters conveniently "overlook."</p>
                 </div>
               </li>
               <li class="flex items-start space-x-4">
-                <div class="flex-shrink-0 mt-1">
-                  <svg class="w-6 h-6 text-[#00B5A6]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                </div>
+                <div class="flex-shrink-0 mt-1"><svg class="w-6 h-6 text-[#00B5A6]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
                 <div>
-                  <p class="text-slate-500 font-medium">We handle all communication, paperwork, and negotiations with your insurer.</p>
+                  <p class="text-slate-700 font-bold mb-1">Zero paperwork for you</p>
+                  <p class="text-slate-500 font-medium text-sm">We handle all communication, documentation, and negotiations with your insurer.</p>
                 </div>
               </li>
               <li class="flex items-start space-x-4">
-                <div class="flex-shrink-0 mt-1">
-                  <svg class="w-6 h-6 text-[#00B5A6]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                </div>
+                <div class="flex-shrink-0 mt-1"><svg class="w-6 h-6 text-[#00B5A6]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
                 <div>
-                  <p class="text-slate-500 font-medium">You pay nothing unless we win your claim. Zero upfront fees.</p>
+                  <p class="text-slate-700 font-bold mb-1">No recovery, no fee. Period.</p>
+                  <p class="text-slate-500 font-medium text-sm">State-regulated percentage collected only after you receive your settlement check.</p>
                 </div>
               </li>
             </ul>
-            <div class="pt-8 border-t border-slate-100 mt-8">
-              <p class="text-sm font-black text-[#082142] mb-1">Claim Guardians HQ</p>
-              <p class="text-sm text-slate-500">304 Indian Trace Unit 655<br/>Weston, FL 33326</p>
+          </div>
+          <!-- Quick Results -->
+          <div class="card-hover p-8">
+            <h4 class="text-sm font-black uppercase tracking-[0.2em] text-[#00808C] mb-6 border-b border-slate-100 pb-4">Recent Results</h4>
+            <div class="space-y-4">
+              <div class="flex justify-between items-center">
+                <div><p class="text-xs font-bold text-slate-400">💧 Water damage — Miami, FL</p><p class="text-xs text-red-400 line-through">Insurer offered ~$14,500</p></div>
+                <span class="text-lg font-black text-[#00808C]">$82,300</span>
+              </div>
+              <div class="border-t border-slate-100"></div>
+              <div class="flex justify-between items-center">
+                <div><p class="text-xs font-bold text-slate-400">🌪️ Storm — Fort Myers, FL</p><p class="text-xs text-red-400">⛔ Claim denied</p></div>
+                <span class="text-lg font-black text-[#00808C]">$65,000</span>
+              </div>
+              <div class="border-t border-slate-100"></div>
+              <div class="flex justify-between items-center">
+                <div><p class="text-xs font-bold text-slate-400">🏠 Hail — Charlotte, NC</p><p class="text-xs text-red-400 line-through">Insurer offered ~$6,200</p></div>
+                <span class="text-lg font-black text-[#00808C]">$41,800</span>
+              </div>
             </div>
           </div>
-
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 3. Bottom Proof Banner -->
+  <!-- 3. What Happens Next -->
+  <section class="section-muted">
+    <div class="section-inner">
+      <div class="text-center mb-16">
+        <span class="eyebrow">What happens next</span>
+        <h2 class="section-heading mb-4">Three Steps After You Submit.</h2>
+        <p class="text-lg text-slate-500 font-medium max-w-2xl mx-auto">Simple, transparent, and zero risk.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="card-hover p-10">
+          <div class="step-number">01</div>
+          <h3 class="text-xl font-extrabold text-[#082142] mb-3">We call you within 24 hours</h3>
+          <p class="text-slate-500 font-medium">A licensed adjuster reviews your submission and calls to understand your situation. No salespeople — only experts.</p>
+        </div>
+        <div class="card-hover p-10">
+          <div class="step-number">02</div>
+          <h3 class="text-xl font-extrabold text-[#082142] mb-3">Free on-site inspection</h3>
+          <p class="text-slate-500 font-medium">We visit your property, document all damage with professional equipment, and review your insurance policy for every avenue of recovery.</p>
+        </div>
+        <div class="card-hover p-10">
+          <div class="step-number">03</div>
+          <h3 class="text-xl font-extrabold text-[#082142] mb-3">Honest assessment</h3>
+          <p class="text-slate-500 font-medium">We tell you exactly what your claim is worth. If we can't improve your outcome, we'll tell you — no hard sell, no pressure.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. FAQ -->
+  <section class="section-white">
+    <div class="section-inner max-w-4xl mx-auto">
+      <div class="text-center mb-12">
+        <span class="eyebrow">Common questions</span>
+        <h2 class="section-heading">Questions About the Free Claim Review.</h2>
+      </div>
+      <div class="space-y-4">
+        <details class="group bg-white border border-slate-200 rounded-2xl overflow-hidden">
+          <summary class="flex justify-between items-center px-8 py-6 cursor-pointer font-bold text-[#082142] text-lg hover:bg-slate-50 transition-colors"><span>How much does the free claim review actually cost?</span><svg class="w-5 h-5 text-slate-400 transition-transform group-open:rotate-180 flex-shrink-0 ml-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></summary>
+          <div class="px-8 pb-6 text-slate-500 font-medium leading-relaxed">Nothing. Zero. Our initial property inspection and claim review is completely free. We charge a state-regulated contingency fee only after we successfully recover money for you. If we don't increase your settlement, you pay nothing.</div>
+        </details>
+        <details class="group bg-white border border-slate-200 rounded-2xl overflow-hidden">
+          <summary class="flex justify-between items-center px-8 py-6 cursor-pointer font-bold text-[#082142] text-lg hover:bg-slate-50 transition-colors"><span>What happens during the free inspection?</span><svg class="w-5 h-5 text-slate-400 transition-transform group-open:rotate-180 flex-shrink-0 ml-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></summary>
+          <div class="px-8 pb-6 text-slate-500 font-medium leading-relaxed">A licensed public adjuster visits your property and documents all damage — including hidden damage that insurance adjusters miss — using thermal imaging and moisture detection equipment. We also review your insurance policy to identify every coverage avenue. The visit typically takes 1–2 hours.</div>
+        </details>
+        <details class="group bg-white border border-slate-200 rounded-2xl overflow-hidden">
+          <summary class="flex justify-between items-center px-8 py-6 cursor-pointer font-bold text-[#082142] text-lg hover:bg-slate-50 transition-colors"><span>Can I get a free review if my claim was already denied?</span><svg class="w-5 h-5 text-slate-400 transition-transform group-open:rotate-180 flex-shrink-0 ml-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></summary>
+          <div class="px-8 pb-6 text-slate-500 font-medium leading-relaxed">Absolutely. Many of our cases are denied or underpaid claims. We review the denial letter, gather additional evidence the insurer didn't consider, and fight to reverse the decision. The review costs you nothing.</div>
+        </details>
+        <details class="group bg-white border border-slate-200 rounded-2xl overflow-hidden">
+          <summary class="flex justify-between items-center px-8 py-6 cursor-pointer font-bold text-[#082142] text-lg hover:bg-slate-50 transition-colors"><span>What states do you serve?</span><svg class="w-5 h-5 text-slate-400 transition-transform group-open:rotate-180 flex-shrink-0 ml-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></summary>
+          <div class="px-8 pb-6 text-slate-500 font-medium leading-relaxed">Claim Guardians is licensed in North Carolina, Florida, and California. We serve all cities and counties within these states — from Charlotte and Raleigh in NC, to Miami and Tampa in FL, to Los Angeles and San Diego in CA.</div>
+        </details>
+        <details class="group bg-white border border-slate-200 rounded-2xl overflow-hidden">
+          <summary class="flex justify-between items-center px-8 py-6 cursor-pointer font-bold text-[#082142] text-lg hover:bg-slate-50 transition-colors"><span>How quickly will you respond?</span><svg class="w-5 h-5 text-slate-400 transition-transform group-open:rotate-180 flex-shrink-0 ml-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></summary>
+          <div class="px-8 pb-6 text-slate-500 font-medium leading-relaxed">Within 24 hours for standard requests. For emergencies — active water, fire, or storm damage — call (305) 804-5489 for immediate dispatch.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Bottom Proof Banner -->
   <section class="section-muted border-t border-slate-200">
     <div class="section-inner text-center">
-      <p class="text-sm font-bold text-slate-400 uppercase tracking-widest mb-8">Florida's Dedicated Policyholder Advocates</p>
-      <div class="flex flex-wrap justify-center items-center gap-12 text-[#082142] font-black opacity-40">
-        <div class="h-12 px-6 bg-slate-100 rounded flex items-center justify-center">DFS LICENSED</div>
-        <div class="h-12 px-6 bg-slate-100 rounded flex items-center justify-center">STATE REGULATED</div>
-        <div class="h-12 px-6 bg-slate-100 rounded flex items-center justify-center">BONDED</div>
-        <div class="h-12 px-6 bg-slate-100 rounded flex items-center justify-center">NO-FEE GUARANTEE</div>
+      <p class="text-sm font-bold text-slate-400 uppercase tracking-widest mb-8">Licensed Policyholder Advocates in NC, FL & CA</p>
+      <div class="flex flex-wrap justify-center items-center gap-8 text-[#082142] font-black opacity-40">
+        <div class="h-12 px-6 bg-slate-100 rounded flex items-center justify-center text-sm">NC DOI LICENSED</div>
+        <div class="h-12 px-6 bg-slate-100 rounded flex items-center justify-center text-sm">FL DFS LICENSED</div>
+        <div class="h-12 px-6 bg-slate-100 rounded flex items-center justify-center text-sm">CA DOI LICENSED</div>
+        <div class="h-12 px-6 bg-slate-100 rounded flex items-center justify-center text-sm">STATE BONDED</div>
+        <div class="h-12 px-6 bg-slate-100 rounded flex items-center justify-center text-sm">NO-FEE GUARANTEE</div>
       </div>
     </div>
   </section>
