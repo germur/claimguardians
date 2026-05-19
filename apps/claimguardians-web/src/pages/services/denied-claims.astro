@@ -8,6 +8,46 @@ import EligibilityTest from '../../components/EligibilityTest';
   title="Denied Insurance Claim Help Florida - Underpaid Claim Appeal | Claim Guardians"
   description="Denied or underpaid insurance claim in Florida? We appeal the decision, build a forensic counter-argument, and force your insurer to reverse and pay in full."
 >
+  <Fragment slot="head">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "serviceType": "Denied Insurance Claim Help",
+        "provider": { "@type": "LocalBusiness", "name": "Claim Guardians LLC" },
+        "areaServed": { "@type": "State", "name": "Florida" },
+        "description": "Denied or underpaid insurance claim help in Florida. We appeal the decision, build a forensic counter-argument, and force your insurer to reverse and pay in full."
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [{
+          "@type": "Question",
+          "name": "Can a public adjuster help with a denied insurance claim?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. A public adjuster re-inspects your property, gathers independent evidence, and files a formal appeal on your behalf. Claim Guardians has reversed hundreds of denied claims across Florida." }
+        }, {
+          "@type": "Question",
+          "name": "How long do I have to appeal a denied insurance claim in Florida?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Florida law gives you up to five years to file a breach of contract lawsuit against your insurer for a denied claim. However, the sooner you appeal, the stronger your case. Contact Claim Guardians immediately after receiving a denial letter." }
+        }, {
+          "@type": "Question",
+          "name": "Why do insurance companies deny property damage claims?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Common reasons include pre-existing damage allegations, late filing, policy exclusions, insufficient documentation, and cosmetic-only damage claims. Many of these denials are wrongful and can be overturned with proper evidence." }
+        }, {
+          "@type": "Question",
+          "name": "What is an underpaid insurance claim?",
+          "acceptedAnswer": { "@type": "Answer", "text": "An underpaid claim is when your insurer approves your claim but offers a settlement far below the actual cost of repairs. This is common when the insurer's adjuster misses hidden damage or uses depreciated values instead of replacement cost." }
+        }, {
+          "@type": "Question",
+          "name": "Do I need a lawyer or a public adjuster for a denied claim?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Start with a public adjuster. Claim Guardians can often reverse denials without litigation, which is faster and less expensive. If your insurer refuses to negotiate in good faith, we refer you to a property damage attorney we trust." }
+        }]
+      }
+    </script>
+  </Fragment>
+
   <!-- 1. Hero -->
   <header class="relative bg-[#041224] overflow-hidden" style="padding-top:8rem; padding-bottom:8rem;">
     <div class="absolute inset-0 z-0">
@@ -85,7 +125,67 @@ import EligibilityTest from '../../components/EligibilityTest';
     </div>
   </section>
 
-  <!-- 3. Result Proof -->
+  <!-- 3. Our Appeal Process -->
+  <section class="section-muted">
+    <div class="section-inner">
+      <div class="text-center mb-16">
+        <span class="eyebrow">How It Works</span>
+        <h2 class="section-heading">Our Denied Claim Appeal Process</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="text-center">
+          <div class="step-number mx-auto">1</div>
+          <h3 class="text-xl font-bold text-[#082142] mt-6 mb-3">Free Claim Review</h3>
+          <p class="text-slate-500">We review your denial letter, your policy, and your insurer's inspection report. We identify the specific weaknesses in their denial and determine if your claim can be reversed.</p>
+        </div>
+        <div class="text-center">
+          <div class="step-number mx-auto">2</div>
+          <h3 class="text-xl font-bold text-[#082142] mt-6 mb-3">Independent Re-Inspection</h3>
+          <p class="text-slate-500">We re-inspect your property with our own licensed adjusters. We document damage the insurer's adjuster missed, overlooked, or intentionally minimized. We commission engineering reports when needed.</p>
+        </div>
+        <div class="text-center">
+          <div class="step-number mx-auto">3</div>
+          <h3 class="text-xl font-bold text-[#082142] mt-6 mb-3">Forensic Counter-Argument</h3>
+          <p class="text-slate-500">We build a detailed rebuttal to the insurer's denial. This includes photographic evidence, contractor estimates, meteorological data, and expert reports that directly contradict the denial reasoning.</p>
+        </div>
+        <div class="text-center">
+          <div class="step-number mx-auto">4</div>
+          <h3 class="text-xl font-bold text-[#082142] mt-6 mb-3">Reversal & Settlement</h3>
+          <p class="text-slate-500">We submit the appeal and negotiate aggressively. If the insurer refuses to reverse, we escalate through Florida's appraisal process or connect you with a property damage attorney for litigation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Types of Underpaid Claims -->
+  <section class="section-white">
+    <div class="section-inner">
+      <div class="text-center mb-16">
+        <span class="eyebrow">Underpaid Claims</span>
+        <h2 class="section-heading">Signs Your Insurance Claim Was Underpaid</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="card-hover p-8">
+          <h3 class="text-xl font-bold text-[#082142] mb-3">Settlement Doesn't Cover Repairs</h3>
+          <p class="text-slate-500">If your contractor quotes $45,000 but the insurer approved $18,000, your claim is underpaid. Claim Guardians documents the actual repair scope and forces your insurer to close the gap.</p>
+        </div>
+        <div class="card-hover p-8">
+          <h3 class="text-xl font-bold text-[#082142] mb-3">Depreciation Deducted Unfairly</h3>
+          <p class="text-slate-500">Insurers apply depreciation to reduce your payout. If you have a replacement cost policy, you are entitled to the full replacement value. Many policyholders don't know they can recover the withheld depreciation.</p>
+        </div>
+        <div class="card-hover p-8">
+          <h3 class="text-xl font-bold text-[#082142] mb-3">Hidden Damage Not Included</h3>
+          <p class="text-slate-500">Insurance adjusters inspect visible surfaces only. They miss moisture behind walls, mold in crawl spaces, and structural damage under flooring. Claim Guardians documents everything the insurer missed.</p>
+        </div>
+        <div class="card-hover p-8">
+          <h3 class="text-xl font-bold text-[#082142] mb-3">Code Upgrades Not Covered</h3>
+          <p class="text-slate-500">Rebuilding to current code costs more than matching old construction. Your policy likely includes code upgrade coverage, but insurers rarely include it in initial estimates.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Result Proof -->
   <section class="section-muted">
     <div class="section-inner">
       <div class="text-center mb-16">
@@ -109,6 +209,87 @@ import EligibilityTest from '../../components/EligibilityTest';
           <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">Action Taken</h4>
           <p class="text-xl font-medium text-[#082142] leading-relaxed">We commissioned a forensic engineering report proving the damage occurred during a specific storm event. The insurer reversed its denial and issued full payment.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQs -->
+  <section class="section-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <span class="eyebrow">Common Questions</span>
+        <h2 class="section-heading">Frequently Asked Questions About Denied & Underpaid Claims</h2>
+      </div>
+      <div class="space-y-4">
+        <details class="group bg-white border border-slate-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden">
+          <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-xl text-[#082142] group-hover:text-[#00808C] transition-colors">
+            <span>Can a public adjuster help with a denied insurance claim?</span>
+            <span class="transition group-open:rotate-180"><svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg></span>
+          </summary>
+          <div class="text-slate-600 px-6 pb-6 text-lg leading-relaxed border-t border-slate-100 pt-4">
+            Yes. A public adjuster re-inspects your property, gathers independent evidence, and files a formal appeal on your behalf. Claim Guardians has reversed hundreds of denied claims across Florida by presenting evidence the insurer's adjuster missed or ignored.
+          </div>
+        </details>
+        <details class="group bg-white border border-slate-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden">
+          <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-xl text-[#082142] group-hover:text-[#00808C] transition-colors">
+            <span>How long do I have to appeal a denied insurance claim in Florida?</span>
+            <span class="transition group-open:rotate-180"><svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg></span>
+          </summary>
+          <div class="text-slate-600 px-6 pb-6 text-lg leading-relaxed border-t border-slate-100 pt-4">
+            Florida law gives you up to five years to file a breach of contract lawsuit against your insurer for a wrongfully denied claim. However, the sooner you appeal, the stronger your case. Evidence degrades over time and memories fade. Contact Claim Guardians immediately after receiving a denial letter.
+          </div>
+        </details>
+        <details class="group bg-white border border-slate-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden">
+          <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-xl text-[#082142] group-hover:text-[#00808C] transition-colors">
+            <span>Why do insurance companies deny property damage claims?</span>
+            <span class="transition group-open:rotate-180"><svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg></span>
+          </summary>
+          <div class="text-slate-600 px-6 pb-6 text-lg leading-relaxed border-t border-slate-100 pt-4">
+            Common denial reasons include pre-existing damage allegations, late filing claims, policy exclusion language, insufficient documentation, and cosmetic-only damage classifications. Many of these denials are wrongful and can be overturned with proper forensic evidence and policy analysis.
+          </div>
+        </details>
+        <details class="group bg-white border border-slate-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden">
+          <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-xl text-[#082142] group-hover:text-[#00808C] transition-colors">
+            <span>What is an underpaid insurance claim?</span>
+            <span class="transition group-open:rotate-180"><svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg></span>
+          </summary>
+          <div class="text-slate-600 px-6 pb-6 text-lg leading-relaxed border-t border-slate-100 pt-4">
+            An underpaid claim is when your insurer approves your claim but offers a settlement far below the actual cost of repairs. This is extremely common when the insurer's adjuster misses hidden damage, uses depreciated values instead of replacement cost, or ignores code upgrade requirements.
+          </div>
+        </details>
+        <details class="group bg-white border border-slate-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden">
+          <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-xl text-[#082142] group-hover:text-[#00808C] transition-colors">
+            <span>Do I need a lawyer or a public adjuster for a denied claim?</span>
+            <span class="transition group-open:rotate-180"><svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg></span>
+          </summary>
+          <div class="text-slate-600 px-6 pb-6 text-lg leading-relaxed border-t border-slate-100 pt-4">
+            Start with a public adjuster. Claim Guardians can often reverse denials without litigation, which is faster and less expensive. If your insurer refuses to negotiate in good faith, we refer you to a property damage attorney we trust to take your case to court.
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Services -->
+  <section class="section-muted">
+    <div class="section-inner">
+      <div class="text-center mb-12">
+        <span class="eyebrow">Related Services</span>
+        <h2 class="section-heading">Common Types of Denied & Underpaid Claims</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <a href="/services/hurricane-damage" class="card-hover group block">
+          <h3 class="text-xl font-bold text-[#082142] mb-2 group-hover:text-[#00808C] transition-colors">Hurricane Damage Claims</h3>
+          <p class="text-slate-500">Hurricane claims have the highest denial rate in Florida. We specialize in reversing storm damage denials.</p>
+        </a>
+        <a href="/services/roof-damage" class="card-hover group block">
+          <h3 class="text-xl font-bold text-[#082142] mb-2 group-hover:text-[#00808C] transition-colors">Roof Damage Claims</h3>
+          <p class="text-slate-500">Roof claims are frequently denied as "wear and tear." We prove storm causation with forensic evidence.</p>
+        </a>
+        <a href="/services/water-damage" class="card-hover group block">
+          <h3 class="text-xl font-bold text-[#082142] mb-2 group-hover:text-[#00808C] transition-colors">Water Damage Claims</h3>
+          <p class="text-slate-500">Water claims are underpaid when adjusters only document surface damage and miss hidden moisture.</p>
+        </a>
       </div>
     </div>
   </section>

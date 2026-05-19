@@ -8,6 +8,46 @@ import EligibilityTest from '../../components/EligibilityTest';
   title="Hurricane Damage Public Adjuster Florida - Storm Claim Help | Claim Guardians"
   description="Hurricane damage public adjuster in Florida. We document wind, hail, and structural storm damage and force your insurer to pay the full cost of recovery."
 >
+  <Fragment slot="head">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "serviceType": "Hurricane Damage Public Adjuster",
+        "provider": { "@type": "LocalBusiness", "name": "Claim Guardians LLC" },
+        "areaServed": { "@type": "State", "name": "Florida" },
+        "description": "Hurricane damage public adjuster in Florida. We document wind, hail, and structural storm damage and force your insurer to pay the full cost of recovery."
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [{
+          "@type": "Question",
+          "name": "How long do I have to file a hurricane damage claim in Florida?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Florida law requires you to report property damage to your insurer promptly. For most homeowner policies, you should file within one year of the hurricane event. Filing sooner gives you a stronger claim." }
+        }, {
+          "@type": "Question",
+          "name": "What is the hurricane deductible in Florida?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Most Florida policies have a separate hurricane deductible, typically 2% to 5% of your dwelling coverage limit. On a $400,000 home, that means $8,000 to $20,000 out of pocket before coverage kicks in." }
+        }, {
+          "@type": "Question",
+          "name": "Does hurricane insurance cover water damage from rain?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes, if wind first damages the building envelope and rain enters through that opening, the resulting water damage is covered under your windstorm policy. This is called wind-driven rain." }
+        }, {
+          "@type": "Question",
+          "name": "Can I hire a public adjuster after my hurricane claim was denied?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. Claim Guardians re-inspects your property, gathers new evidence, and files a formal appeal. We have reversed hundreds of hurricane claim denials across Florida." }
+        }, {
+          "@type": "Question",
+          "name": "How much more can a public adjuster get for my hurricane claim?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Studies show policyholders who use public adjusters receive settlements 30% to 700% higher than those who negotiate alone. Claim Guardians works on contingency, so you only pay if we increase your settlement." }
+        }]
+      }
+    </script>
+  </Fragment>
+
   <!-- 1. Hero -->
   <header class="relative bg-[#041224] overflow-hidden" style="padding-top:8rem; padding-bottom:8rem;">
     <div class="absolute inset-0 z-0">
@@ -71,7 +111,82 @@ import EligibilityTest from '../../components/EligibilityTest';
     </div>
   </section>
 
-  <!-- 3. Result Proof -->
+  <!-- 3. What Hurricane Insurance Covers -->
+  <section class="section-muted">
+    <div class="section-inner">
+      <div class="text-center mb-16">
+        <span class="eyebrow">Policy Education</span>
+        <h2 class="section-heading">What Does Hurricane Insurance Cover in Florida?</h2>
+        <p class="text-lg text-slate-500 max-w-3xl mx-auto mt-4">Florida homeowners policies typically cover wind damage from hurricanes, but insurance companies use complex language to limit your payout. Understanding your coverage is the first step to getting paid in full.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="card-hover group">
+          <div class="text-4xl mb-4">🌀</div>
+          <h3 class="text-xl font-bold text-[#082142] mb-3 group-hover:text-[#00808C] transition-colors">Wind Damage</h3>
+          <p class="text-slate-500">Roof shingle loss, siding damage, broken windows, and structural displacement caused by hurricane-force winds. Your insurer must cover repairs to restore the property to its pre-storm condition.</p>
+        </div>
+        <div class="card-hover group">
+          <div class="text-4xl mb-4">🌧️</div>
+          <h3 class="text-xl font-bold text-[#082142] mb-3 group-hover:text-[#00808C] transition-colors">Rain Damage After Wind</h3>
+          <p class="text-slate-500">When wind breaches your roof or walls, the resulting water intrusion is covered under your windstorm policy. Insurers often try to reclassify this as "flood damage" to deny your claim.</p>
+        </div>
+        <div class="card-hover group">
+          <div class="text-4xl mb-4">🏗️</div>
+          <h3 class="text-xl font-bold text-[#082142] mb-3 group-hover:text-[#00808C] transition-colors">Structural Damage</h3>
+          <p class="text-slate-500">Foundation shifting, load-bearing wall cracks, and truss failures caused by sustained hurricane winds. These require engineering reports that insurance adjusters rarely commission on their own.</p>
+        </div>
+        <div class="card-hover group">
+          <div class="text-4xl mb-4">🌳</div>
+          <h3 class="text-xl font-bold text-[#082142] mb-3 group-hover:text-[#00808C] transition-colors">Debris & Tree Impact</h3>
+          <p class="text-slate-500">Trees and flying debris that strike your roof, walls, or vehicles during a hurricane. Your policy covers removal costs and structural repairs from impact damage.</p>
+        </div>
+        <div class="card-hover group">
+          <div class="text-4xl mb-4">⚡</div>
+          <h3 class="text-xl font-bold text-[#082142] mb-3 group-hover:text-[#00808C] transition-colors">Power Surge & Electrical</h3>
+          <p class="text-slate-500">Lightning strikes and power surges during hurricanes destroy HVAC systems, appliances, and electrical panels. These losses are often overlooked by insurance adjusters.</p>
+        </div>
+        <div class="card-hover group">
+          <div class="text-4xl mb-4">🏠</div>
+          <h3 class="text-xl font-bold text-[#082142] mb-3 group-hover:text-[#00808C] transition-colors">Additional Living Expenses</h3>
+          <p class="text-slate-500">If your home is uninhabitable after a hurricane, your policy covers hotel stays, meals, and temporary housing while repairs are completed. Claim Guardians ensures you receive every dollar of ALE coverage.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Our Claims Process -->
+  <section class="section-white">
+    <div class="section-inner">
+      <div class="text-center mb-16">
+        <span class="eyebrow">How It Works</span>
+        <h2 class="section-heading">Our Hurricane Damage Claims Process</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="text-center">
+          <div class="step-number mx-auto">1</div>
+          <h3 class="text-xl font-bold text-[#082142] mt-6 mb-3">Free Storm Inspection</h3>
+          <p class="text-slate-500">We dispatch a licensed adjuster to your property within 24 hours. We inspect the roof, structure, interior, and exterior for all hurricane-related damage.</p>
+        </div>
+        <div class="text-center">
+          <div class="step-number mx-auto">2</div>
+          <h3 class="text-xl font-bold text-[#082142] mt-6 mb-3">Forensic Documentation</h3>
+          <p class="text-slate-500">We photograph every point of damage, use drone inspections for roof access, and commission engineering reports when structural damage is suspected.</p>
+        </div>
+        <div class="text-center">
+          <div class="step-number mx-auto">3</div>
+          <h3 class="text-xl font-bold text-[#082142] mt-6 mb-3">Claim Filing & Negotiation</h3>
+          <p class="text-slate-500">We prepare a detailed scope of loss with licensed contractor estimates and submit directly to your insurer. We handle all communication and negotiate aggressively on your behalf.</p>
+        </div>
+        <div class="text-center">
+          <div class="step-number mx-auto">4</div>
+          <h3 class="text-xl font-bold text-[#082142] mt-6 mb-3">Maximum Settlement</h3>
+          <p class="text-slate-500">We force your insurer to honor the full policy value. If they refuse, we escalate through Florida's appraisal process or connect you with a property damage attorney.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Result Proof -->
   <section class="section-muted">
     <div class="section-inner">
       <div class="text-center mb-16">
@@ -131,7 +246,88 @@ import EligibilityTest from '../../components/EligibilityTest';
      </div>
   </section>
 
-  <!-- 4. Final CTA -->
+  <!-- FAQs -->
+  <section class="section-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <span class="eyebrow">Common Questions</span>
+        <h2 class="section-heading">Frequently Asked Questions About Hurricane Damage Claims</h2>
+      </div>
+      <div class="space-y-4">
+        <details class="group bg-white border border-slate-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden">
+          <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-xl text-[#082142] group-hover:text-[#00808C] transition-colors">
+            <span>How long do I have to file a hurricane damage claim in Florida?</span>
+            <span class="transition group-open:rotate-180"><svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg></span>
+          </summary>
+          <div class="text-slate-600 px-6 pb-6 text-lg leading-relaxed border-t border-slate-100 pt-4">
+            Florida law requires you to report property damage to your insurer promptly. For most homeowner policies, you should file within one year of the hurricane event. However, filing sooner gives you a stronger claim. Claim Guardians helps you file correctly the first time to avoid delays and denials.
+          </div>
+        </details>
+        <details class="group bg-white border border-slate-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden">
+          <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-xl text-[#082142] group-hover:text-[#00808C] transition-colors">
+            <span>What is the hurricane deductible in Florida?</span>
+            <span class="transition group-open:rotate-180"><svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg></span>
+          </summary>
+          <div class="text-slate-600 px-6 pb-6 text-lg leading-relaxed border-t border-slate-100 pt-4">
+            Most Florida policies have a separate hurricane deductible, typically 2% to 5% of your dwelling coverage limit. On a $400,000 home, that means $8,000 to $20,000 out of pocket before coverage kicks in. Claim Guardians maximizes your gross settlement so the net amount after your deductible is as high as possible.
+          </div>
+        </details>
+        <details class="group bg-white border border-slate-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden">
+          <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-xl text-[#082142] group-hover:text-[#00808C] transition-colors">
+            <span>Does hurricane insurance cover water damage from rain?</span>
+            <span class="transition group-open:rotate-180"><svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg></span>
+          </summary>
+          <div class="text-slate-600 px-6 pb-6 text-lg leading-relaxed border-t border-slate-100 pt-4">
+            Yes, if wind first damages the building envelope (roof, walls, windows) and rain enters through that opening, the resulting water damage is covered under your windstorm policy. This is called "wind-driven rain." Insurance companies frequently try to classify this as flood damage, which requires a separate policy. Claim Guardians documents the wind breach to prove your water damage is covered.
+          </div>
+        </details>
+        <details class="group bg-white border border-slate-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden">
+          <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-xl text-[#082142] group-hover:text-[#00808C] transition-colors">
+            <span>Can I hire a public adjuster after my hurricane claim was denied?</span>
+            <span class="transition group-open:rotate-180"><svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg></span>
+          </summary>
+          <div class="text-slate-600 px-6 pb-6 text-lg leading-relaxed border-t border-slate-100 pt-4">
+            Absolutely. Many of our clients come to us after their hurricane claim has been denied or underpaid. Claim Guardians re-inspects your property, gathers new evidence, and files a formal appeal. We have reversed hundreds of hurricane claim denials across Florida.
+          </div>
+        </details>
+        <details class="group bg-white border border-slate-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden">
+          <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-xl text-[#082142] group-hover:text-[#00808C] transition-colors">
+            <span>How much more can a public adjuster get for my hurricane claim?</span>
+            <span class="transition group-open:rotate-180"><svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg></span>
+          </summary>
+          <div class="text-slate-600 px-6 pb-6 text-lg leading-relaxed border-t border-slate-100 pt-4">
+            Studies show policyholders who use public adjusters receive settlements 30% to 700% higher than those who negotiate alone. The exact amount depends on your damage, your policy limits, and how aggressively your insurer contests the claim. Claim Guardians works on contingency, so you only pay if we increase your settlement.
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Services -->
+  <section class="section-muted">
+    <div class="section-inner">
+      <div class="text-center mb-12">
+        <span class="eyebrow">Related Services</span>
+        <h2 class="section-heading">Hurricane Damage Often Leads to Other Claims</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <a href="/services/roof-damage" class="card-hover group block">
+          <h3 class="text-xl font-bold text-[#082142] mb-2 group-hover:text-[#00808C] transition-colors">Roof Damage Claims</h3>
+          <p class="text-slate-500">Wind lifts shingles and damages decking. We force full roof replacement coverage.</p>
+        </a>
+        <a href="/services/water-damage" class="card-hover group block">
+          <h3 class="text-xl font-bold text-[#082142] mb-2 group-hover:text-[#00808C] transition-colors">Water Damage Claims</h3>
+          <p class="text-slate-500">Wind-driven rain causes interior flooding. We document and recover every dollar.</p>
+        </a>
+        <a href="/services/mold-claims" class="card-hover group block">
+          <h3 class="text-xl font-bold text-[#082142] mb-2 group-hover:text-[#00808C] transition-colors">Mold Damage Claims</h3>
+          <p class="text-slate-500">Standing water from hurricanes breeds mold within 48 hours. We prove the connection.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
   <section class="gradient-accent-bar section-white text-center">
     <div class="section-inner">
       <span class="eyebrow">No-Risk Consultation</span>

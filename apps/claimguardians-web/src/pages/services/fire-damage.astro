@@ -7,6 +7,46 @@ import EligibilityTest from '../../components/EligibilityTest';
   title="Fire Damage Public Adjuster Florida & California | Claim Guardians"
   description="Fire and smoke damage public adjuster in FL and CA. We prove the true cost of structural and contents restoration and force your insurer to pay in full."
 >
+  <Fragment slot="head">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "serviceType": "Fire Damage Public Adjuster",
+        "provider": { "@type": "LocalBusiness", "name": "Claim Guardians LLC" },
+        "areaServed": [{ "@type": "State", "name": "Florida" }, { "@type": "State", "name": "California" }],
+        "description": "Fire and smoke damage public adjuster in FL and CA. We prove the true cost of structural and contents restoration."
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [{
+          "@type": "Question",
+          "name": "Does homeowners insurance cover fire damage in Florida?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Standard homeowners insurance in Florida covers fire and smoke damage to the structure, personal property, and additional living expenses while your home is being repaired." }
+        }, {
+          "@type": "Question",
+          "name": "How long does a fire damage insurance claim take?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Fire damage claims typically take 30 to 90 days to settle, depending on the severity of damage and how aggressively your insurer contests the claim. Claim Guardians accelerates the process by providing complete documentation upfront." }
+        }, {
+          "@type": "Question",
+          "name": "What should I do immediately after a house fire?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Call 911, secure the property, and do not enter until the fire department clears it. Document damage with photos and video before cleanup begins. Then call Claim Guardians for a free inspection before your insurer sends their adjuster." }
+        }, {
+          "@type": "Question",
+          "name": "Does insurance cover smoke damage without visible fire?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Smoke damage from a covered fire event is insured even when there is no direct flame contact. Soot particles permanently contaminate drywall, insulation, ductwork, and personal property. Insurers frequently undervalue smoke damage." }
+        }, {
+          "@type": "Question",
+          "name": "How much does a fire damage public adjuster cost?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Claim Guardians charges zero upfront fees. We work on a contingency basis and only collect a percentage of your final settlement. If we don't increase your payout, you owe us nothing." }
+        }]
+      }
+    </script>
+  </Fragment>
+
   <!-- 1. Hero -->
   <header class="relative bg-[#041224] overflow-hidden" style="padding-top:8rem; padding-bottom:8rem;">
     <div class="absolute inset-0 z-0">
@@ -83,7 +123,82 @@ import EligibilityTest from '../../components/EligibilityTest';
     </div>
   </section>
 
-  <!-- 3. Result Proof -->
+  <!-- 3. What Fire Insurance Covers -->
+  <section class="section-muted">
+    <div class="section-inner">
+      <div class="text-center mb-16">
+        <span class="eyebrow">Policy Education</span>
+        <h2 class="section-heading">What Does Fire Insurance Cover?</h2>
+        <p class="text-lg text-slate-500 max-w-3xl mx-auto mt-4">Your homeowners policy covers fire and smoke damage, but insurance companies routinely undervalue the scope of destruction. Here is what your policy actually protects.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="card-hover group">
+          <div class="text-4xl mb-4">🏗️</div>
+          <h3 class="text-xl font-bold text-[#082142] mb-3 group-hover:text-[#00808C] transition-colors">Structural Damage</h3>
+          <p class="text-slate-500">Fire compromises load-bearing walls, roof trusses, and framing. Your policy covers complete structural rebuilds when repair is not feasible. Insurers often push cheaper repairs instead of proper reconstruction.</p>
+        </div>
+        <div class="card-hover group">
+          <div class="text-4xl mb-4">💨</div>
+          <h3 class="text-xl font-bold text-[#082142] mb-3 group-hover:text-[#00808C] transition-colors">Smoke & Soot Contamination</h3>
+          <p class="text-slate-500">Smoke particles penetrate drywall, insulation, ductwork, clothing, and electronics. Professional remediation or full replacement is required. Insurance adjusters routinely undercount contaminated items.</p>
+        </div>
+        <div class="card-hover group">
+          <div class="text-4xl mb-4">📦</div>
+          <h3 class="text-xl font-bold text-[#082142] mb-3 group-hover:text-[#00808C] transition-colors">Personal Property & Contents</h3>
+          <p class="text-slate-500">Furniture, electronics, clothing, and valuables destroyed or contaminated by fire and smoke. Claim Guardians inventories every item at current replacement cost, not depreciated value.</p>
+        </div>
+        <div class="card-hover group">
+          <div class="text-4xl mb-4">🏠</div>
+          <h3 class="text-xl font-bold text-[#082142] mb-3 group-hover:text-[#00808C] transition-colors">Additional Living Expenses</h3>
+          <p class="text-slate-500">Your policy covers hotel stays, temporary housing, meals, and relocation costs while your property is uninhabitable. Many policyholders leave thousands of ALE dollars unclaimed.</p>
+        </div>
+        <div class="card-hover group">
+          <div class="text-4xl mb-4">🔧</div>
+          <h3 class="text-xl font-bold text-[#082142] mb-3 group-hover:text-[#00808C] transition-colors">Code Upgrade Coverage</h3>
+          <p class="text-slate-500">When rebuilding, current building codes may require upgrades beyond the original construction. Your policy may cover these additional costs. Claim Guardians ensures code upgrade coverage is included in your settlement.</p>
+        </div>
+        <div class="card-hover group">
+          <div class="text-4xl mb-4">🌿</div>
+          <h3 class="text-xl font-bold text-[#082142] mb-3 group-hover:text-[#00808C] transition-colors">Landscaping & Exterior</h3>
+          <p class="text-slate-500">Trees, shrubs, fencing, detached structures (sheds, garages), and outdoor equipment damaged by fire. These losses are commonly overlooked in initial claims.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Our Claims Process -->
+  <section class="section-white">
+    <div class="section-inner">
+      <div class="text-center mb-16">
+        <span class="eyebrow">How It Works</span>
+        <h2 class="section-heading">Our Fire Damage Claims Process</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="text-center">
+          <div class="step-number mx-auto">1</div>
+          <h3 class="text-xl font-bold text-[#082142] mt-6 mb-3">Emergency Inspection</h3>
+          <p class="text-slate-500">We inspect your property as soon as the fire department clears it. We document structural char, smoke infiltration, and contents damage before cleanup begins.</p>
+        </div>
+        <div class="text-center">
+          <div class="step-number mx-auto">2</div>
+          <h3 class="text-xl font-bold text-[#082142] mt-6 mb-3">Contents Inventory</h3>
+          <p class="text-slate-500">We create a room-by-room inventory of every destroyed or contaminated item at current replacement cost. This detailed list prevents your insurer from undervaluing your personal property.</p>
+        </div>
+        <div class="text-center">
+          <div class="step-number mx-auto">3</div>
+          <h3 class="text-xl font-bold text-[#082142] mt-6 mb-3">Claim Filing & Negotiation</h3>
+          <p class="text-slate-500">We prepare a complete scope of loss covering structure, contents, ALE, and code upgrades. We submit directly to your insurer and handle all back-and-forth negotiation.</p>
+        </div>
+        <div class="text-center">
+          <div class="step-number mx-auto">4</div>
+          <h3 class="text-xl font-bold text-[#082142] mt-6 mb-3">Full Settlement</h3>
+          <p class="text-slate-500">We force your insurer to pay the true cost of restoration. If they lowball, we escalate through the appraisal process or refer you to a property damage attorney.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Result Proof -->
   <section class="section-muted">
     <div class="section-inner">
       <div class="text-center mb-16">
@@ -111,11 +226,92 @@ import EligibilityTest from '../../components/EligibilityTest';
     </div>
   </section>
 
-  <!-- 4. Final CTA -->
+  <!-- FAQs -->
+  <section class="section-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <span class="eyebrow">Common Questions</span>
+        <h2 class="section-heading">Frequently Asked Questions About Fire Damage Claims</h2>
+      </div>
+      <div class="space-y-4">
+        <details class="group bg-white border border-slate-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden">
+          <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-xl text-[#082142] group-hover:text-[#00808C] transition-colors">
+            <span>Does homeowners insurance cover fire damage in Florida?</span>
+            <span class="transition group-open:rotate-180"><svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg></span>
+          </summary>
+          <div class="text-slate-600 px-6 pb-6 text-lg leading-relaxed border-t border-slate-100 pt-4">
+            Yes. Standard homeowners insurance in Florida covers fire and smoke damage to the structure, personal property, and additional living expenses while your home is being repaired. Claim Guardians ensures every applicable coverage is included in your settlement.
+          </div>
+        </details>
+        <details class="group bg-white border border-slate-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden">
+          <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-xl text-[#082142] group-hover:text-[#00808C] transition-colors">
+            <span>How long does a fire damage insurance claim take?</span>
+            <span class="transition group-open:rotate-180"><svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg></span>
+          </summary>
+          <div class="text-slate-600 px-6 pb-6 text-lg leading-relaxed border-t border-slate-100 pt-4">
+            Fire damage claims typically take 30 to 90 days to settle, depending on the severity of damage and how aggressively your insurer contests the claim. Claim Guardians accelerates the process by providing complete documentation upfront, reducing back-and-forth delays.
+          </div>
+        </details>
+        <details class="group bg-white border border-slate-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden">
+          <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-xl text-[#082142] group-hover:text-[#00808C] transition-colors">
+            <span>What should I do immediately after a house fire?</span>
+            <span class="transition group-open:rotate-180"><svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg></span>
+          </summary>
+          <div class="text-slate-600 px-6 pb-6 text-lg leading-relaxed border-t border-slate-100 pt-4">
+            Call 911 first, then secure your property. Do not re-enter until the fire department clears the building. Document all visible damage with photos and video before any cleanup begins. Contact Claim Guardians before your insurance company sends their adjuster so we can protect your interests from the start.
+          </div>
+        </details>
+        <details class="group bg-white border border-slate-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden">
+          <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-xl text-[#082142] group-hover:text-[#00808C] transition-colors">
+            <span>Does insurance cover smoke damage without visible fire?</span>
+            <span class="transition group-open:rotate-180"><svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg></span>
+          </summary>
+          <div class="text-slate-600 px-6 pb-6 text-lg leading-relaxed border-t border-slate-100 pt-4">
+            Yes. Smoke damage from a covered fire event is insured even when there is no direct flame contact. Toxic soot particles permanently contaminate drywall, insulation, ductwork, clothing, and electronics. Insurance adjusters routinely undervalue smoke contamination. Claim Guardians hires industrial hygienists to prove the full extent of contamination.
+          </div>
+        </details>
+        <details class="group bg-white border border-slate-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden">
+          <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-xl text-[#082142] group-hover:text-[#00808C] transition-colors">
+            <span>How much does a fire damage public adjuster cost?</span>
+            <span class="transition group-open:rotate-180"><svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg></span>
+          </summary>
+          <div class="text-slate-600 px-6 pb-6 text-lg leading-relaxed border-t border-slate-100 pt-4">
+            Claim Guardians charges zero upfront fees. We work on a contingency basis and only collect a percentage of your final settlement. If we don't increase your payout, you owe us nothing.
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Services -->
+  <section class="section-muted">
+    <div class="section-inner">
+      <div class="text-center mb-12">
+        <span class="eyebrow">Related Services</span>
+        <h2 class="section-heading">Fire Damage Often Causes Secondary Damage</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <a href="/services/water-damage" class="card-hover group block">
+          <h3 class="text-xl font-bold text-[#082142] mb-2 group-hover:text-[#00808C] transition-colors">Water Damage Claims</h3>
+          <p class="text-slate-500">Fire suppression water and broken pipes cause extensive secondary damage. We recover these costs too.</p>
+        </a>
+        <a href="/services/mold-claims" class="card-hover group block">
+          <h3 class="text-xl font-bold text-[#082142] mb-2 group-hover:text-[#00808C] transition-colors">Mold Damage Claims</h3>
+          <p class="text-slate-500">Water used to fight fires creates mold growth within 48 hours. We prove the connection to your covered event.</p>
+        </a>
+        <a href="/services/denied-claims" class="card-hover group block">
+          <h3 class="text-xl font-bold text-[#082142] mb-2 group-hover:text-[#00808C] transition-colors">Denied Claim Appeals</h3>
+          <p class="text-slate-500">If your fire claim was denied or underpaid, we appeal and force the insurer to pay.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
   <section class="gradient-accent-bar section-white text-center">
     <div class="section-inner">
       <span class="eyebrow">No-Risk Consultation</span>
-      <h2 class="section-heading mb-4">Did Fire or Smoke Damage Your Florida Property?</h2>
+      <h2 class="section-heading mb-4">Did Fire or Smoke Damage Your Property?</h2>
       <p class="text-xl text-slate-500 mb-8 max-w-2xl mx-auto">Get the full settlement you deserve, not what the insurance company is willing to offer.</p>
       <a href="/free-claim-review" class="btn-accent px-12 py-5 text-xl min-h-[64px]">Start Free Fire Claim Review →</a>
       <p class="text-sm text-slate-400 mt-4">Zero upfront cost. Ever.</p>
