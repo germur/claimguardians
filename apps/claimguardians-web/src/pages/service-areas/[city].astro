@@ -1,28 +1,434 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
 
 export async function getStaticPaths() {
   const serviceCities = [
-    // Florida
-    { city: "Miami", county: "Miami-Dade County", stateCode: "FL", stateName: "Florida", localRisk: "hurricane and flood", zipCodes: ["33101", "33129", "33132"] },
-    { city: "Fort Lauderdale", county: "Broward County", stateCode: "FL", stateName: "Florida", localRisk: "hurricane and severe storm", zipCodes: ["33301", "33304", "33316"] },
-    { city: "West Palm Beach", county: "Palm Beach County", stateCode: "FL", stateName: "Florida", localRisk: "windstorm and hurricane", zipCodes: ["33401", "33405", "33409"] },
-    { city: "Boca Raton", county: "Palm Beach County", stateCode: "FL", stateName: "Florida", localRisk: "storm and water", zipCodes: ["33431", "33432", "33486"] },
-    { city: "Orlando", county: "Orange County", stateCode: "FL", stateName: "Florida", localRisk: "tornado and sinkhole", zipCodes: ["32801", "32803", "32804"] },
-    { city: "Kissimmee", county: "Osceola County", stateCode: "FL", stateName: "Florida", localRisk: "tornado and sinkhole", zipCodes: ["34741", "34744", "34746"] },
-    { city: "Daytona Beach", county: "Volusia County", stateCode: "FL", stateName: "Florida", localRisk: "hurricane and coastal flooding", zipCodes: ["32114", "32117", "32118"] },
-    { city: "Lakeland", county: "Polk County", stateCode: "FL", stateName: "Florida", localRisk: "sinkhole and severe storm", zipCodes: ["33801", "33803", "33805"] },
-    { city: "Tampa", county: "Hillsborough County", stateCode: "FL", stateName: "Florida", localRisk: "flood and severe storm", zipCodes: ["33602", "33606", "33609"] },
-    { city: "Fort Myers", county: "Lee County", stateCode: "FL", stateName: "Florida", localRisk: "catastrophic hurricane and storm surge", zipCodes: ["33901", "33916", "33919"] },
-    { city: "Cape Coral", county: "Lee County", stateCode: "FL", stateName: "Florida", localRisk: "hurricane and storm surge", zipCodes: ["33904", "33909", "33914"] },
-    { city: "Naples", county: "Collier County", stateCode: "FL", stateName: "Florida", localRisk: "hurricane and wind", zipCodes: ["34102", "34103", "34105"] },
-    { city: "Jacksonville", county: "Duval County", stateCode: "FL", stateName: "Florida", localRisk: "windstorm and flood", zipCodes: ["32202", "32204", "32207"] },
-    
-    // California
-    { city: "Los Angeles", county: "Los Angeles County", stateCode: "CA", stateName: "California", localRisk: "wildfires, smoke damage, and earthquakes", zipCodes: ["90001", "90012", "90014"] },
-    { city: "San Francisco", county: "San Francisco County", stateCode: "CA", stateName: "California", localRisk: "earthquakes and structural damage", zipCodes: ["94102", "94103", "94105"] },
-    { city: "San Diego", county: "San Diego County", stateCode: "CA", stateName: "California", localRisk: "wildfires and coastal flooding", zipCodes: ["92101", "92102", "92103"] },
-    { city: "Sacramento", county: "Sacramento County", stateCode: "CA", stateName: "California", localRisk: "heavy storms and flood damage", zipCodes: ["95814", "95815", "95816"] }
+    {
+      city: "Miami", county: "Miami-Dade County", stateCode: "FL", stateName: "Florida",
+      localRisk: "hurricane, flood, and wind damage",
+      zipCodes: ["33101", "33125", "33129", "33130", "33132", "33133", "33135", "33136"],
+      nearbyAreas: "Miami Beach, Coral Gables, Hialeah, Kendall, Doral, Homestead, and all of Miami-Dade County",
+      damageAngles: {
+        primary: "Hurricane and wind damage",
+        primaryDesc: "Miami sits in the most hurricane-prone zone in the continental US. Category 4 and 5 storms have struck Miami-Dade County repeatedly. Insurance companies dispute wind damage as 'pre-existing' and reclassify storm surge as 'flood' to deny coverage under standard policies.",
+        secondary: "Water damage and flooding",
+        secondaryDesc: "Miami's low elevation and limestone bedrock make it uniquely vulnerable to flooding from heavy rainfall, storm surge, and rising groundwater. Water intrusion destroys flooring, drywall, and electrical systems. Insurers minimize water damage claims by arguing gradual deterioration.",
+        tertiary: "Roof damage from storms",
+        tertiaryDesc: "High winds strip shingles, lift flashing, and compromise roof decking across Miami-Dade. The county enforces some of the strictest building codes in the US (Miami-Dade HVHZ), and your insurer must pay to bring your roof up to current code standards after storm damage."
+      },
+      caseStudies: [
+        { type: "Hurricane roof damage - Miami, FL", initialOffer: "$14,500", result: "$89,200", icon: "🌀" },
+        { type: "Water intrusion - Coral Gables, FL", initialOffer: "$7,800", result: "$52,400", icon: "💧" }
+      ],
+      faq: [
+        { q: "How much does a public adjuster cost in Miami?", a: "Claim Guardians charges zero upfront. We work on contingency regulated by Florida law - you pay a percentage only after we recover your settlement. If we don't win, you owe nothing." },
+        { q: "Can I hire a public adjuster after my Miami claim was denied?", a: "Yes. We specialize in reversing denied claims across Miami-Dade County. We re-inspect your property, gather new evidence, and file a formal appeal that forces the insurer to reconsider." },
+        { q: "What areas near Miami do you cover?", a: "We serve all of Miami-Dade County including Miami Beach, Coral Gables, Hialeah, Kendall, Doral, Homestead, Aventura, North Miami, and every surrounding community." },
+        { q: "How fast can you inspect my Miami property?", a: "We dispatch a licensed adjuster within 24 hours. After a major storm, we prioritize Miami-Dade County with dedicated field teams already positioned in South Florida." },
+        { q: "What is the Miami-Dade HVHZ building code?", a: "The High-Velocity Hurricane Zone code requires stronger roofing, impact-resistant windows, and reinforced construction. When your property is damaged, your insurer must pay to rebuild to current HVHZ standards - a significant cost insurers try to avoid." }
+      ]
+    },
+    {
+      city: "Fort Lauderdale", county: "Broward County", stateCode: "FL", stateName: "Florida",
+      localRisk: "hurricane, storm surge, and water damage",
+      zipCodes: ["33301", "33304", "33305", "33306", "33308", "33309", "33311", "33316"],
+      nearbyAreas: "Pompano Beach, Hollywood, Plantation, Davie, Weston, Coral Springs, and all of Broward County",
+      damageAngles: {
+        primary: "Hurricane and wind damage",
+        primaryDesc: "Fort Lauderdale's coastal position exposes properties to direct hurricane strikes and tropical storms. Wind damage to roofs, siding, and windows is the most common claim type in Broward County. Insurers dispute wind causation to minimize payouts.",
+        secondary: "Flooding and water damage",
+        secondaryDesc: "Broward County's canal system and low elevation create severe flood risk during heavy rains and storm surge events. Water damage destroys flooring, walls, and personal property. Insurance adjusters routinely undercount affected areas.",
+        tertiary: "Roof and structural damage",
+        tertiaryDesc: "Storm-force winds compromise roofing systems, fascia, soffits, and structural elements. Fort Lauderdale properties built before 2002 often lack modern wind-resistance features, making them more vulnerable and more expensive to repair to current code."
+      },
+      caseStudies: [
+        { type: "Storm damage - Fort Lauderdale, FL", initialOffer: "$18,200", result: "$97,500", icon: "🌪️" },
+        { type: "Roof replacement - Broward County", initialOffer: "Claim denied", result: "$65,000", icon: "🏠" }
+      ],
+      faq: [
+        { q: "How much does a public adjuster cost in Fort Lauderdale?", a: "Zero upfront. We work on a contingency fee capped by Florida law. You only pay a percentage of your recovered settlement. No recovery means no fee." },
+        { q: "What types of damage do you handle in Broward County?", a: "We handle hurricane, wind, water, roof, fire, smoke, mold, and denied or underpaid claims across all of Broward County. If insurance should cover it, we fight for it." },
+        { q: "Can you help reopen a denied claim in Fort Lauderdale?", a: "Absolutely. We gather independent evidence, commission engineering reports when needed, and file formal appeals that force insurers to reverse wrongful denials." },
+        { q: "How long does the claims process take?", a: "Most Fort Lauderdale claims settle within 30 to 90 days. Complex cases with litigation may take longer. We keep you informed throughout the entire process." },
+        { q: "Do I need a public adjuster if my damage seems minor?", a: "Yes. What appears minor on the surface often hides significant structural or water damage. Our free inspection reveals the full scope that insurance adjusters miss." }
+      ]
+    },
+    {
+      city: "West Palm Beach", county: "Palm Beach County", stateCode: "FL", stateName: "Florida",
+      localRisk: "hurricane, wind, and water damage",
+      zipCodes: ["33401", "33403", "33405", "33407", "33409", "33411"],
+      nearbyAreas: "Palm Beach, Jupiter, Lake Worth, Boynton Beach, Wellington, Royal Palm Beach, and all of Palm Beach County",
+      damageAngles: {
+        primary: "Hurricane and tropical storm damage",
+        primaryDesc: "Palm Beach County faces direct Atlantic hurricane exposure. Hurricanes Frances and Jeanne both struck the county in 2004, and Hurricane Irma caused widespread damage in 2017. Insurance companies use 'concurrent causation' arguments to limit payouts after major storms.",
+        secondary: "Water and flood damage",
+        secondaryDesc: "Heavy tropical rainfall overwhelms drainage systems across Palm Beach County. Water intrusion through damaged roofs, windows, and foundations destroys interior finishes and personal property. Insurers classify covered water damage as excluded flooding to deny claims.",
+        tertiary: "Roof damage",
+        tertiaryDesc: "High winds damage roof systems across the county, from oceanfront estates to suburban developments. Insurance adjusters approve patches when full replacement is warranted. Claim Guardians documents structural compromise to force complete roof coverage."
+      },
+      caseStudies: [
+        { type: "Hurricane damage - West Palm Beach, FL", initialOffer: "$22,000", result: "$118,500", icon: "🌀" },
+        { type: "Water damage - Palm Beach County", initialOffer: "$5,400", result: "$38,700", icon: "💧" }
+      ],
+      faq: [
+        { q: "How much does a public adjuster cost in West Palm Beach?", a: "Nothing upfront. We charge a contingency fee regulated by the State of Florida. You pay only after we recover your settlement." },
+        { q: "What areas in Palm Beach County do you serve?", a: "We cover all of Palm Beach County: West Palm Beach, Palm Beach, Jupiter, Lake Worth, Boynton Beach, Delray Beach, Wellington, Royal Palm Beach, and every surrounding community." },
+        { q: "Can you help with a hurricane claim in Palm Beach County?", a: "Yes. Hurricane claims are our specialty in this area. We document all wind, rain, and structural damage and force your insurer to pay the full cost of repairs." },
+        { q: "How fast can you respond to my property?", a: "We dispatch within 24 hours across Palm Beach County. After major storm events, our South Florida team is pre-positioned for rapid response." },
+        { q: "What if my insurer already sent their adjuster?", a: "Their adjuster works for the insurance company, not you. We perform an independent inspection and typically find significant damage their adjuster missed or minimized." }
+      ]
+    },
+    {
+      city: "Boca Raton", county: "Palm Beach County", stateCode: "FL", stateName: "Florida",
+      localRisk: "storm, water, and wind damage",
+      zipCodes: ["33427", "33428", "33431", "33432", "33433", "33434", "33486", "33496"],
+      nearbyAreas: "Delray Beach, Deerfield Beach, Coconut Creek, Parkland, Boynton Beach, and southern Palm Beach County",
+      damageAngles: {
+        primary: "Wind and storm damage",
+        primaryDesc: "Boca Raton properties face tropical storm and hurricane wind exposure from the Atlantic. High-end properties along the coast suffer severe wind damage to roofs, pool cages, and landscaping. Insurers undervalue luxury property repairs by using generic cost estimates.",
+        secondary: "Water damage and pipe bursts",
+        secondaryDesc: "Boca Raton's aging plumbing infrastructure and hard water cause pipe failures that flood homes. Insurance carriers deny water claims by arguing the damage was gradual. Claim Guardians proves sudden and accidental loss to secure coverage.",
+        tertiary: "Roof and tile damage",
+        tertiaryDesc: "Boca Raton's many tile-roofed properties are vulnerable to wind uplift and hail. Barrel and flat tile replacement is expensive, and insurers push cheap repairs instead of proper tile matching. We document every damaged tile to force full coverage."
+      },
+      caseStudies: [
+        { type: "Roof tile damage - Boca Raton, FL", initialOffer: "$11,500", result: "$67,200", icon: "🏠" },
+        { type: "Pipe burst water damage - Boca Raton", initialOffer: "$8,900", result: "$54,100", icon: "💧" }
+      ],
+      faq: [
+        { q: "How much does a public adjuster cost in Boca Raton?", a: "Zero upfront fees. We work on contingency - you pay a percentage only after we recover your settlement. Florida law regulates our fees." },
+        { q: "Do you handle luxury property claims in Boca Raton?", a: "Yes. High-value properties require specialized documentation of premium finishes, custom features, and imported materials. We ensure your settlement reflects the true replacement cost, not generic estimates." },
+        { q: "Can you help with tile roof claims?", a: "Absolutely. Tile roof claims are complex because matching tiles may be discontinued or require custom fabrication. We document every detail to force your insurer to pay for proper replacement." },
+        { q: "What if my water damage claim was denied?", a: "We specialize in reversing water damage denials. We prove the loss was sudden and accidental - not gradual - to defeat the insurer's most common defense." },
+        { q: "How fast can you inspect my Boca Raton property?", a: "Within 24 hours. Our South Florida team covers all of Palm Beach County with dedicated adjusters in the Boca Raton area." }
+      ]
+    },
+    {
+      city: "Orlando", county: "Orange County", stateCode: "FL", stateName: "Florida",
+      localRisk: "tornado, sinkhole, and storm damage",
+      zipCodes: ["32801", "32803", "32804", "32806", "32807", "32808", "32809", "32812"],
+      nearbyAreas: "Winter Park, Kissimmee, Sanford, Altamonte Springs, Lake Mary, Apopka, and all of Orange County",
+      damageAngles: {
+        primary: "Tornado and severe storm damage",
+        primaryDesc: "Central Florida leads the state in tornado activity. Orlando's frequent afternoon thunderstorms produce damaging straight-line winds, hail, and tornadoes that rip off roofs and destroy structures. Insurance companies dispute tornado damage as 'wind' to apply lower coverage limits.",
+        secondary: "Sinkhole damage",
+        secondaryDesc: "Orange County sits on karst limestone terrain prone to sinkholes. Foundation cracks, structural settling, and ground collapse can destroy properties. Florida law requires insurers to cover catastrophic ground cover collapse, but they dispute whether your damage qualifies.",
+        tertiary: "Water damage and flooding",
+        tertiaryDesc: "Orlando's heavy summer rainfall and flat terrain cause frequent flooding and water intrusion. Storm-driven water enters through damaged roofs, windows, and foundations. Insurers minimize water claims by disputing the source and timeline of damage."
+      },
+      caseStudies: [
+        { type: "Tornado damage - Orlando, FL", initialOffer: "$19,500", result: "$105,800", icon: "🌪️" },
+        { type: "Sinkhole claim - Orange County", initialOffer: "Claim denied", result: "$87,000", icon: "🏗️" }
+      ],
+      faq: [
+        { q: "How much does a public adjuster cost in Orlando?", a: "Nothing upfront. Claim Guardians works on a contingency fee regulated by Florida law. You only pay a percentage of what we recover. No recovery, no fee." },
+        { q: "Does homeowners insurance cover sinkhole damage in Orlando?", a: "Florida requires insurers to cover catastrophic ground cover collapse. Many also offer optional sinkhole coverage. Claim Guardians determines which coverage applies and forces your insurer to pay." },
+        { q: "What areas near Orlando do you serve?", a: "We cover all of Central Florida: Orlando, Winter Park, Kissimmee, Sanford, Altamonte Springs, Lake Mary, Apopka, Clermont, and surrounding communities in Orange, Seminole, and Osceola counties." },
+        { q: "Can you help with a denied tornado claim?", a: "Yes. We re-inspect your property, document the full extent of wind and structural damage, and file an appeal with evidence the insurer cannot ignore." },
+        { q: "How fast can you respond after a storm in Orlando?", a: "Within 24 hours. Our Central Florida team responds immediately after severe weather events across Orange County." }
+      ]
+    },
+    {
+      city: "Kissimmee", county: "Osceola County", stateCode: "FL", stateName: "Florida",
+      localRisk: "tornado, sinkhole, and water damage",
+      zipCodes: ["34741", "34743", "34744", "34746", "34747", "34758"],
+      nearbyAreas: "St. Cloud, Celebration, Poinciana, Davenport, Haines City, and all of Osceola County",
+      damageAngles: {
+        primary: "Tornado and wind damage",
+        primaryDesc: "Osceola County's flat terrain and warm lake breezes create ideal conditions for severe thunderstorms and tornadoes. Wind damage to roofs, carports, and screen enclosures is extremely common. Insurers frequently lowball these claims.",
+        secondary: "Sinkhole and foundation damage",
+        secondaryDesc: "Kissimmee sits on Florida's karst belt where sinkholes are common. Foundation cracks, wall separation, and structural settling indicate ground movement. Insurance companies fight sinkhole claims aggressively - you need an expert on your side.",
+        tertiary: "Water and storm damage",
+        tertiaryDesc: "Heavy summer storms overwhelm drainage systems across Osceola County, flooding homes and commercial properties. Aging construction in many Kissimmee neighborhoods makes properties more vulnerable to water intrusion."
+      },
+      caseStudies: [
+        { type: "Storm damage - Kissimmee, FL", initialOffer: "$6,500", result: "$41,200", icon: "🌪️" },
+        { type: "Water damage - Osceola County", initialOffer: "$4,200", result: "$28,900", icon: "💧" }
+      ],
+      faq: [
+        { q: "How much does a public adjuster cost in Kissimmee?", a: "Zero upfront. We charge a contingency fee - you pay only after we recover your settlement. Florida regulates public adjuster fees to protect consumers." },
+        { q: "Do you handle sinkhole claims in Osceola County?", a: "Yes. We work with geotechnical engineers to document ground movement and force your insurer to cover foundation repairs and structural stabilization." },
+        { q: "What areas near Kissimmee do you cover?", a: "We serve all of Osceola County: Kissimmee, St. Cloud, Celebration, Poinciana, Davenport, and surrounding communities." },
+        { q: "Can you help with an underpaid storm claim?", a: "Absolutely. We re-inspect your property, document damage the insurer's adjuster missed, and negotiate for a settlement that covers your actual repair costs." },
+        { q: "How quickly can you inspect my property?", a: "Within 24 hours. Our Central Florida adjusters cover all of Osceola County." }
+      ]
+    },
+    {
+      city: "Daytona Beach", county: "Volusia County", stateCode: "FL", stateName: "Florida",
+      localRisk: "hurricane, coastal flooding, and wind damage",
+      zipCodes: ["32114", "32117", "32118", "32119", "32124", "32127"],
+      nearbyAreas: "Ormond Beach, Port Orange, New Smyrna Beach, Deltona, DeLand, and all of Volusia County",
+      damageAngles: {
+        primary: "Hurricane and tropical storm damage",
+        primaryDesc: "Daytona Beach's direct Atlantic coastline makes it a frequent target for hurricanes and tropical storms. Hurricanes Matthew (2016) and Ian (2022) caused severe damage across Volusia County. Insurers dispute wind vs. flood causation to deny claims on coastal properties.",
+        secondary: "Coastal flooding and water damage",
+        secondaryDesc: "Storm surge, heavy rainfall, and rising tides cause flooding across Daytona Beach's low-lying neighborhoods. Water damage to foundations, flooring, and electrical systems is common after tropical events. Many homeowners discover gaps in their flood coverage too late.",
+        tertiary: "Roof and wind damage",
+        tertiaryDesc: "Coastal wind exposure accelerates roof deterioration and causes acute storm damage. Daytona Beach properties need regular maintenance, but insurers use that fact to deny legitimate storm damage claims as 'wear and tear.'"
+      },
+      caseStudies: [
+        { type: "Hurricane damage - Daytona Beach, FL", initialOffer: "$16,800", result: "$84,200", icon: "🌀" },
+        { type: "Roof damage - Volusia County", initialOffer: "$5,200", result: "$42,500", icon: "🏠" }
+      ],
+      faq: [
+        { q: "How much does a public adjuster cost in Daytona Beach?", a: "Nothing upfront. We work on contingency and only charge a percentage of what we recover. Florida law caps our fees to protect you." },
+        { q: "Do you handle hurricane claims in Volusia County?", a: "Yes. Hurricane claims are our core expertise. We document all wind, water, and structural damage and force your insurer to pay the full cost of recovery." },
+        { q: "What areas near Daytona Beach do you serve?", a: "We cover all of Volusia County: Daytona Beach, Ormond Beach, Port Orange, New Smyrna Beach, Deltona, DeLand, and surrounding communities." },
+        { q: "Can you help with a denied coastal damage claim?", a: "Absolutely. We challenge wind vs. flood disputes with forensic evidence and force insurers to honor your windstorm coverage." },
+        { q: "How fast can you respond to storm damage?", a: "Within 24 hours. After hurricanes, we deploy dedicated teams to Volusia County for rapid inspections." }
+      ]
+    },
+    {
+      city: "Lakeland", county: "Polk County", stateCode: "FL", stateName: "Florida",
+      localRisk: "sinkhole, tornado, and storm damage",
+      zipCodes: ["33801", "33803", "33805", "33809", "33810", "33813"],
+      nearbyAreas: "Winter Haven, Bartow, Auburndale, Plant City, Haines City, and all of Polk County",
+      damageAngles: {
+        primary: "Sinkhole and foundation damage",
+        primaryDesc: "Polk County has one of the highest sinkhole rates in Florida. The phosphate-rich karst terrain creates unpredictable ground collapse. Foundation cracks, wall separation, and uneven floors signal active sinkhole activity. Insurance companies hire their own geologists to dispute your claim.",
+        secondary: "Tornado and severe storm damage",
+        secondaryDesc: "Central Florida's 'Lightning Alley' produces frequent severe thunderstorms that spawn tornadoes across Polk County. Wind damage to roofs, structures, and landscaping is common from spring through fall.",
+        tertiary: "Water damage",
+        tertiaryDesc: "Lakeland's summer storms produce heavy rainfall that overwhelms older drainage systems. Water intrusion through compromised roofs and foundations damages interiors. Insurers minimize these claims by disputing the water source."
+      },
+      caseStudies: [
+        { type: "Sinkhole damage - Lakeland, FL", initialOffer: "Claim denied", result: "$92,500", icon: "🏗️" },
+        { type: "Storm damage - Polk County", initialOffer: "$7,800", result: "$45,600", icon: "🌪️" }
+      ],
+      faq: [
+        { q: "How much does a public adjuster cost in Lakeland?", a: "Zero upfront fees. We work on contingency regulated by Florida law. You pay only from the settlement we recover." },
+        { q: "Do you handle sinkhole claims in Polk County?", a: "Yes. Sinkhole claims are complex and require geotechnical evidence. We work with licensed engineers to prove ground movement and force your insurer to cover stabilization and structural repairs." },
+        { q: "What areas near Lakeland do you serve?", a: "We cover all of Polk County: Lakeland, Winter Haven, Bartow, Auburndale, Plant City, Haines City, and surrounding areas." },
+        { q: "Can I hire you after my sinkhole claim was denied?", a: "Absolutely. We commission independent geological surveys and challenge the insurer's findings with evidence they cannot dismiss." },
+        { q: "How fast can you inspect my Lakeland property?", a: "Within 24 hours. Our Central Florida team covers all of Polk County with dedicated field adjusters." }
+      ]
+    },
+    {
+      city: "Tampa", county: "Hillsborough County", stateCode: "FL", stateName: "Florida",
+      localRisk: "hurricane, flood, and wind damage",
+      zipCodes: ["33602", "33603", "33604", "33606", "33607", "33609", "33611", "33629"],
+      nearbyAreas: "St. Petersburg, Clearwater, Brandon, Plant City, Temple Terrace, and all of Hillsborough County",
+      damageAngles: {
+        primary: "Hurricane and storm surge damage",
+        primaryDesc: "Tampa Bay is considered the most vulnerable metro in the US for hurricane storm surge. Hurricane Ian (2022) demonstrated the catastrophic flooding potential when storm surge inundated coastal neighborhoods. Insurance companies aggressively dispute surge vs. wind causation to limit liability.",
+        secondary: "Water and flood damage",
+        secondaryDesc: "Tampa's flat terrain and aging stormwater infrastructure cause widespread flooding during heavy rainfall events. Water damage to homes and businesses is the most frequently filed claim type in Hillsborough County.",
+        tertiary: "Roof and wind damage",
+        tertiaryDesc: "Tampa Bay properties face wind damage from tropical storms, hurricanes, and severe thunderstorms. Many older homes lack modern wind-resistance features, making them more expensive to repair to current Florida Building Code."
+      },
+      caseStudies: [
+        { type: "Hurricane surge damage - Tampa, FL", initialOffer: "$24,500", result: "$142,000", icon: "🌀" },
+        { type: "Roof damage - Hillsborough County", initialOffer: "$8,200", result: "$58,700", icon: "🏠" }
+      ],
+      faq: [
+        { q: "How much does a public adjuster cost in Tampa?", a: "Nothing upfront. We charge a contingency fee capped by Florida law. You pay a percentage only after we recover your settlement." },
+        { q: "Do you handle hurricane claims in the Tampa Bay area?", a: "Yes. Hurricane and storm surge claims are our specialty in this region. We document all damage types and force your insurer to pay the maximum." },
+        { q: "What areas near Tampa do you serve?", a: "We cover the entire Tampa Bay region: Tampa, St. Petersburg, Clearwater, Brandon, Plant City, Temple Terrace, and all of Hillsborough and Pinellas counties." },
+        { q: "Can you help with a flood damage claim?", a: "Yes. We determine whether your damage is covered under windstorm, homeowners, or flood policies and pursue every available coverage." },
+        { q: "How fast do you respond after a hurricane?", a: "We deploy pre-positioned teams within 24 hours of a storm. Tampa Bay is a priority response area for our firm." }
+      ]
+    },
+    {
+      city: "Fort Myers", county: "Lee County", stateCode: "FL", stateName: "Florida",
+      localRisk: "catastrophic hurricane and storm surge damage",
+      zipCodes: ["33901", "33905", "33907", "33908", "33912", "33916", "33919"],
+      nearbyAreas: "Cape Coral, Bonita Springs, Estero, Lehigh Acres, Sanibel, Fort Myers Beach, and all of Lee County",
+      damageAngles: {
+        primary: "Catastrophic hurricane damage",
+        primaryDesc: "Hurricane Ian made landfall near Fort Myers as a Category 4 storm in 2022, causing over $100 billion in damage. Lee County experienced catastrophic wind, surge, and structural damage. Many homeowners are still fighting insurance companies for fair settlements years later.",
+        secondary: "Storm surge and flooding",
+        secondaryDesc: "Fort Myers Beach and coastal Lee County were devastated by Hurricane Ian's 12-18 foot storm surge. Inland areas experienced severe flooding from rainfall. Insurance companies dispute whether damage was caused by covered wind or excluded flood.",
+        tertiary: "Roof and structural damage",
+        tertiaryDesc: "Hurricane-force winds destroyed thousands of roofs across Lee County. Many properties require complete structural rebuilds. Insurance adjusters approve partial repairs when total replacement is needed."
+      },
+      caseStudies: [
+        { type: "Hurricane Ian damage - Fort Myers, FL", initialOffer: "$31,000", result: "$198,500", icon: "🌀" },
+        { type: "Storm surge damage - Lee County", initialOffer: "Claim denied", result: "$145,000", icon: "🌊" }
+      ],
+      faq: [
+        { q: "How much does a public adjuster cost in Fort Myers?", a: "Zero upfront. Florida law caps public adjuster fees on hurricane claims at 10% when filed within the first year. We work on contingency - no recovery, no fee." },
+        { q: "Can you still help with Hurricane Ian claims?", a: "Yes. Many Fort Myers homeowners are still underpaid or fighting denials from Hurricane Ian. We reopen these claims, gather fresh evidence, and force insurers to pay." },
+        { q: "What areas in Lee County do you cover?", a: "All of Lee County: Fort Myers, Cape Coral, Bonita Springs, Estero, Lehigh Acres, Sanibel, Fort Myers Beach, and every surrounding area." },
+        { q: "Do you handle storm surge dispute claims?", a: "Yes. Wind vs. flood causation disputes are common in Lee County. We use forensic evidence to prove which damage is covered under your windstorm policy." },
+        { q: "How fast can you respond to Fort Myers?", a: "Within 24 hours. We maintain a permanent presence in Southwest Florida and respond immediately after storms." }
+      ]
+    },
+    {
+      city: "Cape Coral", county: "Lee County", stateCode: "FL", stateName: "Florida",
+      localRisk: "hurricane, storm surge, and wind damage",
+      zipCodes: ["33904", "33909", "33914", "33990", "33991", "33993"],
+      nearbyAreas: "Fort Myers, North Fort Myers, Pine Island, Lehigh Acres, and all of Lee County",
+      damageAngles: {
+        primary: "Hurricane and wind damage",
+        primaryDesc: "Cape Coral took a direct hit from Hurricane Ian in 2022. The city's extensive canal system amplified flooding while 150+ mph winds destroyed roofs and structures across every neighborhood. Many homeowners received inadequate settlements.",
+        secondary: "Water and flood damage",
+        secondaryDesc: "Cape Coral's 400+ miles of canals make it uniquely vulnerable to flooding during hurricanes and tropical storms. Water intrusion from wind-driven rain, storm surge, and canal overflow destroys homes from the inside out.",
+        tertiary: "Roof damage",
+        tertiaryDesc: "Cape Coral's newer construction helped some homes survive Hurricane Ian, but thousands of roofs still suffered catastrophic damage. Insurance companies send adjusters to approve patches when full replacement is needed."
+      },
+      caseStudies: [
+        { type: "Hurricane Ian roof damage - Cape Coral, FL", initialOffer: "$15,400", result: "$82,300", icon: "🏠" },
+        { type: "Flood damage - Cape Coral", initialOffer: "$9,600", result: "$61,800", icon: "💧" }
+      ],
+      faq: [
+        { q: "How much does a public adjuster cost in Cape Coral?", a: "Nothing upfront. We work on contingency regulated by Florida law. For hurricane claims filed within the first year, fees are capped at 10%." },
+        { q: "Are you still helping with Hurricane Ian claims in Cape Coral?", a: "Yes. We continue to fight for fair settlements on Hurricane Ian claims across Cape Coral. Many homeowners accepted lowball offers and can still reopen their claims." },
+        { q: "What parts of Cape Coral do you cover?", a: "All of Cape Coral - north, south, east, and west. We also cover all of Lee County including Fort Myers, Pine Island, and North Fort Myers." },
+        { q: "Can I reopen a closed hurricane claim?", a: "In many cases, yes. If you received an inadequate settlement, we can file a supplemental claim documenting additional damage or repair costs the insurer missed." },
+        { q: "How fast can you inspect my property?", a: "Within 24 hours. Our Southwest Florida team maintains a permanent presence in Cape Coral and Lee County." }
+      ]
+    },
+    {
+      city: "Naples", county: "Collier County", stateCode: "FL", stateName: "Florida",
+      localRisk: "hurricane, wind, and water damage",
+      zipCodes: ["34102", "34103", "34104", "34105", "34108", "34109", "34110", "34112"],
+      nearbyAreas: "Marco Island, Bonita Springs, Estero, Ave Maria, Immokalee, and all of Collier County",
+      damageAngles: {
+        primary: "Hurricane and wind damage",
+        primaryDesc: "Naples suffered severe damage from Hurricane Ian (2022) and Hurricane Irma (2017). Luxury waterfront properties along the coast face extreme wind and surge exposure. Insurance companies undervalue high-end finishes and custom construction in their repair estimates.",
+        secondary: "Water and flood damage",
+        secondaryDesc: "Naples' coastal location and low elevation create significant flood risk during hurricanes. Storm surge, heavy rainfall, and wind-driven rain cause devastating water intrusion. Insurers exploit wind vs. water disputes to deny coverage.",
+        tertiary: "Roof and structural damage",
+        tertiaryDesc: "Tile and barrel roofs common in Naples are expensive to repair and replace. Insurance adjusters approve generic repairs instead of proper tile matching. Claim Guardians ensures your settlement covers the true cost of matching materials."
+      },
+      caseStudies: [
+        { type: "Hurricane damage - Naples, FL", initialOffer: "$42,000", result: "$215,000", icon: "🌀" },
+        { type: "Waterfront property damage - Marco Island", initialOffer: "$28,500", result: "$167,000", icon: "🏠" }
+      ],
+      faq: [
+        { q: "How much does a public adjuster cost in Naples?", a: "Zero upfront. We charge a contingency fee regulated by Florida law. You pay only from the settlement we recover." },
+        { q: "Do you handle luxury property claims in Naples?", a: "Yes. High-value properties require specialized documentation of premium finishes, imported materials, and custom construction. We ensure your settlement reflects actual replacement cost." },
+        { q: "What areas in Collier County do you serve?", a: "All of Collier County: Naples, Marco Island, Bonita Springs, Estero, Ave Maria, Golden Gate, and surrounding communities." },
+        { q: "Can you help with Hurricane Ian claims in Naples?", a: "Yes. We continue to fight for fair settlements on Hurricane Ian claims and help homeowners who were underpaid reopen their claims." },
+        { q: "How fast can you inspect my Naples property?", a: "Within 24 hours. Our Southwest Florida team covers all of Collier and Lee counties." }
+      ]
+    },
+    {
+      city: "Jacksonville", county: "Duval County", stateCode: "FL", stateName: "Florida",
+      localRisk: "windstorm, flood, and hurricane damage",
+      zipCodes: ["32202", "32204", "32205", "32207", "32210", "32211", "32216", "32224"],
+      nearbyAreas: "Jacksonville Beach, Neptune Beach, Atlantic Beach, Orange Park, Fleming Island, St. Augustine, and all of Duval County",
+      damageAngles: {
+        primary: "Windstorm and hurricane damage",
+        primaryDesc: "Jacksonville's position on Florida's northeast coast exposes it to Atlantic hurricanes tracking northward. Hurricane Matthew (2016) caused severe wind and flood damage across Duval County. Hurricane Ian's remnants (2022) also impacted the area with flooding.",
+        secondary: "Flood and water damage",
+        secondaryDesc: "The St. Johns River and coastal proximity create flood risk across Jacksonville. Heavy rainfall, storm surge, and river flooding damage foundations, flooring, and electrical systems. Many Jacksonville homeowners lack adequate flood coverage.",
+        tertiary: "Roof and structural damage",
+        tertiaryDesc: "Northeast Florida's severe thunderstorms produce damaging winds, hail, and occasional tornadoes that compromise roofing systems. Older Jacksonville neighborhoods have construction that predates modern wind-resistance codes."
+      },
+      caseStudies: [
+        { type: "Hurricane damage - Jacksonville, FL", initialOffer: "$12,800", result: "$74,500", icon: "🌀" },
+        { type: "Flood damage - Duval County", initialOffer: "$8,400", result: "$51,200", icon: "💧" }
+      ],
+      faq: [
+        { q: "How much does a public adjuster cost in Jacksonville?", a: "Nothing upfront. We work on contingency and only charge a percentage of your recovered settlement. Florida law regulates our fees." },
+        { q: "Do you handle flood claims in Jacksonville?", a: "Yes. We help Jacksonville homeowners navigate both windstorm and flood policies to maximize recovery from every applicable coverage." },
+        { q: "What areas near Jacksonville do you serve?", a: "All of Northeast Florida: Jacksonville, Jacksonville Beach, Neptune Beach, Atlantic Beach, Orange Park, Fleming Island, St. Augustine, and all of Duval and St. Johns counties." },
+        { q: "Can you help with a denied windstorm claim?", a: "Absolutely. We re-inspect your property, gather independent evidence, and file formal appeals that force insurers to reverse wrongful denials." },
+        { q: "How fast can you respond in Jacksonville?", a: "Within 24 hours. We maintain coverage across Northeast Florida with dedicated field adjusters." }
+      ]
+    },
+    {
+      city: "Los Angeles", county: "Los Angeles County", stateCode: "CA", stateName: "California",
+      localRisk: "wildfire, smoke, and earthquake damage",
+      zipCodes: ["90001", "90004", "90012", "90024", "90036", "90046", "90049", "90064"],
+      nearbyAreas: "Santa Monica, Pasadena, Glendale, Burbank, Long Beach, Malibu, and all of Los Angeles County",
+      damageAngles: {
+        primary: "Wildfire and smoke damage",
+        primaryDesc: "Los Angeles faces devastating wildfire risk from the Palisades to the foothills. The 2025 Palisades and Eaton fires destroyed thousands of homes. Smoke damage travels miles from the fire line, contaminating properties insurers claim were 'unaffected.' Insurance companies deny wildfire claims by disputing the fire's proximity to your property.",
+        secondary: "Earthquake and structural damage",
+        secondaryDesc: "LA sits on multiple active fault lines. Even moderate earthquakes cause foundation cracks, chimney collapse, and structural damage. Standard homeowners policies exclude earthquake damage - you need specialized coverage. Claim Guardians helps maximize your earthquake policy benefits.",
+        tertiary: "Water and storm damage",
+        tertiaryDesc: "Atmospheric river events bring intense rainfall to Southern California, causing flooding, mudslides, and water intrusion. Post-fire hillsides are especially vulnerable to debris flows. Insurance carriers minimize storm damage claims in fire-affected areas."
+      },
+      caseStudies: [
+        { type: "Wildfire smoke damage - Los Angeles, CA", initialOffer: "$35,000", result: "$187,000", icon: "🔥" },
+        { type: "Storm damage - LA County", initialOffer: "$12,400", result: "$68,500", icon: "🌧️" }
+      ],
+      faq: [
+        { q: "How much does a public adjuster cost in Los Angeles?", a: "Zero upfront. We work on contingency regulated by the California Department of Insurance. You pay a percentage only after we recover your settlement." },
+        { q: "Do you handle wildfire claims in LA County?", a: "Yes. Wildfire and smoke damage claims are our California specialty. We document both direct fire damage and secondary smoke contamination that insurers try to minimize." },
+        { q: "What areas in LA County do you cover?", a: "All of Los Angeles County: LA proper, Santa Monica, Pasadena, Glendale, Burbank, Long Beach, Malibu, the Palisades, and every surrounding community." },
+        { q: "Can you help with smoke damage even if my home didn't burn?", a: "Absolutely. Smoke travels miles from the fire line and permanently contaminates drywall, insulation, HVAC systems, and personal property. We document contamination levels and force your insurer to cover remediation." },
+        { q: "How fast can you inspect my LA property?", a: "Within 24 hours. Our California team responds immediately after wildfires, storms, and other damaging events across Los Angeles County." }
+      ]
+    },
+    {
+      city: "San Francisco", county: "San Francisco County", stateCode: "CA", stateName: "California",
+      localRisk: "earthquake, structural, and storm damage",
+      zipCodes: ["94102", "94103", "94105", "94107", "94109", "94110", "94112", "94114"],
+      nearbyAreas: "Oakland, Berkeley, Daly City, South San Francisco, San Mateo, and the entire Bay Area",
+      damageAngles: {
+        primary: "Earthquake and structural damage",
+        primaryDesc: "San Francisco sits near the San Andreas and Hayward faults. The 1989 Loma Prieta earthquake caused $6 billion in damage. Foundation cracks, structural displacement, and chimney collapse are common after seismic events. Earthquake policies have high deductibles that insurers exploit to minimize payouts.",
+        secondary: "Storm and water damage",
+        secondaryDesc: "Atmospheric rivers bring intense rainfall to the Bay Area, causing flooding, landslides, and water intrusion. San Francisco's aging infrastructure and steep terrain amplify storm damage. Insurance companies argue water damage is from poor maintenance rather than sudden weather events.",
+        tertiary: "Fire damage",
+        tertiaryDesc: "San Francisco's dense housing and older construction create elevated fire risk. Fires in multi-unit buildings cause complex claims with structural, smoke, and water damage. Insurance carriers undervalue claims on historic and Victorian properties."
+      },
+      caseStudies: [
+        { type: "Storm damage - San Francisco, CA", initialOffer: "$18,500", result: "$95,200", icon: "🌧️" },
+        { type: "Structural damage - SF Bay Area", initialOffer: "$14,200", result: "$78,000", icon: "🏗️" }
+      ],
+      faq: [
+        { q: "How much does a public adjuster cost in San Francisco?", a: "Nothing upfront. We charge a contingency fee regulated by the California Department of Insurance. You pay only after we recover your settlement." },
+        { q: "Do you handle earthquake claims in San Francisco?", a: "Yes. Earthquake claims require specialized documentation of structural damage. We work with engineers to prove seismic causation and maximize your earthquake policy benefits." },
+        { q: "What areas in the Bay Area do you serve?", a: "The entire San Francisco Bay Area: SF proper, Oakland, Berkeley, Daly City, South San Francisco, San Mateo, and surrounding communities." },
+        { q: "Can you help with Victorian or historic property claims?", a: "Yes. Historic properties require specialized restoration that costs more than standard construction. We ensure your settlement reflects the true cost of period-appropriate repairs." },
+        { q: "How fast can you inspect my SF property?", a: "Within 24 hours. Our Northern California team covers the entire Bay Area with dedicated adjusters." }
+      ]
+    },
+    {
+      city: "San Diego", county: "San Diego County", stateCode: "CA", stateName: "California",
+      localRisk: "wildfire, coastal storm, and water damage",
+      zipCodes: ["92101", "92102", "92103", "92104", "92107", "92109", "92110", "92115"],
+      nearbyAreas: "La Jolla, Chula Vista, Oceanside, Escondido, Carlsbad, Encinitas, and all of San Diego County",
+      damageAngles: {
+        primary: "Wildfire and smoke damage",
+        primaryDesc: "San Diego County's Santa Ana wind-driven wildfires have destroyed thousands of homes. The 2003 Cedar Fire and 2007 Witch Creek Fire were among the most destructive in California history. Insurance companies deny wildfire claims by arguing 'defensible space' violations or proximity disputes.",
+        secondary: "Coastal storm and water damage",
+        secondaryDesc: "El Nino storms and atmospheric rivers bring heavy rainfall that causes flooding, mudslides, and coastal erosion across San Diego. Water intrusion through roofs, windows, and foundations damages interiors. Insurers minimize these claims.",
+        tertiary: "Structural and foundation damage",
+        tertiaryDesc: "San Diego's expansive clay soils shift dramatically between wet and dry seasons, cracking foundations and damaging structures. Insurance carriers classify this as 'earth movement' to trigger policy exclusions."
+      },
+      caseStudies: [
+        { type: "Wildfire damage - San Diego County", initialOffer: "$45,000", result: "$210,000", icon: "🔥" },
+        { type: "Storm damage - San Diego, CA", initialOffer: "$9,800", result: "$57,400", icon: "🌧️" }
+      ],
+      faq: [
+        { q: "How much does a public adjuster cost in San Diego?", a: "Zero upfront fees. We work on contingency regulated by California law. You pay a percentage only after we recover your settlement." },
+        { q: "Do you handle wildfire claims in San Diego County?", a: "Yes. We document all fire, smoke, ash, and heat damage and force your insurer to cover complete restoration, not just surface cleaning." },
+        { q: "What areas in San Diego do you cover?", a: "All of San Diego County: San Diego proper, La Jolla, Chula Vista, Oceanside, Escondido, Carlsbad, Encinitas, and surrounding communities." },
+        { q: "Can you help with a denied fire claim?", a: "Absolutely. We challenge insurer defenses like 'defensible space' violations with evidence and force them to cover your legitimate losses." },
+        { q: "How fast can you inspect my San Diego property?", a: "Within 24 hours. Our Southern California team responds immediately after fires, storms, and other events across San Diego County." }
+      ]
+    },
+    {
+      city: "Sacramento", county: "Sacramento County", stateCode: "CA", stateName: "California",
+      localRisk: "flood, storm, and fire damage",
+      zipCodes: ["95811", "95814", "95815", "95816", "95818", "95819", "95822", "95824"],
+      nearbyAreas: "Elk Grove, Roseville, Folsom, Rancho Cordova, Citrus Heights, West Sacramento, and all of Sacramento County",
+      damageAngles: {
+        primary: "Flood and storm damage",
+        primaryDesc: "Sacramento sits at the confluence of the American and Sacramento rivers, making it one of the most flood-prone cities in the US. Atmospheric river events bring intense rainfall that overwhelms levee systems and floods neighborhoods. Insurance companies dispute whether flood damage is covered under standard policies.",
+        secondary: "Water damage and pipe failures",
+        secondaryDesc: "Sacramento's older housing stock has aging plumbing systems prone to failure. Pipe bursts, water heater failures, and supply line breaks cause sudden water damage. Insurers deny claims by arguing damage was gradual.",
+        tertiary: "Wildfire smoke damage",
+        tertiaryDesc: "Sacramento experiences severe smoke events from Northern California wildfires. Smoke contamination damages HVAC systems, interiors, and personal property even when the fire is miles away. Insurance companies deny smoke claims by arguing insufficient proximity to the fire."
+      },
+      caseStudies: [
+        { type: "Flood damage - Sacramento, CA", initialOffer: "$16,200", result: "$88,500", icon: "🌧️" },
+        { type: "Water damage - Sacramento County", initialOffer: "$7,400", result: "$43,800", icon: "💧" }
+      ],
+      faq: [
+        { q: "How much does a public adjuster cost in Sacramento?", a: "Nothing upfront. We charge a contingency fee regulated by the California Department of Insurance. You pay only after we recover your settlement." },
+        { q: "Do you handle flood claims in Sacramento?", a: "Yes. We help Sacramento homeowners navigate both homeowners and flood policies to maximize recovery from every applicable coverage source." },
+        { q: "What areas near Sacramento do you serve?", a: "All of the Greater Sacramento region: Sacramento, Elk Grove, Roseville, Folsom, Rancho Cordova, Citrus Heights, West Sacramento, and surrounding communities." },
+        { q: "Can you help with wildfire smoke damage claims?", a: "Yes. We document air quality readings, HVAC contamination, and interior soot deposits to prove smoke damage and force your insurer to cover remediation." },
+        { q: "How fast can you inspect my Sacramento property?", a: "Within 24 hours. Our Northern California team covers the entire Sacramento Valley." }
+      ]
+    }
   ];
 
   return serviceCities.map((data) => ({
@@ -32,13 +438,12 @@ export async function getStaticPaths() {
 }
 
 const { data } = Astro.props;
-const { city, county, stateCode, stateName, localRisk, zipCodes } = data;
-import { Image } from 'astro:assets';
+const { city, county, stateCode, stateName, localRisk, zipCodes, nearbyAreas, damageAngles, caseStudies, faq } = data;
 ---
 
-<BaseLayout 
-  title={`Public Adjuster in ${city}, ${stateCode} | Claim Guardians`}
-  description={`Claim Guardians maximizes property damage settlements in ${city}, ${county}. We handle ${localRisk} claims for local homeowners and businesses.`}
+<BaseLayout
+  title={`Public Adjuster in ${city}, ${stateCode} - Property Damage Claims | Claim Guardians`}
+  description={`Licensed public adjuster in ${city}, ${stateCode}. We handle ${localRisk} claims across ${county} and force your insurer to pay your maximum settlement. No fee until you get paid.`}
 >
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify({
@@ -56,28 +461,42 @@ import { Image } from 'astro:assets';
       },
       "areaServed": {
         "@type": "GeoCircle",
-        "geoMidpoint": {
-          "@type": "GeoCoordinates",
-          "description": `${city}, ${county}, ${stateName}`
-        },
+        "geoMidpoint": { "@type": "GeoCoordinates", "description": `${city}, ${county}, ${stateName}` },
         "geoRadius": "50000"
       },
       "makesOffer": zipCodes.map(zip => ({
         "@type": "Offer",
         "eligibleRegion": { "@type": "PostalCode", "postalCode": zip }
       })),
-      "description": `Public Adjusting firm serving ${county}, specializing in ${localRisk} damage claims.`
+      "description": `Public Adjusting firm serving ${county}, specializing in ${localRisk} claims.`
+    })} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": faq.map(item => ({
+        "@type": "Question",
+        "name": item.q,
+        "acceptedAnswer": { "@type": "Answer", "text": item.a }
+      }))
+    })} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://allclaimguardians.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Service Areas", "item": "https://allclaimguardians.com/service-areas/" },
+        { "@type": "ListItem", "position": 3, "name": city, "item": `https://allclaimguardians.com/service-areas/${city.toLowerCase().replace(/\s+/g, '-')}/` }
+      ]
     })} />
   </Fragment>
 
-  <!-- 1. Localized Hero -->
+  <!-- 1. Hero -->
   <header class="relative bg-[#041224] overflow-hidden" style="padding-top:8rem; padding-bottom:8rem;">
     <div class="absolute inset-0 z-0">
-      <Image src="/images/hero-city-florida.png" width={1920} height={1080} alt={`${city}, ${stateName} — Claim Guardians service area`} class="w-full h-full object-cover opacity-60 scale-105" fetchpriority="high" loading="eager"/>
+      <Image src="/images/hero-city-florida.png" width={1920} height={1080} alt={`${city}, ${stateName} property damage - Claim Guardians service area`} class="w-full h-full object-cover opacity-60 scale-105" fetchpriority="high" loading="eager"/>
       <div class="absolute inset-0 bg-gradient-to-b from-[#041224]/40 via-[#002D51]/20 to-[#041224]"></div>
     </div>
     <div class="section-inner relative z-10">
-      <!-- Breadcrumbs -->
       <nav aria-label="Breadcrumb" class="mb-10 inline-flex">
         <ol class="flex items-center space-x-2 text-sm text-slate-400 font-medium bg-white/5 backdrop-blur-md px-4 py-2 rounded-full border border-white/10">
           <li><a href="/" class="hover:text-white transition-colors">Home</a></li>
@@ -87,119 +506,200 @@ import { Image } from 'astro:assets';
           <li class="text-white" aria-current="page">{city}</li>
         </ol>
       </nav>
-
       <div class="max-w-4xl">
-        <span class="eyebrow" style="color:#00B5A6;">Public Adjuster — {county}</span>
+        <span class="eyebrow" style="color:#00B5A6;">Public Adjuster - {county}</span>
         <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-8 leading-[1.1] tracking-tight">
-          Claim Guardians Maximizes Your Property Claim in {city}, {stateCode}.
+          Public Adjuster in {city}, {stateCode} - We Maximize Your Insurance Claim.
         </h1>
         <p class="text-xl md:text-2xl text-slate-300 mb-12 leading-relaxed max-w-3xl">
-          Claim Guardians evaluates {localRisk} for properties across {county}. Our {stateName}-licensed adjusters force your insurance company to pay your maximum legal settlement.
+          {city} properties face {localRisk}. Insurance companies minimize payouts across {county}. Claim Guardians forces your insurer to pay the full cost of your property repairs.
         </p>
-        
         <div class="flex flex-col sm:flex-row gap-5 mb-14">
-          <a href="/free-claim-review" class="btn-accent px-10 py-5 text-lg min-h-[60px]">
-            Free {city} Property Inspection
-          </a>
-          <a href="tel:3058045489" class="inline-flex justify-center items-center px-10 py-5 text-lg font-bold text-white bg-white/5 backdrop-blur-md border-2 border-white/20 rounded-xl hover:bg-white/10 transition-all duration-300 transform hover:-translate-y-1 min-h-[60px]">
-            Call a Local Expert
-          </a>
+          <a href="/free-claim-review" class="btn-accent px-10 py-5 text-lg min-h-[60px]">Free {city} Property Inspection</a>
+          <a href="tel:3058045489" class="inline-flex justify-center items-center px-10 py-5 text-lg font-bold text-white bg-white/5 backdrop-blur-md border-2 border-white/20 rounded-xl hover:bg-white/10 transition-all duration-300 transform hover:-translate-y-1 min-h-[60px]">Call a Local Expert</a>
         </div>
-        
-        <!-- Trust Bar -->
         <div class="flex flex-wrap items-center gap-x-10 gap-y-4 pt-6 border-t border-white/10">
-          <div class="flex items-center gap-3 text-slate-300 font-semibold text-sm">
-            <span class="text-[#00B5A6]">✓</span> Serving all of {county}
-          </div>
-          <div class="flex items-center gap-3 text-slate-300 font-semibold text-sm">
-            <span class="text-[#00B5A6]">✓</span> {stateName} Licensed
-          </div>
-          <div class="flex items-center gap-3 text-slate-300 font-semibold text-sm">
-            <span class="text-[#00B5A6]">✓</span> No Recovery, No Fee
-          </div>
+          <div class="flex items-center gap-3 text-slate-300 font-semibold text-sm"><span class="text-[#00B5A6]">✓</span> Serving all of {county}</div>
+          <div class="flex items-center gap-3 text-slate-300 font-semibold text-sm"><span class="text-[#00B5A6]">✓</span> {stateName} Licensed</div>
+          <div class="flex items-center gap-3 text-slate-300 font-semibold text-sm"><span class="text-[#00B5A6]">✓</span> No Recovery, No Fee</div>
         </div>
       </div>
     </div>
   </header>
 
-  <!-- 2. Localized Problem / Solution -->
+  <!-- 2. Common Property Damage -->
   <section class="section-white">
     <div class="section-inner">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-        
-        <!-- Problem -->
-        <div>
-          <span class="eyebrow">The Problem</span>
-          <h2 class="section-heading mb-6">Insurance Companies Routinely Underpay {city} Residents.</h2>
-          <p class="text-lg text-slate-500 leading-relaxed mb-4">
-            Due to the high frequency of <strong class="text-[#082142]">{localRisk}</strong> in {county}, insurance adjusters are trained to minimize payouts. They blame damage on "pre-existing conditions" to protect corporate profits.
-          </p>
-          <p class="text-lg text-slate-500 leading-relaxed">
-            You need a local advocate who understands the building codes and weather patterns of the {city} area.
-          </p>
+      <div class="text-center mb-16">
+        <span class="eyebrow">Local Risks</span>
+        <h2 class="section-heading">Common Property Damage in {city}, {stateCode}</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="card-hover p-8">
+          <h3 class="text-xl font-bold text-[#082142] mb-3">{damageAngles.primary}</h3>
+          <p class="text-slate-500 leading-relaxed">{damageAngles.primaryDesc}</p>
         </div>
-
-        <!-- Solution -->
-        <div class="card-hover p-10">
-          <h3 class="text-2xl font-bold text-[#082142] mb-6 flex items-center gap-3">
-            <span class="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-full bg-[#002D51]/10 text-[#00808C]">✓</span>
-            We Represent Policyholders in {city}.
-          </h3>
-          <ul class="space-y-5">
-            <li class="flex items-start gap-4">
-              <span class="text-[#00808C] mt-1 flex-shrink-0">📍</span>
-              <span class="text-lg font-medium text-[#082142]">Local presence ensuring rapid dispatch to any address in {county}.</span>
-            </li>
-            <li class="flex items-start gap-4">
-              <span class="text-[#00808C] mt-1 flex-shrink-0">🔍</span>
-              <span class="text-lg font-medium text-[#082142]">Mastery of {city} municipal building codes to enforce compliance upgrades.</span>
-            </li>
-            <li class="flex items-start gap-4">
-              <span class="text-[#00808C] mt-1 flex-shrink-0">⚖️</span>
-              <span class="text-lg font-medium text-[#082142]">We aggressively negotiate until your insurer pays the true cost of local repair.</span>
-            </li>
-          </ul>
+        <div class="card-hover p-8">
+          <h3 class="text-xl font-bold text-[#082142] mb-3">{damageAngles.secondary}</h3>
+          <p class="text-slate-500 leading-relaxed">{damageAngles.secondaryDesc}</p>
         </div>
-
+        <div class="card-hover p-8">
+          <h3 class="text-xl font-bold text-[#082142] mb-3">{damageAngles.tertiary}</h3>
+          <p class="text-slate-500 leading-relaxed">{damageAngles.tertiaryDesc}</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- 3. Local Coverage Zip Codes -->
+  <!-- 3. Result Proof -->
+  <section class="section-muted">
+    <div class="section-inner">
+      <div class="text-center mb-16">
+        <span class="eyebrow">Proven Results</span>
+        <h2 class="section-heading">Real {city} Settlements We've Recovered</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        {caseStudies.map((cs) => (
+          <div class="card-testimonial">
+            <span class="inline-flex px-4 py-2 bg-blue-50 text-[#002D51] text-sm font-bold rounded-full mb-6 border border-blue-100">{cs.icon} {cs.type}</span>
+            <div class="space-y-4 mb-6 pb-6 border-b border-slate-100">
+              <div class="flex justify-between items-center">
+                <span class="text-slate-500 font-medium text-sm uppercase">Insurance Offer</span>
+                <span class="text-red-400 line-through font-bold text-xl">{cs.initialOffer}</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <span class="text-[#082142] font-bold text-sm uppercase">Our Settlement</span>
+                <span class="text-green-600 font-black text-3xl tracking-tighter">{cs.result}</span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Our Process -->
+  <section class="section-white">
+    <div class="section-inner">
+      <div class="text-center mb-16">
+        <span class="eyebrow">How It Works</span>
+        <h2 class="section-heading">Our Claims Process in {city}</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="text-center">
+          <div class="step-number mx-auto">1</div>
+          <h3 class="text-xl font-bold text-[#082142] mt-6 mb-3">Free Inspection</h3>
+          <p class="text-slate-500">We dispatch a {stateName}-licensed adjuster to your {city} property within 24 hours to document all damage.</p>
+        </div>
+        <div class="text-center">
+          <div class="step-number mx-auto">2</div>
+          <h3 class="text-xl font-bold text-[#082142] mt-6 mb-3">Full Documentation</h3>
+          <p class="text-slate-500">We photograph, measure, and estimate every point of damage using thermal imaging, drones, and contractor pricing.</p>
+        </div>
+        <div class="text-center">
+          <div class="step-number mx-auto">3</div>
+          <h3 class="text-xl font-bold text-[#082142] mt-6 mb-3">Claim & Negotiation</h3>
+          <p class="text-slate-500">We file your claim with a detailed scope of loss and negotiate directly with your insurer on your behalf.</p>
+        </div>
+        <div class="text-center">
+          <div class="step-number mx-auto">4</div>
+          <h3 class="text-xl font-bold text-[#082142] mt-6 mb-3">Maximum Settlement</h3>
+          <p class="text-slate-500">We force your insurer to pay the true cost of repairs. If they refuse, we escalate through appraisal or legal channels.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Coverage Zip Codes -->
   <section class="section-muted text-center">
     <div class="section-inner">
       <span class="eyebrow">Coverage Zones</span>
-      <h2 class="section-heading mb-4">Dedicated Coverage Across {county}</h2>
+      <h2 class="section-heading mb-4">Serving {city} and {nearbyAreas}</h2>
       <p class="text-lg text-slate-500 mb-12 max-w-2xl mx-auto">
-        Our {city} field adjusters are actively responding to claims in the following primary zip codes, and all surrounding neighborhoods.
+        Our {city} adjusters respond to claims in the following zip codes and all surrounding neighborhoods across {county}.
       </p>
-      
       <div class="flex flex-wrap justify-center gap-4">
         {zipCodes.map((zip) => (
-          <div class="px-6 py-3 bg-white border border-slate-200 rounded-full shadow-sm text-lg font-bold text-[#002D51]">
-            {zip}
-          </div>
+          <div class="px-6 py-3 bg-white border border-slate-200 rounded-full shadow-sm text-lg font-bold text-[#002D51]">{zip}</div>
         ))}
-        <div class="px-6 py-3 bg-white border border-slate-200 rounded-full shadow-sm text-lg font-bold text-slate-400">
-          + All surrounding areas
-        </div>
+        <div class="px-6 py-3 bg-white border border-slate-200 rounded-full shadow-sm text-lg font-bold text-slate-400">+ All surrounding areas</div>
       </div>
     </div>
   </section>
 
-  <!-- 4. Final CTA -->
+  <!-- 6. FAQs -->
+  <section class="section-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <span class="eyebrow">Common Questions</span>
+        <h2 class="section-heading">Frequently Asked Questions - {city} Public Adjuster</h2>
+      </div>
+      <div class="space-y-4">
+        {faq.map((item) => (
+          <details class="group bg-white border border-slate-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden">
+            <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-xl text-[#082142] group-hover:text-[#00808C] transition-colors">
+              <span>{item.q}</span>
+              <span class="transition group-open:rotate-180"><svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg></span>
+            </summary>
+            <div class="text-slate-600 px-6 pb-6 text-lg leading-relaxed border-t border-slate-100 pt-4">{item.a}</div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Services Cross-Links -->
+  <section class="section-muted">
+    <div class="section-inner">
+      <div class="text-center mb-12">
+        <span class="eyebrow">Our Services</span>
+        <h2 class="section-heading">Property Damage Services in {city}</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <a href="/services/hurricane-damage" class="card-hover group block">
+          <h3 class="text-xl font-bold text-[#082142] mb-2 group-hover:text-[#00808C] transition-colors">Hurricane & Storm Damage</h3>
+          <p class="text-slate-500">Wind, hail, and structural storm damage claims across {county}.</p>
+        </a>
+        <a href="/services/water-damage" class="card-hover group block">
+          <h3 class="text-xl font-bold text-[#082142] mb-2 group-hover:text-[#00808C] transition-colors">Water Damage & Leaks</h3>
+          <p class="text-slate-500">Burst pipes, hidden leaks, and flood damage claims in {city}.</p>
+        </a>
+        <a href="/services/roof-damage" class="card-hover group block">
+          <h3 class="text-xl font-bold text-[#082142] mb-2 group-hover:text-[#00808C] transition-colors">Roof Damage Claims</h3>
+          <p class="text-slate-500">Full roof replacement claims for storm-damaged {city} properties.</p>
+        </a>
+        <a href="/services/fire-damage" class="card-hover group block">
+          <h3 class="text-xl font-bold text-[#082142] mb-2 group-hover:text-[#00808C] transition-colors">Fire & Smoke Damage</h3>
+          <p class="text-slate-500">Structural fire and smoke contamination claims in {county}.</p>
+        </a>
+        <a href="/services/mold-claims" class="card-hover group block">
+          <h3 class="text-xl font-bold text-[#082142] mb-2 group-hover:text-[#00808C] transition-colors">Mold Damage Claims</h3>
+          <p class="text-slate-500">Mold remediation coverage claims for {city} homeowners.</p>
+        </a>
+        <a href="/services/denied-claims" class="card-hover group block">
+          <h3 class="text-xl font-bold text-[#082142] mb-2 group-hover:text-[#00808C] transition-colors">Denied & Underpaid Claims</h3>
+          <p class="text-slate-500">Claim appeal and reversal services in {county}.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. Final CTA -->
   <section class="gradient-accent-bar section-white text-center">
     <div class="section-inner">
       <span class="eyebrow">No-Risk Consultation</span>
       <h2 class="section-heading mb-4">Was Your {city} Property Damaged?</h2>
       <p class="text-xl text-slate-500 mb-8 max-w-2xl mx-auto leading-relaxed">
-        Don't let the insurance company dictate the outcome of your claim. Get a free, expert settlement review today.
+        Don't let the insurance company dictate the outcome of your claim. Get a free, expert settlement review from a {stateName}-licensed public adjuster today.
       </p>
-      <a href="/free-claim-review" class="btn-accent px-12 py-5 text-xl min-h-[64px]">
-        Request Free Case Review →
-      </a>
+      <a href="/free-claim-review" class="btn-accent px-12 py-5 text-xl min-h-[64px]">Request Free {city} Case Review</a>
       <p class="text-sm text-slate-400 mt-4">Zero upfront cost. Ever.</p>
     </div>
   </section>
+
+  <!-- Mobile Sticky CTA -->
+  <div class="fixed bottom-0 left-0 right-0 p-4 bg-white/95 backdrop-blur-md border-t border-slate-200 shadow-[0_-10px_40px_rgba(0,0,0,0.1)] z-50 sm:hidden">
+    <a href="tel:3058045489" class="btn-accent w-full text-lg">Call {city} Expert Now</a>
+  </div>
 
 </BaseLayout>
