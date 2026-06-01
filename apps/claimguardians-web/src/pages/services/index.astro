@@ -49,8 +49,8 @@ const services = [
 ---
 
 <BaseLayout 
-  title="Property Damage Public Adjuster Services Florida | Claim Guardians"
-  description="Property damage public adjuster services in Florida. Hurricane, water, roof, fire, and mold damage claims handled by licensed adjusters. No fee until you get paid."
+  title="Property Damage Public Adjuster Services in FL, CA & NC | Claim Guardians"
+  description="Licensed public adjuster services across Florida, California & North Carolina. Hurricane, water, roof, fire, mold, and denied claims maximized. No fee until you get paid."
 >
   <Fragment slot="head">
     <script type="application/ld+json">
@@ -62,10 +62,11 @@ const services = [
           "@type": "LocalBusiness",
           "name": "Claim Guardians LLC"
         },
-        "areaServed": {
-          "@type": "State",
-          "name": "Florida"
-        },
+        "areaServed": [
+          { "@type": "State", "name": "Florida" },
+          { "@type": "State", "name": "California" },
+          { "@type": "State", "name": "North Carolina" }
+        ],
         "description": "Florida's premier public adjusting firm specializing in maximizing residential and commercial property damage claims.",
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
@@ -179,6 +180,43 @@ const services = [
           </div>
         </a>
       ))}
+    </div>
+  </section>
+
+  <!-- SEO Intro & Process Content -->
+  <section class="section-white py-20">
+    <div class="section-inner max-w-4xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-[#082142] mb-6">What Does a Public Adjuster Do for Your Property Damage Claim?</h2>
+      <p class="text-lg text-slate-600 leading-relaxed mb-5">
+        A public adjuster works exclusively for you, the policyholder, not the insurance company. When you file a property damage claim, your insurer sends their own adjuster whose job is to settle for as little as possible. Claim Guardians levels the playing field. Our licensed public adjusters in <strong>Florida, California, and North Carolina</strong> document the full extent of your loss, interpret your policy language, and negotiate aggressively to secure the maximum settlement you are legally owed.
+      </p>
+      <p class="text-lg text-slate-600 leading-relaxed mb-10">
+        Whether your home or business suffered <a href="/services/hurricane-damage/" class="text-[#00808C] font-semibold hover:underline">hurricane and wind damage</a>, a sudden <a href="/services/water-damage/" class="text-[#00808C] font-semibold hover:underline">water leak</a>, storm-related <a href="/services/roof-damage/" class="text-[#00808C] font-semibold hover:underline">roof damage</a>, a destructive <a href="/services/fire-damage/" class="text-[#00808C] font-semibold hover:underline">fire</a>, toxic <a href="/services/mold-claims/" class="text-[#00808C] font-semibold hover:underline">mold</a>, or you are fighting a <a href="/services/denied-claims/" class="text-[#00808C] font-semibold hover:underline">denied or underpaid claim</a>, our forensic approach turns lowball offers into full payouts. We charge nothing upfront and work on contingency, so you only pay after we win.
+      </p>
+
+      <h2 class="text-3xl md:text-4xl font-extrabold text-[#082142] mb-8">Our Claims Process</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100">
+          <span class="text-[#00B5A6] font-black text-sm">STEP 1</span>
+          <h3 class="text-xl font-bold text-[#082142] mt-1 mb-2">Free Property Inspection</h3>
+          <p class="text-slate-600">A licensed adjuster inspects your property within 24 hours, documenting every detail of the damage with forensic tools.</p>
+        </div>
+        <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100">
+          <span class="text-[#00B5A6] font-black text-sm">STEP 2</span>
+          <h3 class="text-xl font-bold text-[#082142] mt-1 mb-2">Policy Review & Valuation</h3>
+          <p class="text-slate-600">We analyze your policy line by line and build a complete, defensible estimate of your true loss, including hidden damage insurers miss.</p>
+        </div>
+        <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100">
+          <span class="text-[#00B5A6] font-black text-sm">STEP 3</span>
+          <h3 class="text-xl font-bold text-[#082142] mt-1 mb-2">Aggressive Negotiation</h3>
+          <p class="text-slate-600">We handle all communication with your insurer, countering lowball offers with hard evidence until they pay what you deserve.</p>
+        </div>
+        <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100">
+          <span class="text-[#00B5A6] font-black text-sm">STEP 4</span>
+          <h3 class="text-xl font-bold text-[#082142] mt-1 mb-2">Maximum Settlement</h3>
+          <p class="text-slate-600">You receive your full payout. Because we work on contingency, our fee comes only from the additional money we recover for you.</p>
+        </div>
+      </div>
     </div>
   </section>
 
