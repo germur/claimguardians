@@ -87,7 +87,7 @@ const ClaimCalculator: React.FC = () => {
              <p className="text-3xl md:text-4xl font-black text-white mb-8">
                {formatCurrency(result.min)} — {formatCurrency(result.max)}
              </p>
-             <a href="/free-claim-review" className="inline-block px-10 py-5 bg-white text-[#082142] font-black text-lg rounded-xl hover:bg-[#E2E8F0] transition-all transform hover:scale-105 shadow-xl">
+             <a href="/free-claim-review/" className="inline-block px-10 py-5 bg-white text-[#082142] font-black text-lg rounded-xl hover:bg-[#E2E8F0] transition-all transform hover:scale-105 shadow-xl">
                Get Your Free Property Inspection
              </a>
           </div>

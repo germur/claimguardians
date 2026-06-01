@@ -256,9 +256,9 @@ const { city, slug, county, localRisk, zipCodes, nearbyAreas, damageAngles, case
         <ol class="flex items-center space-x-2 text-sm text-slate-400 font-medium bg-white/5 backdrop-blur-md px-4 py-2 rounded-full border border-white/10">
           <li><a href="/" class="hover:text-white transition-colors">Home</a></li>
           <li><span class="mx-2 text-slate-600">›</span></li>
-          <li><a href="/service-areas" class="hover:text-white transition-colors">Service Areas</a></li>
+          <li><a href="/service-areas/" class="hover:text-white transition-colors">Service Areas</a></li>
           <li><span class="mx-2 text-slate-600">›</span></li>
-          <li><a href="/service-areas/north-carolina" class="hover:text-white transition-colors">North Carolina</a></li>
+          <li><a href="/service-areas/north-carolina/" class="hover:text-white transition-colors">North Carolina</a></li>
           <li><span class="mx-2 text-slate-600">›</span></li>
           <li class="text-white" aria-current="page">{city}</li>
         </ol>
@@ -302,19 +302,19 @@ const { city, slug, county, localRisk, zipCodes, nearbyAreas, damageAngles, case
           <div class="text-3xl mb-4">🌪️</div>
           <h3 class="text-xl font-extrabold text-[#082142] mb-3">{damageAngles.primary}</h3>
           <p class="text-slate-500 font-medium leading-relaxed">{damageAngles.primaryDesc}</p>
-          <a href="/services/hurricane-damage" class="inline-flex items-center gap-2 mt-4 text-sm font-bold text-[#00808C] hover:text-[#002D51] transition-colors">Learn about our storm claim process →</a>
+          <a href="/services/hurricane-damage/" class="inline-flex items-center gap-2 mt-4 text-sm font-bold text-[#00808C] hover:text-[#002D51] transition-colors">Learn about our storm claim process →</a>
         </div>
         <div class="card-hover p-8">
           <div class="text-3xl mb-4">💧</div>
           <h3 class="text-xl font-extrabold text-[#082142] mb-3">{damageAngles.secondary}</h3>
           <p class="text-slate-500 font-medium leading-relaxed">{damageAngles.secondaryDesc}</p>
-          <a href="/services/water-damage" class="inline-flex items-center gap-2 mt-4 text-sm font-bold text-[#00808C] hover:text-[#002D51] transition-colors">Learn about our water damage process →</a>
+          <a href="/services/water-damage/" class="inline-flex items-center gap-2 mt-4 text-sm font-bold text-[#00808C] hover:text-[#002D51] transition-colors">Learn about our water damage process →</a>
         </div>
         <div class="card-hover p-8">
           <div class="text-3xl mb-4">🏠</div>
           <h3 class="text-xl font-extrabold text-[#082142] mb-3">{damageAngles.tertiary}</h3>
           <p class="text-slate-500 font-medium leading-relaxed">{damageAngles.tertiaryDesc}</p>
-          <a href="/services/denied-claims" class="inline-flex items-center gap-2 mt-4 text-sm font-bold text-[#00808C] hover:text-[#002D51] transition-colors">Learn about denied claim appeals →</a>
+          <a href="/services/denied-claims/" class="inline-flex items-center gap-2 mt-4 text-sm font-bold text-[#00808C] hover:text-[#002D51] transition-colors">Learn about denied claim appeals →</a>
         </div>
       </div>
     </div>
@@ -328,7 +328,7 @@ const { city, slug, county, localRisk, zipCodes, nearbyAreas, damageAngles, case
         <h2 class="section-heading mb-4">Every Type of Property Damage Claim in {city}.</h2>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <a href="/services/water-damage" class="card-hover p-6 block group">
+        <a href="/services/water-damage/" class="card-hover p-6 block group">
           <div class="flex items-center gap-4">
             <span class="text-2xl">💧</span>
             <div>
@@ -337,7 +337,7 @@ const { city, slug, county, localRisk, zipCodes, nearbyAreas, damageAngles, case
             </div>
           </div>
         </a>
-        <a href="/services/hurricane-damage" class="card-hover p-6 block group">
+        <a href="/services/hurricane-damage/" class="card-hover p-6 block group">
           <div class="flex items-center gap-4">
             <span class="text-2xl">🌪️</span>
             <div>
@@ -346,7 +346,7 @@ const { city, slug, county, localRisk, zipCodes, nearbyAreas, damageAngles, case
             </div>
           </div>
         </a>
-        <a href="/services/roof-damage" class="card-hover p-6 block group">
+        <a href="/services/roof-damage/" class="card-hover p-6 block group">
           <div class="flex items-center gap-4">
             <span class="text-2xl">🏠</span>
             <div>
@@ -355,7 +355,7 @@ const { city, slug, county, localRisk, zipCodes, nearbyAreas, damageAngles, case
             </div>
           </div>
         </a>
-        <a href="/services/fire-damage" class="card-hover p-6 block group">
+        <a href="/services/fire-damage/" class="card-hover p-6 block group">
           <div class="flex items-center gap-4">
             <span class="text-2xl">🔥</span>
             <div>
@@ -364,7 +364,7 @@ const { city, slug, county, localRisk, zipCodes, nearbyAreas, damageAngles, case
             </div>
           </div>
         </a>
-        <a href="/services/mold-claims" class="card-hover p-6 block group">
+        <a href="/services/mold-claims/" class="card-hover p-6 block group">
           <div class="flex items-center gap-4">
             <span class="text-2xl">🦠</span>
             <div>
@@ -373,7 +373,7 @@ const { city, slug, county, localRisk, zipCodes, nearbyAreas, damageAngles, case
             </div>
           </div>
         </a>
-        <a href="/services/denied-claims" class="card-hover p-6 block group">
+        <a href="/services/denied-claims/" class="card-hover p-6 block group">
           <div class="flex items-center gap-4">
             <span class="text-2xl">⚖️</span>
             <div>
@@ -497,7 +497,7 @@ const { city, slug, county, localRisk, zipCodes, nearbyAreas, damageAngles, case
           + All surrounding areas
         </div>
       </div>
-      <a href="/service-areas/north-carolina" class="inline-flex items-center gap-2 text-sm font-bold text-[#00808C] hover:text-[#002D51] transition-colors">
+      <a href="/service-areas/north-carolina/" class="inline-flex items-center gap-2 text-sm font-bold text-[#00808C] hover:text-[#002D51] transition-colors">
         ← View all NC service areas
       </a>
     </div>

@@ -9,8 +9,17 @@ import sitemap from '@astrojs/sitemap';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://allclaimguardians.com',
-  trailingSlash: 'never',
-  integrations: [react(), sitemap()],
+  trailingSlash: 'always',
+  integrations: [
+    react(),
+    sitemap({
+      // Asegura que el sitemap liste las URLs canónicas CON barra final
+      serialize(item) {
+        if (!item.url.endsWith('/')) item.url += '/';
+        return item;
+      },
+    }),
+  ],
 
   vite: {
     plugins: [tailwindcss()]
