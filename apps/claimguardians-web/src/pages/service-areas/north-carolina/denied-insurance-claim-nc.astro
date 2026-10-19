@@ -12,6 +12,7 @@ import { deniedPropertyFaq } from '../../../data/market-review';
   ctaLabel="Free Property Claim Review"
 >
   <Fragment slot="head">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Denied property insurance claim review in North Carolina","url":"https://allclaimguardians.com/service-areas/north-carolina/denied-insurance-claim-nc/","provider":{"@id":"https://allclaimguardians.com/#organization"},"areaServed":{"@type":"State","name":"North Carolina"},"serviceType":"Public adjusting for property insurance claims"}</script>
     <script type="application/ld+json" set:html={JSON.stringify({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: deniedPropertyFaq.map(item => ({ '@type': 'Question', name: item.q, acceptedAnswer: { '@type': 'Answer', text: item.a } })) })} />
   </Fragment>
 

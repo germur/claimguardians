@@ -1,0 +1,7 @@
+# Keep utility pages out of search while allowing crawlers to read noindex.
+/__forms.html
+  X-Robots-Tag: noindex, nofollow
+/free-claim-review/thank-you/
+  X-Robots-Tag: noindex, follow
+/404.html
+  X-Robots-Tag: noindex, follow

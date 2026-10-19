@@ -8,7 +8,7 @@ const schema = {
       '@type': 'LocalBusiness', '@id': `${origin}/#organization`, name: 'Claim Guardians LLC',
       alternateName: ['Claim Guardians', 'All Claim Guardians'], url: `${origin}/`,
       description: 'Public adjusting services for property owners in Florida, California, and North Carolina.',
-      image: `${origin}/images/logo-color.svg`, telephone: '+1-305-804-5489', email: 'claims@claimguardians.com',
+      image: `${origin}/images/logo-color.svg`, logo: `${origin}/images/logo-color.svg`, telephone: '+1-305-804-5489', email: 'home@allclaimguardians.com',
       address: { '@type': 'PostalAddress', streetAddress: '304 Indian Trace Unit 655', addressLocality: 'Weston', addressRegion: 'FL', postalCode: '33326', addressCountry: 'US' },
       areaServed: markets.map(market => ({ '@type': 'State', name: market.name })),
       contactPoint: { '@type': 'ContactPoint', telephone: '+1-305-804-5489', contactType: 'customer service', availableLanguage: ['English', 'Spanish'] },

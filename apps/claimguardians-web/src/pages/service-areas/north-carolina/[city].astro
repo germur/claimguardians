@@ -1,5 +1,6 @@
 ---
 import LocalClaimService from '../../../components/LocalClaimService.astro';
+import NCServiceLinks from '../../../components/NCServiceLinks.astro';
 import MinimalAdLayout from '../../../layouts/MinimalAdLayout.astro';
 
 import MarketReview from '../../../components/MarketReview.astro';
@@ -333,6 +334,7 @@ const faq = profile.faq;
     </div>
   </section>
 
+  <NCServiceLinks city={city} />
   <MarketReview profile={profile} />
 
   <!-- 6. YOUR ADJUSTER VS THEIRS -->

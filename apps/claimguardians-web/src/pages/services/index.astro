@@ -7,42 +7,42 @@ const services = [
     title: "Hurricane & Wind Damage",
     description: "Florida's coastal storms inflict catastrophic structural damage. We force insurers to cover complete repairs, not just temporary patches.",
     icon: "🌪️",
-    href: "/services/hurricane-damage",
+    href: "/services/hurricane-damage/",
     accent: "from-blue-500 to-cyan-400"
   },
   {
     title: "Water Damage & Leaks",
     description: "Burst pipes and hidden leaks rapidly destroy drywall and flooring. We deploy thermal imaging to prove sudden and accidental loss.",
     icon: "💧",
-    href: "/services/water-damage",
+    href: "/services/water-damage/",
     accent: "from-blue-400 to-teal-400"
   },
   {
     title: "Roof Replacements",
     description: "Insurers love to claim 'wear and tear' to deny roof claims. We use forensic meteorology to prove storm damage and demand full replacement.",
     icon: "🏠",
-    href: "/services/roof-damage",
+    href: "/services/roof-damage/",
     accent: "from-slate-400 to-slate-200"
   },
   {
     title: "Fire & Smoke Damage",
     description: "Toxic soot permanently compromises porous materials. We rely on industrial hygienists to prove items must be fully replaced, not just cleaned.",
     icon: "🔥",
-    href: "/services/fire-damage",
+    href: "/services/fire-damage/",
     accent: "from-orange-500 to-red-500"
   },
   {
     title: "Toxic Mold Claims",
     description: "Insurance companies exploit policy caps to deny mold claims. We prove sudden water intrusion to bypass caps and fund safe remediation.",
     icon: "🦠",
-    href: "/services/mold-claims",
+    href: "/services/mold-claims/",
     accent: "from-green-500 to-emerald-400"
   },
   {
     title: "Denied & Underpaid Claims",
     description: "A denial is just a negotiation tactic. We re-open closed claims, expose adjuster 'bad faith', and force them to pay what you legally deserve.",
     icon: "⚖️",
-    href: "/services/denied-claims",
+    href: "/services/denied-claims/",
     accent: "from-purple-500 to-indigo-400"
   }
 ];
@@ -58,16 +58,14 @@ const services = [
         "@context": "https://schema.org",
         "@type": "Service",
         "serviceType": "Public Adjusting Services",
-        "provider": {
-          "@type": "LocalBusiness",
-          "name": "Claim Guardians LLC"
-        },
+        "provider": { "@id": "https://allclaimguardians.com/#organization" },
+        "url": "https://allclaimguardians.com/services/",
         "areaServed": [
           { "@type": "State", "name": "Florida" },
           { "@type": "State", "name": "California" },
           { "@type": "State", "name": "North Carolina" }
         ],
-        "description": "Florida's premier public adjusting firm specializing in maximizing residential and commercial property damage claims.",
+        "description": "Public adjusting services for residential and commercial property claims in Florida, California and North Carolina.",
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
           "name": "Property Claim Adjusting Services",
