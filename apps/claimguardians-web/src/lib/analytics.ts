@@ -40,18 +40,19 @@ export function getTechnicalSource(): string {
   } catch { return source === 'internal' ? 'unavailable' : source; }
 }
 
-export function sendAnalyticsEvent(name: 'generate_lead' | 'contact_click', params: Record<string, string>): void {
+export function sendAnalyticsEvent(name: 'generate_lead' | 'contact_click', params: Record<string, string | number | (() => void)>): void {
   const analytics = window as Window & { gtag?: (...args: unknown[]) => void };
   try { analytics.gtag?.('event', name, params); }
   catch { /* Measurement must never interrupt contact or confirmation. */ }
 }
 
-export function measureLead(fields: Record<string, string>): void {
+export function measureLead(fields: Record<string, string>, onComplete?: () => void): void {
   const leadTypes = ['general', 'claim_review', 'contact', 'nc_general', 'denied_claim_review', 'service_review'];
   sendAnalyticsEvent('generate_lead', {
     lead_type: leadTypes.includes(fields.lead_type) ? fields.lead_type : 'general',
     preferred_language: fields.preferred_language === 'es' ? 'es' : 'en',
     technical_source: getTechnicalSource(),
     declared_source: discoveryOptions.some(([value]) => value === fields.discovery_source) ? fields.discovery_source : 'not_provided',
+    ...(onComplete ? { event_callback: onComplete, event_timeout: 2000 } : {}),
   });
 }

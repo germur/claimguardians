@@ -20,7 +20,7 @@ export default function LeadCaptureForm({ leadType = 'general', state = '', dama
     pending.current = true; setSending(true); setError('');
     try {
       await submitLead(fields);
-      trackLead(fields);
+      await trackLead(fields);
       window.location.assign(THANK_YOU_URL);
     } catch {
       setError('We could not confirm your request. Your details are still here. Try again, or call (305) 804-5489.');

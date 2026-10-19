@@ -20,4 +20,10 @@ export async function submitLead(fields: LeadFields): Promise<void> {
 }
 
 /** Send the confirmed conversion through the installed Google tag. */
-export function trackLead(fields: LeadFields): void { measureLead(fields); }
+export function trackLead(fields: LeadFields): Promise<void> {
+  return new Promise(resolve => {
+    // Allow the tag to dispatch before navigation, with a bounded fallback if blocked.
+    const timer = setTimeout(resolve, 2200);
+    measureLead(fields, () => { clearTimeout(timer); resolve(); });
+  });
+}

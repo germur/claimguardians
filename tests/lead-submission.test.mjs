@@ -40,12 +40,22 @@ test('honeypot never reports success or sends a request', async t => {
   await assert.rejects(submitLead({ 'bot-field': 'spam' }));
 });
 
-test('conversion events exclude personal and claim data', t => {
+test('conversion waits for dispatch and excludes personal and claim data', async t => {
   const original = globalThis.window;
   t.after(() => { globalThis.window = original; });
   const events = [];
-  globalThis.window = { gtag: (...args) => events.push(args) };
-  trackLead({ full_name: 'Private name', phone: 'Private phone', email: 'private@example.com', description: 'Private claim details', zip_code: '12345', lead_type: 'nc_general', preferred_language: 'es' });
+  globalThis.window = { gtag: (...args) => { events.push(args); } };
+  let finished = false;
+  const pending = trackLead({ full_name: 'Private name', phone: 'Private phone', email: 'private@example.com', description: 'Private claim details', zip_code: '12345', lead_type: 'nc_general', preferred_language: 'es' }).then(() => { finished = true; });
+  await Promise.resolve();
+  assert.equal(finished, false);
+  const params = events[0][2];
+  assert.equal(params.event_timeout, 2000);
+  params.event_callback();
+  await pending;
+  assert.equal(finished, true);
+  delete params.event_callback;
+  delete params.event_timeout;
   assert.deepEqual(events, [['event', 'generate_lead', { lead_type: 'nc_general', preferred_language: 'es', technical_source: 'unavailable', declared_source: 'not_provided' }]]);
 });
 
@@ -71,9 +81,9 @@ test('technical source survives internal navigation without storing raw referrer
   assert.deepEqual([...store.values()], ['perplexity']);
 });
 
-test('analytics errors cannot turn an accepted lead into a failed submission', t => {
+test('analytics errors cannot turn an accepted lead into a failed submission', async t => {
   const original = globalThis.window;
   t.after(() => { globalThis.window = original; });
   globalThis.window = { gtag: () => { throw new Error('Analytics blocked'); } };
-  assert.doesNotThrow(() => trackLead({ lead_type: 'contact', discovery_source: 'private@example.com' }));
+  await assert.doesNotReject(() => trackLead({ lead_type: 'contact', discovery_source: 'private@example.com' }));
 });

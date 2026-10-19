@@ -25,7 +25,7 @@ export default function LeadForm() {
     const lead = { ...fields, lead_type: 'claim_review', full_name: `${fields.first_name} ${fields.last_name}`.trim() };
     try {
       await submitLead(lead);
-      trackLead(lead);
+      await trackLead(lead);
       window.location.assign(THANK_YOU_URL);
     } catch {
       setError('We could not confirm your request. Your details are still here. Please try again, or call (305) 804-5489.');
