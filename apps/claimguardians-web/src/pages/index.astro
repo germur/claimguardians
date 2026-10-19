@@ -5,8 +5,8 @@ import { Image } from 'astro:assets';
 ---
 
 <BaseLayout 
-  title="Public Adjuster Florida & California - Property Damage Claims | Claim Guardians"
-  description="Licensed public adjuster in Florida and California. We maximize your property insurance settlement for hurricane, water, fire, and roof damage. No fee until you get paid."
+  title="Public Adjusters in FL, CA & NC | Claim Guardians"
+  description="Property damage claim support in Florida, California, and North Carolina. We inspect damage, document your loss, and negotiate with your insurer. Request a free review."
 >
   <Fragment slot="head">
     <script type="application/ld+json">
@@ -31,7 +31,7 @@ import { Image } from 'astro:assets';
   </Fragment>
 
   <!-- 1. Hero Section -->
-  <header aria-label="Hero and Value Proposition" class="relative bg-[#041224] overflow-hidden pt-32 pb-40">
+  <header aria-label="Hero and Value Proposition" class="relative bg-[#041224] overflow-hidden py-16 md:py-24">
     <!-- Optimized Background Image (CWV: fetchpriority high) -->
     <div class="absolute inset-0 z-0">
       <Image 
@@ -49,20 +49,20 @@ import { Image } from 'astro:assets';
 
     <div class="section-inner relative z-10">
       <div class="max-w-4xl">
-        <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-8 leading-[1.1] tracking-tight drop-shadow-2xl">
-          Public Adjusters That Maximize Your Property Insurance Settlement in FL & CA.
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-6 leading-[1.1] tracking-tight drop-shadow-2xl">
+          Property damage? Get support with your insurance claim.
         </h1>
-        <p class="text-lg md:text-xl lg:text-2xl text-slate-200 mb-12 leading-relaxed max-w-3xl font-medium">
-          Insurance companies underpay property damage claims. Claim Guardians forces your insurer to pay your maximum legal entitlement. We serve homeowners and businesses across Florida and California.
+        <p class="text-lg md:text-xl lg:text-2xl text-slate-200 mb-8 leading-relaxed max-w-3xl font-medium">
+          We inspect the damage, document your loss, and negotiate with your insurer. Serving property owners in Florida, California, and North Carolina.
         </p>
         
-        <div class="flex flex-col sm:flex-row gap-5 mb-16">
+        <div class="flex flex-col sm:flex-row gap-4 mb-8">
           <!-- Primary CTA -->
-          <a href="/free-claim-review/" class="group inline-flex justify-center items-center px-10 py-5 text-xl font-extrabold text-white bg-[#00808C] rounded-xl hover:bg-[#00B5A6] transition-all duration-300 transform hover:-translate-y-1 shadow-[0_0_40px_-5px_rgba(0,128,140,0.6)] hover:shadow-[0_0_60px_-5px_rgba(0,181,166,0.7)] min-w-[280px] min-h-[64px]">
+          <a href="/free-claim-review/" class="group inline-flex justify-center items-center px-10 py-5 text-xl font-extrabold text-white bg-[#00808C] rounded-xl hover:bg-[#006775] transition-all duration-300 transform hover:-translate-y-1 shadow-[0_0_40px_-5px_rgba(0,128,140,0.6)] hover:shadow-[0_0_60px_-5px_rgba(0,181,166,0.7)] w-full sm:w-auto min-h-[64px]">
             Get a Free Claim Review
           </a>
           <!-- Secondary CTA -->
-          <a href="tel:3058045489" class="inline-flex justify-center items-center px-10 py-5 text-xl font-extrabold text-white bg-white/5 backdrop-blur-md border-2 border-white/20 rounded-xl hover:bg-white/10 transition-all duration-300 transform hover:-translate-y-1 min-w-[280px] min-h-[64px]">
+          <a href="tel:3058045489" class="inline-flex justify-center items-center px-10 py-5 text-xl font-extrabold text-white bg-white/5 backdrop-blur-md border-2 border-white/20 rounded-xl hover:bg-white/10 transition-all duration-300 transform hover:-translate-y-1 w-full sm:w-auto min-h-[64px]">
             Emergency? Call Us Now
           </a>
         </div>
@@ -71,11 +71,11 @@ import { Image } from 'astro:assets';
         <div class="flex flex-wrap items-center gap-x-12 gap-y-6 pt-8 border-t border-white/10">
           <div class="flex items-center gap-3 text-slate-300 font-semibold">
             <span class="text-2xl">🛡️</span>
-            <span class="text-sm md:text-base tracking-wide uppercase">FL & CA Licensed Adjusters</span>
+            <span class="text-sm md:text-base tracking-wide uppercase">FL, CA & NC Licensed Adjusters</span>
           </div>
           <div class="flex items-center gap-3 text-slate-300 font-semibold">
             <span class="text-2xl">⭐</span>
-            <span class="text-sm md:text-base tracking-wide uppercase">5-Star Google Reviews</span>
+            <span class="text-sm md:text-base tracking-wide uppercase">English & Spanish Support</span>
           </div>
           <div class="flex items-center gap-3 text-slate-300 font-semibold">
             <span class="text-2xl">🤝</span>
@@ -299,9 +299,9 @@ import { Image } from 'astro:assets';
       <!-- Claim Value Calculator (BOFU Island) -->
       <div class="mt-24 max-w-4xl mx-auto px-4">
         <div class="text-center mb-12">
-          <span class="eyebrow">Maximize Your Payout</span>
-          <h2 class="section-heading">Don't settle for your insurer's <span class="text-[#00808C]">low-ball offer.</span></h2>
-          <p class="text-slate-500 mt-4">Calculate the true potential value of your settlement below.</p>
+          <span class="eyebrow">Prepare Your Claim</span>
+          <h2 class="section-heading">Understand your <span class="text-[#00808C]">next step.</span></h2>
+          <p class="text-slate-500 mt-4">See which documents can help us review your damage and insurance response.</p>
         </div>
         <ClaimCalculator client:visible />
       </div>

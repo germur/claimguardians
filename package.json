@@ -3,5 +3,16 @@
   "private": true,
   "workspaces": [
     "apps/*"
-  ]
+  ],
+  "devDependencies": {
+    "@astrojs/check": "^0.9.11",
+    "@playwright/test": "^1.64.1",
+    "typescript": "^5.9.3"
+  },
+  "scripts": {
+    "check": "npm run astro --workspace=apps/claimguardians-web -- check",
+    "test": "node --test tests/lead-submission.test.mjs",
+    "test:e2e": "playwright test",
+    "build": "npm run build --workspace=apps/claimguardians-web"
+  }
 }

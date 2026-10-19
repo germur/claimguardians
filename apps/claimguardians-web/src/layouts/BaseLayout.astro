@@ -5,9 +5,10 @@ interface Props {
   title: string;
   description: string;
   image?: string;
+  noindex?: boolean;
 }
 
-const { title, description, image = '/images/florida-damaged-house-hero.png' } = Astro.props;
+const { title, description, image = '/images/florida-damaged-house-hero.png', noindex = false } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
@@ -15,13 +16,13 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 <html lang="en">
   <head>
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9WTBNG5905"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R0GH89D0MF"></script>
     <script is:inline>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      gtag('config', 'G-9WTBNG5905');
+      gtag('config', 'G-R0GH89D0MF');
     </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
@@ -30,7 +31,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="canonical" href={canonicalURL} />
     
-    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="robots" content={noindex ? "noindex, follow" : "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"} />
     <!-- Open Graph Metadata -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Claim Guardians" />
@@ -71,6 +72,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <slot name="head" />
   </head>
   <body class="bg-base-bg text-text-main font-sans antialiased min-h-screen flex flex-col">
+    <a href="#main-content" class="skip-link">Skip to content</a>
     <!-- 1. Global Header (Premium 2026 White Glassmorphism) -->
     <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-2xl border-b border-slate-200 shadow-sm supports-[backdrop-filter]:bg-white/60">
       <div class="absolute inset-0 bg-gradient-to-r from-transparent via-[#00808C]/5 to-transparent pointer-events-none"></div>
@@ -104,7 +106,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
           </a>
           
           <!-- Mobile Menu Button -->
-          <button id="mobile-menu-open" class="md:hidden p-2 text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-[#00B5A6]">
+          <button type="button" aria-label="Open navigation menu" aria-controls="mobile-menu" aria-expanded="false" id="mobile-menu-open" class="md:hidden p-2 text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-[#00B5A6]">
             <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
             </svg>
@@ -114,15 +116,15 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     </header>
 
     <!-- Mobile Menu Overlay (Hidden by default) -->
-    <div id="mobile-menu" class="fixed inset-0 z-[100] invisible pointer-events-none transition-all duration-300">
+    <dialog id="mobile-menu" aria-label="Site navigation" class="fixed inset-0 z-[100] m-0 h-[100dvh] max-h-none w-full max-w-none border-0 bg-transparent p-0 text-slate-900">
       <!-- Backdrop -->
-      <div id="mobile-menu-backdrop" class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm opacity-0 transition-opacity duration-300"></div>
+      <div id="mobile-menu-backdrop" class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm"></div>
       
       <!-- Menu Content -->
-      <div id="mobile-menu-content" class="absolute right-0 top-0 bottom-0 w-full max-w-sm bg-white shadow-2xl translate-x-full transition-transform duration-300 ease-out flex flex-col">
+      <div id="mobile-menu-content" class="absolute right-0 top-0 bottom-0 w-full max-w-sm bg-white shadow-2xl flex flex-col">
         <div class="p-6 flex items-center justify-between border-b border-slate-100">
           <img src="/images/logo SVG.svg" alt="Claim Guardians Logo" class="h-8 w-auto" />
-          <button id="mobile-menu-close" class="p-2 text-slate-400 hover:text-slate-600 hover:bg-slate-100 rounded-lg transition-colors">
+          <button type="button" aria-label="Close navigation menu" id="mobile-menu-close" class="p-2 text-slate-400 hover:text-slate-600 hover:bg-slate-100 rounded-lg transition-colors">
             <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
             </svg>
@@ -149,9 +151,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
           </a>
         </div>
       </div>
-    </div>
+    </dialog>
     
-    <main class="flex-grow">
+    <main id="main-content" tabindex="-1" class="flex-grow">
       <slot />
     </main>
 
@@ -165,7 +167,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 flex flex-col md:flex-row items-center justify-between gap-8">
           <div>
             <h2 class="text-3xl font-extrabold text-white mb-2">Claim <span class="text-[#00B5A6]">Guardians</span></h2>
-            <p class="text-primary-200 text-lg">Florida's elite private insurance advocates. We force them to pay.</p>
+            <p class="text-primary-200 text-lg">Property claim advocates serving Florida, California, and North Carolina.</p>
           </div>
           <div class="flex flex-col sm:flex-row gap-4">
             <a href="/free-claim-review/" class="px-8 py-4 text-sm font-black text-white bg-[#00808C] rounded-xl shadow-[0_10px_30px_-10px_rgba(0,128,140,0.5)] hover:shadow-[0_15px_40px_-10px_rgba(0,128,140,0.6)] hover:-translate-y-1 transition-all duration-300 flex items-center justify-center">
@@ -188,7 +190,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
               <img src="/images/logo SVG.svg" alt="Claim Guardians Logo" class="h-16 w-auto object-contain brightness-0 invert group-hover:scale-105 transition-transform" />
             </a>
             <p class="text-sm leading-relaxed text-slate-400">
-              Claim Guardians LLC is a licensed Florida Public Adjusting firm dedicated strictly to the policyholder. We leverage forensic technology and policy expertise to maximize your settlement.
+              Claim Guardians LLC represents policyholders in Florida, California, and North Carolina. We inspect damage, document losses, and negotiate property insurance claims.
             </p>
             
             <div class="flex items-center gap-4 pt-4 border-t border-primary-800">
@@ -293,39 +295,39 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <script>
       const openBtn = document.getElementById('mobile-menu-open');
       const closeBtn = document.getElementById('mobile-menu-close');
-      const menu = document.getElementById('mobile-menu');
+      const menu = document.getElementById('mobile-menu') as HTMLDialogElement | null;
       const backdrop = document.getElementById('mobile-menu-backdrop');
-      const content = document.getElementById('mobile-menu-content');
-      const body = document.body;
-
+      let previousOverflow = '';
       function openMenu() {
-        menu.classList.remove('invisible', 'pointer-events-none');
-        backdrop.classList.add('opacity-100');
-        content.classList.remove('translate-x-full');
-        body.style.overflow = 'hidden';
+        if (!menu || menu.open) return;
+        previousOverflow = document.body.style.overflow;
+        menu.showModal();
+        document.body.style.overflow = 'hidden';
+        openBtn?.setAttribute('aria-expanded', 'true');
+        closeBtn?.focus();
       }
-
       function closeMenu() {
-        backdrop.classList.remove('opacity-100');
-        content.classList.add('translate-x-full');
-        body.style.overflow = '';
-        
-        // Wait for transition to finish
-        setTimeout(() => {
-          menu.classList.add('invisible', 'pointer-events-none');
-        }, 300);
+        if (!menu?.open) return;
+        menu.close();
       }
-
+      menu?.addEventListener('keydown', event => {
+        if (event.key !== 'Tab') return;
+        const controls = Array.from(menu.querySelectorAll<HTMLElement>('a[href], button:not([disabled]), input:not([disabled]), select, textarea, [tabindex="0"]')).filter(element => element.getClientRects().length > 0);
+        const first = controls[0];
+        const last = controls[controls.length - 1];
+        if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last?.focus(); }
+        else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus(); }
+      });
+      menu?.addEventListener('close', () => {
+        document.body.style.overflow = previousOverflow;
+        openBtn?.setAttribute('aria-expanded', 'false');
+        openBtn?.focus();
+      });
       openBtn?.addEventListener('click', openMenu);
       closeBtn?.addEventListener('click', closeMenu);
       backdrop?.addEventListener('click', closeMenu);
-
-      // Close on escape key
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && !menu?.classList.contains('invisible')) {
-          closeMenu();
-        }
-      });
+      const desktop = window.matchMedia('(min-width: 768px)');
+      desktop.addEventListener('change', event => { if (event.matches) closeMenu(); });
     </script>
   </body>
 </html>

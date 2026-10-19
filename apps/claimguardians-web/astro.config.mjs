@@ -13,6 +13,7 @@ export default defineConfig({
   integrations: [
     react(),
     sitemap({
+      filter: (page) => !page.endsWith('/free-claim-review/thank-you/'),
       // Asegura que el sitemap liste las URLs canónicas CON barra final
       serialize(item) {
         if (!item.url.endsWith('/')) item.url += '/';

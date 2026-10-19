@@ -130,13 +130,14 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
           Insurance companies use confusing jargon to underpay claims. Our resource center breaks down industry terms and processes to empower you with clear, actionable knowledge.
         </p>
 
-        {/* Visual Search Box Mockup */}
-        <div class="relative max-w-2xl mx-auto group">
-          <div class="absolute inset-y-0 left-0 pl-6 flex items-center pointer-events-none">
+        <!-- Search progressively enhances the questions and guides below. -->
+        <div data-resource-search hidden class="relative max-w-2xl mx-auto group">
+          <label for="resource-search" class="block text-left font-bold text-white mb-3">Search questions and guides</label>
+          <div class="absolute bottom-6 left-0 pl-6 flex items-center pointer-events-none">
             <span class="text-2xl opacity-50">🔍</span>
           </div>
           <input 
-            type="text" 
+            type="search" id="resource-search" aria-controls="resource-content"
             placeholder="Search insurance terms, guides, or questions..." 
             class="w-full pl-16 pr-6 py-6 bg-white/10 backdrop-blur-xl border-2 border-white/20 rounded-3xl text-white placeholder-slate-400 focus:outline-none focus:border-[#00B5A6] focus:ring-4 focus:ring-[#00B5A6]/20 shadow-2xl text-xl transition-all font-medium"
           />
@@ -150,33 +151,68 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     <div class="section-inner relative z-20">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         <!-- Card 1 (Guides) -->
-        <a href="/free-claim-review/" class="card-hover p-12 group">
+        <a href="#claim-guide" class="card-hover p-8 md:p-12 group">
           <div class="text-5xl mb-6">📚</div>
           <h3 class="text-3xl font-black text-[#082142] mb-4 group-hover:text-[#00808C] transition-colors">Claim Survival Guides</h3>
-          <p class="text-lg text-slate-500 font-medium">Step-by-step instructions for filing and appearing for your insurance damage claims correctly.</p>
+          <p class="text-lg text-slate-500 font-medium">A practical checklist to prepare your documents for a property claim review.</p>
         </a>
 
         <!-- Card 2 (Glossary) -->
-        <a href="/free-claim-review/" class="card-hover p-12 group">
+        <a href="#glossary" class="card-hover p-8 md:p-12 group">
           <div class="text-5xl mb-6">📖</div>
           <h3 class="text-3xl font-black text-[#082142] mb-4 group-hover:text-[#00808C] transition-colors">Insurance Glossary</h3>
           <p class="text-lg text-slate-500 font-medium">Plain-English definitions of complex insurance vocabulary used to confuse property owners.</p>
         </a>
 
         <!-- Card 3 (Comparisons) -->
-        <a href="/free-claim-review/" class="card-hover p-12 group">
+        <a href="#adjuster-comparison" class="card-hover p-8 md:p-12 group">
           <div class="text-5xl mb-6">⚖️</div>
-          <h3 class="text-3xl font-black text-[#082142] mb-4 group-hover:text-[#00808C] transition-colors">Public vs. Private</h3>
+          <h3 class="text-3xl font-black text-[#082142] mb-4 group-hover:text-[#00808C] transition-colors">Who Does an Adjuster Represent?</h3>
           <p class="text-lg text-slate-500 font-medium">The critical difference between public adjusters and your insurance company's "staff" adjusters.</p>
         </a>
 
         <!-- Card 4 (Legal Rights) -->
-        <a href="/free-claim-review/" class="card-hover p-12 group">
+        <a href="#licensing" class="card-hover p-8 md:p-12 group">
           <div class="text-5xl mb-6">🛡️</div>
-          <h3 class="text-3xl font-black text-[#082142] mb-4 group-hover:text-[#00808C] transition-colors">FL Policyholder Rights</h3>
-          <p class="text-lg text-slate-500 font-medium">Understand your legal protections and mandatory timeframes under Florida State Insurance Law.</p>
+          <h3 class="text-3xl font-black text-[#082142] mb-4 group-hover:text-[#00808C] transition-colors">Licensing & Trust</h3>
+          <p class="text-lg text-slate-500 font-medium">Learn about professional licensing and choosing a public adjuster.</p>
         </a>
       </div>
+    </div>
+  </section>
+
+  <div id="resource-content">
+  <section class="section-muted">
+    <div class="section-inner max-w-4xl space-y-8">
+      <p id="search-status" role="status" aria-live="polite" class="text-slate-700"></p>
+      <div id="search-empty" hidden class="rounded-2xl bg-white border border-slate-200 p-6">
+        <p>No matching questions or guides. Try another term, or <a href="/contact/" class="underline text-[#006775]">contact our team</a>.</p>
+        <button id="search-clear" type="button" class="btn-secondary mt-4">Show all resources</button>
+      </div>
+      <article id="claim-guide" data-search-item class="bg-white border border-slate-200 rounded-2xl p-6 md:p-8">
+        <h2 class="section-heading mb-4">Prepare for a property claim review</h2>
+        <ol class="list-decimal pl-6 space-y-3 text-slate-700">
+          <li>Gather your insurance policy, declarations page, and claim number if you have one.</li>
+          <li>Keep dated photos of the damage, taken only from areas you can access safely.</li>
+          <li>Collect inspection reports, repair estimates, receipts, and an inventory of damaged items.</li>
+          <li>Bring any insurer letters, offers, or denial explanations, and a short timeline of what happened.</li>
+        </ol>
+        <p class="mt-4 text-slate-600">Missing a document? You can still request a review and tell us what you have.</p>
+      </article>
+      <article id="glossary" data-search-item class="bg-white border border-slate-200 rounded-2xl p-6 md:p-8">
+        <h2 class="section-heading mb-4">Insurance glossary</h2>
+        <dl class="space-y-4 text-slate-700">
+          <div><dt class="font-bold">Declarations page</dt><dd>A summary of the policy, insured property, coverage limits, and deductibles.</dd></div>
+          <div><dt class="font-bold">Deductible</dt><dd>The amount the policy makes your responsibility for a covered loss. The applicable amount depends on the policy and loss.</dd></div>
+          <div><dt class="font-bold">Coverage limit</dt><dd>The maximum payable for a particular coverage, subject to the policy terms.</dd></div>
+          <div><dt class="font-bold">Estimate</dt><dd>An assessment of the work and cost to repair damage. It is not a guarantee of insurance payment.</dd></div>
+        </dl>
+      </article>
+      <article id="adjuster-comparison" data-search-item class="bg-white border border-slate-200 rounded-2xl p-6 md:p-8">
+        <h2 class="section-heading mb-4">Who does an adjuster represent?</h2>
+        <p class="text-slate-700 mb-3">A staff adjuster is employed by an insurer. An independent adjuster may be engaged by an insurer to assess a claim. A public adjuster is hired by the policyholder to represent the policyholder in the claim process.</p>
+        <p class="text-slate-700">Before engaging a professional, check their license and ask for a written explanation of their role, services, and fees.</p>
+      </article>
     </div>
   </section>
 
@@ -189,27 +225,27 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
         <p class="text-slate-500 mt-4 max-w-2xl mx-auto font-medium">Clear, state-regulated answers to the most common Florida insurance claim questions.</p>
       </div>
 
-      <div class="space-y-24 max-w-4xl mx-auto">
+      <div id="faq-groups" class="space-y-16 max-w-4xl mx-auto">
         
         <!-- Category 1: Trust & Credibility -->
-        <div>
+        <div id="licensing" data-search-group>
           <div class="flex items-center gap-4 mb-10">
             <div class="h-px flex-grow bg-slate-200"></div>
-            <h3 class="text-sm font-black uppercase tracking-[0.3em] text-[#00808C] whitespace-nowrap">Professional Licensing & Trust</h3>
+            <h3 class="text-sm font-black uppercase tracking-[0.3em] text-[#00808C] text-center">Professional Licensing & Trust</h3>
             <div class="h-px flex-grow bg-slate-200"></div>
           </div>
           <div class="space-y-8">
-            <div class="bg-white rounded-3xl p-10 border-2 border-slate-100 shadow-sm relative overflow-hidden group hover:border-[#00808C] transition-all">
+            <div data-search-item class="bg-white rounded-3xl p-6 md:p-10 border-2 border-slate-100 shadow-sm relative overflow-hidden group hover:border-[#00808C] transition-all">
               <div class="absolute left-0 top-0 bottom-0 w-2 bg-[#00B5A6]"></div>
               <h4 class="text-2xl font-black text-[#082142] mb-6">1. What is a Public Adjuster in Florida?</h4>
               <p class="text-lg text-slate-600 leading-relaxed font-medium">A public adjuster is a state-licensed insurance professional. Property owners hire public adjusters to represent their financial interests. Claim Guardians evaluates your property damage, files the complex paperwork, and forces the insurance company to pay your maximum settlement. We work exclusively for you, not the insurer.</p>
             </div>
-            <div class="bg-white rounded-3xl p-10 border-2 border-slate-100 shadow-sm relative overflow-hidden group hover:border-[#00808C] transition-all">
+            <div data-search-item class="bg-white rounded-3xl p-6 md:p-10 border-2 border-slate-100 shadow-sm relative overflow-hidden group hover:border-[#00808C] transition-all">
               <div class="absolute left-0 top-0 bottom-0 w-2 bg-[#00B5A6]"></div>
               <h4 class="text-2xl font-black text-[#082142] mb-6">2. Is Claim Guardians licensed in Florida?</h4>
               <p class="text-lg text-slate-600 leading-relaxed font-medium">Yes. Claim Guardians holds active public adjusting licenses from the Florida Department of Financial Services (FLDFS). Our team strictly follows Florida state insurance regulations. Clients can verify our active credentials and state licenses directly through the official FLDFS website.</p>
             </div>
-            <div class="bg-white rounded-3xl p-10 border-2 border-slate-100 shadow-sm relative overflow-hidden group hover:border-[#00808C] transition-all">
+            <div data-search-item class="bg-white rounded-3xl p-6 md:p-10 border-2 border-slate-100 shadow-sm relative overflow-hidden group hover:border-[#00808C] transition-all">
               <div class="absolute left-0 top-0 bottom-0 w-2 bg-[#00B5A6]"></div>
               <h4 class="text-2xl font-black text-[#082142] mb-6">3. Why should I trust Claim Guardians with my property claim?</h4>
               <p class="text-lg text-slate-600 leading-relaxed font-medium">Claim Guardians employs state-certified property damage experts. Our adjusters leverage deep Florida insurance industry experience. We provide transparent communication, document every piece of hidden damage using advanced technology, and fight aggressively against unfair insurance company tactics to protect your financial future.</p>
@@ -218,24 +254,24 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
         </div>
 
         <!-- Category 2: Process & Value -->
-        <div>
+        <div data-search-group>
           <div class="flex items-center gap-4 mb-10">
             <div class="h-px flex-grow bg-slate-200"></div>
-            <h3 class="text-sm font-black uppercase tracking-[0.3em] text-[#00808C] whitespace-nowrap">Process & Value</h3>
+            <h3 class="text-sm font-black uppercase tracking-[0.3em] text-[#00808C] text-center">Process & Value</h3>
             <div class="h-px flex-grow bg-slate-200"></div>
           </div>
           <div class="space-y-8">
-            <div class="bg-white rounded-3xl p-10 border-2 border-slate-100 shadow-sm relative overflow-hidden group hover:border-[#00808C] transition-all">
+            <div data-search-item class="bg-white rounded-3xl p-6 md:p-10 border-2 border-slate-100 shadow-sm relative overflow-hidden group hover:border-[#00808C] transition-all">
               <div class="absolute left-0 top-0 bottom-0 w-2 bg-[#00B5A6]"></div>
               <h4 class="text-2xl font-black text-[#082142] mb-6">4. How does the Claim Guardians process work?</h4>
               <p class="text-lg text-slate-600 leading-relaxed font-medium">Claim Guardians simplifies the insurance claim process into three steps. First, our experts inspect your property for free. Second, our team files your claim and negotiates directly with the insurance adjuster. Finally, you receive your maximum financial settlement check.</p>
             </div>
-            <div class="bg-white rounded-3xl p-10 border-2 border-slate-100 shadow-sm relative overflow-hidden group hover:border-[#00808C] transition-all">
+            <div data-search-item class="bg-white rounded-3xl p-6 md:p-10 border-2 border-slate-100 shadow-sm relative overflow-hidden group hover:border-[#00808C] transition-all">
               <div class="absolute left-0 top-0 bottom-0 w-2 bg-[#00B5A6]"></div>
               <h4 class="text-2xl font-black text-[#082142] mb-6">5. How long does a property damage claim take in Florida?</h4>
               <p class="text-lg text-slate-600 leading-relaxed font-medium">Claim duration depends on the damage severity and the insurance company's response time. Claim Guardians expedites the process by submitting accurate, undeniable damage documentation from day one. We consistently pressure the insurance company to meet Florida’s strict statutory payment deadlines.</p>
             </div>
-            <div class="bg-white rounded-3xl p-10 border-2 border-slate-100 shadow-sm relative overflow-hidden group hover:border-[#00808C] transition-all">
+            <div data-search-item class="bg-white rounded-3xl p-6 md:p-10 border-2 border-slate-100 shadow-sm relative overflow-hidden group hover:border-[#00808C] transition-all">
               <div class="absolute left-0 top-0 bottom-0 w-2 bg-[#00B5A6]"></div>
               <h4 class="text-2xl font-black text-[#082142] mb-6">6. Can I hire Claim Guardians if my insurance claim was denied?</h4>
               <p class="text-lg text-slate-600 leading-relaxed font-medium">Yes. Property owners frequently hire Claim Guardians to appeal denied or underpaid insurance claims. Our licensed adjusters reopen closed claims, provide new structural evidence, and demand fair compensation from the insurance company. We routinely reverse unfair claim denials.</p>
@@ -244,24 +280,24 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
         </div>
 
         <!-- Category 3: Costs & Risks -->
-        <div>
+        <div data-search-group>
           <div class="flex items-center gap-4 mb-10">
             <div class="h-px flex-grow bg-slate-200"></div>
-            <h3 class="text-sm font-black uppercase tracking-[0.3em] text-[#00808C] whitespace-nowrap">Costs & Risks</h3>
+            <h3 class="text-sm font-black uppercase tracking-[0.3em] text-[#00808C] text-center">Costs & Risks</h3>
             <div class="h-px flex-grow bg-slate-200"></div>
           </div>
           <div class="space-y-8">
-            <div class="bg-white rounded-3xl p-10 border-2 border-slate-100 shadow-sm relative overflow-hidden group hover:border-[#00808C] transition-all">
+            <div data-search-item class="bg-white rounded-3xl p-6 md:p-10 border-2 border-slate-100 shadow-sm relative overflow-hidden group hover:border-[#00808C] transition-all">
               <div class="absolute left-0 top-0 bottom-0 w-2 bg-[#00B5A6]"></div>
               <h4 class="text-2xl font-black text-[#082142] mb-6">7. How much does a public adjuster cost in Florida?</h4>
               <p class="text-lg text-slate-600 leading-relaxed font-medium">Claim Guardians charges $0 in upfront fees. Clients pay a contingency fee only after they receive their settlement check. Florida state law legally caps public adjuster fees at 20% for standard claims and 10% during declared state emergencies.</p>
             </div>
-            <div class="bg-white rounded-3xl p-10 border-2 border-slate-100 shadow-sm relative overflow-hidden group hover:border-[#00808C] transition-all">
+            <div data-search-item class="bg-white rounded-3xl p-6 md:p-10 border-2 border-slate-100 shadow-sm relative overflow-hidden group hover:border-[#00808C] transition-all">
               <div class="absolute left-0 top-0 bottom-0 w-2 bg-[#00B5A6]"></div>
               <h4 class="text-2xl font-black text-[#082142] mb-6">8. Do public adjuster fees reduce my final insurance payout?</h4>
               <p class="text-lg text-slate-600 leading-relaxed font-medium">Claim Guardians deducts the contingency fee from your final settlement. However, our experts typically negotiate significantly higher payouts than the initial insurance offers. Most clients receive more net money by using our services than by fighting the insurance company alone.</p>
             </div>
-            <div class="bg-white rounded-3xl p-10 border-2 border-slate-100 shadow-sm relative overflow-hidden group hover:border-[#00808C] transition-all">
+            <div data-search-item class="bg-white rounded-3xl p-6 md:p-10 border-2 border-slate-100 shadow-sm relative overflow-hidden group hover:border-[#00808C] transition-all">
               <div class="absolute left-0 top-0 bottom-0 w-2 bg-[#00B5A6]"></div>
               <h4 class="text-2xl font-black text-[#082142] mb-6">9. Will hiring a public adjuster get my insurance policy canceled?</h4>
               <p class="text-lg text-slate-600 leading-relaxed font-medium">No. Florida law protects your right to hire a public adjuster. Insurance companies cannot legally cancel your policy simply because you hired professional representation. Claim Guardians protects your rights and ensures the insurer honors your policy contract.</p>
@@ -270,19 +306,19 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
         </div>
 
         <!-- Category 4: Urgency & Action -->
-        <div>
+        <div data-search-group>
           <div class="flex items-center gap-4 mb-10">
             <div class="h-px flex-grow bg-slate-200"></div>
-            <h3 class="text-sm font-black uppercase tracking-[0.3em] text-[#00808C] whitespace-nowrap">Urgency & Action</h3>
+            <h3 class="text-sm font-black uppercase tracking-[0.3em] text-[#00808C] text-center">Urgency & Action</h3>
             <div class="h-px flex-grow bg-slate-200"></div>
           </div>
           <div class="space-y-8">
-            <div class="bg-white rounded-3xl p-10 border-2 border-slate-100 shadow-sm relative overflow-hidden group hover:border-[#00808C] transition-all">
+            <div data-search-item class="bg-white rounded-3xl p-6 md:p-10 border-2 border-slate-100 shadow-sm relative overflow-hidden group hover:border-[#00808C] transition-all">
               <div class="absolute left-0 top-0 bottom-0 w-2 bg-[#00B5A6]"></div>
               <h4 class="text-2xl font-black text-[#082142] mb-6">10. What areas in Florida does Claim Guardians serve?</h4>
               <p class="text-lg text-slate-600 leading-relaxed font-medium">Claim Guardians serves property owners across the entire state of Florida. Our local adjusters quickly respond to claims in Miami, Fort Lauderdale, Orlando, Tampa, and Fort Myers. We dispatch experts immediately after hurricanes, fires, or sudden water damage events.</p>
             </div>
-            <div class="bg-white rounded-3xl p-10 border-2 border-slate-100 shadow-sm relative overflow-hidden group hover:border-[#00808C] transition-all">
+            <div data-search-item class="bg-white rounded-3xl p-6 md:p-10 border-2 border-slate-100 shadow-sm relative overflow-hidden group hover:border-[#00808C] transition-all">
               <div class="absolute left-0 top-0 bottom-0 w-2 bg-[#00B5A6]"></div>
               <h4 class="text-2xl font-black text-[#082142] mb-6">11. What should I do immediately after property damage?</h4>
               <p class="text-lg text-slate-600 leading-relaxed font-medium">Property owners must stop the source of damage and document the scene with photos. Next, you should contact Claim Guardians before calling your insurance company. Our adjusters will guide your initial steps to prevent accidental claim denials or recorded misstatements.</p>
@@ -293,6 +329,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       </div>
     </div>
   </section>
+
+  </div>
 
   <!-- 4. Final CTA -->
   <section class="gradient-accent-bar section-white text-center">
@@ -305,4 +343,36 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     </div>
   </section>
 
+  <script>
+    const search = document.getElementById('resource-search') as HTMLInputElement | null;
+    const items = Array.from(document.querySelectorAll<HTMLElement>('[data-search-item]'));
+    const groups = Array.from(document.querySelectorAll<HTMLElement>('[data-search-group]'));
+    const status = document.getElementById('search-status');
+    const empty = document.getElementById('search-empty');
+    const normalize = (text: string) => text.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+    function filterResources() {
+      const query = normalize(search?.value.trim() || '');
+      let count = 0;
+      for (const item of items) {
+        item.hidden = !normalize(item.textContent || '').includes(query);
+        if (!item.hidden) count++;
+      }
+      for (const group of groups) group.hidden = !group.querySelector('[data-search-item]:not([hidden])');
+      if (status) status.textContent = query ? `${count} matching resource${count === 1 ? '' : 's'}` : '';
+      if (empty) empty.hidden = count > 0;
+    }
+    document.querySelector<HTMLElement>('[data-resource-search]')?.removeAttribute('hidden');
+    search?.addEventListener('input', filterResources);
+    document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', () => {
+        if (search && search.value && document.querySelector(link.hash)?.closest('#resource-content')) {
+          search.value = '';
+          filterResources();
+        }
+      });
+    });
+    document.getElementById('search-clear')?.addEventListener('click', () => {
+      if (search) { search.value = ''; filterResources(); search.focus(); }
+    });
+  </script>
 </BaseLayout>

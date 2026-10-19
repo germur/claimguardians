@@ -25,3 +25,8 @@ pnpm-debug.log*
 
 # Local Netlify folder
 .netlify
+
+# Local browser test outputs
+/test-results/
+/playwright-report/
+/review-artifacts/
