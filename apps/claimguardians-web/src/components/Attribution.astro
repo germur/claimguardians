@@ -1,14 +1,20 @@
 <script>
   import { getTechnicalSource, sendAnalyticsEvent, flushLeadMeasurement } from '../lib/analytics';
+  import { getPageContext } from '../lib/page-context';
   getTechnicalSource();
+  getPageContext();
   if (location.pathname === '/free-claim-review/thank-you/') flushLeadMeasurement();
   document.querySelectorAll<HTMLFormElement>('form[name="claim-review"]').forEach(form => {
     const source = form.elements.namedItem('technical_source') as HTMLInputElement | null;
     if (source) source.value = getTechnicalSource();
+    Object.entries(getPageContext()).forEach(([key, value]) => {
+      const input = form.elements.namedItem(key) as HTMLInputElement | null;
+      if (input) input.value = value;
+    });
   });
   document.addEventListener('click', event => {
     const link = (event.target as Element | null)?.closest<HTMLAnchorElement>('a[href]');
     const method = link?.protocol === 'tel:' ? 'phone' : link?.protocol === 'mailto:' ? 'email' : '';
-    if (method) sendAnalyticsEvent('contact_click', { contact_method: method, technical_source: getTechnicalSource() });
+    if (method) sendAnalyticsEvent('contact_click', { contact_method: method, technical_source: getTechnicalSource(), ...getPageContext() });
   });
 </script>

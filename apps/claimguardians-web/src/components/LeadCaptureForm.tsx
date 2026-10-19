@@ -1,4 +1,5 @@
 import { markets } from '../data/markets';
+import { getPageContext } from '../lib/page-context';
 import DiscoveryField from './DiscoveryField';
 import React, { useId, useRef, useState } from 'react';
 import { LEAD_FORM_NAME, submitLead, THANK_YOU_URL, trackLead } from '../lib/lead-submission';
@@ -10,6 +11,7 @@ export default function LeadCaptureForm({ leadType = 'general', state = '', dama
   leadType?: string; state?: string; damageType?: string; claimStatus?: string; denial?: boolean;
 }) {
   const id = useId();
+  const pageContext = getPageContext();
   const pending = useRef(false);
   const [sending, setSending] = useState(false);
   const [error, setError] = useState('');
@@ -29,6 +31,8 @@ export default function LeadCaptureForm({ leadType = 'general', state = '', dama
   return <form name={LEAD_FORM_NAME} method="POST" action={THANK_YOU_URL} onSubmit={handleSubmit} className="space-y-5" aria-busy={sending}>
     <input type="hidden" name="form-name" value={LEAD_FORM_NAME} />
       <input type="hidden" name="technical_source" value="unavailable" />
+    <input type="hidden" name="landing_page" value={pageContext.landing_page} />
+    <input type="hidden" name="form_page" value={pageContext.form_page} />
     <input type="hidden" name="lead_type" value={leadType} />
     <div hidden><label>Leave this field empty<input name="bot-field" tabIndex={-1} autoComplete="off" /></label></div>
     <div className="grid sm:grid-cols-2 gap-5">

@@ -1,7 +1,6 @@
 ---
+import ServicePreparation from '../../components/ServicePreparation.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import ClaimCalculator from '../../components/ClaimCalculator';
-import EligibilityTest from '../../components/EligibilityTest';
 ---
 
 <BaseLayout 
@@ -37,8 +36,8 @@ import EligibilityTest from '../../components/EligibilityTest';
           "acceptedAnswer": { "@type": "Answer", "text": "Yes. Common denial reasons include age of the roof, alleged pre-existing damage, or cosmetic-only damage. Claim Guardians challenges these denials with forensic evidence and engineering reports." }
         }, {
           "@type": "Question",
-          "name": "What is the 25% rule for roof replacement in Florida?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Florida building code requires a full roof replacement when more than 25% of the roof area is damaged. Insurance companies must cover the cost of bringing the entire roof up to current code standards." }
+          "name": "Does damage to 25% of a Florida roof always require full replacement?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No. Florida law includes an exception for qualifying roofs built, repaired or replaced under the 2007 Florida Building Code or later editions. A licensed contractor and the local building authority should confirm the applicable repair scope; insurance payment is a separate policy question." }
         }, {
           "@type": "Question",
           "name": "How much does a roof damage public adjuster cost?",
@@ -138,7 +137,7 @@ import EligibilityTest from '../../components/EligibilityTest';
         <div class="card-hover group">
           <div class="text-4xl mb-4">📐</div>
           <h3 class="text-xl font-bold text-[#082142] mb-3 group-hover:text-[#00808C] transition-colors">Code Upgrade Coverage</h3>
-          <p class="text-slate-500">Florida's 25% rule requires a full roof replacement when more than 25% of the roof is damaged. Your insurer must pay to bring the entire roof up to current Florida Building Code standards.</p>
+          <p class="text-slate-500">Roof repair requirements depend on the existing roof, code compliance and applicable exceptions. Ask a licensed contractor and the local building authority to document the required scope. Insurance coverage needs a separate policy review.</p>
         </div>
         <div class="card-hover group">
           <div class="text-4xl mb-4">🏗️</div>
@@ -175,7 +174,7 @@ import EligibilityTest from '../../components/EligibilityTest';
         <div class="text-center">
           <div class="step-number mx-auto">3</div>
           <h3 class="text-xl font-bold text-[#082142] mt-6 mb-3">Scope & Estimate</h3>
-          <p class="text-slate-500">We prepare a detailed scope of loss using Xactimate software and licensed contractor estimates. We include code upgrade costs required under Florida's 25% rule.</p>
+          <p class="text-slate-500">We prepare a detailed scope of loss using Xactimate software and licensed contractor estimates. We review documented code-related costs against the policy and applicable requirements.</p>
         </div>
         <div class="text-center">
           <div class="step-number mx-auto">4</div>
@@ -186,56 +185,7 @@ import EligibilityTest from '../../components/EligibilityTest';
     </div>
   </section>
 
-  <!-- 5. Result Proof -->
-  <section class="section-muted">
-    <div class="section-inner">
-      <div class="text-center mb-16">
-        <span class="eyebrow">Proven Results</span>
-        <h2 class="section-heading">We Turn Denied Claims into Full Replacements.</h2>
-      </div>
-      <div class="max-w-3xl mx-auto card-testimonial">
-        <span class="inline-flex px-4 py-2 bg-blue-50 text-[#002D51] text-sm font-bold rounded-full mb-8 border border-blue-100">📍 Storm Damage Claim, Fort Lauderdale, FL.</span>
-        <div class="space-y-6 mb-8 pb-8 border-b border-slate-100">
-          <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
-            <span class="text-slate-500 font-medium text-sm uppercase">Insurance Initial Offer</span>
-            <span class="text-red-400 line-through font-bold text-2xl">Claim Denied</span>
-          </div>
-          <div class="h-px bg-slate-100"></div>
-          <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
-            <span class="text-[#082142] font-bold text-sm uppercase">Claim Guardians Settlement</span>
-            <span class="text-green-600 font-black text-4xl tracking-tighter">$65,000</span>
-          </div>
-        </div>
-        <div class="bg-slate-50 -mx-10 -mb-10 p-10 rounded-b-3xl">
-          <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">Action Taken</h4>
-          <p class="text-xl font-medium text-[#082142] leading-relaxed">We documented hidden structural roof damage the insurer's adjuster failed to report. The denied claim became a complete roof replacement settlement.</p>
-        </div>
-      </div>
-      
-      <div class="mt-24 max-w-4xl mx-auto">
-        <ClaimCalculator client:visible />
-      </div>
-
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 grayscale opacity-60 mt-16">
-        <div class="flex flex-col items-center gap-2">
-          <span class="text-2xl">🏛️</span>
-          <span class="text-[10px] uppercase font-black tracking-widest text-slate-400">DFS Licensed</span>
-        </div>
-        <div class="flex flex-col items-center gap-2">
-          <span class="text-2xl">🛡️</span>
-          <span class="text-[10px] uppercase font-black tracking-widest text-slate-400">Policyholder Advocacy</span>
-        </div>
-        <div class="flex flex-col items-center gap-2">
-          <span class="text-2xl">⚖️</span>
-          <span class="text-[10px] uppercase font-black tracking-widest text-slate-400">State Bonded</span>
-        </div>
-        <div class="flex flex-col items-center gap-2">
-          <span class="text-2xl">💰</span>
-          <span class="text-[10px] uppercase font-black tracking-widest text-slate-400">No-Fee Guarantee</span>
-        </div>
-      </div>
-    </div>
-  </section>
+  <ServicePreparation service="roof-damage" />
 
   <!-- FAQs -->
   <section class="section-white">
@@ -274,11 +224,11 @@ import EligibilityTest from '../../components/EligibilityTest';
         </details>
         <details class="group bg-white border border-slate-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden">
           <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-xl text-[#082142] group-hover:text-[#00808C] transition-colors">
-            <span>What is the 25% rule for roof replacement in Florida?</span>
+            <span>Does damage to 25% of a Florida roof always require full replacement?</span>
             <span class="transition group-open:rotate-180"><svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg></span>
           </summary>
           <div class="text-slate-600 px-6 pb-6 text-lg leading-relaxed border-t border-slate-100 pt-4">
-            Florida Building Code requires a full roof replacement when more than 25% of the roof area is repaired, replaced, or recovered within any 12-month period. Your insurer must cover the cost of bringing the entire roof up to current code standards, including impact-resistant materials and updated fastening requirements.
+            No. Florida law includes an exception for qualifying roofs built, repaired or replaced under the 2007 Florida Building Code or later editions. A licensed contractor and the local building authority should confirm the applicable repair scope; insurance payment is a separate policy question. <a class="underline text-[#006775]" href="https://www.flsenate.gov/Laws/Statutes/2025/553.844">Read Florida Statutes section 553.844(5)</a>.
           </div>
         </details>
         <details class="group bg-white border border-slate-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden">

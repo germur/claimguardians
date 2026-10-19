@@ -1,4 +1,5 @@
 import { getTechnicalSource, measureLead, queueLeadMeasurement } from './analytics.ts';
+import { getPageContext } from './page-context.ts';
 export const LEAD_FORM_NAME = 'claim-review';
 export const THANK_YOU_URL = '/free-claim-review/thank-you/';
 export type LeadFields = Record<string, string>;
@@ -9,7 +10,7 @@ export async function submitLead(fields: LeadFields): Promise<void> {
   const response = await fetch('/__forms.html', {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: new URLSearchParams({ ...fields, technical_source: getTechnicalSource(), 'form-name': LEAD_FORM_NAME }).toString(),
+    body: new URLSearchParams({ ...fields, ...getPageContext(), technical_source: getTechnicalSource(), 'form-name': LEAD_FORM_NAME }).toString(),
     signal: AbortSignal.timeout(20000),
   });
   const text = await response.text();

@@ -1,0 +1,11 @@
+---
+const { faq } = Astro.props as { faq: { q: string; a: string }[] };
+---
+<section class="section-white">
+  <div class="section-inner max-w-4xl">
+    <h2 class="section-heading mb-8">Questions before your claim review</h2>
+    <div class="space-y-4">
+      {faq.map(item => <details class="rounded-2xl border border-slate-200 bg-white"><summary class="cursor-pointer p-6 font-bold text-lg text-[#082142]">{item.q}</summary><p class="px-6 pb-6 text-slate-700 leading-relaxed">{item.a}</p></details>)}
+    </div>
+  </div>
+</section>

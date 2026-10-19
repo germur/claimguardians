@@ -1,0 +1,23 @@
+---
+const { service } = Astro.props as { service: string };
+const reviews: Record<string, { title: string; documents: string[]; links: {label: string; href: string}[] }> = {
+  'fire-damage': { title: 'Prepare a fire or smoke claim review', documents: ['The fire or incident report, if available, and dated photographs.', 'A room-by-room contents inventory and any smoke or remediation findings.', 'The insurer’s scope, coverage correspondence and displacement-expense receipts.'], links: [{ label: 'Los Angeles fire and smoke review', href: '/service-areas/los-angeles/' }] },
+  'water-damage': { title: 'Prepare a water damage claim review', documents: ['When the water was discovered and how the suspected source was identified.', 'Plumbing or mitigation reports, photographs and emergency repair receipts.', 'The policy, insurer’s estimate and any written explanation of a denial or limit.'], links: [{ label: 'Miami water and condo review', href: '/service-areas/miami/' }] },
+  'roof-damage': { title: 'Prepare a roof damage claim review', documents: ['A roof inspection report, dated photographs and available repair or permit records.', 'The insurer’s reasoning about cause, age, wear or the proposed repair scope.', 'Your policy and an itemized contractor estimate, if already obtained.'], links: [{ label: 'West Palm Beach roof and storm review', href: '/service-areas/west-palm-beach/' }] },
+  'hurricane-damage': { title: 'Prepare a storm damage claim review', documents: ['The reported event, damage timeline and dated photographs.', 'Separate descriptions of wind damage, roof leaks and rising water where relevant.', 'All applicable policies, insurer decisions and temporary-protection receipts.'], links: [{ label: 'West Palm Beach storm review', href: '/service-areas/west-palm-beach/' }, { label: 'North Carolina storm review', href: '/service-areas/north-carolina/' }] },
+  'denied-claims': { title: 'Prepare a denied or underpaid claim review', documents: ['The full written denial or partial-payment explanation.', 'The policy terms cited by the insurer and the estimate or payment breakdown.', 'Evidence addressing the disputed finding, plus a timeline of prior communication.'], links: [{ label: 'Denied claims in North Carolina', href: '/service-areas/north-carolina/denied-insurance-claim-nc/' }, { label: 'North Carolina review and document checklist', href: '/service-areas/north-carolina/' }] },
+};
+const review = reviews[service];
+---
+<section class="section-muted">
+  <div class="section-inner max-w-5xl">
+    <span class="eyebrow">A useful starting point</span>
+    <h2 class="section-heading mb-6">{review.title}</h2>
+    <p class="text-lg text-slate-700 mb-6">A review starts with the policy and evidence behind the disputed decision. Keep these records ready for follow-up; enter only a short summary in the website form.</p>
+    <ul class="list-disc pl-6 space-y-3 text-slate-700 mb-8">{review.documents.map(doc => <li>{doc}</li>)}</ul>
+    <div class="flex flex-wrap gap-5 mb-7">{review.links.map(link => <a class="font-bold underline text-[#006775]" href={link.href}>{link.label}</a>)}</div>
+    <a href="/free-claim-review/" class="btn-accent">Request a free claim review</a>
+    <p class="text-sm text-slate-600 mt-5">Coverage, repair scope, deadlines and any recovery depend on the particular claim. A contractor estimate or previous settlement alone does not establish what your insurer owes.</p>
+    <a class="inline-block text-[#006775] underline mt-4" href="/resources/claim-review-guide/">Read the review guide and official state resources</a>
+  </div>
+</section>

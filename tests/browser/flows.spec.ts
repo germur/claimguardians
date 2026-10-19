@@ -144,3 +144,50 @@ test('service areas refer to one organization without claiming a city branch', a
     expect(nodes.find(n => n['@type'] === 'Service').provider['@id']).toBe('https://allclaimguardians.com/#organization');
   }
 });
+
+test('priority market pages show useful preparation and matching FAQs without unsupported settlements', async ({ page }) => {
+  const pages = [
+    ['/service-areas/los-angeles/', 'Fire and smoke claim review in Los Angeles'],
+    ['/service-areas/miami/', 'Water, roof and condo claim review in Miami'],
+    ['/service-areas/west-palm-beach/', 'Roof and storm claim review in West Palm Beach'],
+    ['/service-areas/north-carolina/', 'Prepare your North Carolina property claim review'],
+  ];
+  for (const [path, heading] of pages) {
+    await page.goto(path);
+    await expect(page.getByRole('heading', { name: heading, exact: true })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Documents to keep ready', exact: true })).toBeVisible();
+    await expect(page.locator('#claim-form form')).toHaveCount(1);
+    await expect(page.getByText(/Our Settlement|Insurance Initial Offer|Real financial results/)).toHaveCount(0);
+    const faq = await page.locator('script[type="application/ld+json"]').evaluateAll(scripts => scripts.map(s => JSON.parse(s.textContent || '{}')).find(s => s['@type'] === 'FAQPage'));
+    expect(faq.mainEntity).toHaveLength(5);
+    for (const item of faq.mainEntity) {
+      const answer = page.locator('details').filter({ has: page.locator('summary', { hasText: item.name }) });
+      await answer.locator('summary').click();
+      await expect(answer.getByText(item.acceptedAnswer.text, { exact: true })).toBeVisible();
+    }
+  }
+});
+
+test('a city landing survives navigation and is sent with the actual form page', async ({ page }) => {
+  await page.goto('/service-areas/los-angeles/?private=not-stored');
+  await page.goto('/contact/');
+  let payload: URLSearchParams | undefined;
+  await page.route('**/__forms.html', async route => {
+    payload = new URLSearchParams(route.request().postData() || '');
+    await route.fulfill({ status: 200, body: 'Received' });
+  });
+  await page.getByLabel('Full name').fill('Local QA');
+  await page.getByLabel('Phone number').fill('2025550100');
+  await page.getByLabel('Property state').selectOption('CA');
+  await page.getByLabel('Damage type').selectOption('fire');
+  await page.getByRole('button', { name: 'Request a free claim review →' }).click();
+  await page.waitForURL('**/thank-you/');
+  expect(payload?.get('landing_page')).toBe('/service-areas/los-angeles/');
+  expect(payload?.get('form_page')).toBe('/contact/');
+  const event = await page.evaluate(() => Array.from((window as any).dataLayer || []).find((x: any) => x[0] === 'event' && x[1] === 'generate_lead') as any);
+  expect(event[2].landing_page).toBe('/service-areas/los-angeles/');
+  expect(event[2].form_page).toBe('/contact/');
+  expect(JSON.stringify(event)).not.toContain('not-stored');
+  await page.reload();
+  expect(await page.evaluate(() => Array.from((window as any).dataLayer || []).filter((x: any) => x[0] === 'event' && x[1] === 'generate_lead').length)).toBe(0);
+});

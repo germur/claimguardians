@@ -1,4 +1,5 @@
 ---
+import ServicePreparation from '../../components/ServicePreparation.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ClaimCalculator from '../../components/ClaimCalculator';
 import EligibilityTest from '../../components/EligibilityTest';
@@ -167,7 +168,7 @@ import EligibilityTest from '../../components/EligibilityTest';
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div class="card-hover p-8">
           <h3 class="text-xl font-bold text-[#082142] mb-3">Settlement Doesn't Cover Repairs</h3>
-          <p class="text-slate-500">If your contractor quotes $45,000 but the insurer approved $18,000, your claim is underpaid. Claim Guardians documents the actual repair scope and forces your insurer to close the gap.</p>
+          <p class="text-slate-500">A difference between a contractor estimate and an insurer estimate calls for review of scope, pricing, coverage and deductibles. The difference alone does not prove an underpayment. Bring both itemized estimates and the insurer’s explanation.</p>
         </div>
         <div class="card-hover p-8">
           <h3 class="text-xl font-bold text-[#082142] mb-3">Depreciation Deducted Unfairly</h3>
@@ -185,33 +186,7 @@ import EligibilityTest from '../../components/EligibilityTest';
     </div>
   </section>
 
-  <!-- 4. Result Proof -->
-  <section class="section-muted">
-    <div class="section-inner">
-      <div class="text-center mb-16">
-        <span class="eyebrow">Proven Results</span>
-        <h2 class="section-heading">Denied Claims We Reversed into Full Payouts.</h2>
-      </div>
-      <div class="max-w-3xl mx-auto card-testimonial">
-        <span class="inline-flex px-4 py-2 bg-blue-50 text-[#002D51] text-sm font-bold rounded-full mb-8 border border-blue-100">📍 Roof Storm Damage — "Pre-Existing Condition" Denial, Tampa, FL.</span>
-        <div class="space-y-6 mb-8 pb-8 border-b border-slate-100">
-          <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
-            <span class="text-slate-500 font-medium text-sm uppercase">Insurer's Decision</span>
-            <span class="text-red-400 font-bold text-2xl">Full Denial</span>
-          </div>
-          <div class="h-px bg-slate-100"></div>
-          <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
-            <span class="text-[#082142] font-bold text-sm uppercase">Claim Guardians Settlement</span>
-            <span class="text-green-600 font-black text-4xl tracking-tighter">$112,000</span>
-          </div>
-        </div>
-        <div class="bg-slate-50 -mx-10 -mb-10 p-10 rounded-b-3xl">
-          <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">Action Taken</h4>
-          <p class="text-xl font-medium text-[#082142] leading-relaxed">We commissioned a forensic engineering report proving the damage occurred during a specific storm event. The insurer reversed its denial and issued full payment.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+  <ServicePreparation service="denied-claims" />
 
   <!-- FAQs -->
   <section class="section-white">

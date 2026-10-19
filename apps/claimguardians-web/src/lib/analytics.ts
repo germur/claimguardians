@@ -1,3 +1,4 @@
+import { getPageContext, safePagePath } from './page-context.ts';
 export const discoveryOptions = [
   ['google_search', 'Google Search'], ['bing_search', 'Bing Search'],
   ['ai_assistant', 'An AI assistant, such as ChatGPT or Perplexity'],
@@ -49,6 +50,9 @@ export function sendAnalyticsEvent(name: 'generate_lead' | 'contact_click', para
 function leadParams(fields: Record<string, string>): Record<string, string> {
   const leadTypes = ['general', 'claim_review', 'contact', 'nc_general', 'denied_claim_review', 'service_review'];
   return {
+    ...getPageContext(),
+    ...(fields.landing_page ? { landing_page: safePagePath(fields.landing_page) } : {}),
+    ...(fields.form_page ? { form_page: safePagePath(fields.form_page) } : {}),
     lead_type: leadTypes.includes(fields.lead_type) ? fields.lead_type : 'general',
     preferred_language: fields.preferred_language === 'es' ? 'es' : 'en',
     technical_source: getTechnicalSource(),
@@ -71,7 +75,7 @@ export function flushLeadMeasurement(): void {
     sessionStorage.removeItem(pendingLeadKey);
     const pending = JSON.parse(stored);
     if (!Number.isFinite(pending.time) || Date.now() - pending.time > 300000 || pending.time > Date.now()) return;
-    measureLead({ lead_type: pending.params.lead_type, preferred_language: pending.params.preferred_language, discovery_source: pending.params.declared_source });
+    measureLead({ lead_type: pending.params.lead_type, preferred_language: pending.params.preferred_language, discovery_source: pending.params.declared_source, landing_page: pending.params.landing_page, form_page: pending.params.form_page });
   } catch { /* A blocked or malformed storage entry must not affect confirmation. */ }
 }
 

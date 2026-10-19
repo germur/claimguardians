@@ -4,7 +4,9 @@ import React, { useEffect, useRef, useState } from 'react';
 import { damageOptions, inputClass } from './LeadCaptureForm';
 import { LEAD_FORM_NAME, submitLead, THANK_YOU_URL, trackLead } from '../lib/lead-submission';
 
+import { getPageContext } from '../lib/page-context';
 export default function LeadForm() {
+  const pageContext = getPageContext();
   const [step, setStep] = useState(1);
   const [fields, setFields] = useState({ damage_type: '', loss_date: '', property_type: 'residential', state: '', zip_code: '', first_name: '', last_name: '', phone: '', email: '', preferred_language: 'en', discovery_source: '', 'bot-field': '' });
   const [sending, setSending] = useState(false);
@@ -39,6 +41,8 @@ export default function LeadForm() {
     <form id="review-steps" name={LEAD_FORM_NAME} action={THANK_YOU_URL} method="POST" onSubmit={handleSubmit} className="space-y-5" aria-busy={sending}>
       <input type="hidden" name="form-name" value={LEAD_FORM_NAME} />
       <input type="hidden" name="technical_source" value="unavailable" />
+      <input type="hidden" name="landing_page" value={pageContext.landing_page} />
+      <input type="hidden" name="form_page" value={pageContext.form_page} />
       <div hidden><label>Leave this field empty<input name="bot-field" value={fields['bot-field']} onChange={update} tabIndex={-1} autoComplete="off" /></label></div>
       {step === 1 && <>
         <label className="form-label" htmlFor="review-damage">Primary damage type<select id="review-damage" name="damage_type" value={fields.damage_type} onChange={update} required className={inputClass}><option value="" disabled>Select damage type</option>{damageOptions.map(([value, label]) => <option value={value} key={value}>{label}</option>)}</select></label>

@@ -1,4 +1,5 @@
 ---
+import ServicePreparation from '../../components/ServicePreparation.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ClaimCalculator from '../../components/ClaimCalculator';
 import EligibilityTest from '../../components/EligibilityTest';
@@ -217,39 +218,7 @@ import { Image } from 'astro:assets';
     </div>
   </section>
 
-  <!-- 4. Result Proof -->
-  <section class="section-muted">
-    <div class="section-inner">
-      <div class="text-center mb-16">
-        <span class="eyebrow">Proven Results</span>
-        <h2 class="section-heading">Claim Guardians Secures Massive Water Damage Payouts.</h2>
-      </div>
-
-      <div class="max-w-3xl mx-auto card-testimonial">
-        <span class="inline-flex px-4 py-2 bg-blue-50 text-[#002D51] text-sm font-bold rounded-full mb-8 border border-blue-100">📍 Kitchen Pipe Burst, Tampa, FL.</span>
-        <div class="space-y-6 mb-8 pb-8 border-b border-slate-100">
-          <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
-            <span class="text-slate-500 font-medium tracking-wide text-sm uppercase">Insurance Initial Offer</span>
-            <span class="text-red-400 line-through font-bold text-2xl">$9,200 <span class="text-xs font-normal text-slate-400">(For "surface repairs")</span></span>
-          </div>
-          <div class="h-px w-full bg-gradient-to-r from-transparent via-slate-100 to-transparent"></div>
-          <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
-            <span class="text-[#082142] font-bold tracking-wide text-sm uppercase">Claim Guardians Settlement</span>
-            <div>
-              <span class="text-green-600 font-black text-4xl tracking-tighter">$68,400</span>
-              <p class="text-xs font-medium text-green-700/70 uppercase tracking-wider mt-1">(For complete kitchen rebuild &amp; mitigation)</p>
-            </div>
-          </div>
-        </div>
-        <div class="bg-slate-50 -mx-10 -mb-10 p-10 rounded-b-3xl">
-          <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">Action Taken</h4>
-          <p class="text-xl font-medium text-[#082142] leading-relaxed">
-            Claim Guardians proved water damage destroyed the subfloor. We reversed the insurance company's lowball offer.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
+  <ServicePreparation service="water-damage" />
 
   <!-- Claim Value Calculator (BOFU Island) -->
   <section class="section-white overflow-hidden">

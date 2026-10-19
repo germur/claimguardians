@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { classifyReferrer, getTechnicalSource, flushLeadMeasurement } from '../apps/claimguardians-web/src/lib/analytics.ts';
 import { submitLead, trackLead } from '../apps/claimguardians-web/src/lib/lead-submission.ts';
+import { getPageContext, safePagePath } from '../apps/claimguardians-web/src/lib/page-context.ts';
 
 test('encodes every field for the registered Netlify form', async t => {
   const original = globalThis.fetch;
@@ -56,7 +57,7 @@ test('conversion waits for dispatch and excludes personal and claim data', async
   assert.equal(finished, true);
   delete params.event_callback;
   delete params.event_timeout;
-  assert.deepEqual(events, [['event', 'generate_lead', { lead_type: 'nc_general', preferred_language: 'es', technical_source: 'unavailable', declared_source: 'not_provided' }]]);
+  assert.deepEqual(events, [['event', 'generate_lead', { lead_type: 'nc_general', preferred_language: 'es', technical_source: 'unavailable', declared_source: 'not_provided', landing_page: 'unavailable', form_page: 'unavailable' }]]);
 });
 
 
@@ -106,4 +107,25 @@ test('analytics errors cannot turn an accepted lead into a failed submission', a
   t.after(() => { globalThis.window = original; });
   globalThis.window = { gtag: () => { throw new Error('Analytics blocked'); } };
   await assert.doesNotReject(() => trackLead({ lead_type: 'contact', discovery_source: 'private@example.com' }));
+});
+
+test('landing and form pages survive confirmation without retaining private URLs', async t => {
+  const original = { window: globalThis.window, location: globalThis.location, sessionStorage: globalThis.sessionStorage };
+  t.after(() => Object.assign(globalThis, original));
+  const store = new Map();
+  const events = [];
+  globalThis.sessionStorage = { getItem: key => store.get(key), setItem: (key, value) => store.set(key, value), removeItem: key => store.delete(key) };
+  globalThis.window = { gtag: (...args) => events.push(args) };
+  globalThis.location = { pathname: '/service-areas/los-angeles/', search: '?email=private@example.com', hash: '#private' };
+  assert.equal(getPageContext().landing_page, '/service-areas/los-angeles/');
+  globalThis.location.pathname = '/contact/';
+  assert.deepEqual(getPageContext(), { landing_page: '/service-areas/los-angeles/', form_page: '/contact/' });
+  await trackLead({ lead_type: 'contact' });
+  globalThis.location.pathname = '/free-claim-review/thank-you/';
+  flushLeadMeasurement();
+  assert.equal(events[0][2].landing_page, '/service-areas/los-angeles/');
+  assert.equal(events[0][2].form_page, '/contact/');
+  assert.equal(JSON.stringify([...store.values()]).includes('private'), false);
+  assert.equal(safePagePath('/clients/private@example.com'), 'other');
+  assert.equal(safePagePath('/contact/?email=private@example.com'), 'other');
 });
