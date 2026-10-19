@@ -1,6 +1,6 @@
 ---
+import LocalClaimService from '../../../components/LocalClaimService.astro';
 import MinimalAdLayout from '../../../layouts/MinimalAdLayout.astro';
-import NCLeadForm from '../../../components/NCLeadForm';
 
 import MarketReview from '../../../components/MarketReview.astro';
 import { getMarketReview } from '../../../data/market-review';
@@ -206,6 +206,8 @@ const faq = profile.faq;
       </div>
     </div>
   </section>
+
+  <LocalClaimService city={city} state="NC" area={county} />
 
   <!-- 2. LOCAL DAMAGE TYPES (unique per city) -->
   <section class="section-white">
@@ -415,18 +417,7 @@ const faq = profile.faq;
   </section>
 
   <!-- 9. FINAL CTA + FORM -->
-  <section class="section-muted gradient-accent-bar" id="claim-form">
-    <div class="section-inner">
-      <div class="text-center mb-12">
-        <span class="eyebrow">No-risk consultation</span>
-        <h2 class="section-heading mb-4">Was Your {city} Property Damaged?</h2>
-        <p class="text-lg text-slate-500 font-medium max-w-3xl mx-auto mt-4">
-          Don't let the insurance company dictate the outcome of your claim. Get a free, expert settlement review from our NC-licensed public adjusters today. You pay nothing unless we win.
-        </p>
-      </div>
-      <NCLeadForm client:load />
-    </div>
-  </section>
+
 
 
   <section class="section-muted">

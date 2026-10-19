@@ -1,6 +1,6 @@
 ---
+import LocalClaimService from '../../../components/LocalClaimService.astro';
 import MinimalAdLayout from '../../../layouts/MinimalAdLayout.astro';
-import NCLeadForm from '../../../components/NCLeadForm';
 import MarketReview from '../../../components/MarketReview.astro';
 import ReviewFAQ from '../../../components/ReviewFAQ.astro';
 import { getMarketReview } from '../../../data/market-review';
@@ -8,8 +8,8 @@ const profile = getMarketReview('', 'NC');
 ---
 
 <MinimalAdLayout
-  title="North Carolina Public Adjuster | Storm & Denied Claim Review"
-  description="Request a North Carolina property claim review for storm damage, a denial or a partial payment. See what to document and prepare before your review."
+  title="North Carolina Public Adjuster | Claim Guardians"
+  description="Public adjusting services for North Carolina homeowners and businesses with new, denied or underpaid property claims. Request a free initial claim review."
 >
   <Fragment slot="head">
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Public adjusting services in North Carolina","provider":{"@id":"https://allclaimguardians.com/#organization"},"areaServed":{"@type":"State","name":"North Carolina"},"url":"https://allclaimguardians.com/service-areas/north-carolina/"}</script>
@@ -26,10 +26,10 @@ const profile = getMarketReview('', 'NC');
       <div class="max-w-4xl">
         <span class="eyebrow" style="color:#00B5A6;">Serving all of North Carolina</span>
         <h1 class="text-4xl md:text-5xl lg:text-7xl font-extrabold text-white mb-6 tracking-tight leading-[1.1]">
-          North Carolina public adjuster for storm and denied property claims.
+          North Carolina Public Adjuster
         </h1>
         <p class="text-xl text-slate-300 leading-relaxed font-medium mb-10 max-w-3xl">
-          Get help organizing storm damage records, understanding a denial or comparing a partial payment with your documented loss. We discuss property claims for homeowners and businesses across North Carolina.
+          Claim Guardians represents North Carolina homeowners and businesses in property insurance claims. We document losses, review policies and negotiate with insurers on the policyholder’s behalf. Ask about a new, denied or underpaid claim.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 mb-10">
           <a href="#claim-form" class="inline-flex items-center justify-center px-8 py-4 text-base font-extrabold text-white bg-[#00808C] rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all">Get a Free Claim Review</a>
@@ -44,6 +44,8 @@ const profile = getMarketReview('', 'NC');
       </div>
     </div>
   </section>
+
+  <LocalClaimService city="North Carolina" state="NC" area="North Carolina" />
 
   <!-- 3. SERVICES GRID -->
   <section class="section-muted">
@@ -179,16 +181,7 @@ const profile = getMarketReview('', 'NC');
   <ReviewFAQ faq={profile.faq} />
 
   <!-- 9. FINAL CTA + FORM -->
-  <section class="section-muted gradient-accent-bar" id="claim-form">
-    <div class="section-inner">
-      <div class="text-center mb-12">
-        <span class="eyebrow">No-risk consultation</span>
-        <h2 class="section-heading mb-4">Request your North Carolina claim review.</h2>
-        <p class="text-lg text-slate-500 font-medium max-w-3xl mx-auto mt-4">Claim Guardians evaluates your property damage for free. You pay nothing until we secure your check.</p>
-      </div>
-      <NCLeadForm client:load />
-    </div>
-  </section>
+
 
 
   <section class="section-muted">

@@ -1,10 +1,10 @@
 ---
+import LocalClaimService from '../../components/LocalClaimService.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { Image } from 'astro:assets';
 
 import MarketReview from '../../components/MarketReview.astro';
 import { getMarketReview } from '../../data/market-review';
-import LeadCaptureForm from '../../components/LeadCaptureForm';
 
 export async function getStaticPaths() {
   const serviceCities = [
@@ -272,22 +272,18 @@ export async function getStaticPaths() {
 }
 
 const { data } = Astro.props;
-const { city, county, stateCode, stateName, localRisk, zipCodes, nearbyAreas, damageAngles } = data;
+const { city, county, stateCode, stateName, zipCodes, nearbyAreas, damageAngles } = data;
 const profile = getMarketReview(city, stateCode);
 const faq = profile.faq;
 const priority = ["Los Angeles", "Miami", "West Palm Beach"].includes(city);
-const searchCopy: Record<string, { title: string; description: string }> = {
-  'Los Angeles': { title: 'Los Angeles Public Adjuster | Fire & Smoke Claim Review', description: 'Review a Los Angeles fire or smoke claim. Prepare damage records, compare the insurer’s scope and request a free claim review in English or Spanish.' },
-  'Miami': { title: 'Miami Public Adjuster | Water, Roof & Condo Claim Review', description: 'Review a Miami water, roof or condo insurance claim. See which records to prepare and request a free property claim review in English or Spanish.' },
-  'West Palm Beach': { title: 'West Palm Beach Public Adjuster | Roof & Storm Claim Review', description: 'Review a West Palm Beach roof or storm insurance claim. Organize inspection records and the insurer’s decision, then request a free claim review.' },
-};
+
 const reviewAngles = priority ? { primary: profile.topics[0].title, primaryDesc: profile.topics[0].text, secondary: profile.topics[1].title, secondaryDesc: profile.topics[1].text, tertiary: profile.topics[2].title, tertiaryDesc: profile.topics[2].text } : damageAngles;
 
 ---
 
 <BaseLayout
-  title={searchCopy[city]?.title || `Public Adjuster in ${city}, ${stateCode} - Property Damage Claims | Claim Guardians`}
-  description={searchCopy[city]?.description || `Public adjuster claim review in ${city}, ${stateCode}. Prepare damage records, understand a denial or partial payment, and request a review in English or Spanish.`}
+  title={`Public Adjuster in ${city}, ${stateCode} | Claim Guardians`}
+  description={`Public adjusting services for homeowners and businesses in ${city}, ${stateCode}. Help with new, denied and underpaid property claims. Request a free review.`}
 >
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify({
@@ -338,10 +334,10 @@ const reviewAngles = priority ? { primary: profile.topics[0].title, primaryDesc:
       <div class="max-w-4xl">
         <span class="eyebrow" style="color:#00B5A6;">Public Adjuster - {county}</span>
         <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-8 leading-[1.1] tracking-tight">
-          {searchCopy[city]?.title.replace(' | ', ' for ') || `Public Adjuster in ${city}, ${stateCode} for Property Damage Claims.`}
+          Public Adjuster in {city}, {stateCode}
         </h1>
         <p class="text-xl md:text-2xl text-slate-300 mb-12 leading-relaxed max-w-3xl">
-          {searchCopy[city]?.description || `${city} properties face ${localRisk}. Claim Guardians helps property owners in ${county} document the loss, review their policy, and discuss the insurer’s response. Coverage and any recovery depend on the policy and evidence.`}
+          Claim Guardians represents homeowners and business owners in {county} with property insurance claims. We document damage, review the policy and negotiate with your insurer. Request help with a new claim, a denial or a partial payment.
         </p>
         <div class="flex flex-col sm:flex-row gap-5 mb-14">
           <a href="#claim-form" class="btn-accent px-10 py-5 text-lg min-h-[60px]">Request a free claim review</a>
@@ -355,6 +351,8 @@ const reviewAngles = priority ? { primary: profile.topics[0].title, primaryDesc:
       </div>
     </div>
   </header>
+
+  <LocalClaimService city={city} state={stateCode} area={county} />
 
   <!-- 2. Common Property Damage -->
   {!priority && <section class="section-white">
@@ -503,7 +501,7 @@ const reviewAngles = priority ? { primary: profile.topics[0].title, primaryDesc:
     </div>
   </section>
 
-  <section class="section-muted" id="claim-form"><div class="section-inner max-w-3xl"><h2 class="section-heading mb-5">Request your {city} claim review</h2><p class="text-lg text-slate-700 mb-8">Tell us how to reach you and briefly describe the damage. We will discuss your records and next steps in English or Spanish.</p><div class="bg-white border border-slate-200 rounded-2xl p-6 md:p-9"><LeadCaptureForm client:visible leadType="service_review" state={stateCode} /></div></div></section>
+
 
   <!-- Mobile Sticky CTA -->
   <div class="fixed bottom-0 left-0 right-0 p-4 bg-white/95 backdrop-blur-md border-t border-slate-200 shadow-[0_-10px_40px_rgba(0,0,0,0.1)] z-50 sm:hidden">

@@ -98,7 +98,7 @@ test('North Carolina form submits state and handles a disabled receiver', async 
     expect(new URLSearchParams(route.request().postData() || '').get('state')).toBe('NC');
     await route.fulfill({ status: 200, contentType: 'text/html', body: '<body data-form-blueprint>Not processed</body>' });
   });
-  await page.getByRole('button', { name: 'Request a free claim review' }).click();
+  await page.getByRole('button', { name: 'Request a free claim review →' }).click();
   await expect(page.getByRole('alert')).toBeVisible();
   await expect(page).not.toHaveURL(/thank-you/);
   await expect(page.getByLabel('Full name')).toHaveValue('Test Example');
@@ -145,7 +145,7 @@ test('service areas refer to one organization without claiming a city branch', a
   }
 });
 
-test('priority market pages show useful preparation and matching FAQs without unsupported settlements', async ({ page }) => {
+test('local services precede supporting guides and retain matching FAQs', async ({ page }) => {
   const pages = [
     ['/service-areas/los-angeles/', 'Fire and smoke claim review in Los Angeles'],
     ['/service-areas/miami/', 'Water, roof and condo claim review in Miami'],
@@ -157,15 +157,40 @@ test('priority market pages show useful preparation and matching FAQs without un
     await expect(page.getByRole('heading', { name: heading, exact: true })).toBeVisible();
     await expect(page.getByRole('heading', { name: 'Documents to keep ready', exact: true })).toBeVisible();
     await expect(page.locator('#claim-form form')).toHaveCount(1);
+    await expect(page.getByRole('heading', { level: 1 })).toContainText(/Public Adjuster/i);
+    expect(await page.evaluate(() => {
+      const service = document.querySelector('#claim-form');
+      const guide = document.querySelector('#market-review-heading');
+      return !!service && !!guide && !!(service.compareDocumentPosition(guide) & Node.DOCUMENT_POSITION_FOLLOWING);
+    })).toBe(true);
     await expect(page.getByText(/Our Settlement|Insurance Initial Offer|Real financial results/)).toHaveCount(0);
     const faq = await page.locator('script[type="application/ld+json"]').evaluateAll(scripts => scripts.map(s => JSON.parse(s.textContent || '{}')).find(s => s['@type'] === 'FAQPage'));
-    expect(faq.mainEntity).toHaveLength(5);
+    expect(faq.mainEntity).toHaveLength(6);
     for (const item of faq.mainEntity) {
       const answer = page.locator('details').filter({ has: page.locator('summary', { hasText: item.name }) });
       await answer.locator('summary').click();
       await expect(answer.getByText(item.acceptedAnswer.text, { exact: true })).toBeVisible();
     }
   }
+});
+
+test('denied property review keeps its scope and submits the correct claim status', async ({ page }) => {
+  await page.goto('/service-areas/north-carolina/denied-insurance-claim-nc/');
+  await expect(page.getByRole('heading', { level: 1 })).toContainText('Denied property insurance claim');
+  await expect(page).toHaveTitle(/Denied Property Insurance Claim/);
+  await expect(page.locator('form')).toHaveCount(1);
+  await page.getByLabel('Full name').fill('Local QA');
+  await page.getByLabel('Phone number').fill('2025550100');
+  await page.getByLabel('Damage type').selectOption('water');
+  await page.getByLabel('Claim status').selectOption('denied');
+  let payload: URLSearchParams | undefined;
+  await page.route('**/__forms.html', async route => {
+    payload = new URLSearchParams(route.request().postData() || '');
+    await route.fulfill({ status: 200, body: 'Received' });
+  });
+  await page.getByRole('button', { name: 'Request a free claim review →' }).click();
+  await page.waitForURL('**/thank-you/');
+  expect(Object.fromEntries(payload!)).toMatchObject({ state: 'NC', claim_status: 'denied', lead_type: 'denied_claim_review' });
 });
 
 test('a city landing survives navigation and is sent with the actual form page', async ({ page }) => {

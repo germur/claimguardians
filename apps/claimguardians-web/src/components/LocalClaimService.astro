@@ -1,0 +1,31 @@
+---
+import LeadCaptureForm from './LeadCaptureForm';
+const { city, state, area, denied = false } = Astro.props as { city: string; state: string; area: string; denied?: boolean };
+const credentials = state === 'FL'
+  ? { label: 'Principal adjuster Alejandro Sibila · FL W116187', href: 'https://licenseesearch.fldfs.com/Licensee/1291414' }
+  : state === 'NC'
+  ? { label: 'Principal adjuster Alejandro Sibila · NC 16805858', href: 'https://external-lookup-web.prod.naic.org/solar-external-lookup/lookup/licensee/summary/16805858?jurisdiction=NC&entityType=IND&licenseType=PAD' }
+  : { label: 'Check the assigned professional’s credentials', href: '/company/' };
+---
+<section class="section-white scroll-mt-28" id="claim-form" aria-labelledby="local-service-heading">
+  <div class="section-inner grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
+    <div>
+      <span class="eyebrow">Property insurance claim representation</span>
+      <h2 id="local-service-heading" class="section-heading mb-5">{denied ? `Help with a denied property claim in ${city}` : `Public adjusting services for ${city} property owners`}</h2>
+      <p class="text-lg text-slate-700 leading-relaxed mb-6">Claim Guardians works for homeowners and business owners in {area}. We review the policy, document property damage and communicate with the insurer within the agreed scope of representation.</p>
+      <ul class="space-y-4 text-slate-700 mb-7">
+        <li><strong>New, denied or underpaid claims.</strong> Tell us what happened and where the claim stands so we can discuss the help you need.</li>
+        <li><strong>Direct next step.</strong> Request a free initial review or call <a class="underline font-bold text-[#006775]" href="tel:+13058045489">(305) 804-5489</a>. We discuss the situation and confirm whether an inspection or representation is appropriate.</li>
+        <li><strong>English or Spanish.</strong> Choose your preferred language on the form.</li>
+        <li><strong>Written terms before engagement.</strong> The initial review is free. Any representation requires a separate agreement explaining scope, fees, expenses and cancellation terms.</li>
+      </ul>
+      <a href={credentials.href} class="block font-bold text-[#006775] underline mb-3">{credentials.label}</a>
+      <p class="text-sm text-slate-600">Confirm the assigned professional’s current state credentials before signing. Service-area coverage does not imply a branch office in every city.</p>
+    </div>
+    <div class="bg-slate-50 rounded-2xl border border-slate-200 p-6 md:p-8">
+      <h3 class="text-2xl font-bold text-[#082142] mb-3">Request your {city} claim review</h3>
+      <p class="text-slate-700 mb-6">Share your contact details and a short summary. There is no need to have every document ready to request a conversation.</p>
+      <LeadCaptureForm client:visible state={state} leadType={denied ? 'denied_claim_review' : state === 'NC' ? 'nc_general' : 'service_review'} denial={denied} />
+    </div>
+  </div>
+</section>
