@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { classifyReferrer, getTechnicalSource } from '../apps/claimguardians-web/src/lib/analytics.ts';
+import { classifyReferrer, getTechnicalSource, flushLeadMeasurement } from '../apps/claimguardians-web/src/lib/analytics.ts';
 import { submitLead, trackLead } from '../apps/claimguardians-web/src/lib/lead-submission.ts';
 
 test('encodes every field for the registered Netlify form', async t => {
@@ -66,6 +66,26 @@ test('referrer classification excludes raw paths, queries and lookalike domains'
   assert.equal(classifyReferrer('https://gemini.google.com/app', 'allclaimguardians.com'), 'gemini');
   assert.equal(classifyReferrer('https://allclaimguardians.com/resources/', 'allclaimguardians.com'), 'internal');
   assert.equal(classifyReferrer('', 'allclaimguardians.com'), 'direct_or_unavailable');
+});
+
+test('confirmation consumes a safe measurement once and discards expired records', async t => {
+  const original = { window: globalThis.window, sessionStorage: globalThis.sessionStorage };
+  t.after(() => Object.assign(globalThis, original));
+  const store = new Map();
+  const events = [];
+  globalThis.sessionStorage = { getItem: key => store.get(key), setItem: (key, value) => store.set(key, value), removeItem: key => store.delete(key) };
+  globalThis.window = { gtag: (...args) => events.push(args) };
+  await trackLead({ lead_type: 'contact', full_name: 'Private person', email: 'private@example.com', preferred_language: 'es' });
+  assert.equal(events.length, 0);
+  assert.equal(JSON.stringify([...store.values()]).includes('private@example.com'), false);
+  assert.equal(JSON.stringify([...store.values()]).includes('Private person'), false);
+  flushLeadMeasurement();
+  flushLeadMeasurement();
+  assert.equal(events.length, 1);
+  assert.equal(events[0][1], 'generate_lead');
+  store.set('cg-confirmed-lead-event-v1', JSON.stringify({ time: Date.now() - 301000, params: { lead_type: 'contact' } }));
+  flushLeadMeasurement();
+  assert.equal(events.length, 1);
 });
 
 test('technical source survives internal navigation without storing raw referrer', t => {

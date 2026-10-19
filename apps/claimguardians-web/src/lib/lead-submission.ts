@@ -1,4 +1,4 @@
-import { getTechnicalSource, measureLead } from './analytics.ts';
+import { getTechnicalSource, measureLead, queueLeadMeasurement } from './analytics.ts';
 export const LEAD_FORM_NAME = 'claim-review';
 export const THANK_YOU_URL = '/free-claim-review/thank-you/';
 export type LeadFields = Record<string, string>;
@@ -21,6 +21,8 @@ export async function submitLead(fields: LeadFields): Promise<void> {
 
 /** Send the confirmed conversion through the installed Google tag. */
 export function trackLead(fields: LeadFields): Promise<void> {
+  // Dispatch on the confirmation page so navigation cannot discard a queued batch.
+  if (queueLeadMeasurement(fields)) return Promise.resolve();
   return new Promise(resolve => {
     // Allow the tag to dispatch before navigation, with a bounded fallback if blocked.
     const timer = setTimeout(resolve, 2200);

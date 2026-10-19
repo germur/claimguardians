@@ -1,6 +1,7 @@
 <script>
-  import { getTechnicalSource, sendAnalyticsEvent } from '../lib/analytics';
+  import { getTechnicalSource, sendAnalyticsEvent, flushLeadMeasurement } from '../lib/analytics';
   getTechnicalSource();
+  if (location.pathname === '/free-claim-review/thank-you/') flushLeadMeasurement();
   document.querySelectorAll<HTMLFormElement>('form[name="claim-review"]').forEach(form => {
     const source = form.elements.namedItem('technical_source') as HTMLInputElement | null;
     if (source) source.value = getTechnicalSource();

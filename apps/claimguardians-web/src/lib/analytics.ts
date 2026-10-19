@@ -46,13 +46,35 @@ export function sendAnalyticsEvent(name: 'generate_lead' | 'contact_click', para
   catch { /* Measurement must never interrupt contact or confirmation. */ }
 }
 
-export function measureLead(fields: Record<string, string>, onComplete?: () => void): void {
+function leadParams(fields: Record<string, string>): Record<string, string> {
   const leadTypes = ['general', 'claim_review', 'contact', 'nc_general', 'denied_claim_review', 'service_review'];
-  sendAnalyticsEvent('generate_lead', {
+  return {
     lead_type: leadTypes.includes(fields.lead_type) ? fields.lead_type : 'general',
     preferred_language: fields.preferred_language === 'es' ? 'es' : 'en',
     technical_source: getTechnicalSource(),
     declared_source: discoveryOptions.some(([value]) => value === fields.discovery_source) ? fields.discovery_source : 'not_provided',
-    ...(onComplete ? { event_callback: onComplete, event_timeout: 2000 } : {}),
-  });
+  };
+}
+
+const pendingLeadKey = 'cg-confirmed-lead-event-v1';
+export function queueLeadMeasurement(fields: Record<string, string>): boolean {
+  try {
+    sessionStorage.setItem(pendingLeadKey, JSON.stringify({ params: leadParams(fields), time: Date.now() }));
+    return true;
+  } catch { return false; }
+}
+
+export function flushLeadMeasurement(): void {
+  try {
+    const stored = sessionStorage.getItem(pendingLeadKey);
+    if (!stored) return;
+    sessionStorage.removeItem(pendingLeadKey);
+    const pending = JSON.parse(stored);
+    if (!Number.isFinite(pending.time) || Date.now() - pending.time > 300000 || pending.time > Date.now()) return;
+    measureLead({ lead_type: pending.params.lead_type, preferred_language: pending.params.preferred_language, discovery_source: pending.params.declared_source });
+  } catch { /* A blocked or malformed storage entry must not affect confirmation. */ }
+}
+
+export function measureLead(fields: Record<string, string>, onComplete?: () => void): void {
+  sendAnalyticsEvent('generate_lead', { ...leadParams(fields), ...(onComplete ? { event_callback: onComplete, event_timeout: 2000 } : {}) });
 }
