@@ -1,377 +1,53 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ClaimCalculator from '../components/ClaimCalculator';
-import { Image } from 'astro:assets';
+import Icon from '../components/DesignIcon.astro';
+const services = [
+  { name: 'Water & leaks', slug: 'water-damage', icon: 'water', description: 'From the first signs of moisture to the damage behind the walls.', image: 'hero-water-damage.png' },
+  { name: 'Hurricane & storm', slug: 'hurricane-damage', icon: 'wind', description: 'Wind, hail and storm damage. Documented with your claim in mind.', image: 'hero-hurricane-damage.png' },
+  { name: 'Roof damage', slug: 'roof-damage', icon: 'roof', description: 'Understand the inspection, repair scope and insurer’s response.' },
+  { name: 'Fire & smoke', slug: 'fire-damage', icon: 'fire', description: 'A careful review of structural damage, smoke and affected belongings.' },
+  { name: 'Mold damage', slug: 'mold-claims', icon: 'mold', description: 'Connect the damage records, assessments and policy questions.' },
+  { name: 'Denied or underpaid', slug: 'denied-claims', icon: 'denied', description: 'Get a second look at the written decision and supporting evidence.' },
+];
+const faq = [
+  { q: 'What does a public adjuster do?', a: 'A public adjuster represents the policyholder within an agreed scope: reviewing the policy, documenting the property loss, preparing the claim and communicating with the insurer.' },
+  { q: 'How much does the initial review cost?', a: 'The initial claim review is free. Any representation requires a separate written agreement explaining scope, fees, expenses and cancellation terms before you sign.' },
+  { q: 'Can you review a denied or underpaid claim?', a: 'Yes. We can discuss the written decision and available records. Further options depend on the policy, evidence, claim history and applicable deadlines; a review does not guarantee additional payment.' },
+  { q: 'Can I speak with someone in Spanish?', a: 'Yes. Choose Español as your preferred language on the request form. We discuss residential and commercial property claims in English and Spanish.' },
+];
 ---
-
-<BaseLayout 
-  title="Public Adjusters in FL, CA & NC | Claim Guardians"
-  description="Property damage claim support in Florida, California, and North Carolina. We inspect damage, document your loss, and negotiate with your insurer. Request a free review."
->
-  <Fragment slot="head">
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [{
-          "@type": "Question",
-          "name": "How much does a public adjuster cost in Florida?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Claim Guardians charges $0 in upfront fees. Clients pay a contingency fee only after they receive their settlement. Florida state law caps public adjuster fees at 20% for standard claims." }
-        }, {
-          "@type": "Question",
-          "name": "When should I hire a public adjuster?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Property owners should hire a public adjuster immediately after discovering property damage. However, you can hire Claim Guardians even if the insurance company already denied your claim." }
-        }, {
-          "@type": "Question",
-          "name": "What is the difference between an independent adjuster and a public adjuster?",
-          "acceptedAnswer": { "@type": "Answer", "text": "The insurance company hires an independent adjuster to protect their corporate budget. You hire a public adjuster to maximize your financial payout. Claim Guardians represents the policyholder exclusively." }
-        }]
-      }
-    </script>
-  </Fragment>
-
-  <!-- 1. Hero Section -->
-  <header aria-label="Hero and Value Proposition" class="relative bg-[#041224] overflow-hidden py-16 md:py-24">
-    <!-- Optimized Background Image (CWV: fetchpriority high) -->
-    <div class="absolute inset-0 z-0">
-      <Image 
-        src="/images/florida-damaged-house-hero.png" 
-        width={1920}
-        height={1080}
-        alt="Damaged luxury Florida home after a hurricane" 
-        class="w-full h-full object-cover opacity-60 scale-105"
-        fetchpriority="high"
-        loading="eager"
-      />
-      <!-- WCAG 2.2 AA Dark Overlay -->
-      <div class="absolute inset-0 bg-gradient-to-b from-[#041224]/40 via-[#002D51]/20 to-[#041224]"></div>
-    </div>
-
-    <div class="section-inner relative z-10">
-      <div class="max-w-4xl">
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-6 leading-[1.1] tracking-tight drop-shadow-2xl">
-          Public adjusters for your property insurance claim.
-        </h1>
-        <p class="text-lg md:text-xl lg:text-2xl text-slate-200 mb-8 leading-relaxed max-w-3xl font-medium">
-          We inspect the damage, document your loss, and negotiate with your insurer. Serving property owners in Florida, California, and North Carolina.
-        </p>
-        
-        <div class="flex flex-col sm:flex-row gap-4 mb-8">
-          <!-- Primary CTA -->
-          <a href="/free-claim-review/" class="group inline-flex justify-center items-center px-10 py-5 text-xl font-extrabold text-white bg-[#00808C] rounded-xl hover:bg-[#006775] transition-all duration-300 transform hover:-translate-y-1 shadow-[0_0_40px_-5px_rgba(0,128,140,0.6)] hover:shadow-[0_0_60px_-5px_rgba(0,181,166,0.7)] w-full sm:w-auto min-h-[64px]">
-            Get a Free Claim Review
-          </a>
-          <!-- Secondary CTA -->
-          <a href="tel:3058045489" class="inline-flex justify-center items-center px-10 py-5 text-xl font-extrabold text-white bg-white/5 backdrop-blur-md border-2 border-white/20 rounded-xl hover:bg-white/10 transition-all duration-300 transform hover:-translate-y-1 w-full sm:w-auto min-h-[64px]">
-            Emergency? Call Us Now
-          </a>
-        </div>
-        
-        <!-- Trust Bar (EEAT) -->
-        <div class="flex flex-wrap items-center gap-x-12 gap-y-6 pt-8 border-t border-white/10">
-          <div class="flex items-center gap-3 text-slate-300 font-semibold">
-            <span class="text-2xl">🛡️</span>
-            <span class="text-sm md:text-base tracking-wide uppercase">FL, CA & NC Licensed Adjusters</span>
-          </div>
-          <div class="flex items-center gap-3 text-slate-300 font-semibold">
-            <span class="text-2xl">⭐</span>
-            <span class="text-sm md:text-base tracking-wide uppercase">English & Spanish Support</span>
-          </div>
-          <div class="flex items-center gap-3 text-slate-300 font-semibold">
-            <span class="text-2xl">🤝</span>
-            <span class="text-sm md:text-base tracking-wide uppercase">No Recovery, No Fee Guarantee</span>
-          </div>
-        </div>
+<BaseLayout title="Public Adjusters in FL, CA & NC | Claim Guardians" description="Property damage claim support in Florida, California, and North Carolina. We inspect damage, document your loss, and negotiate with your insurer. Request a free review.">
+  <Fragment slot="head"><script type="application/ld+json" set:html={JSON.stringify({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(item => ({ '@type': 'Question', name: item.q, acceptedAnswer: { '@type': 'Answer', text: item.a } })) })} /></Fragment>
+  <div class="design-page">
+    <section class="editorial-hero design-shell" aria-labelledby="home-heading">
+      <div class="hero-copy">
+        <p class="design-kicker"><span class="status-dot"></span> Property insurance. Policyholder advocacy.</p>
+        <h1 id="home-heading">Public adjusters.<br />On <em>your</em> side.</h1>
+        <p class="hero-deck">Property damage is enough to deal with.<br class="desktop-break" /> You don’t have to navigate the claim alone.</p>
+        <p class="hero-description">We document your loss, review your policy and negotiate with your insurer. For homeowners and businesses in Florida, California and North Carolina.</p>
+        <div class="design-actions"><a class="design-button" href="/free-claim-review/">Get a free claim review <Icon /></a><a class="design-text-link" href="tel:3058045489">(305) 804-5489 <span aria-hidden="true">↗</span></a></div>
+        <div class="hero-footnote"><Icon name="shield" size={19} /><span>Your property. Your claim. Your advocate.</span></div>
       </div>
-    </div>
-  </header>
-
-  <!-- 2. Services Grid -->
-  <section class="section-white">
-    <div class="section-inner">
-      <div class="max-w-3xl mb-16">
-        <span class="eyebrow">Our Specialties</span>
-        <h2 class="section-heading mb-4">Claim Guardians Resolves Every Type of Property Damage.</h2>
-        <p class="text-lg text-slate-500">Our licensed public adjusters simplify the claims process. Select your damage type below.</p>
+      <div class="hero-visual">
+        <img src="/images/florida-damaged-house-hero.png" alt="Illustration of a coastal home after storm damage" width="640" height="640" fetchpriority="high" />
+        <span class="photo-label">AFTER THE DAMAGE.<br />BEFORE THE NEXT CHAPTER.</span>
+        <div class="hero-visual-note"><span class="note-marker" aria-hidden="true">↗</span><div><span class="design-kicker">A clearer next step</span><p>Start with a conversation.<br />We’ll help you understand the claim.</p></div></div>
       </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <a href="/services/water-damage/" class="card-hover group">
-          <div class="text-4xl mb-4">💧</div>
-          <h3 class="text-xl font-bold text-[#082142] mb-3 group-hover:text-[#00808C] transition-colors">Water &amp; Leak Damage</h3>
-          <p class="text-slate-500">Claim Guardians uncovers hidden moisture and burst pipe damage.</p>
-          <div class="mt-4 text-[#00808C] font-semibold text-sm opacity-0 group-hover:opacity-100 transition-opacity">Learn more →</div>
-        </a>
-
-        <a href="/services/hurricane-damage/" class="card-hover group">
-          <div class="text-4xl mb-4">🌪️</div>
-          <h3 class="text-xl font-bold text-[#082142] mb-3 group-hover:text-[#00808C] transition-colors">Hurricane &amp; Storm Damage</h3>
-          <p class="text-slate-500">Our experts evaluate wind, hail, and severe weather impacts.</p>
-          <div class="mt-4 text-[#00808C] font-semibold text-sm opacity-0 group-hover:opacity-100 transition-opacity">Learn more →</div>
-        </a>
-
-        <a href="/services/roof-damage/" class="card-hover group">
-          <div class="text-4xl mb-4">🏠</div>
-          <h3 class="text-xl font-bold text-[#082142] mb-3 group-hover:text-[#00808C] transition-colors">Roof Leak &amp; Damage</h3>
-          <p class="text-slate-500">We prove structural roof failures to stubborn insurers.</p>
-          <div class="mt-4 text-[#00808C] font-semibold text-sm opacity-0 group-hover:opacity-100 transition-opacity">Learn more →</div>
-        </a>
-
-        <a href="/services/fire-damage/" class="card-hover group">
-          <div class="text-4xl mb-4">🔥</div>
-          <h3 class="text-xl font-bold text-[#082142] mb-3 group-hover:text-[#00808C] transition-colors">Fire &amp; Smoke Damage</h3>
-          <p class="text-slate-500">Our team assesses structural loss and toxic smoke damage.</p>
-          <div class="mt-4 text-[#00808C] font-semibold text-sm opacity-0 group-hover:opacity-100 transition-opacity">Learn more →</div>
-        </a>
-
-        <a href="/services/mold-claims/" class="card-hover group">
-          <div class="text-4xl mb-4">🦠</div>
-          <h3 class="text-xl font-bold text-[#082142] mb-3 group-hover:text-[#00808C] transition-colors">Mold Damage</h3>
-          <p class="text-slate-500">Claim Guardians documents toxic mold growth after water exposure.</p>
-          <div class="mt-4 text-[#00808C] font-semibold text-sm opacity-0 group-hover:opacity-100 transition-opacity">Learn more →</div>
-        </a>
-
-        <a href="/services/denied-claims/" class="card-hover group">
-          <div class="text-4xl mb-4">⚖️</div>
-          <h3 class="text-xl font-bold text-[#082142] mb-3 group-hover:text-[#00808C] transition-colors">Denied &amp; Underpaid Claims</h3>
-          <p class="text-slate-500">We appeal unfair insurance decisions and demand full payment.</p>
-          <div class="mt-4 text-[#00808C] font-semibold text-sm opacity-0 group-hover:opacity-100 transition-opacity">Learn more →</div>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- 3. Social Proof / Results -->
-  <section class="section-muted">
-    <div class="section-inner">
-      <div class="text-center mb-16">
-        <span class="eyebrow">Real Results</span>
-        <h2 class="section-heading">Claim Guardians Delivers Real Financial Results.</h2>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <!-- Testimonial 1 -->
-        <div class="card-testimonial">
-          <div class="mb-8 border-b border-slate-100 pb-8">
-            <span class="inline-flex px-4 py-2 bg-blue-50 text-[#002D51] text-sm font-bold rounded-full mb-6 border border-blue-100">
-              📍 Water Damage in Miami, FL
-            </span>
-            <div class="space-y-6">
-              <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
-                <span class="text-slate-500 font-medium tracking-wide text-sm uppercase">Insurance Initial Offer</span>
-                <span class="text-red-400 line-through font-bold text-2xl">~$14,500</span>
-              </div>
-              <div class="h-px w-full bg-gradient-to-r from-transparent via-slate-100 to-transparent"></div>
-              <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
-                <span class="text-[#082142] font-bold tracking-wide text-sm uppercase">Claim Guardians Settlement</span>
-                <span class="text-green-600 font-black text-4xl tracking-tighter">$82,300</span>
-              </div>
-            </div>
-          </div>
-          <blockquote class="text-xl font-medium text-[#082142] leading-relaxed italic border-l-4 border-[#00808C] pl-6 my-6">
-            "The insurance company offered pennies for my flooded kitchen. Claim Guardians handled all the stressful calls and secured enough money to fix everything properly."
-          </blockquote>
-          <footer class="text-sm font-bold text-slate-400 uppercase tracking-widest mt-4 pl-6">– Maria S.</footer>
-        </div>
-
-        <!-- Testimonial 2 -->
-        <div class="card-testimonial">
-          <div class="mb-8 border-b border-slate-100 pb-8">
-            <span class="inline-flex px-4 py-2 bg-blue-50 text-[#002D51] text-sm font-bold rounded-full mb-6 border border-blue-100">
-              📍 Roof Damage in Fort Myers, FL
-            </span>
-            <div class="space-y-6">
-              <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
-                <span class="text-slate-500 font-medium tracking-wide text-sm uppercase">Insurance Initial Offer</span>
-                <span class="text-red-400 font-bold text-2xl">Claim Denied</span>
-              </div>
-              <div class="h-px w-full bg-gradient-to-r from-transparent via-slate-100 to-transparent"></div>
-              <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
-                <span class="text-[#082142] font-bold tracking-wide text-sm uppercase">Claim Guardians Settlement</span>
-                <span class="text-green-600 font-black text-4xl tracking-tighter">$65,000</span>
-              </div>
-            </div>
-          </div>
-          <blockquote class="text-xl font-medium text-[#082142] leading-relaxed italic border-l-4 border-[#00808C] pl-6 my-6">
-            "My insurer denied my storm damage claim completely. Claim Guardians found the hidden proof and forced the company to pay for a full roof replacement."
-          </blockquote>
-          <footer class="text-sm font-bold text-slate-400 uppercase tracking-widest mt-4 pl-6">– David L.</footer>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 4. How We Work -->
-  <section class="section-white">
-    <div class="section-inner">
-      <div class="text-center mb-16">
-        <span class="eyebrow">Our Process</span>
-        <h2 class="section-heading mb-4">Claim Guardians Manages Your Entire Claim Process.</h2>
-        <p class="text-lg text-slate-500 max-w-2xl mx-auto">Three streamlined steps — zero paperwork headaches for you.</p>
-      </div>
-      
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="card-hover group">
-          <div class="step-number">01</div>
-          <h3 class="text-2xl font-bold mb-4 text-[#082142]">Free Property Inspection.</h3>
-          <p class="text-slate-500 leading-relaxed text-lg">
-            Claim Guardians inspects your property for free. Our state-licensed adjusters document all hidden damages.
-          </p>
-        </div>
-
-        <div class="card-hover group">
-          <div class="step-number">02</div>
-          <h3 class="text-2xl font-bold mb-4 text-[#082142]">We Handle the Insurance.</h3>
-          <p class="text-slate-500 leading-relaxed text-lg">
-            Our team files your claim paperwork. We negotiate the maximum payout directly with your insurance company.
-          </p>
-        </div>
-
-        <div class="card-hover group">
-          <div class="step-number">03</div>
-          <h3 class="text-2xl font-bold mb-4 text-[#082142]">You Get Paid.</h3>
-          <p class="text-slate-500 leading-relaxed text-lg">
-            You receive your settlement check. Claim Guardians collects a fee only after you get paid.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 5. Objection Handling — Who Works For You? -->
-  <section class="section-muted">
-    <div class="section-inner">
-      <div class="text-center mb-16">
-        <span class="eyebrow">Who Works For You?</span>
-        <h2 class="section-heading">Claim Guardians Protects You, Not the Insurance Company.</h2>
-      </div>
-
-      <div class="max-w-5xl mx-auto bg-white rounded-3xl shadow-sm overflow-hidden border border-slate-100">
-        <div class="grid grid-cols-1 md:grid-cols-2">
-          <!-- Column 1: The Insurer -->
-          <div class="p-10 md:border-r border-slate-100 relative">
-            <div class="absolute top-0 left-0 right-0 h-1 bg-red-300 opacity-50 rounded-t-3xl"></div>
-            <h3 class="text-2xl font-bold text-slate-700 mb-8 flex items-center gap-3">
-              <span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-red-50 text-red-500">✗</span>
-              The Insurance Company's Adjuster
-            </h3>
-            <ul class="space-y-6">
-              <li class="flex items-start gap-4">
-                <span class="text-red-400 mt-1">⚠️</span>
-                <span class="text-slate-600 text-lg font-medium">The insurance corporation pays them.</span>
-              </li>
-              <li class="flex items-start gap-4">
-                <span class="text-red-400 mt-1">⚠️</span>
-                <span class="text-slate-600 text-lg font-medium">They protect the insurer's corporate budget.</span>
-              </li>
-              <li class="flex items-start gap-4">
-                <span class="text-red-400 mt-1">⚠️</span>
-                <span class="text-slate-600 text-lg font-medium">They use legal jargon to limit your payout.</span>
-              </li>
-            </ul>
-          </div>
-
-          <!-- Column 2: Claim Guardians -->
-          <div class="section-dark rounded-br-3xl rounded-tr-3xl p-10">
-            <div class="absolute top-0 left-0 right-0 h-1 bg-[#00B5A6] rounded-tr-3xl"></div>
-            <h3 class="text-2xl font-bold mb-8 flex items-center gap-3">
-              <span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-white text-[#002D51]">✓</span>
-              Claim Guardians (Your Public Adjuster)
-            </h3>
-            <ul class="space-y-6">
-              <li class="flex items-start gap-4">
-                <span class="text-[#00B5A6] mt-1">✨</span>
-                <span class="text-lg font-medium">You hire Claim Guardians.</span>
-              </li>
-              <li class="flex items-start gap-4">
-                <span class="text-[#00B5A6] mt-1">🛡️</span>
-                <span class="text-lg font-medium">We protect your family and your property.</span>
-              </li>
-              <li class="flex items-start gap-4">
-                <span class="text-[#00B5A6] mt-1">💰</span>
-                <span class="text-lg font-medium">We maximize your financial settlement.</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <!-- Claim Value Calculator (BOFU Island) -->
-      <div class="mt-24 max-w-4xl mx-auto px-4">
-        <div class="text-center mb-12">
-          <span class="eyebrow">Prepare Your Claim</span>
-          <h2 class="section-heading">Understand your <span class="text-[#00808C]">next step.</span></h2>
-          <p class="text-slate-500 mt-4">See which documents can help us review your damage and insurance response.</p>
-        </div>
-        <ClaimCalculator client:visible />
-      </div>
-    </div>
-  </section>
-
-  <!-- 6. Mid-Page Conversion CTA -->
-  <section class="gradient-accent-bar section-white text-center">
-    <div class="section-inner">
-      <span class="eyebrow">No-Risk Consultation</span>
-      <h2 class="section-heading mb-4">Get Your Maximum Settlement.</h2>
-      <p class="text-xl text-slate-500 mb-8 font-light max-w-2xl mx-auto leading-relaxed">
-        Claim Guardians evaluates your property damage for free. You pay nothing until we secure your check.
-      </p>
-      <a href="/free-claim-review/" class="btn-accent px-12 py-5 text-xl min-h-[64px]">
-        Start Free Case Review →
-      </a>
-      <p class="text-sm text-slate-400 mt-4">Zero upfront cost. Ever.</p>
-    </div>
-  </section>
-
-  <!-- 7. Frequently Asked Questions -->
-  <section class="section-muted">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12">
-        <span class="eyebrow">Common Questions</span>
-        <h2 class="section-heading">Frequently Asked Questions</h2>
-      </div>
-
-      <div class="space-y-4">
-        <!-- FAQ 1 -->
-        <details class="group bg-white border border-slate-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden">
-          <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-xl text-[#082142] group-hover:text-[#00808C] transition-colors">
-            <span>How much does a public adjuster cost in Florida?</span>
-            <span class="transition group-open:rotate-180">
-              <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
-            </span>
-          </summary>
-          <div class="text-slate-600 px-6 pb-6 text-lg leading-relaxed border-t border-transparent group-open:border-slate-100 group-open:pt-4">
-            Claim Guardians charges $0 in upfront fees. Clients pay a contingency fee only after they receive their settlement. Florida state law caps public adjuster fees at 20% for standard claims.
-          </div>
-        </details>
-
-        <!-- FAQ 2 -->
-        <details class="group bg-white border border-slate-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden">
-          <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-xl text-[#082142] group-hover:text-[#00808C] transition-colors">
-            <span>When should I hire a public adjuster?</span>
-            <span class="transition group-open:rotate-180">
-              <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
-            </span>
-          </summary>
-          <div class="text-slate-600 px-6 pb-6 text-lg leading-relaxed border-t border-transparent group-open:border-slate-100 group-open:pt-4">
-            Property owners should hire a public adjuster immediately after discovering property damage. However, you can hire Claim Guardians even if the insurance company already denied your claim.
-          </div>
-        </details>
-
-        <!-- FAQ 3 -->
-        <details class="group bg-white border border-slate-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden">
-          <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-xl text-[#082142] group-hover:text-[#00808C] transition-colors">
-            <span>What is the difference between an independent adjuster and a public adjuster?</span>
-            <span class="transition group-open:rotate-180">
-              <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
-            </span>
-          </summary>
-          <div class="text-slate-600 px-6 pb-6 text-lg leading-relaxed border-t border-transparent group-open:border-slate-100 group-open:pt-4">
-            The insurance company hires an independent adjuster to protect their corporate budget. You hire a public adjuster to maximize your financial payout. Claim Guardians represents the policyholder exclusively.
-          </div>
-        </details>
-      </div>
-    </div>
-  </section>
-
+    </section>
+    <div class="coverage-ribbon"><div class="design-shell"><span>Advocacy across</span><a href="/service-areas/">Florida <span aria-hidden="true">↗</span></a><a href="/service-areas/">California <span aria-hidden="true">↗</span></a><a href="/service-areas/north-carolina/">North Carolina <span aria-hidden="true">↗</span></a><span class="ribbon-language">English / Español</span></div></div>
+    <section class="design-section design-shell" aria-labelledby="damage-heading">
+      <div class="design-section-head"><div><p class="design-kicker">01 / Find your starting point</p><h2 id="damage-heading">Different damage.<br /><em>The same commitment.</em></h2></div><p>Find the help that fits your property claim. New, denied or partially paid.</p></div>
+      <div class="service-mosaic">{services.map((service, i) => <a class:list={['design-service', { 'design-service-photo': !!service.image }]} href={`/services/${service.slug}/`}>
+        {service.image && <img src={`/images/${service.image}`} alt="" width="640" height="640" loading="lazy" />}
+        <div class="service-topline"><Icon name={service.icon} size={28} /><span>0{i + 1}</span></div>
+        <div class="service-bottom"><h3>{service.name}</h3><p>{service.description}</p><span class="service-explore">Explore this service <Icon size={20} /></span></div>
+      </a>)}</div>
+    </section>
+    <section class="advocacy-section"><div class="design-shell advocacy-layout"><div><p class="design-kicker">02 / The people on your side</p><h2>An insurer has an adjuster.<br /><em>You can have one, too.</em></h2><a class="design-text-link" href="/company/">Meet Claim Guardians <Icon size={20} /></a></div><div class="advocacy-detail"><p class="large-detail">We work for the property owner.</p><p>Our role is to make the loss clear: what happened, what the records show and what needs to be discussed with the insurer.</p><ul><li><span>01</span> Documentation built around your property</li><li><span>02</span> Communication through the claim process</li><li><span>03</span> Scope and fees explained before representation</li></ul><a href="/company/" class="design-text-link">Check professional credentials <span aria-hidden="true">↗</span></a></div></div></section>
+    <section class="design-section design-shell"><div class="design-section-head"><div><p class="design-kicker">03 / What happens next</p><h2>Less uncertainty.<br /><em>A clear way forward.</em></h2></div><p>Start with the details you have. We’ll discuss the next step together.</p></div><ol class="design-process"><li><span>01 / Let’s talk</span><h3>Tell us what happened.</h3><p>Share the property location, damage and where the claim stands. The initial review is free.</p></li><li><span>02 / Build the picture</span><h3>Review the records.</h3><p>We discuss the policy, photographs and insurer correspondence, and whether an inspection is appropriate.</p></li><li><span>03 / Decide together</span><h3>Know your next step.</h3><p>Ask questions, check credentials and review the written terms before any representation begins.</p></li></ol></section>
+    <section class="preparation-section"><div class="design-shell preparation-layout"><div><p class="design-kicker">A little preparation. More clarity.</p><h2>What should<br /><em>you keep handy?</em></h2><p>Choose the type of damage to see which records may help. You can request a conversation before you have everything ready.</p><a class="design-text-link" href="/resources/claim-review-guide/">Read the property claim guide <Icon size={20} /></a><a class="design-text-link" href="/es/guia-reclamacion/">Guía en español <span aria-hidden="true">↗</span></a></div><ClaimCalculator client:visible /></div></section>
+    <section class="design-section design-shell design-faq-layout"><div><p class="design-kicker">Before we speak</p><h2>Good questions.<br /><em>Straight answers.</em></h2><a class="design-text-link" href="/resources/">More questions & resources <Icon size={20} /></a></div><div class="design-faq">{faq.map(item => <details><summary>{item.q}<span aria-hidden="true">+</span></summary><p>{item.a}</p></details>)}</div></section>
+    <section class="design-shell design-closing"><div><p class="design-kicker">Your next chapter starts here</p><h2>Let’s make sense<br /><em>of your claim.</em></h2></div><div><a class="design-button" href="/free-claim-review/">Request a free review <Icon /></a><p>Homeowners & businesses · English & Spanish</p></div></section>
+  </div>
 </BaseLayout>

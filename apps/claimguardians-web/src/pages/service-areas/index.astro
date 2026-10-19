@@ -1,184 +1,68 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Icon from '../../components/DesignIcon.astro';
+const states = [
+  { code: 'FL', name: 'Florida', note: 'From the Atlantic coast to the Gulf.', cities: [
+    ['Miami','miami'], ['Fort Lauderdale','fort-lauderdale'], ['West Palm Beach','west-palm-beach'], ['Boca Raton','boca-raton'], ['Orlando','orlando'], ['Kissimmee','kissimmee'], ['Daytona Beach','daytona-beach'], ['Lakeland','lakeland'], ['Tampa','tampa'], ['Fort Myers','fort-myers'], ['Cape Coral','cape-coral'], ['Naples','naples'], ['Jacksonville','jacksonville'],
+  ] },
+  { code: 'CA', name: 'California', note: 'Property claim help on the West Coast.', cities: [ ['Los Angeles','los-angeles'], ['San Francisco','san-francisco'], ['San Diego','san-diego'], ['Sacramento','sacramento'] ] },
+  { code: 'NC', name: 'North Carolina', note: 'From the mountains to the coast.', cities: [ ['Charlotte','charlotte'], ['Raleigh','raleigh'], ['Wilmington','wilmington'], ['Asheville','asheville'], ['Fayetteville','fayetteville'], ['Jacksonville','jacksonville-nc'] ] },
+];
 ---
-
-<BaseLayout 
-  title="Public Adjuster Service Areas - Florida, California & North Carolina | Claim Guardians"
-  description="Licensed public adjusters serving Florida, California, and North Carolina. Local property damage experts respond within 24 hours. Find your nearest office."
->
-  <Fragment slot="head">
-  </Fragment>
-
-  <!-- 1. Hero Section -->
-  <header class="relative bg-[#041224] overflow-hidden" style="padding-top:8rem; padding-bottom:8rem;">
-    <div class="absolute inset-0 z-0">
-      <img src="/images/hero-city-florida.png" alt="Florida skyline - Claim Guardians service areas" class="w-full h-full object-cover opacity-60 scale-105" />
-      <div class="absolute inset-0 bg-gradient-to-b from-[#041224]/40 via-[#002D51]/20 to-[#041224]"></div>
-    </div>
-    
-    <div class="section-inner relative z-10 text-center">
-      <nav aria-label="Breadcrumb" class="mb-10 inline-flex">
-        <ol class="flex items-center space-x-2 text-sm text-slate-400 font-medium bg-white/5 px-4 py-2 rounded-full border border-white/10">
-          <li><a href="/" class="hover:text-white transition-colors">Home</a></li>
-          <li><span class="mx-2 text-slate-600">›</span></li>
-          <li class="text-white font-bold" aria-current="page">Service Areas</li>
-        </ol>
-      </nav>
-
-      <div class="max-w-4xl mx-auto">
-        <span class="eyebrow" style="color:#00B5A6;">Local Advocacy</span>
-        <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-8 leading-[1.1] tracking-tight">
-          Public Adjuster <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#00808C] to-[#00B5A6]">Service Areas</span> Across Florida, California & North Carolina.
-        </h1>
-        <p class="text-xl md:text-2xl text-slate-300 mb-12 leading-relaxed font-medium">
-          From coastal hurricanes to western wildfires, our licensed adjusters respond rapidly to evaluate your property damage and force insurers to pay.
-        </p>
-      </div>
-    </div>
-  </header>
-
-  <!-- SEO Intro Content -->
-  <section class="section-white py-16" style="margin-top:-4rem;">
-    <div class="section-inner max-w-4xl mx-auto relative z-20 bg-white rounded-3xl p-10 shadow-sm border border-slate-100">
-      <h2 class="text-3xl font-extrabold text-[#082142] mb-5">Local Public Adjusters in Florida, California & North Carolina</h2>
-      <p class="text-lg text-slate-600 leading-relaxed mb-4">
-        Property damage is local, and so is the expertise required to win your claim. Building codes, common loss types, and insurer tactics vary dramatically between a hurricane-battered coastline in <a href="/service-areas/miami/" class="text-[#00808C] font-semibold hover:underline">Miami</a>, a wildfire zone in <a href="/service-areas/los-angeles/" class="text-[#00808C] font-semibold hover:underline">Los Angeles</a>, and the storm corridors of North Carolina. Claim Guardians deploys <strong>state-licensed public adjusters</strong> who know the regulations and risks of your specific region.
-      </p>
-      <p class="text-lg text-slate-600 leading-relaxed">
-        From <a href="/service-areas/tampa/" class="text-[#00808C] font-semibold hover:underline">Tampa</a> and <a href="/service-areas/orlando/" class="text-[#00808C] font-semibold hover:underline">Orlando</a> to <a href="/service-areas/san-diego/" class="text-[#00808C] font-semibold hover:underline">San Diego</a> and <a href="/service-areas/sacramento/" class="text-[#00808C] font-semibold hover:underline">Sacramento</a>, and across <a href="/service-areas/north-carolina/" class="text-[#00808C] font-semibold hover:underline">North Carolina</a>, our adjusters respond within 24 hours, inspect your property, and force your insurer to pay the full value of your loss. Select your city below to learn how we handle claims in your area.
-      </p>
-    </div>
-  </section>
-
-  <!-- 2. Top Service Areas Grid -->
-  <section class="section-white">
-    <div class="section-inner relative z-20">
-      <div class="text-center mb-16">
-        <h2 class="section-heading">We Dispatch Experts to Your City.</h2>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        <!-- South Florida -->
-        <div class="card-hover p-10 group">
-          <h3 class="text-2xl font-black text-[#082142] mb-8 flex items-center gap-3">
-            <span class="text-3xl">🌴</span> South Florida
-          </h3>
-          <ul class="space-y-4">
-            <li><a href="/service-areas/miami/" class="text-lg font-bold text-slate-500 hover:text-[#00808C] transition-colors flex items-center gap-2">Miami</a></li>
-            <li><a href="/service-areas/fort-lauderdale/" class="text-lg font-bold text-slate-500 hover:text-[#00808C] transition-colors flex items-center gap-2">Fort Lauderdale</a></li>
-            <li><a href="/service-areas/west-palm-beach/" class="text-lg font-bold text-slate-500 hover:text-[#00808C] transition-colors flex items-center gap-2">West Palm Beach</a></li>
-            <li><a href="/service-areas/boca-raton/" class="text-lg font-bold text-slate-500 hover:text-[#00808C] transition-colors flex items-center gap-2">Boca Raton</a></li>
-          </ul>
-        </div>
-
-        <!-- Central Florida -->
-        <div class="card-hover p-10 group">
-          <h3 class="text-2xl font-black text-[#082142] mb-8 flex items-center gap-3">
-            <span class="text-3xl">🎢</span> Central Florida
-          </h3>
-          <ul class="space-y-4">
-            <li><a href="/service-areas/orlando/" class="text-lg font-bold text-slate-500 hover:text-[#00808C] transition-colors flex items-center gap-2">Orlando</a></li>
-            <li><a href="/service-areas/kissimmee/" class="text-lg font-bold text-slate-500 hover:text-[#00808C] transition-colors flex items-center gap-2">Kissimmee</a></li>
-            <li><a href="/service-areas/daytona-beach/" class="text-lg font-bold text-slate-500 hover:text-[#00808C] transition-colors flex items-center gap-2">Daytona Beach</a></li>
-            <li><a href="/service-areas/lakeland/" class="text-lg font-bold text-slate-500 hover:text-[#00808C] transition-colors flex items-center gap-2">Lakeland</a></li>
-          </ul>
-        </div>
-
-        <!-- West Coast -->
-        <div class="card-hover p-10 group">
-          <h3 class="text-2xl font-black text-[#082142] mb-8 flex items-center gap-3">
-            <span class="text-3xl">🌅</span> West Coast FL
-          </h3>
-          <ul class="space-y-4">
-            <li><a href="/service-areas/tampa/" class="text-lg font-bold text-slate-500 hover:text-[#00808C] transition-colors flex items-center gap-2">Tampa</a></li>
-            <li><a href="/service-areas/fort-myers/" class="text-lg font-bold text-slate-500 hover:text-[#00808C] transition-colors flex items-center gap-2">Fort Myers</a></li>
-            <li><a href="/service-areas/cape-coral/" class="text-lg font-bold text-slate-500 hover:text-[#00808C] transition-colors flex items-center gap-2">Cape Coral</a></li>
-            <li><a href="/service-areas/naples/" class="text-lg font-bold text-slate-500 hover:text-[#00808C] transition-colors flex items-center gap-2">Naples</a></li>
-          </ul>
-        </div>
-
-        <div class="card-hover p-10 group">
-          <h3 class="text-2xl font-black text-[#082142] mb-8">Northeast Florida</h3>
-          <ul class="space-y-4">
-            <li><a href="/service-areas/jacksonville/" class="text-lg font-bold text-slate-500 hover:text-[#00808C] transition-colors">Jacksonville</a></li>
-          </ul>
-        </div>
-
-        <!-- California -->
-        <div class="card-hover p-10 group bg-slate-50 ring-1 ring-[#00B5A6]/20">
-          <h3 class="text-2xl font-black text-[#082142] mb-8 flex items-center gap-3">
-            <span class="text-3xl">🐻</span> California
-          </h3>
-          <ul class="space-y-4">
-            <li><a href="/service-areas/los-angeles/" class="text-lg font-bold text-slate-500 hover:text-[#00808C] transition-colors flex items-center gap-2">Los Angeles</a></li>
-            <li><a href="/service-areas/san-francisco/" class="text-lg font-bold text-slate-500 hover:text-[#00808C] transition-colors flex items-center gap-2">San Francisco</a></li>
-            <li><a href="/service-areas/san-diego/" class="text-lg font-bold text-slate-500 hover:text-[#00808C] transition-colors flex items-center gap-2">San Diego</a></li>
-            <li><a href="/service-areas/sacramento/" class="text-lg font-bold text-slate-500 hover:text-[#00808C] transition-colors flex items-center gap-2">Sacramento</a></li>
-          </ul>
-        </div>
-
-        <!-- North Carolina -->
-        <div class="card-hover p-10 group bg-slate-50 ring-1 ring-[#00B5A6]/20">
-          <h3 class="text-2xl font-black text-[#082142] mb-8 flex items-center gap-3">
-            <span class="text-3xl">🌲</span> North Carolina
-          </h3>
-          <ul class="space-y-4">
-            <li><a href="/service-areas/north-carolina/" class="text-lg font-bold text-[#00808C] hover:text-[#002D51] transition-colors flex items-center gap-2">View All NC Areas →</a></li>
-          </ul>
-          <p class="mt-6 text-sm text-slate-500 leading-relaxed">Serving homeowners and businesses across North Carolina after storm, wind, water, and denied insurance claims.</p>
-        </div>
-      </div>
-
-      <div class="mt-16 text-center">
-        <a href="tel:3058045489" class="btn-accent text-xl px-12 py-5 rounded-2xl">
-          Don't see your city? Call us now.
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- 3. Local Expertise Mapping -->
-  <section class="section-muted border-y border-slate-200">
-    <div class="section-inner text-center">
-      <span class="eyebrow">State-Wide Presence</span>
-      <h2 class="section-heading mb-12">Serving Florida, California & North Carolina.</h2>
-      
-      <div class="max-w-4xl mx-auto">
-        <div class="card-hover bg-white p-12">
-          <ul class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
-            <li class="flex items-center gap-4 text-xl font-bold text-[#082142]">
-              <span class="text-[#00B5A6]">✓</span> Licensed Adjusters in FL, CA & NC
-            </li>
-            <li class="flex items-center gap-4 text-xl font-bold text-[#082142]">
-              <span class="text-[#00B5A6]">✓</span> Expert Knowledge of Local Codes
-            </li>
-            <li class="flex items-center gap-4 text-xl font-bold text-[#082142]">
-              <span class="text-[#00B5A6]">✓</span> Rapid On-Site Inspections Within 24h
-            </li>
-            <li class="flex items-center gap-4 text-xl font-bold text-[#082142]">
-              <span class="text-[#00B5A6]">✓</span> From the FL Keys to the Carolinas
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 4. FAQ -->
-  <section class="section-white">
-    <div class="section-inner max-w-4xl mx-auto">
-      <h2 class="section-heading text-center mb-12">Service Area FAQs</h2>
-      <div class="space-y-6">
-        <div class="bg-white rounded-3xl p-10 border-2 border-slate-100 shadow-sm">
-          <h3 class="text-2xl font-black text-[#082142] mb-4">Does Claim Guardians cover my specific county?</h3>
-          <p class="text-lg text-slate-500 font-medium">Yes. Claim Guardians serves all 67 counties in Florida. We maintain a network of licensed adjusters across the state to ensure rapid dispatch to any loss location.</p>
-        </div>
-        <div class="bg-white rounded-3xl p-10 border-2 border-slate-100 shadow-sm">
-          <h3 class="text-2xl font-black text-[#082142] mb-4">Can an out-of-state adjuster handle my claim?</h3>
-          <p class="text-lg text-slate-500 font-medium">Florida law requires public adjusters to hold a specific state license. Claim Guardians strictly employs Florida-licensed adjusters to protect you from illegal, out-of-state operators.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
+<BaseLayout title="Public Adjuster Service Areas - Florida, California & North Carolina | Claim Guardians" description="Find public adjusting services for property claims in Florida, California and North Carolina. Choose your state or city and request a free initial claim review.">
+  <div class="design-page">
+    <section class="area-hero design-shell">
+      <nav aria-label="Breadcrumb" class="design-breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span aria-current="page">Service areas</span></nav>
+      <div class="area-hero-layout"><div><p class="design-kicker"><span class="status-dot"></span> Florida / California / North Carolina</p><h1>Local knowledge.<br /><em>On your side.</em></h1></div><div><p class="area-hero-deck">Public adjuster service areas</p><p>Find help for a home or business property claim. Choose the state and city where the property is located.</p><a href="/free-claim-review/" class="design-text-link">Already know you need help? Request a review <Icon size={20} /></a></div></div>
+    </section>
+    <section class="area-directory design-shell" aria-labelledby="directory-heading">
+      <h2 id="directory-heading" class="sr-only">Find your service area</h2>
+      <div class="directory-toolbar" hidden><div class="area-filters" role="group" aria-label="Filter by state"><button type="button" data-state-filter="all" aria-pressed="true">All states</button>{states.map(state => <button type="button" data-state-filter={state.code} aria-pressed="false">{state.name}</button>)}</div><div class="area-search"><label for="area-search">Search by city</label><input id="area-search" type="search" placeholder="e.g. Miami or Charlotte" autocomplete="off" aria-controls="area-results" /><span aria-hidden="true">⌕</span></div></div>
+      <div class="directory-meta"><p id="area-count" role="status" aria-live="polite">23 city pages across 3 states</p><span>Select a city to explore services <span aria-hidden="true">↘</span></span></div>
+      <div id="area-results" class="area-grid">{states.map((state,i) => <article class:list={['state-panel', { 'state-panel-fl':state.code==='FL' }]} data-area-state={state.code}>
+        <div class="state-panel-heading"><div><p class="design-kicker">0{i+1} / Service region</p><h2>{state.name}</h2></div><span class="state-monogram" aria-hidden="true">{state.code}</span></div>
+        <p class="state-note">{state.note}</p>
+        <ul class="city-directory">{state.cities.map(([name,slug]) => <li data-city={name.toLowerCase()}><a href={`/service-areas/${state.code==='NC'?'north-carolina/':''}${slug}/`}><span>{name}</span><Icon size={17} /></a></li>)}</ul>
+        {state.code==='NC' && <a class="state-hub-link" href="/service-areas/north-carolina/">North Carolina statewide services <Icon size={18} /></a>}
+        <div class="state-panel-bottom"><span>Residential & commercial</span><span>EN / ES</span></div>
+      </article>)}</div>
+      <div id="area-empty" class="area-empty" hidden><h3>No matching city page yet.</h3><p>Try another spelling, clear your filters or ask us about the property location.</p><button id="clear-area-filters" class="design-button" type="button">Show all service areas <span aria-hidden="true">↗</span></button></div>
+      <div class="directory-help"><Icon name="shield" size={23} /><p><strong>Your city isn’t listed?</strong> Ask us about your property location. Service coverage does not imply a branch office in each city.</p><a href="tel:3058045489">Let’s talk <Icon size={18} /></a></div>
+    </section>
+    <section class="area-story"><div class="design-shell area-story-layout"><div class="area-story-photo"><img src="/images/hero-city-florida.png" alt="Coastal city and waterfront in Florida" width="640" height="640" loading="lazy" /><span>PROPERTY IS LOCAL. SO IS THE CONTEXT.</span></div><div><p class="design-kicker">The right context matters</p><h2>One claim.<br /><em>Many local details.</em></h2><p>A roof in West Palm Beach, smoke damage in Los Angeles, a storm claim in North Carolina. The property, policy and available evidence shape the conversation.</p><p>Our city pages explain the service, the records that can help and how to request a review. Confirm the assigned professional’s current state credentials and written terms before representation.</p><a class="design-text-link" href="/company/">About the team & credentials <Icon size={20} /></a></div></div></section>
+    <section class="design-shell design-closing"><div><p class="design-kicker">Start with your situation</p><h2>Wherever you are<br /><em>in the claim process.</em></h2></div><div><a href="/free-claim-review/" class="design-button">Request a free initial review <Icon /></a><p>New, denied or underpaid property claims</p></div></section>
+  </div>
 </BaseLayout>
+<script>
+  const input = document.querySelector<HTMLInputElement>('#area-search');
+  const buttons = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-state-filter]'));
+  const panels = Array.from(document.querySelectorAll<HTMLElement>('[data-area-state]'));
+  const count = document.querySelector('#area-count');
+  const empty = document.querySelector<HTMLElement>('#area-empty');
+  let selected = 'all';
+  const normalize = (value: string) => value.normalize('NFKD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim();
+  function filterAreas() {
+    const query = normalize(input?.value || '');
+    let matches = 0;
+    for (const panel of panels) {
+      const allowed = selected === 'all' || selected === panel.dataset.areaState;
+      let cityMatches = 0;
+      for (const row of panel.querySelectorAll<HTMLElement>('[data-city]')) {
+        const show = allowed && normalize(row.dataset.city || '').includes(query);
+        row.hidden = !show;
+        if (show) cityMatches++;
+      }
+      panel.hidden = cityMatches === 0;
+      matches += cityMatches;
+    }
+    for (const button of buttons) button.setAttribute('aria-pressed', String(button.dataset.stateFilter === selected));
+    if (count) count.textContent = !query && selected === 'all' ? '23 city pages across 3 states' : `${matches} city ${matches === 1 ? 'page' : 'pages'} found`;
+    if (empty) empty.hidden = matches !== 0;
+  }
+  input?.addEventListener('input', filterAreas);
+  for (const button of buttons) button.addEventListener('click', () => { selected = button.dataset.stateFilter || 'all'; filterAreas(); });
+  document.querySelector('#clear-area-filters')?.addEventListener('click', () => { selected = 'all'; if (input) input.value = ''; filterAreas(); input?.focus(); });
+  const toolbar = document.querySelector<HTMLElement>('.directory-toolbar');
+  if (toolbar) toolbar.hidden = false;
+  window.addEventListener('pageshow', filterAreas);
+</script>

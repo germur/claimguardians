@@ -7,7 +7,7 @@ const credentials = state === 'FL'
   ? { label: 'Principal adjuster Alejandro Sibila · NC 16805858', href: 'https://external-lookup-web.prod.naic.org/solar-external-lookup/lookup/licensee/summary/16805858?jurisdiction=NC&entityType=IND&licenseType=PAD' }
   : { label: 'Check the assigned professional’s credentials', href: '/company/' };
 ---
-<section class="section-white scroll-mt-28" id="claim-form" aria-labelledby="local-service-heading">
+<section class="local-service-block section-white scroll-mt-28" id="claim-form" aria-labelledby="local-service-heading">
   <div class="section-inner grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
     <div>
       <span class="eyebrow">Property insurance claim representation</span>
@@ -22,7 +22,7 @@ const credentials = state === 'FL'
       <a href={credentials.href} class="block font-bold text-[#006775] underline mb-3">{credentials.label}</a>
       <p class="text-sm text-slate-600">Confirm the assigned professional’s current state credentials before signing. Service-area coverage does not imply a branch office in every city.</p>
     </div>
-    <div class="bg-slate-50 rounded-2xl border border-slate-200 p-6 md:p-8">
+    <div class="local-service-form bg-slate-50 rounded-2xl border border-slate-200 p-6 md:p-8">
       <h3 class="text-2xl font-bold text-[#082142] mb-3">Request your {city} claim review</h3>
       <p class="text-slate-700 mb-6">Share your contact details and a short summary. There is no need to have every document ready to request a conversation.</p>
       <LeadCaptureForm client:visible state={state} leadType={denied ? 'denied_claim_review' : state === 'NC' ? 'nc_general' : 'service_review'} denial={denied} />

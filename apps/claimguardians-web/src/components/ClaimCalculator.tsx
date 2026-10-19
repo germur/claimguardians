@@ -12,13 +12,13 @@ const documents: Record<string, string> = {
 export default function ClaimCalculator() {
   const id = useId();
   const [damage, setDamage] = useState('water');
-  return <div className="max-w-2xl mx-auto bg-[#082142] text-white rounded-3xl p-6 md:p-10 shadow-xl">
-    <h3 className="text-2xl font-bold text-white mb-3">Prepare for your claim review</h3>
-    <p className="text-slate-300 mb-6">A useful review starts with your policy and evidence of damage. Choose a damage type to see what to gather.</p>
-    <label htmlFor={id} className="block font-bold mb-2">Damage type</label>
-    <select id={id} value={damage} onChange={event => setDamage(event.target.value)} className="w-full bg-white text-slate-900 rounded-xl p-4 min-h-12">{damageOptions.map(([value, label]) => <option key={value} value={value}>{label}</option>)}</select>
-    <div aria-live="polite" className="my-6 p-5 rounded-xl border border-white/20 bg-white/5"><p>{documents[damage]}</p></div>
-    <p className="text-sm text-slate-300 mb-6">You can request a review even if you do not have every document. Coverage and any recovery depend on your policy and the documented loss.</p>
-    <a href="/free-claim-review/" className="btn-accent w-full">Request a free claim review →</a>
+  return <div className="claim-preparation">
+    <h3>Prepare for your claim review</h3>
+    <p>A useful review starts with your policy and evidence of damage. Choose a damage type to see what to gather.</p>
+    <label htmlFor={id}>Damage type</label>
+    <select id={id} value={damage} onChange={event => setDamage(event.target.value)}>{damageOptions.map(([value, label]) => <option key={value} value={value}>{label}</option>)}</select>
+    <div aria-live="polite"><p>{documents[damage]}</p></div>
+    <p>You can request a review even if you do not have every document. Coverage and any recovery depend on your policy and the documented loss.</p>
+    <a href="/free-claim-review/" className="design-button">Request a free claim review <span aria-hidden="true">→</span></a>
   </div>;
 }

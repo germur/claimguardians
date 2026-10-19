@@ -1,7 +1,9 @@
 ---
 import '../styles/global.css';
+import '../styles/editorial.css';
 import EntitySchema from '../components/EntitySchema.astro';
 import Attribution from '../components/Attribution.astro';
+import SiteFooter from '../components/SiteFooter.astro';
 
 interface Props {
   title: string;
@@ -63,7 +65,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <body class="bg-base-bg text-text-main font-sans antialiased min-h-screen flex flex-col">
     <a href="#main-content" class="skip-link">Skip to content</a>
     <!-- 1. Global Header (Premium 2026 White Glassmorphism) -->
-    <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-2xl border-b border-slate-200 shadow-sm supports-[backdrop-filter]:bg-white/60">
+    <header class="site-header sticky top-0 z-50 backdrop-blur-2xl">
       <div class="absolute inset-0 bg-gradient-to-r from-transparent via-[#00808C]/5 to-transparent pointer-events-none"></div>
       <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-24 flex justify-between items-center relative z-10">
         
@@ -147,140 +149,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     </main>
 
     <!-- 8. Premium Mega Footer -->
-    <footer class="bg-primary-900 border-t border-primary-700/50 relative overflow-hidden">
-      <!-- Top Decorative Edge -->
-      <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#00B5A6]/50 to-transparent"></div>
-      
-      <!-- Pre-footer CTA Area -->
-      <div class="border-b border-primary-700/30">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 flex flex-col md:flex-row items-center justify-between gap-8">
-          <div>
-            <h2 class="text-3xl font-extrabold text-white mb-2">Claim <span class="text-[#00B5A6]">Guardians</span></h2>
-            <p class="text-primary-200 text-lg">Property claim advocates serving Florida, California, and North Carolina.</p>
-          </div>
-          <div class="flex flex-col sm:flex-row gap-4">
-            <a href="/free-claim-review/" class="px-8 py-4 text-sm font-black text-white bg-[#00808C] rounded-xl shadow-[0_10px_30px_-10px_rgba(0,128,140,0.5)] hover:shadow-[0_15px_40px_-10px_rgba(0,128,140,0.6)] hover:-translate-y-1 transition-all duration-300 flex items-center justify-center">
-              Get Your Free Property Inspection
-            </a>
-            <a href="tel:3058045489" class="px-8 py-4 text-sm font-black text-[#00B5A6] border-2 border-[#00B5A6]/30 bg-white/5 hover:bg-[#00B5A6]/10 hover:border-[#00B5A6] rounded-xl transition-all duration-300 flex items-center justify-center">
-              Call (305) 804-5489
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Main Footer Grid -->
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-slate-300">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8">
-          
-          <!-- Column 1: Brand & Trust (Takes up 4 cols) -->
-          <div class="lg:col-span-4 space-y-8">
-            <a href="/" class="inline-block mb-2 group">
-              <img src="/images/logo SVG.svg" alt="Claim Guardians Logo" class="h-16 w-auto object-contain brightness-0 invert group-hover:scale-105 transition-transform" />
-            </a>
-            <p class="text-sm leading-relaxed text-slate-400">
-              Claim Guardians LLC represents policyholders in Florida, California, and North Carolina. We inspect damage, document losses, and negotiate property insurance claims.
-            </p>
-            
-            <div class="flex items-center gap-4 pt-4 border-t border-primary-800">
-              <div class="h-14 w-28 bg-primary-800/50 rounded-xl flex flex-col items-center justify-center border border-primary-700">
-                <span class="text-[10px] font-black text-[#00B5A6] uppercase tracking-tighter">Florida DFS</span>
-                <span class="text-xs font-black text-white">LICENSED</span>
-              </div>
-              <div class="h-14 w-28 bg-primary-800/50 rounded-xl flex flex-col items-center justify-center border border-primary-700">
-                <span class="text-[10px] font-black text-[#00B5A6] uppercase tracking-tighter">State of FL</span>
-                <span class="text-xs font-black text-white">BONDED</span>
-              </div>
-              <div class="h-14 w-28 bg-primary-800/50 rounded-xl flex flex-col items-center justify-center border border-primary-700">
-                <span class="text-[10px] font-black text-[#00B5A6] uppercase tracking-tighter">Zero-Risk</span>
-                <span class="text-xs font-black text-white">NO FEE</span>
-              </div>
-            </div>
-            
-            <div class="pt-2">
-              <p class="text-xs font-black text-slate-500 uppercase tracking-widest">Regulated by the Florida Dept. of Financial Services</p>
-            </div>
-          </div>
-
-          <!-- Column 2: Legal & Company (Takes up 2 cols) -->
-          <div class="lg:col-span-2">
-            <h3 class="text-white font-bold mb-6 text-sm uppercase tracking-widest">Our Firm</h3>
-            <ul class="space-y-4 text-sm font-medium">
-              <li><a href="/company/" class="hover:text-[#00B5A6] transition-colors">About Guardians</a></li>
-              <li><a href="/resources/" class="hover:text-[#00B5A6] transition-colors">Claim Resources</a></li>
-              <li><a href="/es/guia-reclamacion/" lang="es" class="hover:text-white transition-colors">Guía en español</a></li>
-              <li><a href="/contact/" class="hover:text-[#00B5A6] transition-colors">Contact Us</a></li>
-              <li class="pt-4"><a href="/privacy-policy/" class="text-slate-500 hover:text-white transition-colors">Privacy Policy</a></li>
-              <li><a href="/terms-of-service/" class="text-slate-500 hover:text-white transition-colors">Terms of Service</a></li>
-            </ul>
-          </div>
-
-          <!-- Column 3: Services (Takes up 3 cols) -->
-          <div class="lg:col-span-3">
-            <h3 class="text-white font-bold mb-6 text-sm uppercase tracking-widest">Property Claims</h3>
-            <ul class="space-y-4 text-sm font-medium">
-              <li><a href="/services/water-damage/" class="hover:text-[#00B5A6] transition-colors flex items-center gap-2">💧 Water Damage</a></li>
-              <li><a href="/services/hurricane-damage/" class="hover:text-[#00B5A6] transition-colors flex items-center gap-2">🌪️ Hurricane & Wind</a></li>
-              <li><a href="/services/roof-damage/" class="hover:text-[#00B5A6] transition-colors flex items-center gap-2">🏠 Roof Replacements</a></li>
-              <li><a href="/services/fire-damage/" class="hover:text-[#00B5A6] transition-colors flex items-center gap-2">🔥 Fire & Smoke</a></li>
-              <li><a href="/services/mold-claims/" class="hover:text-[#00B5A6] transition-colors flex items-center gap-2">🦠 Mold Remediation</a></li>
-              <li><a href="/services/denied-claims/" class="hover:text-[#00B5A6] transition-colors flex items-center gap-2">⚖️ Denied/Underpaid Claims</a></li>
-            </ul>
-          </div>
-
-          <!-- Column 4: Service Areas (Takes up 3 cols) -->
-          <div class="lg:col-span-3">
-            <h3 class="text-white font-bold mb-6 text-sm uppercase tracking-widest">Coverage Areas</h3>
-            <div class="grid grid-cols-2 gap-x-4 gap-y-2">
-              <ul class="space-y-2 text-sm font-medium">
-                <li class="mb-1"><span class="text-[#00B5A6] font-bold uppercase text-xs tracking-wider">Florida</span></li>
-                <li><a href="/service-areas/miami/" class="hover:text-white transition-colors text-slate-400">Miami</a></li>
-                <li><a href="/service-areas/fort-lauderdale/" class="hover:text-white transition-colors text-slate-400">Ft. Lauderdale</a></li>
-                <li><a href="/service-areas/west-palm-beach/" class="hover:text-white transition-colors text-slate-400">West Palm Beach</a></li>
-                <li><a href="/service-areas/boca-raton/" class="hover:text-white transition-colors text-slate-400">Boca Raton</a></li>
-                <li><a href="/service-areas/orlando/" class="hover:text-white transition-colors text-slate-400">Orlando</a></li>
-                <li><a href="/service-areas/kissimmee/" class="hover:text-white transition-colors text-slate-400">Kissimmee</a></li>
-                <li><a href="/service-areas/daytona-beach/" class="hover:text-white transition-colors text-slate-400">Daytona Beach</a></li>
-                <li><a href="/service-areas/lakeland/" class="hover:text-white transition-colors text-slate-400">Lakeland</a></li>
-                <li><a href="/service-areas/tampa/" class="hover:text-white transition-colors text-slate-400">Tampa</a></li>
-                <li><a href="/service-areas/fort-myers/" class="hover:text-white transition-colors text-slate-400">Fort Myers</a></li>
-                <li><a href="/service-areas/cape-coral/" class="hover:text-white transition-colors text-slate-400">Cape Coral</a></li>
-                <li><a href="/service-areas/naples/" class="hover:text-white transition-colors text-slate-400">Naples</a></li>
-              </ul>
-              <ul class="space-y-2 text-sm font-medium">
-                <li class="mb-1"><span class="text-[#00B5A6] font-bold uppercase text-xs tracking-wider">California</span></li>
-                <li><a href="/service-areas/los-angeles/" class="hover:text-white transition-colors text-slate-400">Los Angeles</a></li>
-                <li><a href="/service-areas/san-francisco/" class="hover:text-white transition-colors text-slate-400">San Francisco</a></li>
-                <li><a href="/service-areas/san-diego/" class="hover:text-white transition-colors text-slate-400">San Diego</a></li>
-                <li><a href="/service-areas/sacramento/" class="hover:text-white transition-colors text-slate-400">Sacramento</a></li>
-                <li class="mt-3 mb-1"><span class="text-[#00B5A6] font-bold uppercase text-xs tracking-wider">North Carolina</span></li>
-                <li><a href="/service-areas/north-carolina/" class="hover:text-white transition-colors text-slate-400">All NC Areas</a></li>
-              </ul>
-            </div>
-            <div class="mt-6 pt-6 border-t border-primary-800">
-               <a href="/service-areas/" class="text-[#00B5A6] font-bold text-sm hover:text-white transition-colors flex items-center gap-1">
-                 View All Service Areas <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-               </a>
-            </div>
-          </div>
-
-        </div>
-        
-        <!-- Bottom Copyright -->
-        <div class="mt-16 pt-8 border-t border-primary-800 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500">
-          <div class="flex flex-col md:flex-row items-center gap-2 md:gap-6 text-center md:text-left">
-            <p>&copy; {new Date().getFullYear()} Claim Guardians LLC. All rights reserved.</p>
-            <div class="flex gap-4">
-              <a href="/privacy-policy/" class="hover:text-white transition-colors">Privacy Policy</a>
-              <a href="/terms-of-service/" class="hover:text-white transition-colors">Terms of Service</a>
-            </div>
-          </div>
-          <p class="mt-4 md:mt-0 text-center md:text-right">
-            Headquarters: <span class="text-slate-400">304 Indian Trace Unit 655, Weston, FL 33326</span>
-          </p>
-        </div>
-      </div>
-    </footer>
+    <SiteFooter />
 
     <script>
       const openBtn = document.getElementById('mobile-menu-open');

@@ -216,3 +216,27 @@ test('a city landing survives navigation and is sent with the actual form page',
   await page.reload();
   expect(await page.evaluate(() => Array.from((window as any).dataLayer || []).filter((x: any) => x[0] === 'event' && x[1] === 'generate_lead').length)).toBe(0);
 });
+
+test('service area directory filters by state and city, recovers from no results and works on mobile', async ({ page, browser }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/service-areas/');
+  await expect(page.locator('[data-city]:visible')).toHaveCount(23);
+  await page.getByRole('button', { name: 'North Carolina', exact: true }).click();
+  await expect(page.getByRole('button', { name: 'North Carolina', exact: true })).toHaveAttribute('aria-pressed', 'true');
+  await expect(page.locator('[data-city]:visible')).toHaveCount(6);
+  await page.getByRole('searchbox', { name: 'Search by city' }).fill('charlotte');
+  await expect(page.locator('[data-city]:visible')).toHaveCount(1);
+  await expect(page.locator('#area-count')).toHaveText('1 city page found');
+  await expect(page.locator('[data-city]:visible a')).toHaveAttribute('href', '/service-areas/north-carolina/charlotte/');
+  await page.getByRole('searchbox', { name: 'Search by city' }).fill('no-city-match');
+  await expect(page.getByRole('heading', { name: 'No matching city page yet.' })).toBeVisible();
+  await page.getByRole('button', { name: 'Show all service areas' }).click();
+  await expect(page.locator('[data-city]:visible')).toHaveCount(23);
+  await expect(page.getByRole('searchbox')).toBeFocused();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  const context = await browser.newContext({ javaScriptEnabled: false });
+  const plain = await context.newPage();
+  await plain.goto('http://127.0.0.1:4321/service-areas/');
+  await expect(plain.locator('[data-city]:visible')).toHaveCount(23);
+  await context.close();
+});

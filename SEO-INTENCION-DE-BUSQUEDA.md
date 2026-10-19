@@ -39,6 +39,12 @@ La publicación d2477c1 resolvió formularios, atribución y retiró cifras sin 
 
 ## Referencias
 
+### Revisión visual y UX del 19 de octubre
+
+La portada conserva la intención comercial general: qué servicio ofrece Claim Guardians, para quién, alcance y cómo solicitar contacto. Se reorganiza visualmente en servicio, daño, representación, proceso y preparación opcional. El directorio responde a «public adjuster + localidad» permitiendo encontrar una ciudad mediante estado y búsqueda, con las 23 páginas visibles en HTML y accesibles sin JavaScript. No se crean URLs para filtros ni se cambian destinos canónicos.
+
+Se retiran dos tarjetas económicas y testimonios de la portada cuya evidencia no estaba acreditada. Sus FAQ pasan a una única fuente compartida entre texto y schema con información del proceso, revisión gratuita y términos escritos; no se conservan cifras legales genéricas ni recomendaciones automáticas de contratación. Las fotografías existentes se usan como ilustración, sin presentarlas como casos o personas del equipo.
+
 - Google Search Central: https://developers.google.com/search/docs/fundamentals/creating-helpful-content
 - Ejemplos comerciales observados, usados para analizar formato, no para acreditar sus promesas: https://metroadjusters.com/locations/los-angeles ; https://www.apexadjustinggroup.com/locations/los-angeles-public-adjusters ; https://ricardopa.com/ ; https://www.dcspia.com/public-adjuster/miami/ ; https://palsinsurancepublicadjusters.com/ ; https://dolphinclaims.com/locations/west-palm-beach/ ; https://mantisclaims.com/
 - NC DOI, opciones y límites de asistencia: https://www.ncdoi.gov/assistance-or-file-complaint

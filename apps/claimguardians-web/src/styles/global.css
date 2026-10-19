@@ -168,7 +168,7 @@
 
   /* Service/feature card with hover gradient-bar accent at top */
   .card-hover {
-    @apply relative bg-white rounded-2xl p-8 border border-slate-100 shadow-sm overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+    @apply relative bg-white rounded-md p-8 border border-slate-200 overflow-hidden transition-all duration-200 hover:border-[#7d9e90];
   }
   .card-hover::before {
     content: "";
