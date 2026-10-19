@@ -26,6 +26,7 @@ test('review keeps answers, changes property type and retries a failed submissio
   await page.getByLabel('Last name').fill('Example');
   await page.getByLabel('Phone number').fill('2025550100');
   await page.getByLabel('Preferred language').selectOption('es');
+  await page.getByLabel('How did you first hear').selectOption('ai_assistant');
   let body = '';
   let attempt = 0;
   await page.route('**/__forms.html', route => {
@@ -39,7 +40,7 @@ test('review keeps answers, changes property type and retries a failed submissio
   await page.getByRole('button', { name: 'Request a free claim review' }).click();
   await expect(page).toHaveURL(/\/thank-you\/$/);
   const fields = new URLSearchParams(body);
-  expect(Object.fromEntries(fields)).toMatchObject({ 'form-name': 'claim-review', damage_type: 'roof', loss_date: '2026-10-01', property_type: 'commercial', state: 'NC', zip_code: '28202', full_name: 'Test Example', preferred_language: 'es' });
+  expect(Object.fromEntries(fields)).toMatchObject({ 'form-name': 'claim-review', damage_type: 'roof', loss_date: '2026-10-01', property_type: 'commercial', state: 'NC', zip_code: '28202', full_name: 'Test Example', preferred_language: 'es', discovery_source: 'ai_assistant' });
 });
 
 test('resources search filters, clears, and cards target real sections', async ({ page }) => {
@@ -54,9 +55,8 @@ test('resources search filters, clears, and cards target real sections', async (
   await expect(page.locator('#glossary')).toBeVisible();
   await expect(page.locator('[data-search-item]:visible')).toHaveCount(1);
   await page.getByRole('link', { name: /Claim Survival Guides/ }).click();
-  await expect(page.locator('#claim-guide')).toBeVisible();
-  await expect(search).toHaveValue('');
-  await expect(page).toHaveURL(/#claim-guide$/);
+  await expect(page).toHaveURL(/\/resources\/claim-review-guide\/$/);
+  await expect(page.getByRole('heading', { level: 1 })).toContainText('property insurance claim review');
 });
 
 test('mobile menu manages focus, Escape and layout', async ({ page }) => {
@@ -116,4 +116,31 @@ test('contact works without JavaScript and success stays out of search', async (
   await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', 'noindex, follow');
   const sitemap = await page.request.get('/sitemap-0.xml');
   expect(await sitemap.text()).not.toContain('thank-you');
+});
+
+
+test('guides have correct languages, reciprocal alternates and matching FAQ schema', async ({ page }) => {
+  for (const [path, language] of [['/resources/claim-review-guide/', 'en'], ['/es/guia-reclamacion/', 'es']]) {
+    await page.goto(path);
+    await expect(page.locator('html')).toHaveAttribute('lang', language);
+    await expect(page.locator('link[hreflang="es-US"]')).toHaveAttribute('href', 'https://allclaimguardians.com/es/guia-reclamacion/');
+    await expect(page.locator('link[hreflang="en-US"]')).toHaveAttribute('href', 'https://allclaimguardians.com/resources/claim-review-guide/');
+    const faq = await page.locator('script[type="application/ld+json"]').evaluateAll(scripts => scripts.map(s => JSON.parse(s.textContent || '{}')).find(s => s['@type'] === 'FAQPage'));
+    expect(faq.mainEntity).toHaveLength(5);
+    for (const question of faq.mainEntity) {
+      await expect(page.getByRole('heading', { name: question.name, exact: true })).toBeVisible();
+      await expect(page.getByText(question.acceptedAnswer.text, { exact: true })).toBeVisible();
+    }
+  }
+});
+
+test('service areas refer to one organization without claiming a city branch', async ({ page }) => {
+  for (const path of ['/service-areas/miami/', '/service-areas/los-angeles/', '/service-areas/north-carolina/charlotte/']) {
+    await page.goto(path);
+    const nodes = await page.locator('script[type="application/ld+json"]').evaluateAll(scripts => scripts.flatMap(s => { const data = JSON.parse(s.textContent || '{}'); return data['@graph'] || [data]; }));
+    const companies = nodes.filter(n => n['@type'] === 'LocalBusiness');
+    expect(companies).toHaveLength(1);
+    expect(companies[0].address.addressLocality).toBe('Weston');
+    expect(nodes.find(n => n['@type'] === 'Service').provider['@id']).toBe('https://allclaimguardians.com/#organization');
+  }
 });

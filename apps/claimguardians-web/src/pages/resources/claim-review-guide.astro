@@ -1,0 +1,8 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ClaimGuide from '../../components/ClaimGuide.astro';
+import { claimGuide } from '../../data/claim-guide';
+---
+<BaseLayout title={`${claimGuide.en.title} | Claim Guardians`} description="Prepare for a property claim review in Florida, California or North Carolina. Documents, adjuster roles, questions to ask, and official state resources." guideAlternates>
+  <ClaimGuide lang="en" />
+</BaseLayout>

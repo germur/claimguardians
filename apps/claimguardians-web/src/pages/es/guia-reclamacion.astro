@@ -1,0 +1,8 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ClaimGuide from '../../components/ClaimGuide.astro';
+import { claimGuide } from '../../data/claim-guide';
+---
+<BaseLayout lang="es" title={`${claimGuide.es.title} | Claim Guardians`} description="Documentos, funciones del ajustador público y preguntas para revisar daños a la propiedad en Florida, California y North Carolina. Recursos oficiales por estado." guideAlternates>
+  <ClaimGuide lang="es" />
+</BaseLayout>

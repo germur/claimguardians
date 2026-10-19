@@ -8,17 +8,7 @@ import NCLeadForm from '../../../components/NCLeadForm';
   description="NC-licensed public adjusters fight your insurance company for the maximum legal settlement. No recovery, no fee."
 >
   <Fragment slot="head">
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "Claim Guardians LLC - North Carolina",
-        "url": "https://allclaimguardians.com/service-areas/north-carolina",
-        "telephone": "(305) 804-5489",
-        "areaServed": "North Carolina",
-        "priceRange": "No upfront fee - contingency only"
-      }
-    </script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Public adjusting services in North Carolina","provider":{"@id":"https://allclaimguardians.com/#organization"},"areaServed":{"@type":"State","name":"North Carolina"},"url":"https://allclaimguardians.com/service-areas/north-carolina/"}</script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -308,4 +298,12 @@ import NCLeadForm from '../../../components/NCLeadForm';
     </div>
   </section>
 
+
+  <section class="section-muted">
+    <div class="section-inner max-w-4xl">
+      <h2 class="section-heading mb-4">What should you bring to a claim review?</h2>
+      <p class="text-lg text-slate-700 leading-relaxed mb-5">Bring your policy, dated photos, repair estimates or reports, and any insurer letters. If the claim was denied or paid, include the decision and a timeline of communication. The review considers your policy and documented damage; it does not guarantee coverage or a particular settlement.</p>
+      <div class="flex flex-wrap gap-5"><a class="text-[#006775] font-bold underline" href="/resources/claim-review-guide/">Read the claim review guide</a><a class="text-[#006775] font-bold underline" lang="es" href="/es/guia-reclamacion/">Guía de reclamaciones en español</a></div>
+    </div>
+  </section>
 </MinimalAdLayout>

@@ -443,32 +443,17 @@ const { city, county, stateCode, stateName, localRisk, zipCodes, nearbyAreas, da
 
 <BaseLayout
   title={`Public Adjuster in ${city}, ${stateCode} - Property Damage Claims | Claim Guardians`}
-  description={`Licensed public adjuster in ${city}, ${stateCode}. We handle ${localRisk} claims across ${county} and force your insurer to pay your maximum settlement. No fee until you get paid.`}
+  description={`Licensed public adjuster in ${city}, ${stateCode}. We handle ${localRisk} claims across ${county} with damage documentation, policy review, and insurance negotiation. No fee until you get paid.`}
 >
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": `Claim Guardians - ${city}`,
-      "image": "https://allclaimguardians.com/images/logo-color.svg",
-      "telephone": "(305) 804-5489",
-      "url": `https://allclaimguardians.com/service-areas/${city.toLowerCase().replace(/\s+/g, '-')}/`,
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": city,
-        "addressRegion": stateCode,
-        "addressCountry": "US"
-      },
-      "areaServed": {
-        "@type": "GeoCircle",
-        "geoMidpoint": { "@type": "GeoCoordinates", "description": `${city}, ${county}, ${stateName}` },
-        "geoRadius": "50000"
-      },
-      "makesOffer": zipCodes.map(zip => ({
-        "@type": "Offer",
-        "eligibleRegion": { "@type": "PostalCode", "postalCode": zip }
-      })),
-      "description": `Public Adjusting firm serving ${county}, specializing in ${localRisk} claims.`
+      "@context": "https://schema.org", "@type": "Service",
+      "@id": `https://allclaimguardians.com${Astro.url.pathname}#service`,
+      "name": `Public adjusting services in ${city}, ${stateCode}`,
+      "provider": { "@id": "https://allclaimguardians.com/#organization" },
+      "url": `https://allclaimguardians.com${Astro.url.pathname}`,
+      "areaServed": { "@type": "AdministrativeArea", "name": `${county}, ${stateName}` },
+      "description": `Property insurance claim review, damage documentation, and negotiation for property owners in ${county}.`
     })} />
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
@@ -509,10 +494,10 @@ const { city, county, stateCode, stateName, localRisk, zipCodes, nearbyAreas, da
       <div class="max-w-4xl">
         <span class="eyebrow" style="color:#00B5A6;">Public Adjuster - {county}</span>
         <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-8 leading-[1.1] tracking-tight">
-          Public Adjuster in {city}, {stateCode} - We Maximize Your Insurance Claim.
+          Public Adjuster in {city}, {stateCode} for Property Damage Claims.
         </h1>
         <p class="text-xl md:text-2xl text-slate-300 mb-12 leading-relaxed max-w-3xl">
-          {city} properties face {localRisk}. Insurance companies minimize payouts across {county}. Claim Guardians forces your insurer to pay the full cost of your property repairs.
+          {city} properties face {localRisk}. Claim Guardians helps property owners in {county} document the loss, review their policy, and negotiate with their insurer. Coverage and any recovery depend on the policy and evidence.
         </p>
         <div class="flex flex-col sm:flex-row gap-5 mb-14">
           <a href="/free-claim-review/" class="btn-accent px-10 py-5 text-lg min-h-[60px]">Free {city} Property Inspection</a>
@@ -702,4 +687,12 @@ const { city, county, stateCode, stateName, localRisk, zipCodes, nearbyAreas, da
     <a href="tel:3058045489" class="btn-accent w-full text-lg">Call {city} Expert Now</a>
   </div>
 
+
+  <section class="section-muted">
+    <div class="section-inner max-w-4xl">
+      <h2 class="section-heading mb-4">What should you bring to a claim review?</h2>
+      <p class="text-lg text-slate-700 leading-relaxed mb-5">Bring your policy, dated photos, repair estimates or reports, and any insurer letters. If the claim was denied or paid, include the decision and a timeline of communication. The review considers your policy and documented damage; it does not guarantee coverage or a particular settlement.</p>
+      <div class="flex flex-wrap gap-5"><a class="text-[#006775] font-bold underline" href="/resources/claim-review-guide/">Read the claim review guide</a><a class="text-[#006775] font-bold underline" lang="es" href="/es/guia-reclamacion/">Guía de reclamaciones en español</a></div>
+    </div>
+  </section>
 </BaseLayout>

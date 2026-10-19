@@ -1,0 +1,13 @@
+<script>
+  import { getTechnicalSource, sendAnalyticsEvent } from '../lib/analytics';
+  getTechnicalSource();
+  document.querySelectorAll<HTMLFormElement>('form[name="claim-review"]').forEach(form => {
+    const source = form.elements.namedItem('technical_source') as HTMLInputElement | null;
+    if (source) source.value = getTechnicalSource();
+  });
+  document.addEventListener('click', event => {
+    const link = (event.target as Element | null)?.closest<HTMLAnchorElement>('a[href]');
+    const method = link?.protocol === 'tel:' ? 'phone' : link?.protocol === 'mailto:' ? 'email' : '';
+    if (method) sendAnalyticsEvent('contact_click', { contact_method: method, technical_source: getTechnicalSource() });
+  });
+</script>

@@ -1,0 +1,20 @@
+---
+import { markets } from '../data/markets';
+const origin = 'https://allclaimguardians.com';
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'LocalBusiness', '@id': `${origin}/#organization`, name: 'Claim Guardians LLC',
+      alternateName: ['Claim Guardians', 'All Claim Guardians'], url: `${origin}/`,
+      description: 'Public adjusting services for property owners in Florida, California, and North Carolina.',
+      image: `${origin}/images/logo-color.svg`, telephone: '+1-305-804-5489', email: 'claims@claimguardians.com',
+      address: { '@type': 'PostalAddress', streetAddress: '304 Indian Trace Unit 655', addressLocality: 'Weston', addressRegion: 'FL', postalCode: '33326', addressCountry: 'US' },
+      areaServed: markets.map(market => ({ '@type': 'State', name: market.name })),
+      contactPoint: { '@type': 'ContactPoint', telephone: '+1-305-804-5489', contactType: 'customer service', availableLanguage: ['English', 'Spanish'] },
+    },
+    { '@type': 'WebSite', '@id': `${origin}/#website`, url: `${origin}/`, name: 'Claim Guardians', publisher: { '@id': `${origin}/#organization` }, inLanguage: 'en-US' },
+  ],
+};
+---
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

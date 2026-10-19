@@ -1,5 +1,7 @@
 ---
 import '../styles/global.css';
+import EntitySchema from '../components/EntitySchema.astro';
+import Attribution from '../components/Attribution.astro';
 
 interface Props {
   title: string;
@@ -51,6 +53,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={new URL(image, Astro.site)} />
+    <EntitySchema />
     <slot name="head" />
   </head>
   <body class="bg-base-bg text-text-main font-sans antialiased min-h-screen flex flex-col">
@@ -94,5 +97,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         </p>
       </div>
     </footer>
+    <Attribution />
   </body>
 </html>

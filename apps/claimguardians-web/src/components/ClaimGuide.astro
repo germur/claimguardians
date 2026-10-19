@@ -1,0 +1,47 @@
+---
+import { claimGuide, guideSources } from '../data/claim-guide';
+const { lang = 'en' } = Astro.props as { lang?: 'en' | 'es' };
+const guide = claimGuide[lang];
+const alternate = lang === 'en' ? '/es/guia-reclamacion/' : '/resources/claim-review-guide/';
+---
+<script type="application/ld+json" set:html={JSON.stringify({
+  '@context': 'https://schema.org', '@type': 'WebPage', '@id': `https://allclaimguardians.com${Astro.url.pathname}#guide`,
+  name: guide.title, inLanguage: lang === 'es' ? 'es-US' : 'en-US', dateModified: '2026-10-19',
+  isPartOf: { '@id': 'https://allclaimguardians.com/#website' }, about: { '@id': 'https://allclaimguardians.com/#organization' },
+  citation: guideSources.map(source => source.url),
+})} />
+<script type="application/ld+json" set:html={JSON.stringify({
+  '@context': 'https://schema.org', '@type': 'FAQPage',
+  mainEntity: guide.faqs.map(faq => ({ '@type': 'Question', name: faq.q, acceptedAnswer: { '@type': 'Answer', text: faq.a } })),
+})} />
+<article class="section-white">
+  <div class="section-inner max-w-4xl">
+    <a href={alternate} lang={lang === 'en' ? 'es' : 'en'} class="text-[#006775] underline">{guide.alternate}</a>
+    <p class="text-sm text-slate-600 mt-6 mb-4">{guide.updated} · Claim Guardians</p>
+    <h1 class="text-3xl md:text-5xl font-bold mb-6">{guide.heading}</h1>
+    <p class="text-xl text-slate-700 leading-relaxed mb-8">{guide.intro}</p>
+    <nav aria-label={lang === 'en' ? 'Guide sections' : 'Secciones de la guía'} class="flex flex-wrap gap-3 mb-12">
+      {guide.markets.map(market => <a class="btn-secondary" href={`#${market.id}`}>{market.state}</a>)}
+    </nav>
+    <h2 class="section-heading mb-8">{guide.overview}</h2>
+    {guide.markets.map((market, index) => <section id={market.id} class="border-t border-slate-200 py-8">
+      <p class="eyebrow">{market.state}</p>
+      <h3 class="text-2xl font-bold mb-4">{market.situation}</h3>
+      <p class="text-lg text-slate-700 leading-relaxed mb-4">{market.answer}</p>
+      <ul class="space-y-3 text-[#006775] underline">
+        <li><a href={market.link}>{market.label}</a></li><li><a href={market.service}>{market.serviceLabel}</a></li>
+        <li><a href={guideSources[index].url} rel="noopener noreferrer">{guideSources[index].name}</a></li>
+      </ul>
+    </section>)}
+    <section class="bg-slate-50 rounded-2xl p-6 md:p-8 my-10">
+      <h2 class="text-2xl font-bold mb-5">{guide.checklistTitle}</h2>
+      <ol class="list-decimal pl-5 space-y-4 text-slate-700">{guide.checklist.map(item => <li>{item}</li>)}</ol>
+    </section>
+    <section class="space-y-6 my-12">
+      {guide.faqs.map(faq => <div><h2 class="text-xl font-bold mb-2">{faq.q}</h2><p class="text-slate-700 leading-relaxed">{faq.a}</p></div>)}
+    </section>
+    <section class="border-t border-slate-200 pt-8 mb-10"><h2 class="text-xl font-bold mb-4">{guide.sourceTitle}</h2><p class="text-slate-600">{guide.sourceNote}</p></section>
+    <a class="btn-accent" href="/free-claim-review/">{guide.cta}</a>
+    {lang === 'es' && <p class="mt-4 text-slate-600">El formulario está en inglés e incluye una opción para solicitar contacto en español.</p>}
+  </div>
+</article>

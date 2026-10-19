@@ -1,3 +1,4 @@
+import { getTechnicalSource, measureLead } from './analytics.ts';
 export const LEAD_FORM_NAME = 'claim-review';
 export const THANK_YOU_URL = '/free-claim-review/thank-you/';
 export type LeadFields = Record<string, string>;
@@ -8,7 +9,7 @@ export async function submitLead(fields: LeadFields): Promise<void> {
   const response = await fetch('/__forms.html', {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: new URLSearchParams({ ...fields, 'form-name': LEAD_FORM_NAME }).toString(),
+    body: new URLSearchParams({ ...fields, technical_source: getTechnicalSource(), 'form-name': LEAD_FORM_NAME }).toString(),
     signal: AbortSignal.timeout(20000),
   });
   const text = await response.text();
@@ -18,10 +19,5 @@ export async function submitLead(fields: LeadFields): Promise<void> {
   }
 }
 
-/** Explicit allowlist: never send contact details or claim descriptions. */
-export function trackLead(fields: LeadFields): void {
-  const analytics = window as Window & { dataLayer?: Record<string, string>[] };
-  try {
-    analytics.dataLayer?.push({ event: 'generate_lead', lead_type: fields.lead_type || 'general', preferred_language: fields.preferred_language || 'en' });
-  } catch { /* Analytics must never prevent the confirmation page. */ }
-}
+/** Send the confirmed conversion through the installed Google tag. */
+export function trackLead(fields: LeadFields): void { measureLead(fields); }

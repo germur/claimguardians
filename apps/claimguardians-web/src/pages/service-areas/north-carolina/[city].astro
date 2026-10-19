@@ -186,35 +186,7 @@ const { city, slug, county, localRisk, zipCodes, nearbyAreas, damageAngles, case
   description={`Property damage in ${city}? Claim Guardians' NC-licensed public adjusters handle your insurance claim from inspection to settlement. No recovery, no fee.`}
 >
   <Fragment slot="head">
-    <script type="application/ld+json" set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": `Claim Guardians - ${city}, NC`,
-      "image": "https://allclaimguardians.com/images/logo-color.svg",
-      "telephone": "(305) 804-5489",
-      "url": `https://allclaimguardians.com/service-areas/north-carolina/${slug}`,
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": city,
-        "addressRegion": "NC",
-        "addressCountry": "US"
-      },
-      "areaServed": {
-        "@type": "AdministrativeArea",
-        "name": county
-      },
-      "makesOffer": {
-        "@type": "Offer",
-        "description": `Public adjusting services for ${localRisk} claims in ${county}`,
-        "priceSpecification": {
-          "@type": "UnitPriceSpecification",
-          "price": "0",
-          "priceCurrency": "USD",
-          "description": "No upfront cost - contingency fee only"
-        }
-      },
-      "description": `Licensed public adjusters serving ${city}, NC and all of ${county}. Specializing in ${localRisk} damage claims.`
-    })} />
+
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "FAQPage",
@@ -238,7 +210,7 @@ const { city, slug, county, localRisk, zipCodes, nearbyAreas, damageAngles, case
       "@context": "https://schema.org",
       "@type": "Service",
       "name": `Public Adjusting Services in ${city}, NC`,
-      "provider": { "@type": "LocalBusiness", "name": "Claim Guardians LLC" },
+      "provider": { "@id": "https://allclaimguardians.com/#organization" },
       "areaServed": { "@type": "AdministrativeArea", "name": county },
       "description": `Licensed public adjusters handling ${localRisk} damage claims in ${city} and ${county}.`,
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "description": "Free inspection. No recovery, no fee." }
@@ -538,4 +510,12 @@ const { city, slug, county, localRisk, zipCodes, nearbyAreas, damageAngles, case
     </div>
   </section>
 
+
+  <section class="section-muted">
+    <div class="section-inner max-w-4xl">
+      <h2 class="section-heading mb-4">What should you bring to a claim review?</h2>
+      <p class="text-lg text-slate-700 leading-relaxed mb-5">Bring your policy, dated photos, repair estimates or reports, and any insurer letters. If the claim was denied or paid, include the decision and a timeline of communication. The review considers your policy and documented damage; it does not guarantee coverage or a particular settlement.</p>
+      <div class="flex flex-wrap gap-5"><a class="text-[#006775] font-bold underline" href="/resources/claim-review-guide/">Read the claim review guide</a><a class="text-[#006775] font-bold underline" lang="es" href="/es/guia-reclamacion/">Guía de reclamaciones en español</a></div>
+    </div>
+  </section>
 </MinimalAdLayout>

@@ -1,5 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import { classifyReferrer, getTechnicalSource } from '../apps/claimguardians-web/src/lib/analytics.ts';
 import { submitLead, trackLead } from '../apps/claimguardians-web/src/lib/lead-submission.ts';
 
 test('encodes every field for the registered Netlify form', async t => {
@@ -43,7 +44,36 @@ test('conversion events exclude personal and claim data', t => {
   const original = globalThis.window;
   t.after(() => { globalThis.window = original; });
   const events = [];
-  globalThis.window = { dataLayer: events };
+  globalThis.window = { gtag: (...args) => events.push(args) };
   trackLead({ full_name: 'Private name', phone: 'Private phone', email: 'private@example.com', description: 'Private claim details', zip_code: '12345', lead_type: 'nc_general', preferred_language: 'es' });
-  assert.deepEqual(events, [{ event: 'generate_lead', lead_type: 'nc_general', preferred_language: 'es' }]);
+  assert.deepEqual(events, [['event', 'generate_lead', { lead_type: 'nc_general', preferred_language: 'es', technical_source: 'unavailable', declared_source: 'not_provided' }]]);
+});
+
+
+test('referrer classification excludes raw paths, queries and lookalike domains', () => {
+  assert.equal(classifyReferrer('https://chatgpt.com/c/example?prompt=private', 'allclaimguardians.com'), 'chatgpt');
+  assert.equal(classifyReferrer('https://chatgpt.com.evil.example/', 'allclaimguardians.com'), 'other_referral');
+  assert.equal(classifyReferrer('https://gemini.google.com/app', 'allclaimguardians.com'), 'gemini');
+  assert.equal(classifyReferrer('https://allclaimguardians.com/resources/', 'allclaimguardians.com'), 'internal');
+  assert.equal(classifyReferrer('', 'allclaimguardians.com'), 'direct_or_unavailable');
+});
+
+test('technical source survives internal navigation without storing raw referrer', t => {
+  const original = { document: globalThis.document, location: globalThis.location, sessionStorage: globalThis.sessionStorage };
+  t.after(() => Object.assign(globalThis, original));
+  const store = new Map();
+  globalThis.document = { referrer: 'https://perplexity.ai/search/example?question=private' };
+  globalThis.location = { hostname: 'allclaimguardians.com' };
+  globalThis.sessionStorage = { getItem: key => store.get(key), setItem: (key, value) => store.set(key, value) };
+  assert.equal(getTechnicalSource(), 'perplexity');
+  globalThis.document.referrer = 'https://allclaimguardians.com/resources/';
+  assert.equal(getTechnicalSource(), 'perplexity');
+  assert.deepEqual([...store.values()], ['perplexity']);
+});
+
+test('analytics errors cannot turn an accepted lead into a failed submission', t => {
+  const original = globalThis.window;
+  t.after(() => { globalThis.window = original; });
+  globalThis.window = { gtag: () => { throw new Error('Analytics blocked'); } };
+  assert.doesNotThrow(() => trackLead({ lead_type: 'contact', discovery_source: 'private@example.com' }));
 });
