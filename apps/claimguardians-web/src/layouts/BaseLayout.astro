@@ -4,7 +4,7 @@ import '../styles/editorial.css';
 import '../styles/interior.css';
 import EntitySchema from '../components/EntitySchema.astro';
 import Attribution from '../components/Attribution.astro';
-import Clarity from '../components/Clarity.astro';
+import TagManager from '../components/TagManager.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 import '../styles/navigation.css';
@@ -25,16 +25,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 <!doctype html>
 <html lang={lang}>
   <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R0GH89D0MF"></script>
-    <script is:inline>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-R0GH89D0MF');
-    </script>
-    <Clarity />
+    <TagManager />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
     <meta name="description" content={description} />

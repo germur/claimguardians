@@ -42,8 +42,16 @@ export function getTechnicalSource(): string {
 }
 
 export function sendAnalyticsEvent(name: 'generate_lead' | 'contact_click', params: Record<string, string | number | (() => void)>): void {
-  const analytics = window as Window & { gtag?: (...args: unknown[]) => void };
-  try { analytics.gtag?.('event', name, params); }
+  const analytics = window as Window & { dataLayer?: Record<string, unknown>[] };
+  try {
+    const allowed = ['lead_type', 'preferred_language', 'technical_source', 'declared_source', 'contact_method', 'landing_page', 'form_page'];
+    // Reset every parameter so a later contact click cannot inherit lead details.
+    const eventParams = Object.fromEntries(allowed.map(key => [key, typeof params[key] === 'string' || typeof params[key] === 'number' ? params[key] : null]));
+    analytics.dataLayer = analytics.dataLayer || [];
+    analytics.dataLayer.push({ event: name, cg_event: eventParams,
+      ...(typeof params.event_callback === 'function' ? { eventCallback: params.event_callback, eventTimeout: 2000 } : {}),
+    });
+  }
   catch { /* Measurement must never interrupt contact or confirmation. */ }
 }
 

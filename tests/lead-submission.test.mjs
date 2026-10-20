@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { classifyReferrer, getTechnicalSource, flushLeadMeasurement } from '../apps/claimguardians-web/src/lib/analytics.ts';
+import { classifyReferrer, getTechnicalSource, flushLeadMeasurement, sendAnalyticsEvent } from '../apps/claimguardians-web/src/lib/analytics.ts';
 import { submitLead, trackLead } from '../apps/claimguardians-web/src/lib/lead-submission.ts';
 import { getPageContext, safePagePath } from '../apps/claimguardians-web/src/lib/page-context.ts';
 
@@ -45,19 +45,19 @@ test('conversion waits for dispatch and excludes personal and claim data', async
   const original = globalThis.window;
   t.after(() => { globalThis.window = original; });
   const events = [];
-  globalThis.window = { gtag: (...args) => { events.push(args); } };
+  globalThis.window = { dataLayer: events };
   let finished = false;
   const pending = trackLead({ full_name: 'Private name', phone: 'Private phone', email: 'private@example.com', description: 'Private claim details', zip_code: '12345', lead_type: 'nc_general', preferred_language: 'es' }).then(() => { finished = true; });
   await Promise.resolve();
   assert.equal(finished, false);
-  const params = events[0][2];
-  assert.equal(params.event_timeout, 2000);
-  params.event_callback();
+  const params = events[0];
+  assert.equal(params.eventTimeout, 2000);
+  params.eventCallback();
   await pending;
   assert.equal(finished, true);
-  delete params.event_callback;
-  delete params.event_timeout;
-  assert.deepEqual(events, [['event', 'generate_lead', { lead_type: 'nc_general', preferred_language: 'es', technical_source: 'unavailable', declared_source: 'not_provided', landing_page: 'unavailable', form_page: 'unavailable' }]]);
+  delete params.eventCallback;
+  delete params.eventTimeout;
+  assert.deepEqual(events, [{ event: 'generate_lead', cg_event: { lead_type: 'nc_general', preferred_language: 'es', technical_source: 'unavailable', declared_source: 'not_provided', contact_method: null, landing_page: 'unavailable', form_page: 'unavailable' } }]);
 });
 
 
@@ -69,13 +69,27 @@ test('referrer classification excludes raw paths, queries and lookalike domains'
   assert.equal(classifyReferrer('', 'allclaimguardians.com'), 'direct_or_unavailable');
 });
 
+test('GTM events exclude unknown fields and clear prior lead parameters on contact clicks', t => {
+  const original = globalThis.window;
+  t.after(() => { globalThis.window = original; });
+  globalThis.window = {};
+  sendAnalyticsEvent('generate_lead', { lead_type: 'contact', email: 'private@example.com' });
+  sendAnalyticsEvent('contact_click', { contact_method: 'phone' });
+  const events = globalThis.window.dataLayer;
+  assert.equal(events.length, 2);
+  assert.equal(events[0].event, 'generate_lead');
+  assert.equal(JSON.stringify(events).includes('private@example.com'), false);
+  assert.equal(events[1].cg_event.lead_type, null);
+  assert.equal(events[1].cg_event.contact_method, 'phone');
+});
+
 test('confirmation consumes a safe measurement once and discards expired records', async t => {
   const original = { window: globalThis.window, sessionStorage: globalThis.sessionStorage };
   t.after(() => Object.assign(globalThis, original));
   const store = new Map();
   const events = [];
   globalThis.sessionStorage = { getItem: key => store.get(key), setItem: (key, value) => store.set(key, value), removeItem: key => store.delete(key) };
-  globalThis.window = { gtag: (...args) => events.push(args) };
+  globalThis.window = { dataLayer: events };
   await trackLead({ lead_type: 'contact', full_name: 'Private person', email: 'private@example.com', preferred_language: 'es' });
   assert.equal(events.length, 0);
   assert.equal(JSON.stringify([...store.values()]).includes('private@example.com'), false);
@@ -83,7 +97,7 @@ test('confirmation consumes a safe measurement once and discards expired records
   flushLeadMeasurement();
   flushLeadMeasurement();
   assert.equal(events.length, 1);
-  assert.equal(events[0][1], 'generate_lead');
+  assert.equal(events[0].event, 'generate_lead');
   store.set('cg-confirmed-lead-event-v1', JSON.stringify({ time: Date.now() - 301000, params: { lead_type: 'contact' } }));
   flushLeadMeasurement();
   assert.equal(events.length, 1);
@@ -105,7 +119,7 @@ test('technical source survives internal navigation without storing raw referrer
 test('analytics errors cannot turn an accepted lead into a failed submission', async t => {
   const original = globalThis.window;
   t.after(() => { globalThis.window = original; });
-  globalThis.window = { gtag: () => { throw new Error('Analytics blocked'); } };
+  globalThis.window = { dataLayer: { push: () => { throw new Error('Analytics blocked'); } } };
   await assert.doesNotReject(() => trackLead({ lead_type: 'contact', discovery_source: 'private@example.com' }));
 });
 
@@ -115,7 +129,7 @@ test('landing and form pages survive confirmation without retaining private URLs
   const store = new Map();
   const events = [];
   globalThis.sessionStorage = { getItem: key => store.get(key), setItem: (key, value) => store.set(key, value), removeItem: key => store.delete(key) };
-  globalThis.window = { gtag: (...args) => events.push(args) };
+  globalThis.window = { dataLayer: events };
   globalThis.location = { pathname: '/service-areas/los-angeles/', search: '?email=private@example.com', hash: '#private' };
   assert.equal(getPageContext().landing_page, '/service-areas/los-angeles/');
   globalThis.location.pathname = '/contact/';
@@ -123,8 +137,8 @@ test('landing and form pages survive confirmation without retaining private URLs
   await trackLead({ lead_type: 'contact' });
   globalThis.location.pathname = '/free-claim-review/thank-you/';
   flushLeadMeasurement();
-  assert.equal(events[0][2].landing_page, '/service-areas/los-angeles/');
-  assert.equal(events[0][2].form_page, '/contact/');
+  assert.equal(events[0].cg_event.landing_page, '/service-areas/los-angeles/');
+  assert.equal(events[0].cg_event.form_page, '/contact/');
   assert.equal(JSON.stringify([...store.values()]).includes('private'), false);
   assert.equal(safePagePath('/clients/private@example.com'), 'other');
   assert.equal(safePagePath('/contact/?email=private@example.com'), 'other');

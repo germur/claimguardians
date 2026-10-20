@@ -1,5 +1,7 @@
 # Microsoft Clarity — October 20, 2026
 
+Historical installation record: the direct component described below was subsequently replaced by GTM-PC3TN25S on the same date. Current configuration and validation: [MEDICION-GTM.md](MEDICION-GTM.md). Explicit form masking remains in place.
+
 - Project: `z0pqzdcaeo`.
 - Shared component in `BaseLayout`: one async bootstrap per page. Only the canonical production hostname and its www alias load the remote tag; local and deployment previews are excluded. A runtime guard avoids duplicate initialization.
 - `LeadCaptureForm` and the complete multistep `LeadForm` container explicitly mask their contents with `data-clarity-mask="True"`, including future child elements. Microsoft documents this attribute at https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-masking.

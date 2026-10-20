@@ -19,8 +19,8 @@ test('every published page keeps the shared design, navigation and responsive la
       await expect(page.locator('main')).toHaveCount(1);
       await expect(page.locator('.site-header')).toHaveCount(1);
       await expect(page.locator('.editorial-footer')).toHaveCount(1);
-      await expect(page.locator('script[src*="googletagmanager.com/gtag/js"]')).toHaveCount(1);
-      await expect(page.locator('script[data-tracking="clarity"]')).toHaveCount(1);
+      await expect(page.locator('script[src*="googletagmanager.com/gtag/js"]')).toHaveCount(0);
+      await expect(page.locator('script[data-tracking="gtm"]')).toHaveCount(1);
       const layout = await page.evaluate(() => ({
         viewport: innerWidth,
         content: document.documentElement.scrollWidth,

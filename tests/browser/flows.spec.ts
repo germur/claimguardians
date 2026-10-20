@@ -209,12 +209,12 @@ test('a city landing survives navigation and is sent with the actual form page',
   await page.waitForURL('**/thank-you/');
   expect(payload?.get('landing_page')).toBe('/service-areas/los-angeles/');
   expect(payload?.get('form_page')).toBe('/contact/');
-  const event = await page.evaluate(() => Array.from((window as any).dataLayer || []).find((x: any) => x[0] === 'event' && x[1] === 'generate_lead') as any);
-  expect(event[2].landing_page).toBe('/service-areas/los-angeles/');
-  expect(event[2].form_page).toBe('/contact/');
+  const event = await page.evaluate(() => Array.from((window as any).dataLayer || []).find((x: any) => x.event === 'generate_lead') as any);
+  expect(event.cg_event.landing_page).toBe('/service-areas/los-angeles/');
+  expect(event.cg_event.form_page).toBe('/contact/');
   expect(JSON.stringify(event)).not.toContain('not-stored');
   await page.reload();
-  expect(await page.evaluate(() => Array.from((window as any).dataLayer || []).filter((x: any) => x[0] === 'event' && x[1] === 'generate_lead').length)).toBe(0);
+  expect(await page.evaluate(() => Array.from((window as any).dataLayer || []).filter((x: any) => x.event === 'generate_lead').length)).toBe(0);
 });
 
 test('service area directory filters by state and city, recovers from no results and works on mobile', async ({ page, browser }) => {
