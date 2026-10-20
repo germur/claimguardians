@@ -28,7 +28,7 @@ export default function LeadCaptureForm({ leadType = 'general', state = '', dama
       setError('We could not confirm your request. Your details are still here. Try again, or call (305) 804-5489.');
     } finally { pending.current = false; setSending(false); }
   }
-  return <form name={LEAD_FORM_NAME} method="POST" action={THANK_YOU_URL} onSubmit={handleSubmit} className="space-y-5" aria-busy={sending}>
+  return <form data-clarity-mask="True" name={LEAD_FORM_NAME} method="POST" action={THANK_YOU_URL} onSubmit={handleSubmit} className="space-y-5" aria-busy={sending}>
     <input type="hidden" name="form-name" value={LEAD_FORM_NAME} />
       <input type="hidden" name="technical_source" value="unavailable" />
     <input type="hidden" name="landing_page" value={pageContext.landing_page} />

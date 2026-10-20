@@ -33,7 +33,7 @@ export default function LeadForm() {
       setError('We could not confirm your request. Your details are still here. Please try again, or call (305) 804-5489.');
     } finally { pending.current = false; setSending(false); }
   }
-  return <div className="review-flow">
+  return <div className="review-flow" data-clarity-mask="True">
     <p className="text-sm text-slate-600 font-bold mb-3" aria-live="polite">Step {step} of 3 · {['Your damage', 'Your property', 'Your contact details'][step - 1]}</p>
     <div role="progressbar" aria-label="Claim review progress" aria-valuenow={step} aria-valuemin={1} aria-valuemax={3} className="h-2 rounded-full bg-slate-100 mb-8 overflow-hidden"><div className="h-full bg-[#00808C] transition-all" style={{ width: `${step / 3 * 100}%` }} /></div>
     <h2 ref={heading} tabIndex={-1} className="text-2xl md:text-3xl font-bold mb-6 focus:outline-none">{['Tell us about the damage', 'Where is the property?', 'How can we reach you?'][step - 1]}</h2>
