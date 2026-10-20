@@ -1,4 +1,5 @@
 ---
+import PageHero from "../../components/PageHero.astro";
 import ServicePreparation from '../../components/ServicePreparation.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import EligibilityTest from '../../components/EligibilityTest';
@@ -22,41 +23,7 @@ import EligibilityTest from '../../components/EligibilityTest';
   </Fragment>
 
   <!-- 1. Hero -->
-  <header class="relative bg-[#041224] overflow-hidden" style="padding-top:8rem; padding-bottom:8rem;">
-    <div class="absolute inset-0 z-0">
-      <img src="/images/hero-hurricane-damage.png" alt="Hurricane storm damage to Florida neighborhood" class="w-full h-full object-cover opacity-60 scale-105" fetchpriority="high" loading="eager"/>
-      <div class="absolute inset-0 bg-gradient-to-b from-[#041224]/40 via-[#002D51]/20 to-[#041224]"></div>
-    </div>
-    <div class="section-inner relative z-10">
-      <nav aria-label="Breadcrumb" class="mb-10 inline-flex">
-        <ol class="flex items-center space-x-2 text-sm text-slate-400 font-medium bg-white/5 px-4 py-2 rounded-full border border-white/10">
-          <li><a href="/" class="hover:text-white transition-colors">Home</a></li>
-          <li><span class="mx-2 text-slate-600">›</span></li>
-          <li><a href="/services/" class="hover:text-white transition-colors">Services</a></li>
-          <li><span class="mx-2 text-slate-600">›</span></li>
-          <li class="text-white" aria-current="page">Hurricane Damage</li>
-        </ol>
-      </nav>
-      <div class="max-w-4xl">
-        <span class="eyebrow" style="color:#00B5A6;">Property Damage — Hurricane &amp; Storm</span>
-        <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-8 leading-[1.1] tracking-tight">
-          Hurricane Damage Public Adjuster - We Force Full Storm Payouts.
-        </h1>
-        <p class="text-xl text-slate-300 mb-12 leading-relaxed max-w-3xl">
-          Hurricane season devastates Florida properties. Insurance companies minimize payouts by disputing wind damage and storm surge. Claim Guardians forces your insurer to pay the full cost of your hurricane recovery.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-5 mb-12">
-          <a href="/free-claim-review/" class="btn-accent px-10 py-5 text-lg min-h-[60px]">Get a Free Hurricane Damage Inspection</a>
-          <a href="tel:3058045489" class="inline-flex justify-center items-center px-10 py-5 text-lg font-bold text-white bg-white/5 border-2 border-white/20 rounded-xl hover:bg-white/10 transition-all transform hover:-translate-y-1 min-h-[60px]">Call a Storm Expert Now</a>
-        </div>
-        <div class="flex flex-wrap items-center gap-x-10 gap-y-4 pt-6 border-t border-white/10">
-          <div class="flex items-center gap-2 text-slate-300 font-semibold text-sm"><span class="text-[#00B5A6]">✓</span> Florida DFS Licensed</div>
-          <div class="flex items-center gap-2 text-slate-300 font-semibold text-sm"><span class="text-[#00B5A6]">✓</span> No Recovery, No Fee</div>
-          <div class="flex items-center gap-2 text-slate-300 font-semibold text-sm"><span class="text-[#00B5A6]">✓</span> Catastrophic Loss Specialists</div>
-        </div>
-      </div>
-    </div>
-  </header>
+  <PageHero title={"Hurricane & storm claim help."} eyebrow={"Property claims / Wind, hail & storms"} description={"After the storm, make the damage clear. We review property losses, supporting records and the insurer’s scope to discuss the help your claim needs."} image={"/images/hero-hurricane-damage.png"} current={"Hurricane & storm"} parent={{"label":"Services","href":"/services/"}}></PageHero>
 
   <!-- 2. Problem / Solution -->
   <section class="section-white">

@@ -29,3 +29,15 @@ La revisión visual incluye portada en escritorio/móvil y búsqueda combinada e
 Esta primera renovación cubre las dos entradas principales y componentes compartidos. Las páginas individuales de daño y ciudad conservan su estructura de contenido; no se presenta como un rediseño individual completo de las 44 rutas. Se mantiene el criterio de intención de búsqueda documentado en SEO-INTENCION-DE-BUSQUEDA.md.
 
 No se atribuye una mejora de conversión hasta contar con datos posteriores a la publicación. Las imágenes existentes son ilustrativas y no se usan como prueba de resultados o identidad del equipo.
+
+## Segunda renovación: todas las páginas
+
+Por instrucción posterior del usuario, la dirección aprobada se extiende a las 44 rutas públicas, incluida la portada ya renovada. Se añade un encabezado interior compartido con breadcrumbs, fotografía ilustrativa, CTA y contexto específico. Se aplica a los seis servicios, las 23 ciudades, North Carolina, denegaciones NC, empresa y recursos. El directorio de servicios tiene un nuevo catálogo fotográfico y conserva su recorrido interactivo de revisión.
+
+Contacto y solicitud de revisión se reorganizan alrededor de sus formularios. En móvil, contacto muestra el formulario antes de los datos secundarios, con acceso a llamada y ancla desde el encabezado. Se retiran tres resultados económicos repetidos sin evidencia y las promesas automáticas del lateral del formulario. El envío, conservación de respuestas, medición y confirmación mantienen su implementación.
+
+Las guías en inglés/español incorporan una presentación de lectura, navegación por estado y checklist. Las páginas legales conservan su texto con un único main semántico. Confirmación y 404 reciben una presentación coherente y conservan noindex. Las páginas que usaban layout mínimo ahora comparten navegación, menú móvil, pie y una sola etiqueta GA4 con el layout general.
+
+Se elimina la apariencia de avatar ficticio del principal y se usan iniciales. Permanecen las referencias a licencias previamente verificadas; la intervención visual no acredita nuevas credenciales ni todos los textos históricos.
+
+Validación ampliada: recorrer las 44 rutas tanto a 1440 como a 390 píxeles, comprobando título principal visible, un solo main, navegación/pie, una sola carga GA4, imágenes, errores JavaScript y ausencia de desbordamiento. Se guardan capturas representativas de servicios, ciudades, recursos, guía ES, empresa, contacto, revisión, privacidad y 404. Se mantienen las pruebas funcionales y las comprobaciones SEO estáticas.

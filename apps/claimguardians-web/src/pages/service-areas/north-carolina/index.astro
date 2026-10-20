@@ -1,4 +1,5 @@
 ---
+import PageHero from "../../../components/PageHero.astro";
 import LocalClaimService from '../../../components/LocalClaimService.astro';
 import MinimalAdLayout from '../../../layouts/MinimalAdLayout.astro';
 import MarketReview from '../../../components/MarketReview.astro';
@@ -17,33 +18,7 @@ const profile = getMarketReview('', 'NC');
   </Fragment>
 
   <!-- 1. HERO -->
-  <section class="relative bg-[#041224] overflow-hidden" style="padding-top:8rem; padding-bottom:8rem;">
-    <div class="absolute inset-0 z-0">
-      <img src="/images/florida-damaged-house-hero.png" alt="Damaged North Carolina home after a hurricane" class="w-full h-full object-cover opacity-60 scale-105" fetchpriority="high" />
-      <div class="absolute inset-0 bg-gradient-to-b from-[#041224]/40 via-[#002D51]/20 to-[#041224]"></div>
-    </div>
-    <div class="section-inner relative z-10">
-      <div class="max-w-4xl">
-        <span class="eyebrow" style="color:#00B5A6;">Serving all of North Carolina</span>
-        <h1 class="text-4xl md:text-5xl lg:text-7xl font-extrabold text-white mb-6 tracking-tight leading-[1.1]">
-          North Carolina Public Adjuster
-        </h1>
-        <p class="text-xl text-slate-300 leading-relaxed font-medium mb-10 max-w-3xl">
-          Claim Guardians represents North Carolina homeowners and businesses in property insurance claims. We document losses, review policies and negotiate with insurers on the policyholder’s behalf. Ask about a new, denied or underpaid claim.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4 mb-10">
-          <a href="#claim-form" class="inline-flex items-center justify-center px-8 py-4 text-base font-extrabold text-white bg-[#00808C] rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all">Get a Free Claim Review</a>
-          <a href="tel:3058045489" class="inline-flex items-center justify-center px-8 py-4 text-base font-extrabold text-white border-2 border-white/30 bg-white/5 hover:bg-white/10 rounded-xl transition-all">📞 Emergency? (305) 804-5489</a>
-        </div>
-        <div class="flex flex-wrap gap-x-6 gap-y-3 text-sm font-semibold text-slate-300">
-          <span class="flex items-center gap-2"><svg class="w-4 h-4 text-[#00B5A6]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>NC, FL & CA licensed adjusters</span>
-          <span class="flex items-center gap-2"><svg class="w-4 h-4 text-[#00B5A6]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.9 7.5.6-5.7 4.9 1.8 7.3L12 17.8 5.5 21.7l1.8-7.3L1.6 9.5l7.5-.6L12 2z"/></svg>English and Spanish support</span>
-          <span class="flex items-center gap-2"><svg class="w-4 h-4 text-[#00B5A6]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>No recovery, no fee</span>
-          <span class="flex items-center gap-2"><svg class="w-4 h-4 text-[#00B5A6]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Se habla español</span>
-        </div>
-      </div>
-    </div>
-  </section>
+  <PageHero title={"North Carolina Public Adjuster"} eyebrow={"Statewide property claim representation"} description={"Claim Guardians represents North Carolina homeowners and businesses in property insurance claims. We document losses, review policies and negotiate with insurers on the policyholder’s behalf. Ask about a new, denied or underpaid claim."} image={"/images/hero-hurricane-damage.png"} current={"North Carolina"} parent={{"label":"Service areas","href":"/service-areas/"}} ctaHref={"#claim-form"} compact={true}></PageHero>
 
   <LocalClaimService city="North Carolina" state="NC" area="North Carolina" />
 

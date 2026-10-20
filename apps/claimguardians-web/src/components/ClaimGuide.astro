@@ -14,7 +14,7 @@ const alternate = lang === 'en' ? '/es/guia-reclamacion/' : '/resources/claim-re
   '@context': 'https://schema.org', '@type': 'FAQPage',
   mainEntity: guide.faqs.map(faq => ({ '@type': 'Question', name: faq.q, acceptedAnswer: { '@type': 'Answer', text: faq.a } })),
 })} />
-<article class="section-white">
+<article class="guide-article section-white">
   <div class="section-inner max-w-4xl">
     <a href={alternate} lang={lang === 'en' ? 'es' : 'en'} class="text-[#006775] underline">{guide.alternate}</a>
     <p class="text-sm text-slate-600 mt-6 mb-4">{guide.updated} · Claim Guardians</p>
@@ -33,7 +33,7 @@ const alternate = lang === 'en' ? '/es/guia-reclamacion/' : '/resources/claim-re
         <li><a href={guideSources[index].url} rel="noopener noreferrer">{guideSources[index].name}</a></li>
       </ul>
     </section>)}
-    <section class="bg-slate-50 rounded-2xl p-6 md:p-8 my-10">
+    <section class="guide-checklist bg-slate-50 rounded-2xl p-6 md:p-8 my-10">
       <h2 class="text-2xl font-bold mb-5">{guide.checklistTitle}</h2>
       <ol class="list-decimal pl-5 space-y-4 text-slate-700">{guide.checklist.map(item => <li>{item}</li>)}</ol>
     </section>

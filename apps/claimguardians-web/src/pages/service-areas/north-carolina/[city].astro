@@ -1,4 +1,5 @@
 ---
+import PageHero from "../../../components/PageHero.astro";
 import LocalClaimService from '../../../components/LocalClaimService.astro';
 import NCServiceLinks from '../../../components/NCServiceLinks.astro';
 import MinimalAdLayout from '../../../layouts/MinimalAdLayout.astro';
@@ -165,48 +166,7 @@ const faq = profile.faq;
   </Fragment>
 
   <!-- 1. HERO -->
-  <section class="relative bg-[#041224] overflow-hidden" style="padding-top:8rem; padding-bottom:8rem;">
-    <div class="absolute inset-0 z-0">
-      <img src="/images/florida-damaged-house-hero.png" alt={`Property damage in ${city}, North Carolina`} class="w-full h-full object-cover opacity-60 scale-105" fetchpriority="high" />
-      <div class="absolute inset-0 bg-gradient-to-b from-[#041224]/40 via-[#002D51]/20 to-[#041224]"></div>
-    </div>
-    <div class="section-inner relative z-10">
-      <nav aria-label="Breadcrumb" class="mb-10 inline-flex">
-        <ol class="flex items-center space-x-2 text-sm text-slate-400 font-medium bg-white/5 backdrop-blur-md px-4 py-2 rounded-full border border-white/10">
-          <li><a href="/" class="hover:text-white transition-colors">Home</a></li>
-          <li><span class="mx-2 text-slate-600">›</span></li>
-          <li><a href="/service-areas/" class="hover:text-white transition-colors">Service Areas</a></li>
-          <li><span class="mx-2 text-slate-600">›</span></li>
-          <li><a href="/service-areas/north-carolina/" class="hover:text-white transition-colors">North Carolina</a></li>
-          <li><span class="mx-2 text-slate-600">›</span></li>
-          <li class="text-white" aria-current="page">{city}</li>
-        </ol>
-      </nav>
-      <div class="max-w-4xl">
-        <span class="eyebrow" style="color:#00B5A6;">Public Adjuster — {county}</span>
-        <h1 class="text-4xl md:text-5xl lg:text-7xl font-extrabold text-white mb-6 tracking-tight leading-[1.1]">
-          Public adjuster claim review in {city}, NC.
-        </h1>
-        <p class="text-xl text-slate-300 leading-relaxed font-medium mb-10 max-w-3xl">
-          {city} properties face {localRisk}. We help organize damage records and review a denial or partial payment against the policy and available evidence. Coverage and any recovery depend on your claim.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4 mb-10">
-          <a href="#claim-form" class="inline-flex items-center justify-center px-8 py-4 text-base font-extrabold text-white bg-[#00808C] rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all">
-            Request a free claim review
-          </a>
-          <a href="tel:3058045489" class="inline-flex items-center justify-center px-8 py-4 text-base font-extrabold text-white border-2 border-white/30 bg-white/5 hover:bg-white/10 rounded-xl transition-all">
-            📞 (305) 804-5489
-          </a>
-        </div>
-        <div class="flex flex-wrap gap-x-6 gap-y-3 text-sm font-semibold text-slate-300">
-          <span class="flex items-center gap-2"><span class="text-[#00B5A6]">✓</span> Serving all of {county}</span>
-          <span class="flex items-center gap-2"><span class="text-[#00B5A6]">✓</span> NC DOI Licensed</span>
-          <span class="flex items-center gap-2"><span class="text-[#00B5A6]">✓</span> No Recovery, No Fee</span>
-          <span class="flex items-center gap-2"><span class="text-[#00B5A6]">✓</span> Se habla español</span>
-        </div>
-      </div>
-    </div>
-  </section>
+  <PageHero title={`Public Adjuster in ${city}, ${"NC"}`} eyebrow={`Property claims / ${county}`} description={`Claim Guardians represents homeowners and business owners in ${county} with property insurance claims. We document damage, review the policy and negotiate with your insurer. Request help with a new claim, a denial or a partial payment.`} image={'/images/hero-hurricane-damage.png'} current={city} parent={{ label: 'North Carolina', href: '/service-areas/north-carolina/' }} ctaHref="#claim-form" compact />
 
   <LocalClaimService city={city} state="NC" area={county} />
 

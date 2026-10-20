@@ -1,0 +1,15 @@
+---
+import Icon from './DesignIcon.astro';
+interface Props {
+  title: string; emphasis?: string; eyebrow: string; description: string;
+  image?: string; current: string; parent?: { label: string; href: string };
+  ctaHref?: string; ctaLabel?: string; compact?: boolean;
+}
+const { title, emphasis, eyebrow, description, image, current, parent, ctaHref = '/free-claim-review/', ctaLabel = 'Request a free claim review', compact = false } = Astro.props;
+---
+<header class:list={['page-hero', { 'page-hero-compact': compact, 'page-hero-text': !image }]}>
+  <div class="design-shell">
+    <nav aria-label="Breadcrumb" class="design-breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span>{parent?.href === '/service-areas/north-carolina/' && <><a href="/service-areas/">Service areas</a><span aria-hidden="true">/</span></>}{parent && <><a href={parent.href}>{parent.label}</a><span aria-hidden="true">/</span></>}<span aria-current="page">{current}</span></nav>
+    <div class="page-hero-grid"><div class="page-hero-copy"><p class="design-kicker"><span class="status-dot"></span>{eyebrow}</p><h1>{title}{emphasis && <><br /><em>{emphasis}</em></>}</h1><p class="page-hero-description">{description}</p><slot />{ctaLabel && <div class="design-actions"><a class="design-button" href={ctaHref}>{ctaLabel}<Icon size={21} /></a><a class="design-text-link" href="tel:3058045489">(305) 804-5489 <span aria-hidden="true">↗</span></a></div>}</div>{image && <div class="page-hero-photo"><img src={image} alt="Property claim illustration" width="640" height="640" fetchpriority="high" /><span class="photo-label">YOUR PROPERTY.<br />YOUR NEXT CHAPTER.</span><span class="page-hero-caption"><Icon name="shield" size={19} /> Claim Guardians · On your side.</span></div>}</div>
+  </div>
+</header>

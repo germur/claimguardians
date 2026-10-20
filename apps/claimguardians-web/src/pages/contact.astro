@@ -1,104 +1,17 @@
 ---
+import PageHero from "../components/PageHero.astro";
 import BaseLayout from '../layouts/BaseLayout.astro';
 import LeadCaptureForm from '../components/LeadCaptureForm';
 ---
 
 <BaseLayout 
   title="Contact a Public Adjuster - Free Consultation FL, CA & NC | Claim Guardians"
-  description="Contact Claim Guardians for a free property damage consultation. Licensed public adjusters in FL, CA & NC. Available 24/7. Call (305) 804-5489."
+  description="Contact Claim Guardians about a property insurance claim in Florida, California or North Carolina. Request a free initial review in English or Spanish."
 >
   <Fragment slot="head">
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ContactPage", "mainEntity": {"@id": "https://allclaimguardians.com/#organization"}, "url": "https://allclaimguardians.com/contact/"}</script>
   </Fragment>
 
-  <!-- 1. Hero -->
-  <header class="relative bg-[#041224] overflow-hidden" style="padding-top:8rem; padding-bottom:8rem;">
-    <div class="absolute inset-0 z-0">
-      <img src="/images/hero-city-florida.png" alt="Florida skyline - Contact Claim Guardians" class="w-full h-full object-cover opacity-60 scale-105" />
-      <div class="absolute inset-0 bg-gradient-to-b from-[#041224]/40 via-[#002D51]/20 to-white"></div>
-    </div>
-    <div class="section-inner relative z-10 text-center">
-      <nav aria-label="Breadcrumb" class="mb-8 inline-flex">
-        <ol class="flex items-center space-x-2 text-sm text-slate-400 font-medium bg-white/5 px-4 py-2 rounded-full border border-white/10">
-          <li><a href="/" class="hover:text-white transition-colors">Home</a></li>
-          <li><span class="mx-2 text-slate-600">›</span></li>
-          <li class="text-white font-bold" aria-current="page">Contact</li>
-        </ol>
-      </nav>
-      <div class="max-w-3xl mx-auto">
-        <span class="eyebrow" style="color:#00B5A6;">Immediate Response</span>
-        <h1 class="text-5xl md:text-6xl font-extrabold text-white mb-6">Contact a Public Adjuster <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#00808C] to-[#00B5A6]">for Free</span></h1>
-        <p class="text-xl text-slate-300 font-medium leading-relaxed">
-          Whether you have a new loss or a denied claim, our team is ready to help homeowners and businesses in Florida, California, and North Carolina. For urgent damage, call our emergency line.
-        </p>
-      </div>
-    </div>
-  </header>
-
-  <!-- 2. Dual Column Layout -->
-  <section class="section-white" style="margin-top:-6rem;">
-    <div class="section-inner relative z-20">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-        
-        <!-- Contact Information -->
-        <div class="space-y-12">
-          <div>
-            <h2 class="text-4xl font-black text-[#082142] mb-6">Direct Channels</h2>
-            <p class="text-lg text-slate-500 font-medium leading-relaxed">
-              We understand the urgency of property damage. Use any of the following methods for a rapid-response consultation.
-            </p>
-          </div>
-
-          <div class="space-y-8">
-            <a href="tel:3058045489" class="card-hover flex items-center gap-6 p-8 group">
-              <div class="w-16 h-16 rounded-2xl bg-slate-50 flex items-center justify-center text-4xl group-hover:scale-110 transition-transform shadow-inner">📞</div>
-              <div>
-                <p class="text-sm font-black text-[#00808C] uppercase tracking-widest mb-1">Call 24/7</p>
-                <p class="text-2xl font-black text-[#082142] group-hover:text-[#00808C] transition-colors">(305) 804-5489</p>
-              </div>
-            </a>
-
-            <a href="mailto:home@allclaimguardians.com" class="card-hover flex items-center gap-6 p-8 group">
-              <div class="w-16 h-16 rounded-2xl bg-slate-50 flex items-center justify-center text-4xl group-hover:scale-110 transition-transform shadow-inner">✉️</div>
-              <div>
-                <p class="text-sm font-black text-[#00808C] uppercase tracking-widest mb-1">Email Us</p>
-                <p class="text-lg sm:text-2xl break-all font-black text-[#082142] group-hover:text-[#00808C] transition-colors">home@allclaimguardians.com</p>
-              </div>
-            </a>
-
-          <div class="card-hover flex items-center gap-6 p-8 group">
-            <div class="w-16 h-16 rounded-2xl bg-slate-50 flex items-center justify-center text-4xl group-hover:scale-110 transition-transform shadow-inner">📍</div>
-            <div>
-              <p class="text-sm font-black text-[#00808C] uppercase tracking-widest mb-1">Florida Office</p>
-              <p class="text-xl font-black text-[#082142]">304 Indian Trace Unit 655<br/>Weston, FL 33326</p>
-            </div>
-          </div>
-          </div>
-        </div>
-
-        <!-- Rapid Inquiry Form -->
-        <div class="bg-white rounded-3xl p-10 md:p-12 shadow-2xl border-2 border-slate-100 ring-1 ring-slate-200">
-           <h3 class="text-2xl font-black text-[#082142] mb-8 border-b border-slate-100 pb-4">Send a Message</h3>
-           <LeadCaptureForm client:load leadType="contact" />
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- 3. Final Trust -->
-  <section class="section-muted text-center">
-    <div class="section-inner">
-      <h4 class="text-sm font-black uppercase tracking-widest text-[#00808C] mb-8">Serving All 67 Florida Counties</h4>
-      <div class="flex flex-wrap justify-center gap-8 opacity-40 grayscale font-black text-slate-400">
-        <span>MIAMI-DADE</span>
-        <span>BROWARD</span>
-        <span>PALM BEACH</span>
-        <span>ORLANDO</span>
-        <span>TAMPA</span>
-        <span>JACKSONVILLE</span>
-      </div>
-    </div>
-  </section>
-
+  <PageHero title="Let’s talk about" emphasis="your property claim." eyebrow="A conversation is a good place to start" description="Tell us what happened, where the property is and where the claim stands. Request a conversation in English or Spanish, or contact the team directly." current="Contact" ctaHref="#contact-message" ctaLabel="Send us a message" />
+  <section class="contact-section design-shell"><div class="contact-details"><p class="design-kicker">Direct contact</p><h2>Real questions.<br /><em>Let’s talk them through.</em></h2><p>You don’t need every document ready to ask for help. Choose the contact method that works for you.</p><div class="contact-channel"><span>01 / Call the team</span><a href="tel:3058045489">(305) 804-5489 ↗</a></div><div class="contact-channel"><span>02 / Write to us</span><a href="mailto:home@allclaimguardians.com">home@allclaimguardians.com ↗</a></div><div class="contact-channel"><span>03 / Headquarters</span><p>304 Indian Trace Unit 655<br />Weston, FL 33326</p></div><p class="contact-note">Property claim services in Florida, California and North Carolina. <a href="/service-areas/">Explore service areas ↗</a></p></div><div class="contact-form-panel" id="contact-message"><p class="design-kicker">Request a conversation</p><h2>Send us a message.</h2><p>Tell us how to reach you and briefly describe the property damage. Keep private claim documents for the follow-up.</p><LeadCaptureForm client:load leadType="contact" /></div></section>
 </BaseLayout>
