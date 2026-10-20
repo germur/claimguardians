@@ -41,3 +41,11 @@ Las guías en inglés/español incorporan una presentación de lectura, navegaci
 Se elimina la apariencia de avatar ficticio del principal y se usan iniciales. Permanecen las referencias a licencias previamente verificadas; la intervención visual no acredita nuevas credenciales ni todos los textos históricos.
 
 Validación ampliada: recorrer las 44 rutas tanto a 1440 como a 390 píxeles, comprobando título principal visible, un solo main, navegación/pie, una sola carga GA4, imágenes, errores JavaScript y ausencia de desbordamiento. Se guardan capturas representativas de servicios, ciudades, recursos, guía ES, empresa, contacto, revisión, privacidad y 404. Se mantienen las pruebas funcionales y las comprobaciones SEO estáticas.
+
+## Navbar y footer: refinamiento posterior
+
+Se extrae SiteHeader como componente compartido. La barra flotante incorpora superficie translúcida, acciones circulares, CTA visible también en móvil, señal de sección actual y desplegable nativo de servicios. El desplegable permite tabulación, Escape y cierre al hacer clic fuera o salir con el foco. El menú móvil conserva diálogo modal, foco inicial, contención de tabulación, Escape, restauración del foco y del desplazamiento; se adapta a móvil y tableta por debajo de 1000 px. Una navegación alternativa mantiene enlaces disponibles sin JavaScript.
+
+El footer añade una invitación editorial, acceso directo a revisión/llamada, navegación por funciones, correo confirmado, domicilio, cobertura y un cierre tipográfico decorativo excluido de lectores de pantalla. Los enlaces legales siguen visibles y «Back to top» apunta a un destino real al inicio del documento. No se añaden insignias, cifras, sucursales o promesas de disponibilidad.
+
+Las pruebas nuevas cubren teclado y destinos del desplegable, estado actual, cambios de tamaño a 320/768/999/1000/1200 px, contacto del footer y retorno al inicio. Se conservan el rastreo de todas las páginas y las pruebas funcionales/SEO existentes.

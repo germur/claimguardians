@@ -1,0 +1,81 @@
+---
+import Icon from './DesignIcon.astro';
+const pathname = Astro.url.pathname;
+const links = [
+  { href: '/service-areas/', label: 'Where we work', short: 'Service areas' },
+  { href: '/resources/', label: 'Resources', short: 'Resources' },
+  { href: '/company/', label: 'Our firm', short: 'Our firm' },
+];
+const services = [
+  { slug: 'water-damage', label: 'Water & leaks', icon: 'water', text: 'Look beyond the surface.' },
+  { slug: 'hurricane-damage', label: 'Hurricane & storm', icon: 'wind', text: 'A clearer picture after the storm.' },
+  { slug: 'roof-damage', label: 'Roof damage', icon: 'roof', text: 'From inspection to claim review.' },
+  { slug: 'fire-damage', label: 'Fire & smoke', icon: 'fire', text: 'Document the full impact.' },
+  { slug: 'mold-claims', label: 'Mold damage', icon: 'mold', text: 'Connect the records and policy.' },
+  { slug: 'denied-claims', label: 'Denied & underpaid', icon: 'denied', text: 'Understand the written decision.' },
+];
+---
+<div id="site-top" class="site-top-anchor" aria-hidden="true"></div>
+<header class="site-header navigation-v2">
+  <nav class="nav-shell" aria-label="Main navigation">
+    <a class="nav-brand" href="/" aria-label="Claim Guardians home"><img src="/images/logo-color.svg" alt="Claim Guardians" width="124" height="65" /></a>
+    <div class="nav-desktop">
+      <details class="nav-disclosure">
+        <summary class:list={['nav-link', { 'nav-current': pathname.startsWith('/services/') }]} aria-controls="services-navigation">Services <span class="nav-chevron" aria-hidden="true">⌄</span></summary>
+        <div class="nav-mega" id="services-navigation">
+          <div class="mega-services"><div class="mega-heading"><span>Property claim services</span><a href="/services/">View all <Icon size={16} /></a></div><div class="mega-service-grid">{services.map(service => <a href={`/services/${service.slug}/`} aria-current={pathname === `/services/${service.slug}/` ? 'page' : undefined}><span class="mega-icon"><Icon name={service.icon} size={23} /></span><span><strong>{service.label}</strong><small>{service.text}</small></span><span class="mega-arrow" aria-hidden="true">↗</span></a>)}</div></div>
+          <div class="mega-assist"><span class="nav-eyebrow">You don’t need all the answers.</span><p>Just a place<br /><em>to start.</em></p><a href="/free-claim-review/">Request a free review <Icon size={18} /></a><a class="mega-guide" href="/resources/claim-review-guide/">What should I prepare? ↗</a></div>
+        </div>
+      </details>
+      {links.map(link => <a class="nav-link" href={link.href} aria-current={pathname.startsWith(link.href) ? 'location' : undefined}>{link.label}</a>)}
+    </div>
+    <div class="nav-actions"><a class="nav-call" href="tel:3058045489" aria-label="Call Claim Guardians at (305) 804-5489"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m7 3 3 5-3 3a14 14 0 0 0 6 6l3-3 5 3c-1 4-3 5-6 4C8 19 5 16 3 9 2 6 3 4 7 3Z" /></svg></a><a class="nav-review" href="/free-claim-review/">Free claim review <span class="nav-review-arrow"><Icon size={18} /></span></a><button type="button" id="mobile-menu-open" class="nav-menu-toggle" aria-label="Open navigation menu" aria-controls="mobile-menu" aria-expanded="false"><span></span><span></span></button></div>
+  </nav>
+</header>
+<noscript><nav class="nav-fallback" aria-label="Site links"><a href="/services/">Services</a><a href="/service-areas/">Service areas</a><a href="/resources/">Resources</a><a href="/company/">Our firm</a><a href="/contact/">Contact</a></nav></noscript>
+<dialog id="mobile-menu" class="navigation-dialog" aria-label="Site navigation">
+  <div id="mobile-menu-backdrop" class="nav-dialog-backdrop"></div>
+  <div class="nav-dialog-panel" id="mobile-menu-content">
+    <div class="nav-dialog-top"><span class="nav-eyebrow">Claim Guardians / Explore</span><button id="mobile-menu-close" aria-label="Close navigation menu" type="button">✕</button></div>
+    <nav aria-label="Mobile navigation" class="nav-mobile-links">
+      {[{ href:'/services/', label:'Our services' },...links.map(link => ({href:link.href,label:link.short})),{href:'/contact/',label:'Let’s talk'}].map((link,i) => <a href={link.href} aria-current={pathname.startsWith(link.href) ? 'location' : undefined}><span>0{i+1}</span>{link.label}<span aria-hidden="true">↗</span></a>)}
+    </nav>
+    <div class="nav-mobile-bottom"><p>Property damage is enough to deal with.<br /><em>We’re on your side.</em></p><a class="nav-mobile-review" href="/free-claim-review/">Request a free claim review <Icon size={20} /></a><div class="nav-mobile-contact"><a href="/es/guia-reclamacion/" lang="es">Guía en español ↗</a><a href="tel:3058045489">(305) 804-5489 ↗</a></div></div>
+  </div>
+</dialog>
+<script>
+  const openBtn = document.getElementById('mobile-menu-open');
+  const closeBtn = document.getElementById('mobile-menu-close');
+  const menu = document.getElementById('mobile-menu') as HTMLDialogElement | null;
+  const backdrop = document.getElementById('mobile-menu-backdrop');
+  const disclosures = Array.from(document.querySelectorAll<HTMLDetailsElement>('.nav-disclosure'));
+  let previousOverflow = '';
+  function closeDisclosures() { for (const disclosure of disclosures) disclosure.open = false; }
+  function openMenu() {
+    if (!menu || menu.open) return;
+    closeDisclosures(); previousOverflow = document.body.style.overflow;
+    menu.showModal(); document.body.style.overflow = 'hidden';
+    openBtn?.setAttribute('aria-expanded', 'true'); closeBtn?.focus();
+  }
+  function closeMenu() { if (menu?.open) menu.close(); }
+  menu?.addEventListener('keydown', event => {
+    if (event.key !== 'Tab') return;
+    const controls = Array.from(menu.querySelectorAll<HTMLElement>('a[href], button:not([disabled])'));
+    const first = controls[0]; const last = controls[controls.length - 1];
+    if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last?.focus(); }
+    else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus(); }
+  });
+  menu?.addEventListener('close', () => { document.body.style.overflow = previousOverflow; openBtn?.setAttribute('aria-expanded', 'false'); openBtn?.focus(); });
+  openBtn?.addEventListener('click', openMenu); closeBtn?.addEventListener('click', closeMenu); backdrop?.addEventListener('click', closeMenu);
+  const desktop = window.matchMedia('(min-width: 1000px)');
+  desktop.addEventListener('change', event => { if (event.matches) closeMenu(); else closeDisclosures(); });
+  document.addEventListener('click', event => { if (event.target instanceof Node && !disclosures.some(disclosure => disclosure.contains(event.target as Node))) closeDisclosures(); });
+  document.addEventListener('keydown', event => {
+    if (event.key !== 'Escape') return;
+    const active = disclosures.find(disclosure => disclosure.open);
+    if (active) { active.open = false; active.querySelector('summary')?.focus(); }
+  });
+  for (const disclosure of disclosures) disclosure.addEventListener('focusout', () => {
+    requestAnimationFrame(() => { if (!disclosure.contains(document.activeElement)) disclosure.open = false; });
+  });
+</script>
