@@ -22,7 +22,7 @@ const process = [
       name: detail.hero, serviceType: detail.label + ' property insurance claim help',
       url: `https://allclaimguardians.com/services/${service}/`,
       provider: { '@id': 'https://allclaimguardians.com/#organization' },
-      areaServed: ['Florida', 'California', 'North Carolina'].map(name => ({ '@type': 'State', name })),
+      areaServed: ['Florida', 'North Carolina'].map(name => ({ '@type': 'State', name })),
       description: detail.description,
     })} />
     <script type="application/ld+json" set:html={JSON.stringify({
@@ -51,7 +51,6 @@ const process = [
 
   <ServicePreparation service={service} />
 
-  {(service === 'fire-damage' || service === 'water-damage') && <section class="section-white"><div class="section-inner"><h2 class="section-heading mb-5">Discuss your property and local availability.</h2><p class="text-slate-600 leading-relaxed mb-5">Explore the relevant service area and confirm the professional and proposed services for your property.</p><div class="flex flex-wrap gap-6"><a class="font-bold text-[#006775] underline" href="/service-areas/sacramento/">Sacramento property claim services</a>{service === 'fire-damage' ? <a class="font-bold text-[#006775] underline" href="/service-areas/los-angeles/">Los Angeles fire and smoke claim services</a> : <a class="font-bold text-[#006775] underline" href="/service-areas/miami/">Miami water claim services</a>}</div></div></section>}
 
   <section class="section-white">
     <div class="section-inner max-w-4xl">
@@ -64,7 +63,7 @@ const process = [
   <section class="section-dark">
     <div class="section-inner grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
       <div><span class="eyebrow">Before you engage</span><h2 class="section-heading-light mb-6">Know who will help.<br />Know the terms.</h2><p class="text-slate-300 text-lg leading-relaxed mb-6">{feeTerms}</p><a href="/company/" class="text-white underline font-bold">Meet the principal adjuster and check license records ↗</a></div>
-      <div class="rounded-2xl border border-white/20 p-8"><h3 class="text-2xl text-white font-bold mb-4">Discuss your property and location.</h3><p class="text-slate-300 mb-6 leading-relaxed">We publish service areas in Florida, California and North Carolina. Confirm the professional, availability and proposed services for your property before engagement.</p><a href="/service-areas/" class="btn-accent">Explore service areas</a></div>
+      <div class="rounded-2xl border border-white/20 p-8"><h3 class="text-2xl text-white font-bold mb-4">Discuss your property and location.</h3><p class="text-slate-300 mb-6 leading-relaxed">We publish service areas in Florida and North Carolina. Confirm the professional, availability and proposed services for your property before engagement.</p><a href="/service-areas/" class="btn-accent">Explore service areas</a></div>
     </div>
   </section>
 

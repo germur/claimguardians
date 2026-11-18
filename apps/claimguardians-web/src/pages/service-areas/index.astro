@@ -5,20 +5,19 @@ const states = [
   { code: 'FL', name: 'Florida', note: 'From the Atlantic coast to the Gulf.', cities: [
     ['Miami','miami'], ['Fort Lauderdale','fort-lauderdale'], ['West Palm Beach','west-palm-beach'], ['Boca Raton','boca-raton'], ['Orlando','orlando'], ['Kissimmee','kissimmee'], ['Daytona Beach','daytona-beach'], ['Lakeland','lakeland'], ['Tampa','tampa'], ['Fort Myers','fort-myers'], ['Cape Coral','cape-coral'], ['Naples','naples'], ['Jacksonville','jacksonville'],
   ] },
-  { code: 'CA', name: 'California', note: 'Property claim help on the West Coast.', cities: [ ['Los Angeles','los-angeles'], ['San Francisco','san-francisco'], ['San Diego','san-diego'], ['Sacramento','sacramento'] ] },
   { code: 'NC', name: 'North Carolina', note: 'From the mountains to the coast.', cities: [ ['Charlotte','charlotte'], ['Raleigh','raleigh'], ['Wilmington','wilmington'], ['Asheville','asheville'], ['Fayetteville','fayetteville'], ['Jacksonville','jacksonville-nc'] ] },
 ];
 ---
-<BaseLayout title="Public Adjuster Service Areas - Florida, California & North Carolina | Claim Guardians" description="Find public adjusting services for property claims in Florida, California and North Carolina. Choose your state or city and request a free initial claim review.">
+<BaseLayout title="Public Adjuster Service Areas - Florida & North Carolina | Claim Guardians" description="Find public adjusting services for property claims in Florida and North Carolina. Choose your state or city and request a free initial claim review.">
   <div class="design-page">
     <section class="area-hero design-shell">
       <nav aria-label="Breadcrumb" class="design-breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span aria-current="page">Service areas</span></nav>
-      <div class="area-hero-layout"><div><p class="design-kicker"><span class="status-dot"></span> Florida / California / North Carolina</p><h1>Local knowledge.<br /><em>On your side.</em></h1></div><div><p class="area-hero-deck">Public adjuster service areas</p><p>Find help for a home or business property claim. Choose the state and city where the property is located.</p><a href="/free-claim-review/" class="design-text-link">Already know you need help? Request a review <Icon size={20} /></a></div></div>
+      <div class="area-hero-layout"><div><p class="design-kicker"><span class="status-dot"></span> Florida / North Carolina</p><h1>Local knowledge.<br /><em>On your side.</em></h1></div><div><p class="area-hero-deck">Public adjuster service areas</p><p>Find help for a home or business property claim. Choose the state and city where the property is located.</p><a href="/free-claim-review/" class="design-text-link">Already know you need help? Request a review <Icon size={20} /></a></div></div>
     </section>
     <section class="area-directory design-shell" aria-labelledby="directory-heading">
       <h2 id="directory-heading" class="sr-only">Find your service area</h2>
       <div class="directory-toolbar" hidden><div class="area-filters" role="group" aria-label="Filter by state"><button type="button" data-state-filter="all" aria-pressed="true">All states</button>{states.map(state => <button type="button" data-state-filter={state.code} aria-pressed="false">{state.name}</button>)}</div><div class="area-search"><label for="area-search">Search by city</label><input id="area-search" type="search" placeholder="e.g. Miami or Charlotte" autocomplete="off" aria-controls="area-results" /><span aria-hidden="true">⌕</span></div></div>
-      <div class="directory-meta"><p id="area-count" role="status" aria-live="polite">23 city pages across 3 states</p><span>Select a city to explore services <span aria-hidden="true">↘</span></span></div>
+      <div class="directory-meta"><p id="area-count" role="status" aria-live="polite">19 city pages across 2 states</p><span>Select a city to explore services <span aria-hidden="true">↘</span></span></div>
       <div id="area-results" class="area-grid">{states.map((state,i) => <article class:list={['state-panel', { 'state-panel-fl':state.code==='FL' }]} data-area-state={state.code}>
         <div class="state-panel-heading"><div><p class="design-kicker">0{i+1} / Service region</p><h2>{state.name}</h2></div><span class="state-monogram" aria-hidden="true">{state.code}</span></div>
         <p class="state-note">{state.note}</p>
@@ -29,7 +28,7 @@ const states = [
       <div id="area-empty" class="area-empty" hidden><h3>No matching city page yet.</h3><p>Try another spelling, clear your filters or ask us about the property location.</p><button id="clear-area-filters" class="design-button" type="button">Show all service areas <span aria-hidden="true">↗</span></button></div>
       <div class="directory-help"><Icon name="shield" size={23} /><p><strong>Your city isn’t listed?</strong> Ask us about your property location. Service coverage does not imply a branch office in each city.</p><a href="tel:3058045489">Let’s talk <Icon size={18} /></a></div>
     </section>
-    <section class="area-story"><div class="design-shell area-story-layout"><div class="area-story-photo"><img src="/images/hero-city-florida.png" alt="Coastal city and waterfront in Florida" width="640" height="640" loading="lazy" /><span>PROPERTY IS LOCAL. SO IS THE CONTEXT.</span></div><div><p class="design-kicker">The right context matters</p><h2>One claim.<br /><em>Many local details.</em></h2><p>A roof in West Palm Beach, smoke damage in Los Angeles, a storm claim in North Carolina. The property, policy and available evidence shape the conversation.</p><p>Our city pages explain the service, the records that can help and how to request a review. Confirm the assigned professional’s current state credentials and written terms before representation.</p><a class="design-text-link" href="/company/">About the team & credentials <Icon size={20} /></a></div></div></section>
+    <section class="area-story"><div class="design-shell area-story-layout"><div class="area-story-photo"><img src="/images/hero-city-florida.png" alt="Coastal city and waterfront in Florida" width="640" height="640" loading="lazy" /><span>PROPERTY IS LOCAL. SO IS THE CONTEXT.</span></div><div><p class="design-kicker">The right context matters</p><h2>One claim.<br /><em>Many local details.</em></h2><p>A roof in West Palm Beach, water damage in Miami, a storm claim in North Carolina. The property, policy and available evidence shape the conversation.</p><p>Our city pages explain the service, the records that can help and how to request a review. Confirm the assigned professional’s current state credentials and written terms before representation.</p><a class="design-text-link" href="/company/">About the team & credentials <Icon size={20} /></a></div></div></section>
     <section class="design-shell design-closing"><div><p class="design-kicker">Start with your situation</p><h2>Wherever you are<br /><em>in the claim process.</em></h2></div><div><a href="/free-claim-review/" class="design-button">Request a free initial review <Icon /></a><p>New, denied or underpaid property claims</p></div></section>
   </div>
 </BaseLayout>
@@ -56,7 +55,7 @@ const states = [
       matches += cityMatches;
     }
     for (const button of buttons) button.setAttribute('aria-pressed', String(button.dataset.stateFilter === selected));
-    if (count) count.textContent = !query && selected === 'all' ? '23 city pages across 3 states' : `${matches} city ${matches === 1 ? 'page' : 'pages'} found`;
+    if (count) count.textContent = !query && selected === 'all' ? '19 city pages across 2 states' : `${matches} city ${matches === 1 ? 'page' : 'pages'} found`;
     if (empty) empty.hidden = matches !== 0;
   }
   input?.addEventListener('input', filterAreas);
