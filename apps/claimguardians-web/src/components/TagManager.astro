@@ -1,6 +1,14 @@
 <!-- Analytics vendors and their event rules are managed in GTM-PC3TN25S. -->
 <script is:inline data-tracking="gtm">
-  if (['allclaimguardians.com', 'www.allclaimguardians.com'].includes(window.location.hostname) && !document.querySelector('script[data-gtm-container="GTM-PC3TN25S"]')) {
+  var cgInternalChoice = new URLSearchParams(window.location.search).get('cg_internal');
+  var cgInternal = cgInternalChoice === '1';
+  try {
+    if (cgInternalChoice === '1') localStorage.setItem('cg-internal-traffic-v1', '1');
+    else if (cgInternalChoice === '0') localStorage.removeItem('cg-internal-traffic-v1');
+    else cgInternal = localStorage.getItem('cg-internal-traffic-v1') === '1';
+  } catch { /* The current-page choice still works when storage is unavailable. */ }
+  window.cgInternalTraffic = cgInternal;
+  if (!cgInternal && ['allclaimguardians.com', 'www.allclaimguardians.com'].includes(window.location.hostname) && !document.querySelector('script[data-gtm-container="GTM-PC3TN25S"]')) {
     (function(w,d,s,l,i){
       w[l]=w[l]||[];
       w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});

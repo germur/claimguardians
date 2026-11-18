@@ -32,6 +32,10 @@ test('sitemap lists exactly the indexable canonical pages', async () => {
     assert.equal(canonicals.length, 1, url);
     assert.equal(attr(canonicals[0], 'href'), origin + url);
   }
+  for (const match of xml.matchAll(/<url>([\s\S]*?)<\/url>/g)) {
+    const lastmod = match[1].match(/<lastmod>(.*?)<\/lastmod>/)?.[1];
+    assert.ok(lastmod && /^2026-(10-19|11-18)(T.*)?$/.test(lastmod), 'Stable content modification date required');
+  }
 });
 
 test('internal links and fragments resolve, and every indexable page is reachable from home', async () => {

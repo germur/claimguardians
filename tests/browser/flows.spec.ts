@@ -165,7 +165,7 @@ test('local services precede supporting guides and retain matching FAQs', async 
     })).toBe(true);
     await expect(page.getByText(/Our Settlement|Insurance Initial Offer|Real financial results/)).toHaveCount(0);
     const faq = await page.locator('script[type="application/ld+json"]').evaluateAll(scripts => scripts.map(s => JSON.parse(s.textContent || '{}')).find(s => s['@type'] === 'FAQPage'));
-    expect(faq.mainEntity).toHaveLength(6);
+    expect(faq.mainEntity).toHaveLength(await page.locator('main details').count());
     for (const item of faq.mainEntity) {
       const answer = page.locator('details').filter({ has: page.locator('summary', { hasText: item.name }) });
       await answer.locator('summary').click();

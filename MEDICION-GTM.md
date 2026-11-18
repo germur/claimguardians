@@ -29,6 +29,10 @@ Validación completada: build de 44 páginas, Astro check sin errores ni adverte
 
 ## Referencias
 
+### Revisiones internas desde el 18 de noviembre
+
+`?cg_internal=1` en una página del dominio público guarda una preferencia local y detiene la carga de GTM, GA4 y Clarity en ese navegador; `?cg_internal=0` la revoca. Los eventos explícitos y la cola de solicitudes respetan esa preferencia. No afecta la entrega de formularios. Las pruebas automatizadas siguen interceptando colecciones y simulando solicitudes. GA4 conserva generate_lead como evento clave, añade CG Developer Review en modo Testing y una comparación diagnóstica CG Locations to Review. No se borraron datos históricos ni se excluyeron visitas por país o ciudad. Véase la revisión SEO del 18 de noviembre.
+
 - https://developers.google.com/tag-platform/tag-manager/datalayer
 - https://developers.google.com/tag-platform/devguides/existing
 - https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-masking

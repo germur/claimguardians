@@ -6,6 +6,10 @@ import tailwindcss from '@tailwindcss/vite';
 
 import sitemap from '@astrojs/sitemap';
 
+// Actual content revisions, not build dates. Update only when the page changes materially.
+const revisedCities = ['miami', 'fort-lauderdale', 'west-palm-beach', 'boca-raton', 'orlando', 'kissimmee', 'daytona-beach', 'lakeland', 'tampa', 'fort-myers', 'cape-coral', 'naples', 'jacksonville', 'los-angeles', 'san-francisco', 'san-diego', 'sacramento'];
+const revisedPaths = new Set(['/', '/privacy-policy/', '/services/fire-damage/', '/services/water-damage/', ...revisedCities.map(city => `/service-areas/${city}/`)]);
+
 // https://astro.build/config
 export default defineConfig({
   site: 'https://allclaimguardians.com',
@@ -17,6 +21,7 @@ export default defineConfig({
       // Asegura que el sitemap liste las URLs canónicas CON barra final
       serialize(item) {
         if (!item.url.endsWith('/')) item.url += '/';
+        item.lastmod = revisedPaths.has(new URL(item.url).pathname) ? '2026-11-18' : '2026-10-19';
         return item;
       },
     }),

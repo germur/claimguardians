@@ -1,4 +1,5 @@
 import { getPageContext, safePagePath } from './page-context.ts';
+import { isInternalVisit } from './measurement-mode.ts';
 export const discoveryOptions = [
   ['google_search', 'Google Search'], ['bing_search', 'Bing Search'],
   ['ai_assistant', 'An AI assistant, such as ChatGPT or Perplexity'],
@@ -42,6 +43,10 @@ export function getTechnicalSource(): string {
 }
 
 export function sendAnalyticsEvent(name: 'generate_lead' | 'contact_click', params: Record<string, string | number | (() => void)>): void {
+  if (isInternalVisit()) {
+    if (typeof params.event_callback === 'function') params.event_callback();
+    return;
+  }
   const analytics = window as Window & { dataLayer?: Record<string, unknown>[] };
   try {
     const allowed = ['lead_type', 'preferred_language', 'technical_source', 'declared_source', 'contact_method', 'landing_page', 'form_page'];
@@ -70,6 +75,7 @@ function leadParams(fields: Record<string, string>): Record<string, string> {
 
 const pendingLeadKey = 'cg-confirmed-lead-event-v1';
 export function queueLeadMeasurement(fields: Record<string, string>): boolean {
+  if (isInternalVisit()) return true;
   try {
     sessionStorage.setItem(pendingLeadKey, JSON.stringify({ params: leadParams(fields), time: Date.now() }));
     return true;
@@ -81,6 +87,7 @@ export function flushLeadMeasurement(): void {
     const stored = sessionStorage.getItem(pendingLeadKey);
     if (!stored) return;
     sessionStorage.removeItem(pendingLeadKey);
+    if (isInternalVisit()) return;
     const pending = JSON.parse(stored);
     if (!Number.isFinite(pending.time) || Date.now() - pending.time > 300000 || pending.time > Date.now()) return;
     measureLead({ lead_type: pending.params.lead_type, preferred_language: pending.params.preferred_language, discovery_source: pending.params.declared_source, landing_page: pending.params.landing_page, form_page: pending.params.form_page });

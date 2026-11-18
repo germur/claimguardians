@@ -5,6 +5,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 import MarketReview from '../../components/MarketReview.astro';
 import { getMarketReview } from '../../data/market-review';
+import { localServiceFocus } from '../../data/local-service-focus';
 
 export async function getStaticPaths() {
   const serviceCities = [
@@ -275,7 +276,7 @@ const { data } = Astro.props;
 const { city, county, stateCode, stateName, zipCodes, nearbyAreas, damageAngles } = data;
 const profile = getMarketReview(city, stateCode);
 const faq = profile.faq;
-const priority = ["Los Angeles", "Miami", "West Palm Beach"].includes(city);
+const priority = ["Los Angeles", "Miami", "West Palm Beach", "Sacramento"].includes(city);
 
 const reviewAngles = priority ? { primary: profile.topics[0].title, primaryDesc: profile.topics[0].text, secondary: profile.topics[1].title, secondaryDesc: profile.topics[1].text, tertiary: profile.topics[2].title, tertiaryDesc: profile.topics[2].text } : damageAngles;
 
@@ -283,7 +284,7 @@ const reviewAngles = priority ? { primary: profile.topics[0].title, primaryDesc:
 
 <BaseLayout
   title={`Public Adjuster in ${city}, ${stateCode} | Claim Guardians`}
-  description={`Public adjusting services for homeowners and businesses in ${city}, ${stateCode}. Help with new, denied and underpaid property claims. Request a free review.`}
+  description={localServiceFocus[city]?.description || `Public adjusting services for homeowners and businesses in ${city}, ${stateCode}. Help with new, denied and underpaid property claims. Request a free review.`}
 >
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify({
@@ -364,7 +365,7 @@ const reviewAngles = priority ? { primary: profile.topics[0].title, primaryDesc:
         <div class="text-center">
           <div class="step-number mx-auto">2</div>
           <h3 class="text-xl font-bold text-[#082142] mt-6 mb-3">Full Documentation</h3>
-          <p class="text-slate-500">We photograph, measure, and estimate every point of damage using thermal imaging, drones, and contractor pricing.</p>
+          <p class="text-slate-500">We organize photographs, inspection findings, repair records and estimates relevant to the agreed scope of representation.</p>
         </div>
         <div class="text-center">
           <div class="step-number mx-auto">3</div>

@@ -39,6 +39,10 @@ La publicación d2477c1 resolvió formularios, atribución y retiró cifras sin 
 
 ## Referencias
 
+### Revisión del 18 de noviembre de 2026
+
+Las mejoras de Los Ángeles, Sacramento y Miami se basan en consultas reales de la propiedad exacta, resultados comerciales observados y revisión de la indexación. Se mantiene una URL comercial por localidad, con contenido específico por daño como apoyo. La necesidad informativa de iniciar una reclamación se atiende dentro del contexto de servicio y con enlaces a la guía existente; no se crean variantes por keyword ni páginas de servicios jurídicos. Evidencia, límites, intención y cambios: [RECUPERACION-SEO-2026-11-18.md](RECUPERACION-SEO-2026-11-18.md).
+
 ### Revisión visual y UX del 19 de octubre
 
 Extensión a páginas interiores: se conserva la tarea comercial específica de cada servicio y localidad; los encabezados siguen explicando tipo de ayuda, ámbito y contacto. Recursos mantiene su intención informativa y su búsqueda; las guías siguen diferenciadas de las páginas de contratación. Contacto y revisión priorizan enviar una solicitud o llamar, sin distraer con resultados económicos no acreditados. No se cambian URLs ni canonicals por la actualización visual. Véase REDISENO-UX-2026-10-19.md para el alcance completo.

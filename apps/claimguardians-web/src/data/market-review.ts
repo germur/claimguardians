@@ -54,6 +54,18 @@ export function getMarketReview(city: string, state: string): ReviewProfile {
     profile.intro = 'For a Miami water or roof claim, start with where the damage appeared and the records explaining its source. For a condominium, also identify the unit policy and any association correspondence so the review can distinguish the parts of the claim being discussed.';
     profile.documents.push('For a condo: unit policy and association or building-management correspondence relevant to the damage.');
     profile.faq.push({ q: 'What records help with a Miami condo water claim?', a: 'Bring the unit policy, photographs, plumber or mitigation findings, and correspondence with the association and insurer. Responsibility and insurance coverage depend on the relevant documents; the review does not assume that every affected part belongs under the same policy.' });
+    profile.faq.push({ q: 'Can I request help filing a flood damage claim in Miami?', a: 'Yes. Tell us how water entered and whether you have reported the loss. Keep any property and flood policies, dated damage photographs and emergency repair records ready for the follow-up. The initial review identifies the relevant coverage questions and whether representation is appropriate; it does not assume that flood damage is covered under a standard homeowners policy.' });
+  } else if (city === 'Sacramento') {
+    profile.heading = 'Water, storm and disputed property claims in Sacramento';
+    profile.intro = 'Identify the damage, the policy and the part of the claim you need help with. A leaking pipe, rain through a damaged roof and rising floodwater can require different records and coverage analysis. For an existing claim, bring the insurer’s written response and estimate so the review can address specific disagreements.';
+    profile.topics = [
+      { title: 'Water and storm damage', text: 'Keep plumbing, roof or mitigation findings that explain the reported source and timing of the loss. Separate sudden damage from earlier repairs and maintenance questions.' },
+      { title: 'Flood coverage questions', text: 'Bring any flood policy as well as the property policy. The review identifies which documents apply; it does not assume that a water loss is covered or excluded based only on its label.' },
+      { title: 'Fire, smoke and contents', text: 'Organize the damaged rooms and contents, existing professional assessments and the insurer’s proposed work. Discuss any specific cleaning, repair or replacement disagreement.' },
+    ];
+    profile.services = [{ label: 'Water damage claim services', href: '/services/water-damage/' }, { label: 'Fire and smoke claim services', href: '/services/fire-damage/' }, { label: 'Denied or underpaid property claims', href: '/services/denied-claims/' }];
+    profile.documents.push('Any plumbing, roof or mitigation findings explaining the source and timing of a water loss.');
+    profile.faq.push({ q: 'Can a Sacramento public adjuster review a claim after a payment?', a: 'A review can compare the payment breakdown and insurer’s estimate with the policy and available damage records. Further representation depends on the loss date, claim history, policy terms and applicable deadlines; a prior payment does not guarantee that more money is available.' });
   } else if (city === 'West Palm Beach') {
     profile.heading = 'Roof and storm claim review in West Palm Beach';
     profile.intro = 'For a West Palm Beach roof or storm claim, organize the sequence from the first signs of damage to inspection, temporary protection and the insurer’s decision. That timeline helps distinguish the reported event from earlier repairs or maintenance issues.';
@@ -63,6 +75,7 @@ export function getMarketReview(city: string, state: string): ReviewProfile {
   } else if (nc) {
     profile.faq.push({ q: 'Does a North Carolina homeowners policy cover every type of storm damage?', a: 'No. Coverage for wind, hail or flood can differ between policies, and some protection may be separate or excluded. Ask your agent or insurer which coverage applies and bring all relevant policies to the review.' });
   }
+  if (ca) profile.faq.push({ q: 'How do I check the professional assigned to my California property claim?', a: 'Ask for the assigned professional’s name and current California public adjuster license number, then check the California Department of Insurance record before signing. Confirm availability and the written scope, fees, expenses and cancellation terms. A service-area page does not indicate a branch office in that city.' });
   return profile;
 }
 
