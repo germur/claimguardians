@@ -20,7 +20,7 @@ export async function getStaticPaths() {
         secondary: "Water damage and flooding",
         secondaryDesc: "Miami's low elevation and limestone bedrock make it uniquely vulnerable to flooding from heavy rainfall, storm surge, and rising groundwater. Water intrusion destroys flooring, drywall, and electrical systems. Insurers minimize water damage claims by arguing gradual deterioration.",
         tertiary: "Roof damage from storms",
-        tertiaryDesc: "High winds strip shingles, lift flashing, and compromise roof decking across Miami-Dade. The county enforces some of the strictest building codes in the US (Miami-Dade HVHZ), and your insurer must pay to bring your roof up to current code standards after storm damage."
+        tertiaryDesc: "High winds strip shingles, lift flashing, and compromise roof decking across Miami-Dade. The county enforces some of the strictest building codes in the US (Miami-Dade HVHZ), and any code-related repair requirements need a contractor’s assessment and a separate coverage review."
       },
 
     },
@@ -50,7 +50,7 @@ export async function getStaticPaths() {
         secondary: "Water and flood damage",
         secondaryDesc: "Heavy tropical rainfall overwhelms drainage systems across Palm Beach County. Water intrusion through damaged roofs, windows, and foundations destroys interior finishes and personal property. Insurers classify covered water damage as excluded flooding to deny claims.",
         tertiary: "Roof damage",
-        tertiaryDesc: "High winds damage roof systems across the county, from oceanfront estates to suburban developments. Insurance adjusters approve patches when full replacement is warranted. Claim Guardians documents structural compromise to force complete roof coverage."
+        tertiaryDesc: "High winds damage roof systems across the county, from oceanfront estates to suburban developments. Insurance adjusters approve patches when full replacement is warranted. Claim Guardians reviews inspection findings, proposed repair scope and the applicable policy terms."
       },
 
     },
@@ -63,9 +63,9 @@ export async function getStaticPaths() {
         primary: "Wind and storm damage",
         primaryDesc: "Boca Raton properties face tropical storm and hurricane wind exposure from the Atlantic. High-end properties along the coast suffer severe wind damage to roofs, pool cages, and landscaping. Insurers undervalue luxury property repairs by using generic cost estimates.",
         secondary: "Water damage and pipe bursts",
-        secondaryDesc: "Boca Raton's aging plumbing infrastructure and hard water cause pipe failures that flood homes. Insurance carriers deny water claims by arguing the damage was gradual. Claim Guardians proves sudden and accidental loss to secure coverage.",
+        secondaryDesc: "Boca Raton's aging plumbing infrastructure and hard water cause pipe failures that flood homes. Insurance carriers deny water claims by arguing the damage was gradual. Claim Guardians reviews the source, timeline and policy terms with the available records.",
         tertiary: "Roof and tile damage",
-        tertiaryDesc: "Boca Raton's many tile-roofed properties are vulnerable to wind uplift and hail. Barrel and flat tile replacement is expensive, and insurers push cheap repairs instead of proper tile matching. We document every damaged tile to force full coverage."
+        tertiaryDesc: "Boca Raton's many tile-roofed properties are vulnerable to wind uplift and hail. Barrel and flat tile replacement is expensive, and insurers push cheap repairs instead of proper tile matching. Bring documented tile damage and contractor findings to compare with the insurer’s proposed scope."
       },
 
     },
@@ -185,7 +185,7 @@ export async function getStaticPaths() {
         secondary: "Water and flood damage",
         secondaryDesc: "Naples' coastal location and low elevation create significant flood risk during hurricanes. Storm surge, heavy rainfall, and wind-driven rain cause devastating water intrusion. Insurers exploit wind vs. water disputes to deny coverage.",
         tertiary: "Roof and structural damage",
-        tertiaryDesc: "Tile and barrel roofs common in Naples are expensive to repair and replace. Insurance adjusters approve generic repairs instead of proper tile matching. Claim Guardians ensures your settlement covers the true cost of matching materials."
+        tertiaryDesc: "Tile and barrel roofs common in Naples are expensive to repair and replace. Insurance adjusters approve generic repairs instead of proper tile matching. Bring an itemized contractor estimate and inspection findings to discuss matching materials and applicable coverage."
       },
 
     },
@@ -359,7 +359,7 @@ const reviewAngles = priority ? { primary: profile.topics[0].title, primaryDesc:
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         <div class="text-center">
           <div class="step-number mx-auto">1</div>
-          <h3 class="text-xl font-bold text-[#082142] mt-6 mb-3">Free Inspection</h3>
+          <h3 class="text-xl font-bold text-[#082142] mt-6 mb-3">Free Initial Review</h3>
           <p class="text-slate-500">We discuss the damage and available records, then confirm whether an inspection is appropriate and when it can be scheduled.</p>
         </div>
         <div class="text-center">
@@ -437,7 +437,7 @@ const reviewAngles = priority ? { primary: profile.topics[0].title, primaryDesc:
         </a>
         <a href="/services/roof-damage/" class="card-hover group block">
           <h3 class="text-xl font-bold text-[#082142] mb-2 group-hover:text-[#00808C] transition-colors">Roof Damage Claims</h3>
-          <p class="text-slate-500">Full roof replacement claims for storm-damaged {city} properties.</p>
+          <p class="text-slate-500">Roof damage, inspection findings and proposed repair scope in {city}.</p>
         </a>
         <a href="/services/fire-damage/" class="card-hover group block">
           <h3 class="text-xl font-bold text-[#082142] mb-2 group-hover:text-[#00808C] transition-colors">Fire & Smoke Damage</h3>
@@ -449,7 +449,7 @@ const reviewAngles = priority ? { primary: profile.topics[0].title, primaryDesc:
         </a>
         <a href="/services/denied-claims/" class="card-hover group block">
           <h3 class="text-xl font-bold text-[#082142] mb-2 group-hover:text-[#00808C] transition-colors">Denied & Underpaid Claims</h3>
-          <p class="text-slate-500">Claim appeal and reversal services in {county}.</p>
+          <p class="text-slate-500">Review of denied or partially paid property claims in {county}.</p>
         </a>
       </div>
     </div>
@@ -458,13 +458,13 @@ const reviewAngles = priority ? { primary: profile.topics[0].title, primaryDesc:
   <!-- 8. Final CTA -->
   <section class="gradient-accent-bar section-white text-center">
     <div class="section-inner">
-      <span class="eyebrow">No-Risk Consultation</span>
+      <span class="eyebrow">Free Initial Review</span>
       <h2 class="section-heading mb-4">Was Your {city} Property Damaged?</h2>
       <p class="text-xl text-slate-500 mb-8 max-w-2xl mx-auto leading-relaxed">
         Don't let the insurance company dictate the outcome of your claim. Request a review of your policy, damage records and insurer’s response.
       </p>
       <a href="#claim-form" class="btn-accent px-12 py-5 text-xl min-h-[64px]">Request Free {city} Case Review</a>
-      <p class="text-sm text-slate-400 mt-4">Zero upfront cost. Ever.</p>
+      <p class="text-sm text-slate-400 mt-4">Free initial review. Confirm representation terms in writing.</p>
     </div>
   </section>
 

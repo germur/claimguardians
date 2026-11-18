@@ -22,6 +22,14 @@ for (const f of (await readdir(root, { recursive: true })).filter(f => f.endsWit
 }
 const indexable = [...pages].filter(([, p]) => !p.noindex);
 
+test('public pages avoid unsupported settlement and universal expense promises', () => {
+  const unsupported = /(?:forc(?:e|es|ed) (?:your |the )?(?:insur|full|complete)|zero upfront cost|no recovery,? no fee|no-recovery,? no-fee|reversed hundreds|advance all costs|pay in full|maximum (?:financial )?settlement|free (?:property |roof )?inspection)/i;
+  for (const [url, p] of indexable) {
+    const visible = clean(text(parse(p.html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, '').replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi, ''))));
+    assert.doesNotMatch(visible, unsupported, url);
+  }
+});
+
 test('sitemap lists exactly the indexable canonical pages', async () => {
   const xml = await readFile(path.join(root, 'sitemap-0.xml'), 'utf8');
   const urls = [...xml.matchAll(/<loc>(.*?)<\/loc>/g)].map(m => m[1]);

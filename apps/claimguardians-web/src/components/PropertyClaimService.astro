@@ -1,0 +1,76 @@
+---
+import PageHero from './PageHero.astro';
+import ClaimCalculator from './ClaimCalculator';
+import EligibilityTest from './EligibilityTest';
+import ServicePreparation from './ServicePreparation.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { feeTerms, serviceDetails, type ServiceSlug } from '../data/service-details';
+
+const { service } = Astro.props as { service: ServiceSlug };
+const detail = serviceDetails[service];
+const process = [
+  { title: 'Start with a free review', text: 'Tell us about the property, reported damage and claim status. Keep the policy, photographs, estimates and insurer letters ready for follow-up.' },
+  { title: 'Confirm the professional and terms', text: 'Check the assigned adjuster’s credentials for your state. Discuss inspection availability, proposed scope, fees and expenses before representation begins.' },
+  { title: 'Document and communicate', text: 'Within the agreed representation, we organize supporting records and communicate with the insurer about the documented loss and disputed findings.' },
+  { title: 'Evaluate the response', text: 'Review the insurer’s explanation and available next steps. The policy, evidence, claim history and applicable deadlines determine what can be pursued.' },
+];
+---
+<BaseLayout title={detail.title} description={detail.description}>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org', '@type': 'Service',
+      name: detail.hero, serviceType: detail.label + ' property insurance claim help',
+      url: `https://allclaimguardians.com/services/${service}/`,
+      provider: { '@id': 'https://allclaimguardians.com/#organization' },
+      areaServed: ['Florida', 'California', 'North Carolina'].map(name => ({ '@type': 'State', name })),
+      description: detail.description,
+    })} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org', '@type': 'FAQPage',
+      mainEntity: detail.questions.map(({ q, a }) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })),
+    })} />
+  </Fragment>
+
+  <PageHero title={detail.hero} eyebrow={detail.eyebrow} description={detail.introduction} image={detail.image} current={detail.label} parent={{ label: 'Services', href: '/services/' }} ctaLabel="Request a free claim review" />
+
+  <section class="section-white">
+    <div class="section-inner">
+      <div class="max-w-3xl mb-12"><span class="eyebrow">What we review</span><h2 class="section-heading">Make the details of your {detail.label.toLowerCase()} claim clear.</h2></div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {detail.topics.map((topic, index) => <article class="card-hover p-8"><span class="eyebrow" aria-hidden="true">0{index + 1}</span><h3 class="text-xl font-bold text-[#082142] mb-3">{topic.title}</h3><p class="text-slate-600 leading-relaxed">{topic.text}</p></article>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section-muted">
+    <div class="section-inner">
+      <div class="text-center mb-12"><span class="eyebrow">How it works</span><h2 class="section-heading">From first review to an informed next step.</h2></div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">{process.map((step, index) => <article><div class="step-number">{index + 1}</div><h3 class="text-xl font-bold text-[#082142] mt-6 mb-3">{step.title}</h3><p class="text-slate-600 leading-relaxed">{step.text}</p></article>)}</div>
+    </div>
+  </section>
+
+  <ServicePreparation service={service} />
+
+  {(service === 'fire-damage' || service === 'water-damage') && <section class="section-white"><div class="section-inner"><h2 class="section-heading mb-5">Discuss your property and local availability.</h2><p class="text-slate-600 leading-relaxed mb-5">Explore the relevant service area and confirm the professional and proposed services for your property.</p><div class="flex flex-wrap gap-6"><a class="font-bold text-[#006775] underline" href="/service-areas/sacramento/">Sacramento property claim services</a>{service === 'fire-damage' ? <a class="font-bold text-[#006775] underline" href="/service-areas/los-angeles/">Los Angeles fire and smoke claim services</a> : <a class="font-bold text-[#006775] underline" href="/service-areas/miami/">Miami water claim services</a>}</div></div></section>}
+
+  <section class="section-white">
+    <div class="section-inner max-w-4xl">
+      <span class="eyebrow">Common questions</span><h2 class="section-heading mb-8">Questions about {detail.label.toLowerCase()} claims.</h2>
+      <div class="space-y-4">{detail.questions.map(({ q, a }) => <details class="group border border-slate-200 rounded-2xl overflow-hidden"><summary class="flex justify-between items-center gap-5 p-6 cursor-pointer font-bold text-[#082142] text-lg"><span>{q}</span><span aria-hidden="true" class="transition-transform group-open:rotate-45 text-2xl">+</span></summary><p class="px-6 pb-6 text-slate-600 leading-relaxed">{a}</p></details>)}</div>
+      {service === 'roof-damage' && <p class="mt-6 text-sm text-slate-600">Roof code reference: <a class="underline text-[#006775]" href="https://www.flsenate.gov/Laws/Statutes/2025/553.844">Florida Statutes section 553.844(5)</a>.</p>}
+    </div>
+  </section>
+
+  <section class="section-dark">
+    <div class="section-inner grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+      <div><span class="eyebrow">Before you engage</span><h2 class="section-heading-light mb-6">Know who will help.<br />Know the terms.</h2><p class="text-slate-300 text-lg leading-relaxed mb-6">{feeTerms}</p><a href="/company/" class="text-white underline font-bold">Meet the principal adjuster and check license records ↗</a></div>
+      <div class="rounded-2xl border border-white/20 p-8"><h3 class="text-2xl text-white font-bold mb-4">Discuss your property and location.</h3><p class="text-slate-300 mb-6 leading-relaxed">We publish service areas in Florida, California and North Carolina. Confirm the professional, availability and proposed services for your property before engagement.</p><a href="/service-areas/" class="btn-accent">Explore service areas</a></div>
+    </div>
+  </section>
+
+  <section class="section-white"><div class="section-inner"><div class="text-center mb-10"><span class="eyebrow">Review preparation</span><h2 class="section-heading">Find the records for your review.</h2></div><ClaimCalculator client:visible /></div></section>
+
+  <section class="section-muted"><div class="section-inner"><div class="text-center mb-10"><span class="eyebrow">Related services</span><h2 class="section-heading">Other parts of the property claim.</h2></div><div class="grid grid-cols-1 md:grid-cols-3 gap-6">{detail.related.map(slug => <a class="card-hover p-8 block group" href={`/services/${slug}/`}><h3 class="text-xl font-bold text-[#082142] mb-3">{serviceDetails[slug as ServiceSlug].label}</h3><span class="font-bold text-[#006775]">Explore claim support ↗</span></a>)}</div></div></section>
+
+  <section class="gradient-accent-bar section-white"><div class="section-inner"><div class="text-center mb-10"><span class="eyebrow">Your next step</span><h2 class="section-heading">Request your free initial claim review.</h2><p class="text-slate-600 mt-4">Tell us about your property claim. The request does not establish coverage or a settlement amount.</p></div><EligibilityTest client:visible /><div class="flex flex-wrap justify-center gap-6 mt-8"><a class="font-bold text-[#006775] underline" href="/resources/claim-review-guide/">Prepare for your review</a><a class="font-bold text-[#006775] underline" href="/es/guia-reclamacion/" lang="es">Guía de reclamaciones en español</a></div></div></section>
+</BaseLayout>

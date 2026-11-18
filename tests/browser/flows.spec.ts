@@ -51,9 +51,11 @@ test('resources search filters, clears, and cards target real sections', async (
   await expect(page.locator('[data-search-item]:visible')).toHaveCount(0);
   await page.getByRole('button', { name: 'Show all resources' }).click();
   await expect(page.locator('[data-search-item]:visible')).toHaveCount(14);
+  const expectedMatches = (await page.locator('[data-search-item]').allTextContents()).filter(text => text.toLowerCase().includes('deductible')).length;
   await search.fill('deductible');
   await expect(page.locator('#glossary')).toBeVisible();
-  await expect(page.locator('[data-search-item]:visible')).toHaveCount(1);
+  await expect(page.locator('[data-search-item]:visible')).toHaveCount(expectedMatches);
+  for (const item of await page.locator('[data-search-item]:visible').all()) await expect(item).toContainText(/deductible/i);
   await page.getByRole('link', { name: /Claim Survival Guides/ }).click();
   await expect(page).toHaveURL(/\/resources\/claim-review-guide\/$/);
   await expect(page.getByRole('heading', { level: 1 })).toContainText('property insurance claim review');
