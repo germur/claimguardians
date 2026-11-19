@@ -137,7 +137,7 @@ test('guides have correct languages, reciprocal alternates and matching FAQ sche
 });
 
 test('service areas refer to one organization without claiming a city branch', async ({ page }) => {
-  for (const path of ['/service-areas/miami/', '/service-areas/boca-raton/', '/service-areas/north-carolina/charlotte/']) {
+  for (const path of ['/service-areas/miami/', '/service-areas/los-angeles/', '/service-areas/north-carolina/charlotte/']) {
     await page.goto(path);
     const nodes = await page.locator('script[type="application/ld+json"]').evaluateAll(scripts => scripts.flatMap(s => { const data = JSON.parse(s.textContent || '{}'); return data['@graph'] || [data]; }));
     const companies = nodes.filter(n => n['@type'] === 'LocalBusiness');
@@ -149,6 +149,7 @@ test('service areas refer to one organization without claiming a city branch', a
 
 test('local services precede supporting guides and retain matching FAQs', async ({ page }) => {
   const pages = [
+    ['/service-areas/los-angeles/', 'Fire and smoke claim review in Los Angeles'],
     ['/service-areas/miami/', 'Water, roof and condo claim review in Miami'],
     ['/service-areas/west-palm-beach/', 'Roof and storm claim review in West Palm Beach'],
     ['/service-areas/north-carolina/', 'Prepare your North Carolina property claim review'],
@@ -195,7 +196,7 @@ test('denied property review keeps its scope and submits the correct claim statu
 });
 
 test('a city landing survives navigation and is sent with the actual form page', async ({ page }) => {
-  await page.goto('/service-areas/miami/?private=not-stored');
+  await page.goto('/service-areas/los-angeles/?private=not-stored');
   await page.goto('/contact/');
   let payload: URLSearchParams | undefined;
   await page.route('**/__forms.html', async route => {
@@ -204,14 +205,14 @@ test('a city landing survives navigation and is sent with the actual form page',
   });
   await page.getByLabel('Full name').fill('Local QA');
   await page.getByLabel('Phone number').fill('2025550100');
-  await page.getByLabel('Property state').selectOption('FL');
+  await page.getByLabel('Property state').selectOption('CA');
   await page.getByLabel('Damage type').selectOption('fire');
   await page.getByRole('button', { name: 'Request a free claim review →' }).click();
   await page.waitForURL('**/thank-you/');
-  expect(payload?.get('landing_page')).toBe('/service-areas/miami/');
+  expect(payload?.get('landing_page')).toBe('/service-areas/los-angeles/');
   expect(payload?.get('form_page')).toBe('/contact/');
   const event = await page.evaluate(() => Array.from((window as any).dataLayer || []).find((x: any) => x.event === 'generate_lead') as any);
-  expect(event.cg_event.landing_page).toBe('/service-areas/miami/');
+  expect(event.cg_event.landing_page).toBe('/service-areas/los-angeles/');
   expect(event.cg_event.form_page).toBe('/contact/');
   expect(JSON.stringify(event)).not.toContain('not-stored');
   await page.reload();
@@ -221,7 +222,7 @@ test('a city landing survives navigation and is sent with the actual form page',
 test('service area directory filters by state and city, recovers from no results and works on mobile', async ({ page, browser }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('/service-areas/');
-  await expect(page.locator('[data-city]:visible')).toHaveCount(19);
+  await expect(page.locator('[data-city]:visible')).toHaveCount(23);
   await page.getByRole('button', { name: 'North Carolina', exact: true }).click();
   await expect(page.getByRole('button', { name: 'North Carolina', exact: true })).toHaveAttribute('aria-pressed', 'true');
   await expect(page.locator('[data-city]:visible')).toHaveCount(6);
@@ -232,12 +233,12 @@ test('service area directory filters by state and city, recovers from no results
   await page.getByRole('searchbox', { name: 'Search by city' }).fill('no-city-match');
   await expect(page.getByRole('heading', { name: 'No matching city page yet.' })).toBeVisible();
   await page.getByRole('button', { name: 'Show all service areas' }).click();
-  await expect(page.locator('[data-city]:visible')).toHaveCount(19);
+  await expect(page.locator('[data-city]:visible')).toHaveCount(23);
   await expect(page.getByRole('searchbox')).toBeFocused();
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   const context = await browser.newContext({ javaScriptEnabled: false });
   const plain = await context.newPage();
   await plain.goto('http://127.0.0.1:4321/service-areas/');
-  await expect(plain.locator('[data-city]:visible')).toHaveCount(19);
+  await expect(plain.locator('[data-city]:visible')).toHaveCount(23);
   await context.close();
 });

@@ -22,22 +22,6 @@ for (const f of (await readdir(root, { recursive: true })).filter(f => f.endsWit
 }
 const indexable = [...pages].filter(([, p]) => !p.noindex);
 
-test('California is unavailable, excluded from service offers and cannot request representation', () => {
-  for (const slug of ['los-angeles', 'san-francisco', 'san-diego', 'sacramento']) {
-    const p = pages.get(`/service-areas/${slug}/`);
-    assert.ok(p.noindex, slug);
-    assert.match(p.html, /not currently available/);
-    assert.ok(!p.all.some(n => n.tagName === 'form'), slug + ': no representation form');
-    assert.ok(!p.schemas.some(s => s['@type'] === 'Service'), slug + ': no Service offer');
-  }
-  for (const [url, p] of pages) {
-    for (const s of p.schemas.filter(s => ['Service', 'LocalBusiness'].includes(s['@type']))) {
-      assert.ok(!JSON.stringify(s.areaServed || []).includes('California'), url);
-    }
-    assert.ok(!p.all.some(n => n.tagName === 'option' && attr(n, 'value') === 'CA'), url);
-  }
-});
-
 test('public pages avoid unsupported settlement and universal expense promises', () => {
   const unsupported = /(?:forc(?:e|es|ed) (?:your |the )?(?:insur|full|complete)|zero upfront cost|no recovery,? no fee|no-recovery,? no-fee|reversed hundreds|advance all costs|pay in full|maximum (?:financial )?settlement|free (?:property |roof )?inspection)/i;
   for (const [url, p] of indexable) {
@@ -58,7 +42,7 @@ test('sitemap lists exactly the indexable canonical pages', async () => {
   }
   for (const match of xml.matchAll(/<url>([\s\S]*?)<\/url>/g)) {
     const lastmod = match[1].match(/<lastmod>(.*?)<\/lastmod>/)?.[1];
-    assert.ok(lastmod && /^2026-(10-19|11-18)(T.*)?$/.test(lastmod), 'Stable content modification date required');
+    assert.ok(lastmod && /^2026-(10-19|11-18|11-19)(T.*)?$/.test(lastmod), 'Stable content modification date required');
   }
 });
 

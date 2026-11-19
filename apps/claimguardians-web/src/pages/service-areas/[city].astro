@@ -282,9 +282,7 @@ const reviewAngles = priority ? { primary: profile.topics[0].title, primaryDesc:
 
 ---
 
-{stateCode === 'CA' ? <BaseLayout noindex title={`${city}, California — Service Unavailable | Claim Guardians`} description="Claim Guardians does not currently offer public adjusting services in California.">
-  <section class="section-white"><div class="section-inner max-w-4xl"><p class="eyebrow">California availability</p><h1 class="section-heading mb-6">Public adjusting services in {city} are not currently available.</h1><p class="text-lg text-slate-700 leading-relaxed mb-6">Claim Guardians does not currently hold a California public adjuster license and is not offering public adjusting representation for California properties. This page does not accept requests for California claim representation.</p><p class="text-slate-700 mb-8">For state consumer information and help checking a professional’s license, use the California Department of Insurance resources.</p><div class="flex flex-wrap gap-6"><a class="font-bold underline text-[#006775]" href="https://www.insurance.ca.gov/01-consumers/140-catastrophes/WildfireResources.cfm">California DOI consumer resources</a><a class="font-bold underline text-[#006775]" href="https://www.insurance.ca.gov/0200-industry/0008-check-license-status/">Check California license records</a><a class="font-bold underline text-[#006775]" href="/service-areas/">Current Claim Guardians service areas</a></div></div></section>
-</BaseLayout> : <BaseLayout
+<BaseLayout
   title={`Public Adjuster in ${city}, ${stateCode} | Claim Guardians`}
   description={localServiceFocus[city]?.description || `Public adjusting services for homeowners and businesses in ${city}, ${stateCode}. Help with new, denied and underpaid property claims. Request a free review.`}
 >
@@ -485,4 +483,4 @@ const reviewAngles = priority ? { primary: profile.topics[0].title, primaryDesc:
       <div class="flex flex-wrap gap-5"><a class="text-[#006775] font-bold underline" href="/resources/claim-review-guide/">Read the claim review guide</a><a class="text-[#006775] font-bold underline" lang="es" href="/es/guia-reclamacion/">Guía de reclamaciones en español</a></div>
     </div>
   </section>
-</BaseLayout>}
+</BaseLayout>

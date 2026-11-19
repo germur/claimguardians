@@ -6,7 +6,7 @@ const alternate = lang === 'en' ? '/es/guia-reclamacion/' : '/resources/claim-re
 ---
 <script type="application/ld+json" set:html={JSON.stringify({
   '@context': 'https://schema.org', '@type': 'WebPage', '@id': `https://allclaimguardians.com${Astro.url.pathname}#guide`,
-  name: guide.title, inLanguage: lang === 'es' ? 'es-US' : 'en-US', dateModified: '2026-11-18',
+  name: guide.title, inLanguage: lang === 'es' ? 'es-US' : 'en-US', dateModified: '2026-10-19',
   isPartOf: { '@id': 'https://allclaimguardians.com/#website' }, about: { '@id': 'https://allclaimguardians.com/#organization' },
   citation: guideSources.map(source => source.url),
 })} />

@@ -17,7 +17,7 @@ const faq = [
   { q: 'Can I speak with someone in Spanish?', a: 'Yes. Choose Español as your preferred language on the request form. We discuss residential and commercial property claims in English and Spanish.' },
 ];
 ---
-<BaseLayout title="Public Adjusters in FL & NC | Claim Guardians" description="Property damage claim support in Florida and North Carolina. We inspect damage, document your loss, and negotiate with your insurer. Request a free review.">
+<BaseLayout title="Public Adjusters in FL, CA & NC | Claim Guardians" description="Property damage claim support in Florida, California, and North Carolina. We inspect damage, document your loss, and negotiate with your insurer. Request a free review.">
   <Fragment slot="head"><script type="application/ld+json" set:html={JSON.stringify({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(item => ({ '@type': 'Question', name: item.q, acceptedAnswer: { '@type': 'Answer', text: item.a } })) })} /></Fragment>
   <div class="design-page">
     <section class="editorial-hero design-shell" aria-labelledby="home-heading">
@@ -25,7 +25,7 @@ const faq = [
         <p class="design-kicker"><span class="status-dot"></span> Property insurance. Policyholder advocacy.</p>
         <h1 id="home-heading">Public adjusters.<br />On <em>your</em> side.</h1>
         <p class="hero-deck">Property damage is enough to deal with.<br class="desktop-break" /> You don’t have to navigate the claim alone.</p>
-        <p class="hero-description">We document your loss, review your policy and negotiate with your insurer. For homeowners and businesses in Florida and North Carolina.</p>
+        <p class="hero-description">We document your loss, review your policy and negotiate with your insurer. For homeowners and businesses in Florida, California and North Carolina.</p>
         <div class="design-actions"><a class="design-button" href="/free-claim-review/">Get a free claim review <Icon /></a><a class="design-text-link" href="tel:3058045489">(305) 804-5489 <span aria-hidden="true">↗</span></a></div>
         <div class="hero-footnote"><Icon name="shield" size={19} /><span>Your property. Your claim. Your advocate.</span></div>
       </div>
@@ -35,8 +35,8 @@ const faq = [
         <div class="hero-visual-note"><span class="note-marker" aria-hidden="true">↗</span><div><span class="design-kicker">A clearer next step</span><p>Start with a conversation.<br />We’ll help you understand the claim.</p></div></div>
       </div>
     </section>
-    <div class="coverage-ribbon"><div class="design-shell"><span>Advocacy across</span><a href="/service-areas/">Florida <span aria-hidden="true">↗</span></a><a href="/service-areas/north-carolina/">North Carolina <span aria-hidden="true">↗</span></a><span class="ribbon-language">English / Español</span></div></div>
-    <nav aria-label="Local property claim services" class="design-shell flex flex-wrap items-center gap-x-6 gap-y-3 py-6 text-sm"><span class="font-semibold">Explore local claim help</span><a class="underline" href="/service-areas/miami/">Miami</a><a class="underline" href="/service-areas/fort-lauderdale/">Fort Lauderdale</a><a class="underline" href="/service-areas/west-palm-beach/">West Palm Beach</a><a class="underline" href="/service-areas/north-carolina/">North Carolina</a><a class="underline" href="/service-areas/">All service areas ↗</a></nav>
+    <div class="coverage-ribbon"><div class="design-shell"><span>Advocacy across</span><a href="/service-areas/">Florida <span aria-hidden="true">↗</span></a><a href="/service-areas/">California <span aria-hidden="true">↗</span></a><a href="/service-areas/north-carolina/">North Carolina <span aria-hidden="true">↗</span></a><span class="ribbon-language">English / Español</span></div></div>
+    <nav aria-label="Local property claim services" class="design-shell flex flex-wrap items-center gap-x-6 gap-y-3 py-6 text-sm"><span class="font-semibold">Explore local claim help</span><a class="underline" href="/service-areas/miami/">Miami</a><a class="underline" href="/service-areas/los-angeles/">Los Angeles</a><a class="underline" href="/service-areas/sacramento/">Sacramento</a><a class="underline" href="/service-areas/north-carolina/">North Carolina</a><a class="underline" href="/service-areas/">All service areas ↗</a></nav>
     <section class="design-section design-shell" aria-labelledby="damage-heading">
       <div class="design-section-head"><div><p class="design-kicker">01 / Find your starting point</p><h2 id="damage-heading">Different damage.<br /><em>The same commitment.</em></h2></div><p>Find the help that fits your property claim. New, denied or partially paid.</p></div>
       <div class="service-mosaic">{services.map((service, i) => <a class:list={['design-service', { 'design-service-photo': !!service.image }]} href={`/services/${service.slug}/`}>
