@@ -18,7 +18,10 @@ const faq = [
 ];
 ---
 <BaseLayout title="Public Adjusters in FL, CA & NC | Claim Guardians" description="Property damage claim support in Florida, California, and North Carolina. We inspect damage, document your loss, and negotiate with your insurer. Request a free review.">
-  <Fragment slot="head"><script type="application/ld+json" set:html={JSON.stringify({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(item => ({ '@type': 'Question', name: item.q, acceptedAnswer: { '@type': 'Answer', text: item.a } })) })} /></Fragment>
+  <Fragment slot="head">
+    <meta name="google-site-verification" content="GftI6OCitzuidQXHZ2CJ2BFLWuqkn7NrFpSIB1Ycqdc" />
+    <script type="application/ld+json" set:html={JSON.stringify({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(item => ({ '@type': 'Question', name: item.q, acceptedAnswer: { '@type': 'Answer', text: item.a } })) })} />
+  </Fragment>
   <div class="design-page">
     <section class="editorial-hero design-shell" aria-labelledby="home-heading">
       <div class="hero-copy">
