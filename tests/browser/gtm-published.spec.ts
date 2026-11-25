@@ -10,7 +10,7 @@ test('published GTM sends one page view, contact and confirmed lead without pers
     const req = route.request(), url = new URL(req.url());
     if (url.hostname === 'allclaimguardians.com') {
       if (url.pathname === '/__forms.html') return route.fulfill({ status: 200, body: 'Received' });
-      const local = await request.get('http://127.0.0.1:4321' + url.pathname + url.search);
+      const local = await request.get(url.pathname + url.search);
       return route.fulfill({ response: local });
     }
     if (url.hostname.endsWith('google-analytics.com')) {

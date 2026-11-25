@@ -25,7 +25,7 @@ export const claimGuide = {
       { q: 'How do I request a review?', a: 'Use the free claim review form or call (305) 804-5489. Tell the team the property state, damage type and claim status. Ask for the applicable service agreement and fee explanation before engaging the firm.' },
     ],
     sourceTitle: 'Consumer resources by state', sourceNote: 'These state resources provide general information. Their inclusion does not imply endorsement of Claim Guardians. Your policy and circumstances require an individual review.',
-    cta: 'Request a free claim review', updated: 'Updated October 19, 2026', alternate: 'Leer esta guía en español',
+    cta: 'Request a free claim review', updated: 'Updated November 25, 2026', alternate: 'Leer esta guía en español',
   },
   es: {
     title: 'Guía de reclamaciones: Florida, California y North Carolina',

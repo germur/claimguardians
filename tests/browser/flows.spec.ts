@@ -50,7 +50,7 @@ test('resources search filters, clears, and cards target real sections', async (
   await expect(page.locator('#search-empty')).toBeVisible();
   await expect(page.locator('[data-search-item]:visible')).toHaveCount(0);
   await page.getByRole('button', { name: 'Show all resources' }).click();
-  await expect(page.locator('[data-search-item]:visible')).toHaveCount(14);
+  await expect(page.locator('[data-search-item]:visible')).toHaveCount(23);
   const expectedMatches = (await page.locator('[data-search-item]').allTextContents()).filter(text => text.toLowerCase().includes('deductible')).length;
   await search.fill('deductible');
   await expect(page.locator('#glossary')).toBeVisible();
@@ -59,6 +59,11 @@ test('resources search filters, clears, and cards target real sections', async (
   await page.getByRole('link', { name: /Claim Survival Guides/ }).click();
   await expect(page).toHaveURL(/\/resources\/claim-review-guide\/$/);
   await expect(page.getByRole('heading', { level: 1 })).toContainText('property insurance claim review');
+  await page.goto('/resources/');
+  await search.fill('supplemental homeowners');
+  await page.getByRole('link', { name: 'How to document a supplemental homeowners insurance claim' }).click();
+  await expect(page).toHaveURL(/\/resources\/supplemental-homeowners-insurance-claim\/$/);
+  await expect(page.getByRole('link', { name: 'Request a free claim review', exact: true }).last()).toBeVisible();
 });
 
 test('mobile menu manages focus, Escape and layout', async ({ page }) => {
@@ -151,7 +156,7 @@ test('local services precede supporting guides and retain matching FAQs', async 
   const pages = [
     ['/service-areas/los-angeles/', 'Fire and smoke claim review in Los Angeles'],
     ['/service-areas/miami/', 'Water, roof and condo claim review in Miami'],
-    ['/service-areas/west-palm-beach/', 'Roof and storm claim review in West Palm Beach'],
+    ['/service-areas/west-palm-beach/', 'Storm, hurricane and roof claims in West Palm Beach'],
     ['/service-areas/north-carolina/', 'Prepare your North Carolina property claim review'],
   ];
   for (const [path, heading] of pages) {

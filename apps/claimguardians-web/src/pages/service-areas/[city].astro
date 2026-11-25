@@ -1,4 +1,5 @@
 ---
+import { stateAreaHref } from '../../data/service-areas';
 import PageHero from "../../components/PageHero.astro";
 import LocalClaimService from '../../components/LocalClaimService.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
@@ -276,14 +277,25 @@ const { data } = Astro.props;
 const { city, county, stateCode, stateName, zipCodes, nearbyAreas, damageAngles } = data;
 const profile = getMarketReview(city, stateCode);
 const faq = profile.faq;
-const priority = ["Los Angeles", "Miami", "West Palm Beach", "Sacramento"].includes(city);
+const leadTopics: Record<string, string> = {
+  "Los Angeles": "Fire and smoke claim help",
+  "Miami": "Water, roof and condo claim help",
+  "West Palm Beach": "Storm and roof claim help",
+  "Sacramento": "What to bring to a property claim review",
+};
+const isWestPalmBeach = city === "West Palm Beach";
+const priority = Boolean(leadTopics[city]);
+const stateHref = stateAreaHref(stateCode);
+const pageTitle = isWestPalmBeach
+  ? "West Palm Beach Public Adjuster | Storm & Roof Claims"
+  : `Public Adjuster in ${city}, ${stateCode} | Claim Guardians`;
 
 const reviewAngles = priority ? { primary: profile.topics[0].title, primaryDesc: profile.topics[0].text, secondary: profile.topics[1].title, secondaryDesc: profile.topics[1].text, tertiary: profile.topics[2].title, tertiaryDesc: profile.topics[2].text } : damageAngles;
 
 ---
 
 <BaseLayout
-  title={`Public Adjuster in ${city}, ${stateCode} | Claim Guardians`}
+  title={pageTitle}
   description={localServiceFocus[city]?.description || `Public adjusting services for homeowners and businesses in ${city}, ${stateCode}. Help with new, denied and underpaid property claims. Request a free review.`}
 >
   <Fragment slot="head">
@@ -311,13 +323,16 @@ const reviewAngles = priority ? { primary: profile.topics[0].title, primaryDesc:
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://allclaimguardians.com/" },
         { "@type": "ListItem", "position": 2, "name": "Service Areas", "item": "https://allclaimguardians.com/service-areas/" },
-        { "@type": "ListItem", "position": 3, "name": city, "item": `https://allclaimguardians.com/service-areas/${city.toLowerCase().replace(/\s+/g, '-')}/` }
+        { "@type": "ListItem", "position": 3, "name": stateName, "item": `https://allclaimguardians.com${stateHref}` },
+        { "@type": "ListItem", "position": 4, "name": city, "item": Astro.url.href }
       ]
     })} />
   </Fragment>
 
   <!-- 1. Hero -->
-  <PageHero title={`Public Adjuster in ${city}, ${stateCode}`} eyebrow={`Property claims / ${county}`} description={`Claim Guardians represents homeowners and business owners in ${county} with property insurance claims. We document damage, review the policy and negotiate with your insurer. Request help with a new claim, a denial or a partial payment.`} image={stateCode === 'CA' ? '/images/hero-fire-damage.png' : '/images/hero-city-florida.png'} current={city} parent={{ label: 'Service areas', href: '/service-areas/' }} ctaHref="#claim-form" compact />
+  <PageHero title={`Public Adjuster in ${city}, ${stateCode}`} eyebrow={`Property claims / ${county}`} description={isWestPalmBeach ? 'Need help with a storm, hurricane or roof damage claim in West Palm Beach? Claim Guardians helps homeowners and businesses in Palm Beach County document the damage, review the policy and communicate with the insurer. Tell us what happened and where your claim stands to request a free initial review.' : `Claim Guardians represents homeowners and business owners in ${county} with property insurance claims. We document damage, review the policy and negotiate with your insurer. Request help with a new claim, a denial or a partial payment.`} image={stateCode === 'CA' ? '/images/hero-fire-damage.png' : '/images/hero-city-florida.png'} current={city} parent={{ label: stateName, href: stateHref }} ctaHref="#claim-form" compact>
+    {priority && <a class="design-text-link" href="#market-review-heading">{leadTopics[city]}</a>}
+  </PageHero>
 
   <LocalClaimService city={city} state={stateCode} area={county} />
 
@@ -348,6 +363,8 @@ const reviewAngles = priority ? { primary: profile.topics[0].title, primaryDesc:
   }
 
   <MarketReview profile={profile} />
+  {city === "Miami" && <div class="section-inner max-w-4xl py-6"><p>Dealing with water that entered from outside? Read our <a class="underline text-[#006775]" href="/resources/how-to-file-a-flood-insurance-claim/">flood insurance filing guide</a> to identify the policy and records to check.</p></div>}
+  {isWestPalmBeach && <div class="section-inner max-w-4xl py-6"><p>For a disputed roof scope, use this <a class="underline text-[#006775]" href="/resources/roof-damage-insurance-claim/">roof damage insurance claim checklist</a> to organize estimates and records.</p></div>}
 
   <!-- 4. Our Process -->
   <section class="section-white">
@@ -385,9 +402,9 @@ const reviewAngles = priority ? { primary: profile.topics[0].title, primaryDesc:
   <section class="section-muted text-center">
     <div class="section-inner">
       <span class="eyebrow">Coverage Zones</span>
-      <h2 class="section-heading mb-4">Serving {city} and {nearbyAreas}</h2>
+      <h2 class="section-heading mb-4">Property claim help in {county}</h2>
       <p class="text-lg text-slate-500 mb-12 max-w-2xl mx-auto">
-        We discuss properties in the following zip codes and all surrounding neighborhoods across {county}.
+        We discuss claims for properties in {nearbyAreas}. Ask about your ZIP code and inspection availability.
       </p>
       <div class="flex flex-wrap justify-center gap-4">
         {zipCodes.map((zip) => (
@@ -433,7 +450,7 @@ const reviewAngles = priority ? { primary: profile.topics[0].title, primaryDesc:
         </a>
         <a href="/services/water-damage/" class="card-hover group block">
           <h3 class="text-xl font-bold text-[#082142] mb-2 group-hover:text-[#00808C] transition-colors">Water Damage & Leaks</h3>
-          <p class="text-slate-500">Burst pipes, hidden leaks, and flood damage claims in {city}.</p>
+          <p class="text-slate-500">Burst pipes, hidden leaks and interior water damage in {city}.</p>
         </a>
         <a href="/services/roof-damage/" class="card-hover group block">
           <h3 class="text-xl font-bold text-[#082142] mb-2 group-hover:text-[#00808C] transition-colors">Roof Damage Claims</h3>
@@ -463,7 +480,7 @@ const reviewAngles = priority ? { primary: profile.topics[0].title, primaryDesc:
       <p class="text-xl text-slate-500 mb-8 max-w-2xl mx-auto leading-relaxed">
         Don't let the insurance company dictate the outcome of your claim. Request a review of your policy, damage records and insurer’s response.
       </p>
-      <a href="#claim-form" class="btn-accent px-12 py-5 text-xl min-h-[64px]">Request Free {city} Case Review</a>
+      <a href="#claim-form" class="btn-accent px-12 py-5 text-xl min-h-[64px]">Request a free {city} claim review</a>
       <p class="text-sm text-slate-400 mt-4">Free initial review. Confirm representation terms in writing.</p>
     </div>
   </section>
@@ -479,7 +496,7 @@ const reviewAngles = priority ? { primary: profile.topics[0].title, primaryDesc:
   <section class="section-muted">
     <div class="section-inner max-w-4xl">
       <h2 class="section-heading mb-4">What should you bring to a claim review?</h2>
-      <p class="text-lg text-slate-700 leading-relaxed mb-5">Bring your policy, dated photos, repair estimates or reports, and any insurer letters. If the claim was denied or paid, include the decision and a timeline of communication. The review considers your policy and documented damage; it does not guarantee coverage or a particular settlement.</p>
+      <p class="text-lg text-slate-700 leading-relaxed mb-5">Use the claim review guide to organize the records listed above and check which documents fit your loss.</p>
       <div class="flex flex-wrap gap-5"><a class="text-[#006775] font-bold underline" href="/resources/claim-review-guide/">Read the claim review guide</a><a class="text-[#006775] font-bold underline" lang="es" href="/es/guia-reclamacion/">Guía de reclamaciones en español</a></div>
     </div>
   </section>

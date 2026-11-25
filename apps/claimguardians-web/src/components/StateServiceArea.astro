@@ -1,0 +1,54 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from './PageHero.astro';
+import { states, cityAreaHref } from '../data/service-areas';
+
+const { code } = Astro.props as { code: 'FL' | 'CA' };
+const { name, cities } = states.find(state => state.code === code)!;
+const options = {
+  FL: {
+    description: 'Public adjusting for homeowners and business owners with hurricane, roof, water or other property insurance claims in Florida.',
+    preparation: 'Start with dated photos, your declarations page, any temporary repair receipts and your insurer’s estimate or letter. For a storm claim, record when you noticed the opening, water entry or wind damage and keep those observations separate from later repairs.',
+    services: [['hurricane-damage', 'Hurricane and wind damage'], ['roof-damage', 'Roof damage'], ['water-damage', 'Water damage']],
+    source: 'https://www.myfloridacfo.com/division/consumers/storm/public-adjusters',
+    agency: 'Florida Department of Financial Services',
+  },
+  CA: {
+    description: 'Public adjusting for homeowners and business owners with fire, smoke, water or other property insurance claims in California.',
+    preparation: 'Keep the insurer’s letters, your policy and a room-by-room inventory. For fire or smoke claims, bring any evacuation records, temporary living expense receipts and contractor or remediation estimates so each cost can be reviewed against the applicable policy terms.',
+    services: [['fire-damage', 'Fire and smoke damage'], ['water-damage', 'Water damage'], ['denied-claims', 'Denied or underpaid claims']],
+    source: 'https://www.insurance.ca.gov/01-consumers/105-type/95-guides/03-res/res-prop-claim.cfm',
+    agency: 'California Department of Insurance',
+  },
+}[code];
+const title = `Public Adjuster in ${name}`;
+---
+<BaseLayout title={`${title} | Claim Guardians`} description={options.description}>
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org', '@type': 'Service', name: title,
+    provider: { '@id': 'https://allclaimguardians.com/#organization' },
+    areaServed: { '@type': 'State', name }, url: Astro.url.href,
+    description: options.description,
+  })} />
+  <PageHero title={title} eyebrow={`${name} / Property insurance claims`} description={options.description} current={name} parent={{ label: 'Service areas', href: '/service-areas/' }} compact />
+  <section class="section-white">
+    <div class="section-inner">
+      <h2 class="section-heading mb-6">Find claim help by city</h2>
+      <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {cities.map(([city, slug]) => <li><a class="card-hover block p-5 font-bold text-[#006775]" href={cityAreaHref(code, slug)}>{city} public adjuster services</a></li>)}
+      </ul>
+      <p class="mt-6">Ask about your property location, inspection availability and the assigned adjuster’s state credentials before you engage.</p>
+    </div>
+  </section>
+  <section class="section-muted">
+    <div class="section-inner max-w-4xl space-y-5">
+      <h2 class="section-heading">Prepare for a claim review in {name}</h2>
+      <p>{options.preparation}</p>
+      <ul class="space-y-3">
+        {options.services.map(([slug, label]) => <li><a class="underline text-[#006775]" href={`/services/${slug}/`}>{label} claims support</a></li>)}
+        <li><a class="underline text-[#006775]" href="/resources/claim-review-guide/">Property claim document checklist</a></li>
+        <li><a class="underline text-[#006775]" href={options.source}>{options.agency} consumer guidance</a></li>
+      </ul>
+    </div>
+  </section>
+</BaseLayout>

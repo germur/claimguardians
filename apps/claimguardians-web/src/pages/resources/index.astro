@@ -1,5 +1,6 @@
 ---
 import PageHero from "../../components/PageHero.astro";
+import { editorialGuides, guideHref } from '../../data/editorial-guides';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
 
@@ -152,6 +153,16 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
         <p>No matching questions or guides. Try another term, or <a href="/contact/" class="underline text-[#006775]">contact our team</a>.</p>
         <button id="search-clear" type="button" class="btn-secondary mt-4">Show all resources</button>
       </div>
+      <section data-search-group aria-labelledby="property-claim-guides">
+        <h2 id="property-claim-guides" class="section-heading mb-6">Guides for common claim decisions</h2>
+        <div class="grid gap-4 md:grid-cols-2">
+          {editorialGuides.map(guide => <article data-search-item class="bg-white border border-slate-200 rounded-2xl p-5">
+            <p class="eyebrow mb-2">{guide.category}</p>
+            <h3 class="text-xl font-bold"><a class="underline text-[#006775]" href={guideHref(guide.slug)}>{guide.heading}</a></h3>
+            <p class="mt-3 text-slate-600">{guide.description}</p>
+          </article>)}
+        </div>
+      </section>
       <article id="claim-guide" data-search-item class="bg-white border border-slate-200 rounded-2xl p-6 md:p-8">
         <h2 class="section-heading mb-4">Prepare for a property claim review</h2>
         <p class="mb-4"><a class="underline text-[#006775]" href="/resources/claim-review-guide/">Read the complete guide</a> · <a lang="es" class="underline text-[#006775]" href="/es/guia-reclamacion/">Leer en español</a></p>
@@ -301,7 +312,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     <div class="section-inner">
       <h2 class="section-heading mb-6">Empower Your Claim with Professional Expertise.</h2>
       <p class="text-xl text-slate-500 mb-10 font-medium max-w-2xl mx-auto">
-        Don't let them win with legal jargon. Let Claim Guardians handle the technical battle for you.
+        Tell us what happened, where the property is located and what your insurer has said so far.
       </p>
       <a href="/free-claim-review/" class="btn-accent px-12 py-5 text-2xl min-h-[64px]">Request Your Free Claim Review →</a>
     </div>

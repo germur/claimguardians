@@ -1,0 +1,75 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import { editorialGuides, guideHref } from '../../data/editorial-guides';
+
+export function getStaticPaths() {
+  return editorialGuides.map(guide => ({ params: { guide: guide.slug }, props: { guide } }));
+}
+
+const { guide } = Astro.props;
+const links = guide.related.map(slug => editorialGuides.find(item => item.slug === slug)!);
+---
+<BaseLayout title={guide.title} description={guide.description}>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org', '@type': 'Article', headline: guide.heading,
+      description: guide.description, mainEntityOfPage: Astro.url.href,
+      publisher: { '@id': 'https://allclaimguardians.com/#organization' },
+      citation: guide.sources.map(([, url]) => url), inLanguage: 'en-US',
+    })} />
+  </Fragment>
+  <PageHero title={guide.heading} description={guide.intro} eyebrow={guide.category} current={guide.heading} parent={{ label: 'Resources', href: '/resources/' }} ctaLabel="" compact />
+  <article class="section-white">
+    <div class="section-inner max-w-4xl">
+      <div class="space-y-8">
+        {guide.sections.map(([heading, copy]) => <section>
+          <h2 class="text-2xl font-bold text-[#082142] mb-3">{heading}</h2>
+          <p class="text-slate-700 leading-relaxed">{copy}</p>
+        </section>)}
+      </div>
+      {guide.slug === 'home-insurance-claim-denied' && <section class="mt-10">
+        <h2 class="text-2xl font-bold mb-4">Turn the denial letter into an evidence checklist</h2>
+        <div class="overflow-x-auto" tabindex="0" role="region" aria-label="Denial letter examples">
+          <table class="w-full min-w-[32rem] text-left text-slate-700">
+            <caption class="sr-only">Illustrative denial reasons and the evidence to gather for each</caption>
+            <thead class="bg-slate-100"><tr>
+              <th scope="col" class="p-3">What the letter says</th>
+              <th scope="col" class="p-3">What to check</th>
+              <th scope="col" class="p-3">What to gather</th>
+            </tr></thead>
+            <tbody>
+              <tr class="border-b border-slate-200"><th scope="row" class="p-3">An exclusion applies</th><td class="p-3">The cited paragraph and related endorsements.</td><td class="p-3">Complete policy and dated evidence about how the damage occurred.</td></tr>
+              <tr class="border-b border-slate-200"><th scope="row" class="p-3">The loss date is disputed</th><td class="p-3">Which date and observation the insurer relied on.</td><td class="p-3">Dated photos, repair records and a short timeline.</td></tr>
+              <tr class="border-b border-slate-200"><th scope="row" class="p-3">Documents are missing</th><td class="p-3">The specific material requested and how to submit it.</td><td class="p-3">Copies of the requested records and earlier submissions.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>}
+      <section class="bg-slate-50 rounded-2xl p-6 md:p-8 my-10">
+        <h2 class="text-2xl font-bold mb-4">Records to gather</h2>
+        <ul class="list-disc pl-6 space-y-2 text-slate-700">
+          {guide.checklist.map(item => <li>{item}</li>)}
+        </ul>
+      </section>
+      <section class="space-y-4 mb-10">
+        <h2 class="text-2xl font-bold">Get help with your next step</h2>
+        <p>Tell us what happened and what the insurer has said so far. Bring the records you have available.</p>
+        {guide.slug === 'home-insurance-claim-denied' && <p><a class="underline text-[#006775]" href="/service-areas/north-carolina/denied-insurance-claim-nc/">Help with a denied property claim in North Carolina</a></p>}
+        {guide.service && <p><a class="underline text-[#006775]" href={guide.service[0]}>{guide.service[1]}</a></p>}
+        <a class="btn-accent" href="/free-claim-review/">Request a free claim review</a>
+      </section>
+      <section class="border-t border-slate-200 pt-8">
+        <h2 class="text-xl font-bold mb-4">Related guides</h2>
+        <ul class="space-y-3 mb-8">
+          {links.map(item => <li><a class="underline text-[#006775]" href={guideHref(item.slug)}>{item.heading}</a></li>)}
+          <li><a class="underline text-[#006775]" href="/resources/claim-review-guide/">Property claim review checklist</a></li>
+        </ul>
+        <h2 class="text-xl font-bold mb-4">Sources</h2>
+        <ul class="space-y-3">
+          {guide.sources.map(([label, url]) => <li><a class="underline text-[#006775]" href={url}>{label}</a></li>)}
+        </ul>
+      </section>
+    </div>
+  </article>
+</BaseLayout>

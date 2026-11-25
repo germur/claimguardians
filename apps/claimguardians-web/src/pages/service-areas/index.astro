@@ -1,13 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Icon from '../../components/DesignIcon.astro';
-const states = [
-  { code: 'FL', name: 'Florida', note: 'From the Atlantic coast to the Gulf.', cities: [
-    ['Miami','miami'], ['Fort Lauderdale','fort-lauderdale'], ['West Palm Beach','west-palm-beach'], ['Boca Raton','boca-raton'], ['Orlando','orlando'], ['Kissimmee','kissimmee'], ['Daytona Beach','daytona-beach'], ['Lakeland','lakeland'], ['Tampa','tampa'], ['Fort Myers','fort-myers'], ['Cape Coral','cape-coral'], ['Naples','naples'], ['Jacksonville','jacksonville'],
-  ] },
-  { code: 'CA', name: 'California', note: 'Property claim help on the West Coast.', cities: [ ['Los Angeles','los-angeles'], ['San Francisco','san-francisco'], ['San Diego','san-diego'], ['Sacramento','sacramento'] ] },
-  { code: 'NC', name: 'North Carolina', note: 'From the mountains to the coast.', cities: [ ['Charlotte','charlotte'], ['Raleigh','raleigh'], ['Wilmington','wilmington'], ['Asheville','asheville'], ['Fayetteville','fayetteville'], ['Jacksonville','jacksonville-nc'] ] },
-];
+import { states, stateAreaHref, cityAreaHref } from '../../data/service-areas';
 ---
 <BaseLayout title="Public Adjuster Service Areas - Florida, California & North Carolina | Claim Guardians" description="Find public adjusting services for property claims in Florida, California and North Carolina. Choose your state or city and request a free initial claim review.">
   <div class="design-page">
@@ -22,8 +16,8 @@ const states = [
       <div id="area-results" class="area-grid">{states.map((state,i) => <article class:list={['state-panel', { 'state-panel-fl':state.code==='FL' }]} data-area-state={state.code}>
         <div class="state-panel-heading"><div><p class="design-kicker">0{i+1} / Service region</p><h2>{state.name}</h2></div><span class="state-monogram" aria-hidden="true">{state.code}</span></div>
         <p class="state-note">{state.note}</p>
-        <ul class="city-directory">{state.cities.map(([name,slug]) => <li data-city={name.toLowerCase()}><a href={`/service-areas/${state.code==='NC'?'north-carolina/':''}${slug}/`}><span>{name}</span><Icon size={17} /></a></li>)}</ul>
-        {state.code==='NC' && <a class="state-hub-link" href="/service-areas/north-carolina/">North Carolina statewide services <Icon size={18} /></a>}
+        <ul class="city-directory">{state.cities.map(([name,slug]) => <li data-city={name.toLowerCase()}><a href={cityAreaHref(state.code, slug)}><span>{name}</span><Icon size={17} /></a></li>)}</ul>
+        <a class="state-hub-link" href={stateAreaHref(state.code)}>{state.name} statewide services <Icon size={18} /></a>
         <div class="state-panel-bottom"><span>Residential & commercial</span><span>EN / ES</span></div>
       </article>)}</div>
       <div id="area-empty" class="area-empty" hidden><h3>No matching city page yet.</h3><p>Try another spelling, clear your filters or ask us about the property location.</p><button id="clear-area-filters" class="design-button" type="button">Show all service areas <span aria-hidden="true">↗</span></button></div>

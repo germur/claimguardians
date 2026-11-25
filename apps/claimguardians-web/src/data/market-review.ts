@@ -67,7 +67,7 @@ export function getMarketReview(city: string, state: string): ReviewProfile {
     profile.documents.push('Any plumbing, roof or mitigation findings explaining the source and timing of a water loss.');
     profile.faq.push({ q: 'Can a Sacramento public adjuster review a claim after a payment?', a: 'A review can compare the payment breakdown and insurer’s estimate with the policy and available damage records. Further representation depends on the loss date, claim history, policy terms and applicable deadlines; a prior payment does not guarantee that more money is available.' });
   } else if (city === 'West Palm Beach') {
-    profile.heading = 'Roof and storm claim review in West Palm Beach';
+    profile.heading = 'Storm, hurricane and roof claims in West Palm Beach';
     profile.intro = 'For a West Palm Beach roof or storm claim, organize the sequence from the first signs of damage to inspection, temporary protection and the insurer’s decision. That timeline helps distinguish the reported event from earlier repairs or maintenance issues.';
     profile.documents.push('Roof inspection findings, prior repair records and receipts for temporary protection, if available.');
     profile.faq.push({ q: 'What if my West Palm Beach roof claim was attributed to wear or maintenance?', a: 'Bring the insurer’s written reasoning, dated damage photographs and any roof inspection or repair records. A review can compare the disputed findings with the available evidence, without promising that the insurer will change its decision.' });

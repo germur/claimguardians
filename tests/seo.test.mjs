@@ -42,7 +42,7 @@ test('sitemap lists exactly the indexable canonical pages', async () => {
   }
   for (const match of xml.matchAll(/<url>([\s\S]*?)<\/url>/g)) {
     const lastmod = match[1].match(/<lastmod>(.*?)<\/lastmod>/)?.[1];
-    assert.ok(lastmod && /^2026-(10-19|11-18|11-19)(T.*)?$/.test(lastmod), 'Stable content modification date required');
+    assert.ok(lastmod && /^2026-(10-19|11-18|11-19|11-25)(T.*)?$/.test(lastmod), 'Stable content modification date required');
   }
 });
 

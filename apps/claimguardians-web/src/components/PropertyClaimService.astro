@@ -8,6 +8,14 @@ import { feeTerms, serviceDetails, type ServiceSlug } from '../data/service-deta
 
 const { service } = Astro.props as { service: ServiceSlug };
 const detail = serviceDetails[service];
+const reading: Record<ServiceSlug, [string, string][]> = {
+  'water-damage': [['water-damage-insurance-claim', 'Water damage claim checklist'], ['how-to-file-a-flood-insurance-claim', 'Filing a separate flood insurance claim']],
+  'hurricane-damage': [['roof-damage-insurance-claim', 'Roof damage claim checklist'], ['how-to-file-a-flood-insurance-claim', 'Filing a separate flood insurance claim']],
+  'roof-damage': [['roof-damage-insurance-claim', 'Roof damage claim checklist'], ['recoverable-depreciation', 'How recoverable depreciation works']],
+  'fire-damage': [['how-to-file-a-homeowners-insurance-claim', 'How to file a homeowners insurance claim']],
+  'mold-claims': [['water-damage-insurance-claim', 'How to document the original water damage']],
+  'denied-claims': [['home-insurance-claim-denied', 'What to do after a written denial'], ['supplemental-homeowners-insurance-claim', 'How to document additional damage']],
+};
 const process = [
   { title: 'Start with a free review', text: 'Tell us about the property, reported damage and claim status. Keep the policy, photographs, estimates and insurer letters ready for follow-up.' },
   { title: 'Confirm the professional and terms', text: 'Check the assigned adjuster’s credentials for your state. Discuss inspection availability, proposed scope, fees and expenses before representation begins.' },
@@ -50,6 +58,12 @@ const process = [
   </section>
 
   <ServicePreparation service={service} />
+
+  <section class="section-muted"><div class="section-inner max-w-4xl">
+    <h2 class="section-heading mb-5">Prepare for your next claim decision</h2>
+    {service === 'water-damage' && <p class="text-slate-600 mb-5">A plumbing leak, rain through a storm-damaged opening and rising water from outside can involve different policy provisions. Start by documenting the route the water took.</p>}
+    <ul class="space-y-3">{reading[service].map(([slug, label]) => <li><a class="underline font-bold text-[#006775]" href={`/resources/${slug}/`}>{label}</a></li>)}</ul>
+  </div></section>
 
   {(service === 'fire-damage' || service === 'water-damage') && <section class="section-white"><div class="section-inner"><h2 class="section-heading mb-5">Discuss your property and local availability.</h2><p class="text-slate-600 leading-relaxed mb-5">Explore the relevant service area and confirm the professional and proposed services for your property.</p><div class="flex flex-wrap gap-6"><a class="font-bold text-[#006775] underline" href="/service-areas/sacramento/">Sacramento property claim services</a>{service === 'fire-damage' ? <a class="font-bold text-[#006775] underline" href="/service-areas/los-angeles/">Los Angeles fire and smoke claim services</a> : <a class="font-bold text-[#006775] underline" href="/service-areas/miami/">Miami water claim services</a>}</div></div></section>}
 

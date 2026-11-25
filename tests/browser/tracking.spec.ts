@@ -35,8 +35,9 @@ test('staff opt-out persists, suppresses vendors and events, and can be reversed
   });
   await page.route('https://allclaimguardians.com/**', async route => {
     const url = new URL(route.request().url());
+    if (url.pathname === '/favicon.png') return route.fulfill({ status: 204 });
     if (url.pathname === '/__forms.html' && route.request().method() === 'POST') return route.fulfill({ status: 200, body: 'Received' });
-    const local = await request.get('http://127.0.0.1:4321' + url.pathname + url.search);
+    const local = await request.get(url.pathname + url.search);
     return route.fulfill({ response: local });
   });
   await page.goto('https://allclaimguardians.com/contact/?cg_internal=1');

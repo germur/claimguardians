@@ -1,4 +1,5 @@
 ---
+import ClaimCalculator from './ClaimCalculator';
 import { claimGuide, guideSources } from '../data/claim-guide';
 const { lang = 'en' } = Astro.props as { lang?: 'en' | 'es' };
 const guide = claimGuide[lang];
@@ -6,7 +7,7 @@ const alternate = lang === 'en' ? '/es/guia-reclamacion/' : '/resources/claim-re
 ---
 <script type="application/ld+json" set:html={JSON.stringify({
   '@context': 'https://schema.org', '@type': 'WebPage', '@id': `https://allclaimguardians.com${Astro.url.pathname}#guide`,
-  name: guide.title, inLanguage: lang === 'es' ? 'es-US' : 'en-US', dateModified: '2026-10-19',
+  name: guide.title, inLanguage: lang === 'es' ? 'es-US' : 'en-US', dateModified: lang === 'en' ? '2026-11-25' : '2026-10-19',
   isPartOf: { '@id': 'https://allclaimguardians.com/#website' }, about: { '@id': 'https://allclaimguardians.com/#organization' },
   citation: guideSources.map(source => source.url),
 })} />
@@ -30,6 +31,7 @@ const alternate = lang === 'en' ? '/es/guia-reclamacion/' : '/resources/claim-re
       <p class="text-lg text-slate-700 leading-relaxed mb-4">{market.answer}</p>
       <ul class="space-y-3 text-[#006775] underline">
         <li><a href={market.link}>{market.label}</a></li><li><a href={market.service}>{market.serviceLabel}</a></li>
+        {lang === 'en' && market.id === 'florida' && <li><a href="/service-areas/west-palm-beach/">West Palm Beach roof and storm claim help</a></li>}
         <li><a href={guideSources[index].url} rel="noopener noreferrer">{guideSources[index].name}</a></li>
       </ul>
     </section>)}
@@ -37,6 +39,11 @@ const alternate = lang === 'en' ? '/es/guia-reclamacion/' : '/resources/claim-re
       <h2 class="text-2xl font-bold mb-5">{guide.checklistTitle}</h2>
       <ol class="list-decimal pl-5 space-y-4 text-slate-700">{guide.checklist.map(item => <li>{item}</li>)}</ol>
     </section>
+    {lang === 'en' && <section class="my-10 space-y-5" aria-labelledby="checklist-by-damage">
+      <h2 id="checklist-by-damage" class="section-heading">Checklist by damage type</h2>
+      <ClaimCalculator client:visible />
+      <p>For the full process, see <a class="underline text-[#006775]" href="/resources/how-to-file-a-homeowners-insurance-claim/">how to file a homeowners insurance claim</a>.</p>
+    </section>}
     <section class="space-y-6 my-12">
       {guide.faqs.map(faq => <div><h2 class="text-xl font-bold mb-2">{faq.q}</h2><p class="text-slate-700 leading-relaxed">{faq.a}</p></div>)}
     </section>
