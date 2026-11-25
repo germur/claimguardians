@@ -61,7 +61,7 @@ export const editorialGuides: EditorialGuide[] = [
       ['Review the adjuster report and filing requirements', 'Confirm whether your insurer needs a signed proof of loss, which documents to attach, and when they are due. If damage is missing from the scope, identify the affected rooms or items and send evidence through the insurer’s requested channel.'],
     ],
     checklist: ['Flood policy and claim number', 'Dated room photos and water-line photos', 'Inventory, estimates and cleanup receipts', 'Written insurer instructions for forms and deadlines'],
-    sources: [floodSmart, naic],
+    sources: [floodSmart, naic, ['NFIP claim checklist for policyholders', 'https://www.floodsmart.gov/claims-checklist'], ['Miami-Dade County damage reporting', 'https://www.miamidade.gov/global/service.page?Mduid_service=ser1500318029837608']],
     related: [water, fileClaim],
   },
   {
@@ -73,6 +73,7 @@ export const editorialGuides: EditorialGuide[] = [
     category: 'Working with an adjuster',
     sections: [
       ['Ask what amount the fee applies to', 'Read the fee clause alongside the scope. For a claim with payments already issued, ask whether those amounts are included and have the answer recorded in the contract.'],
+      ['Questions to ask about a public adjuster contract', 'Ask for a written example using the fee basis in your proposed agreement, including how it treats any prior payment. Confirm which expenses require approval, when any fee is due, who performs the work and how cancellation works. Review the public adjuster rules for the state where the property is located.'],
       ['Check the rules for the property’s state', 'States may have different rules for contracts, cancellation, fee limits and disasters. Use the regulator’s current guidance and verify the assigned adjuster’s license.'],
       ['Separate the initial review from representation', 'Claim Guardians offers a free initial review. Any representation, fee and approved expenses are discussed under separate written terms. Ask how work ends and what documents you receive.'],
     ],
@@ -91,6 +92,7 @@ export const editorialGuides: EditorialGuide[] = [
       ['Document the roof and the interior separately', 'Record exterior observations and interior water marks by room. Save contractor photos and notes about where water may have entered. Use qualified help to inspect areas that are unsafe to reach.'],
       ['What to record after hail', 'Save the date of the reported storm and any safe photographs taken before temporary repairs. Ask the roof inspector to identify the locations and materials examined, what they observed and which conclusions are supported by the inspection. Compare those findings with the insurer’s explanation.'],
       ['Compare the written scopes', 'Check whether the insurer and contractor estimates include the same roof sections, quantities and materials. Ask for a written explanation of differences and document any temporary protection separately.'],
+      ['What to ask for in a roof inspection report', 'Ask the inspector to date the report, identify the roof areas and materials examined, and label photos against those locations. Look for a description of what the inspector observed and the reasoning behind any proposed repair or replacement. Keep invoices for earlier roofing work so the insurer can review the timeline.'],
       ['Read the policy and payment documents', 'Locate your deductible and any roof-specific endorsement or valuation provision. Ask which items were excluded, depreciated or held for later payment and how to submit additional evidence.'],
     ],
     checklist: ['Date of loss and damage observations', 'Dated photos and repair history', 'Contractor scope and insurer estimate', 'Policy endorsements and receipts'],
@@ -111,9 +113,11 @@ export const editorialGuides: EditorialGuide[] = [
       ['Review the insurer’s written response', 'Match your inventory and scope to the insurer estimate. Ask how deductions, depreciation or limits were applied, and how the insurer accepts additional records.'],
       ['When to file and how to track the timeline', 'Report the loss promptly and confirm any notice, proof-of-loss and repair documentation requirements under your policy and state rules. Ask the insurer to explain the next milestone. Inspection, repair estimates and additional records can affect how long a review takes. Use your claim number when following up and keep a dated record.'],
       ['How the deductible appears on the payment', 'Your deductible is the part of a covered loss you are responsible for under the policy. Check which deductible the insurer used and confirm how it appears separately from depreciation, excluded items or other adjustments. Ask whether a separate deductible applies to the reported cause.'],
+      ['Can you withdraw a homeowners insurance claim?', 'If your claim is still open, ask the insurer whether you can withdraw it and how to make that request in writing. Ask for written confirmation of the status, any prior payment or steps you may need to take, and how the claim will be recorded. A withdrawn claim can still be part of your claims history.'],
+      ['Can a home or roof claim affect your premium?', 'Insurers can consider claims history when setting or renewing a premium. The impact of a single claim depends on the insurer, its rating rules, your policy and the circumstances of the loss. If you want to understand a change at renewal, ask the insurer what factors affected the price.'],
     ],
     checklist: ['Policy and claim number', 'Damage timeline, inventory and photos', 'Inspection reports and estimates', 'Copies of communications and submissions'],
-    sources: [naic, california],
+    sources: [naic, california, ['NAIC consumer guidance on homeowners insurance and claims history', 'https://content.naic.org/article/consumer-insight-understanding-your-homeowners-or-renters-policy'], ['Insurify guide to withdrawing an open home insurance claim', 'https://insurify.com/homeowners-insurance/knowledge/cancel-a-home-insurance-claim/']],
     related: [water, flood, denial],
   },
   {
@@ -126,6 +130,7 @@ export const editorialGuides: EditorialGuide[] = [
     sections: [
       ['Identify how the water reached the building', 'Record whether the water came from inside plumbing, entered through a possible storm-created opening, or rose from outside. Each scenario can involve different policy provisions, exclusions or separate flood coverage.'],
       ['If you suspect a water leak', 'Keep the plumber’s finding about the source and indicate when the leak was discovered and stopped. Record each affected area and save the drying logs and invoices. If the insurer cites gradual leakage or another exclusion, ask how it applies to the facts in the report.'],
+      ['What to document in a kitchen, basement or ceiling', 'For a kitchen or an air-conditioning leak, ask for a report that identifies where the water started and when it was stopped. For a basement, record whether water rose from outside or escaped from plumbing inside. For stained ceilings or wet flooring, photograph the areas reached and keep notes on which materials dried in place and which had to be removed.'],
       ['Create a dated record', 'Take photos when it is safe, keep receipts for drying and temporary protection, and ask contractors for written findings. Record when the water was stopped and when materials were removed.'],
       ['Compare the restoration and insurer estimates', 'Group the disputed items by room and type of work, such as drying, demolition or rebuilding. Ask for the specific reason when an item appears in one estimate and is missing from the other.'],
     ],
@@ -143,12 +148,14 @@ export const editorialGuides: EditorialGuide[] = [
     category: 'Working with an adjuster',
     sections: [
       ['What a public adjuster does', 'Typical work includes reviewing the policy and claim records, documenting damage, preparing or reviewing estimates, and communicating with the insurer on the policyholder’s behalf. Ask which of these tasks the contract includes.'],
-      ['When a review may be useful', 'Consider a review if the damage spans several rooms, written estimates disagree, or you need help understanding what records belong in a claim file. Bring the insurer’s explanation if the claim has already been decided.'],
+      ['Public, staff and independent adjusters', 'A staff adjuster works for an insurer. An independent adjuster may be contracted by the insurer to assess a claim. A public adjuster is hired by the policyholder under a separate agreement. Ask each professional who hired them and who they represent.'],
+      ['When to hire a public adjuster', 'Consider a review if the damage spans several rooms, written estimates disagree, or you need help understanding what records belong in a claim file. Bring the insurer’s explanation if the claim has already been decided.'],
+      ['Benefits and trade-offs of hiring a public adjuster', 'A public adjuster can help organize a complex damage record, compare repair estimates and communicate with the insurer. Representation can also involve fees, approved expenses and contract obligations. If the insurer’s scope is clear and you are comfortable managing the claim, you may choose to handle it yourself. Compare the specific work offered with the written terms before signing.'],
       ['Public adjuster or attorney?', 'For documenting damage, comparing estimates or negotiating a property insurance claim, ask a public adjuster what work is included in the written agreement. For legal advice, litigation or interpretation of legal rights and deadlines, speak with an attorney. Ask how each professional charges and who would handle the work.'],
       ['What to verify before hiring', 'Check the license in the property’s state, ask who will work on the claim, and review fees, expenses and cancellation terms. An attorney can advise on legal rights and coverage disputes that require legal advice.'],
     ],
     checklist: ['Property location and type of loss', 'Insurance policy and latest insurer letter', 'Assigned adjuster license and scope', 'Written agreement and fee terms'],
-    sources: [florida, california, northCarolina],
+    sources: [florida, california, northCarolina, ['Florida insurance consumer advocate guide to working with a public adjuster', 'https://myfloridacfo.com/docs-sf/insurance-consumer-advocate-libraries/ica-documents/public-adjuster-consumer-tips.pdf']],
     related: [fees, fileClaim, denial],
   },
   {
