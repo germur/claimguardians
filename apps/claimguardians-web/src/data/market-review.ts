@@ -26,6 +26,73 @@ const caTopics = [
   { title: 'Understand the proposed work', text: 'Compare the insurer’s scope with inspection or remediation findings. A review can identify a disagreement; it cannot promise a particular coverage decision or payment.' },
 ];
 
+interface CityReview {
+  summary: string;
+  heading: string;
+  intro: string;
+  topics: ReviewProfile['topics'];
+  documents: string[];
+  services: ReviewProfile['services'];
+  source: ReviewProfile['sources'][number];
+}
+
+const cityReviews: Record<string, CityReview> = {
+  'Fort Myers': {
+    summary: 'Fort Myers public adjusting for homeowners and businesses in Lee County. Discuss a storm, roof or disputed property claim and request a free initial review.',
+    heading: 'Storm and roof claim review in Fort Myers',
+    intro: 'If a storm affected your Fort Myers property, start with a dated record of what happened to the roof, interior and any areas reached by outdoor water. We can compare those records with the insurer’s written estimate.',
+    topics: [
+      { title: 'Trace the first signs of damage', text: 'Note when and where you first saw roof damage, water indoors or water rising from outside. Keep the observations separate in your timeline.' },
+      { title: 'Compare estimates by area', text: 'Use the insurer and contractor estimates to mark which rooms, roof sections or materials are missing or measured differently.' },
+      { title: 'Bring both policies if you have them', text: 'If the property also has a flood policy, bring it and any related claim correspondence so each part of the reported loss can be reviewed.' },
+    ],
+    documents: ['Roof inspection findings and temporary repair receipts.', 'Any separate flood policy, damage photos and claim correspondence.'],
+    services: [{ label: 'Hurricane and wind claim support', href: '/services/hurricane-damage/' }, { label: 'Roof damage claim checklist', href: '/resources/roof-damage-insurance-claim/' }],
+    source: { label: 'Lee County flood hazard information', href: 'https://www.leefl.gov/599/Flood-Hazards' },
+  },
+  'Fort Lauderdale': {
+    summary: 'Fort Lauderdale public adjusting for homes, condos and businesses. Discuss water, storm or disputed property claims and request a free initial review.',
+    heading: 'Water and condominium claim review in Fort Lauderdale',
+    intro: 'For a Fort Lauderdale water claim, identify where water first appeared and what the plumber, mitigation firm or building manager reported. A condominium claim may involve both unit records and association documents.',
+    topics: [
+      { title: 'Record the water source', text: 'Keep findings that describe a plumbing leak, roof opening or water entering from outside. Ask the insurer which policy or coverage it is reviewing.' },
+      { title: 'Organize the unit and association records', text: 'Keep the unit policy, any association notices and a room-by-room list of damage. Note which parts of the property each inspection addressed.' },
+      { title: 'Explain what is missing from the estimate', text: 'Identify the work already completed and compare it with the insurer’s scope. Attach an invoice, report or dated photograph to each disputed item.' },
+    ],
+    documents: ['Plumber or drying report with the date and affected rooms.', 'Unit policy and relevant association or building-management correspondence.'],
+    services: [{ label: 'Water damage claim support', href: '/services/water-damage/' }, { label: 'Water damage documentation checklist', href: '/resources/water-damage-insurance-claim/' }],
+    source: { label: 'City of Fort Lauderdale flood risk maps', href: 'https://www.fortlauderdale.gov/Government/Departments/Development-Services/Permitting-Services/Flood/Flood-Risk-Information' },
+  },
+  'Cape Coral': {
+    summary: 'Cape Coral public adjusting for homeowners and businesses. Review records for wind, roof or other property damage and request a free initial review.',
+    heading: 'Wind, roof and water documentation in Cape Coral',
+    intro: 'For a Cape Coral storm claim, make a record of the roof and exterior damage, then document any water marks and the rooms reached. Photos and inspection notes help trace the reported source of each loss.',
+    topics: [
+      { title: 'Mark the water line and entry points', text: 'Keep dated photos of water marks, exterior openings and affected contents, taken only when it is safe. If you obtained a report identifying the water source, retain a copy.' },
+      { title: 'Keep the roof condition documented', text: 'Save current and prior roof reports, contractor photos and receipts for temporary protection. Flag any area the insurer and contractor describe differently.' },
+      { title: 'Keep separate claim records together', text: 'If you reported damage to a property insurer and a flood insurer, keep their estimates, letters and claim numbers separately labeled.' },
+    ],
+    documents: ['Photographs of exterior openings, water marks and affected rooms.', 'Any building inspection, roof report or separate flood claim documents.'],
+    services: [{ label: 'Hurricane and wind claim support', href: '/services/hurricane-damage/' }, { label: 'How to file a flood insurance claim', href: '/resources/how-to-file-a-flood-insurance-claim/' }],
+    source: { label: 'City of Cape Coral flood protection resources', href: 'https://www.capecoral.gov/departments/development_services/building_division/flood_protection.php' },
+  },
+  Charlotte: {
+    summary: 'Charlotte public adjusting for homes and businesses in Mecklenburg County. Discuss roof, storm or disputed property claims and request a free initial review.',
+    heading: 'Roof, storm and disputed claims in Charlotte',
+    intro: 'If storm or roof damage affected your Charlotte property, bring the roof findings and the written decision or estimate. For a commercial property, record building repairs and damaged stock or equipment as separate items.',
+    topics: [
+      { title: 'Document the roof and the interior', text: 'Keep photos taken from safe locations and any inspection report. Mark when the roof or exterior damage was noticed and where any interior staining first appeared.' },
+      { title: 'Identify the disputed repair items', text: 'Compare the insurer and contractor scopes by roof area, room and material. For a written denial, keep the cited policy language with your evidence.' },
+      { title: 'Gather records for a business property', text: 'Bring the lease if applicable, damage records and the latest insurer estimate. Ask what documents are needed for building repairs, contents or interruption expenses.' },
+    ],
+    documents: ['Roof findings, storm-date timeline and photographs.', 'Lease, business property inventory or denial letter where relevant.'],
+    services: [{ label: 'Roof damage insurance claim checklist', href: '/resources/roof-damage-insurance-claim/' }, { label: 'Denied property claims in North Carolina', href: '/service-areas/north-carolina/denied-insurance-claim-nc/' }],
+    source: { label: 'Charlotte-Mecklenburg Storm Water Services flood maps', href: 'https://www.charlottenc.gov/Services/Stormwater/Flood-Preparedness-and-Mitigation/Flooding-and-Maps' },
+  },
+};
+
+export const getCityReview = (city: string): CityReview | undefined => cityReviews[city];
+
 export function getMarketReview(city: string, state: string): ReviewProfile {
   const name = city || (state === 'NC' ? 'North Carolina' : state === 'CA' ? 'California' : 'Florida');
   const ca = state === 'CA';
@@ -74,6 +141,15 @@ export function getMarketReview(city: string, state: string): ReviewProfile {
     profile.services = [{ label: 'Roof damage claims', href: '/services/roof-damage/' }, { label: 'Hurricane and wind claims', href: '/services/hurricane-damage/' }];
   } else if (nc) {
     profile.faq.push({ q: 'Does a North Carolina homeowners policy cover every type of storm damage?', a: 'No. Coverage for wind, hail or flood can differ between policies, and some protection may be separate or excluded. Ask your agent or insurer which coverage applies and bring all relevant policies to the review.' });
+  }
+  const cityReview = getCityReview(city);
+  if (cityReview) {
+    profile.heading = cityReview.heading;
+    profile.intro = cityReview.intro;
+    profile.topics = cityReview.topics;
+    profile.documents = [...commonDocuments, ...cityReview.documents];
+    profile.services = cityReview.services;
+    profile.sources.push(cityReview.source);
   }
   if (ca) profile.faq.push({ q: 'How do I check the professional assigned to my California property claim?', a: 'Ask for the assigned professional’s name and current California public adjuster license number, then check the California Department of Insurance record before signing. Confirm availability and the written scope, fees, expenses and cancellation terms. A service-area page does not indicate a branch office in that city.' });
   return profile;

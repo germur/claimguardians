@@ -5,7 +5,7 @@ import NCServiceLinks from '../../../components/NCServiceLinks.astro';
 import MinimalAdLayout from '../../../layouts/MinimalAdLayout.astro';
 
 import MarketReview from '../../../components/MarketReview.astro';
-import { getMarketReview } from '../../../data/market-review';
+import { getMarketReview, getCityReview } from '../../../data/market-review';
 
 export async function getStaticPaths() {
   const ncCities = [
@@ -78,12 +78,13 @@ const { data } = Astro.props;
 const { city, slug, county, zipCodes, nearbyAreas } = data;
 const profile = getMarketReview(city, "NC");
 const faq = profile.faq;
+const cityReview = getCityReview(city);
 
 ---
 
 <MinimalAdLayout
   title={`Public Adjuster in ${city}, NC | Claim Guardians`}
-  description={`Property damage in ${city}? Discuss your policy, damage records and insurer’s decision with Claim Guardians. Request a free initial review.`}
+  description={cityReview?.summary || `Property damage in ${city}? Discuss your policy, damage records and insurer’s decision with Claim Guardians. Request a free initial review.`}
 >
   <Fragment slot="head">
 
@@ -117,7 +118,9 @@ const faq = profile.faq;
   </Fragment>
 
   <!-- 1. HERO -->
-  <PageHero title={`Public Adjuster in ${city}, ${"NC"}`} eyebrow={`Property claims / ${county}`} description={`Claim Guardians represents homeowners and business owners in ${county} with property insurance claims. We document damage, review the policy and negotiate with your insurer. Request help with a new claim, a denial or a partial payment.`} image={'/images/hero-hurricane-damage.png'} current={city} parent={{ label: 'North Carolina', href: '/service-areas/north-carolina/' }} ctaHref="#claim-form" compact />
+  <PageHero title={`Public Adjuster in ${city}, ${"NC"}`} eyebrow={`Property claims / ${county}`} description={cityReview?.summary || `Claim Guardians represents homeowners and business owners in ${county} with property insurance claims. We document damage, review the policy and negotiate with your insurer. Request help with a new claim, a denial or a partial payment.`} image={'/images/hero-hurricane-damage.png'} current={city} parent={{ label: 'North Carolina', href: '/service-areas/north-carolina/' }} ctaHref="#claim-form" compact>
+    {cityReview && <a class="design-text-link" href="#market-review-heading">{cityReview.heading}</a>}
+  </PageHero>
 
   <LocalClaimService city={city} state="NC" area={county} />
 

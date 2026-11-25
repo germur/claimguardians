@@ -5,7 +5,7 @@ import LocalClaimService from '../../components/LocalClaimService.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
 import MarketReview from '../../components/MarketReview.astro';
-import { getMarketReview } from '../../data/market-review';
+import { getMarketReview, getCityReview } from '../../data/market-review';
 import { localServiceFocus } from '../../data/local-service-focus';
 
 export async function getStaticPaths() {
@@ -277,6 +277,7 @@ const { data } = Astro.props;
 const { city, county, stateCode, stateName, zipCodes, nearbyAreas, damageAngles } = data;
 const profile = getMarketReview(city, stateCode);
 const faq = profile.faq;
+const cityReview = getCityReview(city);
 const leadTopics: Record<string, string> = {
   "Los Angeles": "Fire and smoke claim help",
   "Miami": "Water, roof and condo claim help",
@@ -284,19 +285,18 @@ const leadTopics: Record<string, string> = {
   "Sacramento": "What to bring to a property claim review",
 };
 const isWestPalmBeach = city === "West Palm Beach";
-const priority = Boolean(leadTopics[city]);
+const leadTopic = leadTopics[city] || cityReview?.heading;
 const stateHref = stateAreaHref(stateCode);
 const pageTitle = isWestPalmBeach
   ? "West Palm Beach Public Adjuster | Storm & Roof Claims"
   : `Public Adjuster in ${city}, ${stateCode} | Claim Guardians`;
 
-const reviewAngles = priority ? { primary: profile.topics[0].title, primaryDesc: profile.topics[0].text, secondary: profile.topics[1].title, secondaryDesc: profile.topics[1].text, tertiary: profile.topics[2].title, tertiaryDesc: profile.topics[2].text } : damageAngles;
 
 ---
 
 <BaseLayout
   title={pageTitle}
-  description={localServiceFocus[city]?.description || `Public adjusting services for homeowners and businesses in ${city}, ${stateCode}. Help with new, denied and underpaid property claims. Request a free review.`}
+  description={cityReview?.summary || localServiceFocus[city]?.description || `Public adjusting services for homeowners and businesses in ${city}, ${stateCode}. Help with new, denied and underpaid property claims. Request a free review.`}
 >
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify({
@@ -330,14 +330,14 @@ const reviewAngles = priority ? { primary: profile.topics[0].title, primaryDesc:
   </Fragment>
 
   <!-- 1. Hero -->
-  <PageHero title={`Public Adjuster in ${city}, ${stateCode}`} eyebrow={`Property claims / ${county}`} description={isWestPalmBeach ? 'Need help with a storm, hurricane or roof damage claim in West Palm Beach? Claim Guardians helps homeowners and businesses in Palm Beach County document the damage, review the policy and communicate with the insurer. Tell us what happened and where your claim stands to request a free initial review.' : `Claim Guardians represents homeowners and business owners in ${county} with property insurance claims. We document damage, review the policy and negotiate with your insurer. Request help with a new claim, a denial or a partial payment.`} image={stateCode === 'CA' ? '/images/hero-fire-damage.png' : '/images/hero-city-florida.png'} current={city} parent={{ label: stateName, href: stateHref }} ctaHref="#claim-form" compact>
-    {priority && <a class="design-text-link" href="#market-review-heading">{leadTopics[city]}</a>}
+  <PageHero title={`Public Adjuster in ${city}, ${stateCode}`} eyebrow={`Property claims / ${county}`} description={isWestPalmBeach ? 'Need help with a storm, hurricane or roof damage claim in West Palm Beach? Claim Guardians helps homeowners and businesses in Palm Beach County document the damage, review the policy and communicate with the insurer. Tell us what happened and where your claim stands to request a free initial review.' : cityReview?.summary || `Claim Guardians represents homeowners and business owners in ${county} with property insurance claims. We document damage, review the policy and negotiate with your insurer. Request help with a new claim, a denial or a partial payment.`} image={stateCode === 'CA' ? '/images/hero-fire-damage.png' : '/images/hero-city-florida.png'} current={city} parent={{ label: stateName, href: stateHref }} ctaHref="#claim-form" compact>
+    {leadTopic && <a class="design-text-link" href="#market-review-heading">{leadTopic}</a>}
   </PageHero>
 
   <LocalClaimService city={city} state={stateCode} area={county} />
 
   <!-- 2. Common Property Damage -->
-  {!priority && <section class="section-white">
+  {!leadTopic && <section class="section-white">
     <div class="section-inner">
       <div class="text-center mb-16">
         <span class="eyebrow">Local Risks</span>
@@ -345,16 +345,16 @@ const reviewAngles = priority ? { primary: profile.topics[0].title, primaryDesc:
       </div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div class="card-hover p-8">
-          <h3 class="text-xl font-bold text-[#082142] mb-3">{reviewAngles.primary}</h3>
-          <p class="text-slate-500 leading-relaxed">{reviewAngles.primaryDesc}</p>
+          <h3 class="text-xl font-bold text-[#082142] mb-3">{damageAngles.primary}</h3>
+          <p class="text-slate-500 leading-relaxed">{damageAngles.primaryDesc}</p>
         </div>
         <div class="card-hover p-8">
-          <h3 class="text-xl font-bold text-[#082142] mb-3">{reviewAngles.secondary}</h3>
-          <p class="text-slate-500 leading-relaxed">{reviewAngles.secondaryDesc}</p>
+          <h3 class="text-xl font-bold text-[#082142] mb-3">{damageAngles.secondary}</h3>
+          <p class="text-slate-500 leading-relaxed">{damageAngles.secondaryDesc}</p>
         </div>
         <div class="card-hover p-8">
-          <h3 class="text-xl font-bold text-[#082142] mb-3">{reviewAngles.tertiary}</h3>
-          <p class="text-slate-500 leading-relaxed">{reviewAngles.tertiaryDesc}</p>
+          <h3 class="text-xl font-bold text-[#082142] mb-3">{damageAngles.tertiary}</h3>
+          <p class="text-slate-500 leading-relaxed">{damageAngles.tertiaryDesc}</p>
         </div>
       </div>
     </div>
