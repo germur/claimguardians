@@ -58,6 +58,22 @@ const process = [
   </section>
 
   <ServicePreparation service={service} />
+  {service === 'denied-claims' && <section class="section-white"><div class="section-inner max-w-4xl space-y-5">
+    <h2 class="section-heading">What to check if your insurer paid less than expected</h2>
+    <p class="text-slate-700">Place the insurer’s estimate, payment breakdown and contractor estimate side by side. Match the same room and repair item on both estimates before comparing totals.</p>
+    <ul class="list-disc pl-6 space-y-3 text-slate-700">
+      <li><strong>Scope and quantities.</strong> Flag missing rooms, materials or labor and note how each quantity was measured.</li>
+      <li><strong>Adjustments.</strong> Identify the deductible, depreciation or other payment adjustments listed separately.</li>
+      <li><strong>Documents.</strong> Save the insurer’s written explanation and the inspection or photo that supports each disputed item.</li>
+    </ul>
+    <p><a class="underline text-[#006775]" href="/resources/supplemental-homeowners-insurance-claim/">How to document additional repair items</a></p>
+  </div></section>}
+  {service === 'fire-damage' && <section class="section-white"><div class="section-inner max-w-4xl space-y-5">
+    <h2 class="section-heading">Document smoke damage by room</h2>
+    <p class="text-slate-700">After authorities clear access, keep a record of the rooms and belongings affected, dated photographs and any cleaning or remediation assessment. Separate direct fire damage from possible smoke exposure and note where each finding came from.</p>
+    <p class="text-slate-700">Compare the insurer’s scope with the assessment and record the items that differ. Keep receipts for displacement or temporary protection. In California, the Department of Insurance has a <a class="underline text-[#006775]" href="https://www.insurance.ca.gov/01-consumers/140-catastrophes/WildfireResources.cfm">wildfire recovery resource center</a>.</p>
+  </div></section>}
+
 
   <section class="section-muted"><div class="section-inner max-w-4xl">
     <h2 class="section-heading mb-5">Prepare for your next claim decision</h2>

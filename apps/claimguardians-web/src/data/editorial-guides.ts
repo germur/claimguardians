@@ -41,6 +41,7 @@ export const editorialGuides: EditorialGuide[] = [
       ['3. Gather evidence that addresses the stated reason', 'For a disagreement about when damage occurred, organize dated photos and repair history. For a disagreement about the scope, compare the line items in the insurer and contractor estimates. Keep a record of each submission.'],
       ['4. Ask for clarification or review', 'Use the claim number and identify the specific finding you want the insurer to explain. Ask how to submit additional evidence, whether another inspection is available and what deadlines apply.'],
       ['5. Choose the kind of help you need', 'Your state insurance department can explain its complaint process. A public adjuster can review claim records and documented damage within an agreed scope. For legal advice about coverage or rights, consult an attorney.'],
+      ['What if the claim was closed without payment?', 'Ask for the claim status and an explanation in writing. A file can be closed for different reasons. If the insurer cites wear or maintenance, match the cited finding to the inspection and separate earlier repairs from evidence of the event you reported. Ask how to submit information and whether any deadline applies.'],
     ],
     checklist: ['Written denial or partial-payment explanation', 'Policy, declarations and endorsements in force', 'Dated photos, repair history and estimates', 'Timeline of insurer correspondence and deadlines'],
     sources: [['Texas Department of Insurance explanation of common denial reasons', 'https://www.tdi.texas.gov/tips/why-would-my-home-insurance-claim-be-denied-or-not-paid.html'], florida, california, northCarolina],
@@ -88,6 +89,7 @@ export const editorialGuides: EditorialGuide[] = [
     category: 'Damage documentation',
     sections: [
       ['Document the roof and the interior separately', 'Record exterior observations and interior water marks by room. Save contractor photos and notes about where water may have entered. Use qualified help to inspect areas that are unsafe to reach.'],
+      ['What to record after hail', 'Save the date of the reported storm and any safe photographs taken before temporary repairs. Ask the roof inspector to identify the locations and materials examined, what they observed and which conclusions are supported by the inspection. Compare those findings with the insurer’s explanation.'],
       ['Compare the written scopes', 'Check whether the insurer and contractor estimates include the same roof sections, quantities and materials. Ask for a written explanation of differences and document any temporary protection separately.'],
       ['Read the policy and payment documents', 'Locate your deductible and any roof-specific endorsement or valuation provision. Ask which items were excluded, depreciated or held for later payment and how to submit additional evidence.'],
     ],
@@ -107,6 +109,8 @@ export const editorialGuides: EditorialGuide[] = [
       ['Record what happened', 'Write down when you first noticed the loss and which rooms or belongings were affected. Keep photos, receipts and records of reasonable temporary steps taken to protect the property.'],
       ['Prepare for the inspection', 'Share an inventory, photos and relevant estimates. Mark any areas that are inaccessible and ask how to document damage discovered during later repair work.'],
       ['Review the insurer’s written response', 'Match your inventory and scope to the insurer estimate. Ask how deductions, depreciation or limits were applied, and how the insurer accepts additional records.'],
+      ['When to file and how to track the timeline', 'Report the loss promptly and confirm any notice, proof-of-loss and repair documentation requirements under your policy and state rules. Ask the insurer to explain the next milestone. Inspection, repair estimates and additional records can affect how long a review takes. Use your claim number when following up and keep a dated record.'],
+      ['How the deductible appears on the payment', 'Your deductible is the part of a covered loss you are responsible for under the policy. Check which deductible the insurer used and confirm how it appears separately from depreciation, excluded items or other adjustments. Ask whether a separate deductible applies to the reported cause.'],
     ],
     checklist: ['Policy and claim number', 'Damage timeline, inventory and photos', 'Inspection reports and estimates', 'Copies of communications and submissions'],
     sources: [naic, california],
@@ -121,6 +125,7 @@ export const editorialGuides: EditorialGuide[] = [
     category: 'Damage documentation',
     sections: [
       ['Identify how the water reached the building', 'Record whether the water came from inside plumbing, entered through a possible storm-created opening, or rose from outside. Each scenario can involve different policy provisions, exclusions or separate flood coverage.'],
+      ['If you suspect a water leak', 'Keep the plumber’s finding about the source and indicate when the leak was discovered and stopped. Record each affected area and save the drying logs and invoices. If the insurer cites gradual leakage or another exclusion, ask how it applies to the facts in the report.'],
       ['Create a dated record', 'Take photos when it is safe, keep receipts for drying and temporary protection, and ask contractors for written findings. Record when the water was stopped and when materials were removed.'],
       ['Compare the restoration and insurer estimates', 'Group the disputed items by room and type of work, such as drying, demolition or rebuilding. Ask for the specific reason when an item appears in one estimate and is missing from the other.'],
     ],
@@ -139,6 +144,7 @@ export const editorialGuides: EditorialGuide[] = [
     sections: [
       ['What a public adjuster does', 'Typical work includes reviewing the policy and claim records, documenting damage, preparing or reviewing estimates, and communicating with the insurer on the policyholder’s behalf. Ask which of these tasks the contract includes.'],
       ['When a review may be useful', 'Consider a review if the damage spans several rooms, written estimates disagree, or you need help understanding what records belong in a claim file. Bring the insurer’s explanation if the claim has already been decided.'],
+      ['Public adjuster or attorney?', 'For documenting damage, comparing estimates or negotiating a property insurance claim, ask a public adjuster what work is included in the written agreement. For legal advice, litigation or interpretation of legal rights and deadlines, speak with an attorney. Ask how each professional charges and who would handle the work.'],
       ['What to verify before hiring', 'Check the license in the property’s state, ask who will work on the claim, and review fees, expenses and cancellation terms. An attorney can advise on legal rights and coverage disputes that require legal advice.'],
     ],
     checklist: ['Property location and type of loss', 'Insurance policy and latest insurer letter', 'Assigned adjuster license and scope', 'Written agreement and fee terms'],
@@ -156,6 +162,7 @@ export const editorialGuides: EditorialGuide[] = [
       ['Compare the two scopes', 'Match the current insurer estimate to the revised contractor estimate by room and line item. Identify omitted work, quantities that changed, or damage discovered after the initial inspection.'],
       ['Connect each change to the loss', 'Ask your contractor to explain what was found, when it was found and why the added work is relevant. Attach dated photos, a written scope and supporting records. Preserve evidence and ask the insurer about inspection before permanent work where feasible.'],
       ['Confirm submission instructions', 'Use the existing claim number, confirm the preferred channel and ask whether a new inspection or other documents are required. Keep a dated copy of what you send and the insurer’s response.'],
+      ['What if the insurer closed the original claim?', 'Ask for the written status or decision, the latest estimate and the process for submitting new evidence. A closed claim, a denied item and newly discovered damage call for different questions. Ask the insurer what deadlines apply to the loss and whether it will review your additional documents.'],
     ],
     checklist: ['Original insurer estimate and claim number', 'Revised estimate with changed lines identified', 'Dated discovery photos and contractor explanation', 'Written submission and inspection instructions'],
     sources: [naic, ['Kin guide to supplemental claims', 'https://www.kin.com/claims/supplemental-claims/']],

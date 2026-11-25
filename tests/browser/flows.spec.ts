@@ -90,6 +90,8 @@ test('claim preparation changes by damage type', async ({ page }) => {
   await expect(page.locator('astro-island[component-url*="ClaimCalculator"]')).not.toHaveAttribute('ssr');
   await select.selectOption('denied');
   await expect(page.getByText('Your denial letter or settlement explanation', { exact: false })).toBeVisible();
+  await page.getByRole('combobox', { name: 'Claim stage', exact: true }).selectOption('decision');
+  await expect(page.getByText('Flag each repair item or finding you want explained.', { exact: false })).toBeVisible();
   await expect(page.getByRole('button', { name: /Calculate/ })).toHaveCount(0);
   await page.setViewportSize({ width: 1440, height: 1000 });
   await page.goto('/');

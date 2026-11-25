@@ -41,10 +41,21 @@ const links = guide.related.map(slug => editorialGuides.find(item => item.slug =
             <tbody>
               <tr class="border-b border-slate-200"><th scope="row" class="p-3">An exclusion applies</th><td class="p-3">The cited paragraph and related endorsements.</td><td class="p-3">Complete policy and dated evidence about how the damage occurred.</td></tr>
               <tr class="border-b border-slate-200"><th scope="row" class="p-3">The loss date is disputed</th><td class="p-3">Which date and observation the insurer relied on.</td><td class="p-3">Dated photos, repair records and a short timeline.</td></tr>
+              <tr class="border-b border-slate-200"><th scope="row" class="p-3">Wear or maintenance is cited</th><td class="p-3">The inspection finding and policy provision behind the determination.</td><td class="p-3">Prior repair records and dated evidence for the reported event.</td></tr>
               <tr class="border-b border-slate-200"><th scope="row" class="p-3">Documents are missing</th><td class="p-3">The specific material requested and how to submit it.</td><td class="p-3">Copies of the requested records and earlier submissions.</td></tr>
             </tbody>
           </table>
         </div>
+      </section>}
+      {guide.slug === 'what-is-a-public-adjuster' && <section class="mt-10 space-y-4" aria-labelledby="verify-adjuster-license">
+        <h2 id="verify-adjuster-license" class="text-2xl font-bold">How to look up a public adjuster’s license</h2>
+        <p>Ask for the name and license number of the person who will handle your claim. Confirm the current status and license type with the regulator for the property’s state. Ask the firm who will inspect, prepare the estimate and speak with the insurer.</p>
+        <ul class="list-disc pl-6 space-y-2">
+          <li><a class="underline text-[#006775]" href="https://licenseesearch.fldfs.com/">Florida Department of Financial Services license search</a></li>
+          <li><a class="underline text-[#006775]" href="https://www.insurance.ca.gov/license-status/index.cfm">California Department of Insurance license search</a></li>
+          <li><a class="underline text-[#006775]" href="https://www.ncdoi.gov/licensees/insurance-producer-and-adjuster-licensing">North Carolina Department of Insurance adjuster licensing</a></li>
+        </ul>
+        <p>Before signing, review <a class="underline text-[#006775]" href="/resources/public-adjuster-fees/">the fee basis and written terms</a>.</p>
       </section>}
       <section class="bg-slate-50 rounded-2xl p-6 md:p-8 my-10">
         <h2 class="text-2xl font-bold mb-4">Records to gather</h2>
