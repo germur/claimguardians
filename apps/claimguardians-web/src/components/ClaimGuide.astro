@@ -28,10 +28,9 @@ const alternate = lang === 'en' ? '/es/guia-reclamacion/' : '/resources/claim-re
     {guide.markets.map((market, index) => <section id={market.id} class="border-t border-slate-200 py-8">
       <p class="eyebrow">{market.state}</p>
       <h3 class="text-2xl font-bold mb-4">{market.situation}</h3>
-      <p class="text-lg text-slate-700 leading-relaxed mb-4">{market.answer}</p>
+      <p class="text-lg text-slate-700 leading-relaxed mb-4">{market.answer}{lang === 'en' && market.id === 'florida' && <> If a storm damaged your Palm Beach County property, see what to bring to a <a class="underline text-[#006775]" href="/service-areas/west-palm-beach/">storm claim review in West Palm Beach</a>.</>}</p>
       <ul class="space-y-3 text-[#006775] underline">
         <li><a href={market.link}>{market.label}</a></li><li><a href={market.service}>{market.serviceLabel}</a></li>
-        {lang === 'en' && market.id === 'florida' && <li><a href="/service-areas/west-palm-beach/">West Palm Beach roof and storm claim help</a></li>}
         <li><a href={guideSources[index].url} rel="noopener noreferrer">{guideSources[index].name}</a></li>
       </ul>
     </section>)}
@@ -50,7 +49,7 @@ const alternate = lang === 'en' ? '/es/guia-reclamacion/' : '/resources/claim-re
           <li><strong>Temporary protection and expenses.</strong> Photograph damage when safe and keep records of reasonable steps to protect the property. If you relocate, ask what expenses the insurer wants documented and keep those receipts separate.</li>
         </ul>
       </div>
-      <p>For the full process, see <a class="underline text-[#006775]" href="/resources/how-to-file-a-homeowners-insurance-claim/">how to file a homeowners insurance claim</a>.</p>
+      <p>For the full process, see <a class="underline text-[#006775]" href="/resources/how-to-file-a-homeowners-insurance-claim/">how to file a homeowners insurance claim</a>. Our <a class="underline text-[#006775]" href="/resources/">property claim resources</a> cover decisions about individual losses, estimates and working with an adjuster.</p>
     </section>}
     <section class="space-y-6 my-12">
       {guide.faqs.map(faq => <div><h2 class="text-xl font-bold mb-2">{faq.q}</h2><p class="text-slate-700 leading-relaxed">{faq.a}</p></div>)}

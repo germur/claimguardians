@@ -66,6 +66,9 @@ const links = guide.related.map(slug => editorialGuides.find(item => item.slug =
       <section class="space-y-4 mb-10">
         <h2 class="text-2xl font-bold">Get help with your next step</h2>
         <p>Tell us what happened and what the insurer has said so far. Bring the records you have available.</p>
+        {guide.slug === 'what-is-a-public-adjuster' && <p>If you’re deciding whether to hire someone, compare our <a class="underline text-[#006775]" href="/services/">public adjusting services by type of claim</a> and check which help fits your situation.</p>}
+        {guide.slug === 'roof-damage-insurance-claim' && <p>If your property is in southern Palm Beach County, see how to get help with a <a class="underline text-[#006775]" href="/service-areas/boca-raton/">roof or storm claim in Boca Raton</a>.</p>}
+        {guide.slug === 'water-damage-insurance-claim' && <p>If the loss also involves mold, our <a class="underline text-[#006775]" href="/services/mold-claims/">mold-related claim review</a> explains which moisture records and remediation findings to bring.</p>}
         {guide.slug === 'home-insurance-claim-denied' && <p><a class="underline text-[#006775]" href="/service-areas/north-carolina/denied-insurance-claim-nc/">Help with a denied property claim in North Carolina</a></p>}
         {guide.service && <p><a class="underline text-[#006775]" href={guide.service[0]}>{guide.service[1]}</a></p>}
         <a class="btn-accent" href="/free-claim-review/">Request a free claim review</a>

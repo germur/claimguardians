@@ -9,12 +9,12 @@ import { feeTerms, serviceDetails, type ServiceSlug } from '../data/service-deta
 const { service } = Astro.props as { service: ServiceSlug };
 const detail = serviceDetails[service];
 const reading: Record<ServiceSlug, [string, string][]> = {
-  'water-damage': [['water-damage-insurance-claim', 'Water damage claim checklist'], ['how-to-file-a-flood-insurance-claim', 'Filing a separate flood insurance claim']],
+  'water-damage': [['how-to-file-a-flood-insurance-claim', 'Filing a separate flood insurance claim']],
   'hurricane-damage': [['roof-damage-insurance-claim', 'Roof damage claim checklist'], ['how-to-file-a-flood-insurance-claim', 'Filing a separate flood insurance claim']],
   'roof-damage': [['roof-damage-insurance-claim', 'Roof damage claim checklist'], ['recoverable-depreciation', 'How recoverable depreciation works']],
   'fire-damage': [['how-to-file-a-homeowners-insurance-claim', 'How to file a homeowners insurance claim']],
   'mold-claims': [['water-damage-insurance-claim', 'How to document the original water damage']],
-  'denied-claims': [['home-insurance-claim-denied', 'What to do after a written denial'], ['supplemental-homeowners-insurance-claim', 'How to document additional damage']],
+  'denied-claims': [['supplemental-homeowners-insurance-claim', 'How to document additional damage']],
 };
 const process = [
   { title: 'Start with a free review', text: 'Tell us about the property, reported damage and claim status. Keep the policy, photographs, estimates and insurer letters ready for follow-up.' },
@@ -66,10 +66,11 @@ const process = [
       <li><strong>Adjustments.</strong> Identify the deductible, depreciation or other payment adjustments listed separately.</li>
       <li><strong>Documents.</strong> Save the insurer’s written explanation and the inspection or photo that supports each disputed item.</li>
     </ul>
-    <p><a class="underline text-[#006775]" href="/resources/supplemental-homeowners-insurance-claim/">How to document additional repair items</a></p>
+    <p class="text-slate-700">If the insurer declined coverage for part or all of the loss, start with <a class="underline text-[#006775]" href="/resources/home-insurance-claim-denied/">what to do after a written denial</a> to match the explanation to your policy and evidence.</p>
   </div></section>}
   {service === 'fire-damage' && <section class="section-white"><div class="section-inner max-w-4xl space-y-5">
     <h2 class="section-heading">Document smoke damage by room</h2>
+    <p class="text-slate-700">If your property is in Los Angeles County, see how to prepare for a <a class="underline text-[#006775]" href="/service-areas/los-angeles/">fire or smoke claim review in Los Angeles</a>.</p>
     <p class="text-slate-700">After authorities clear access, keep a record of the rooms and belongings affected, dated photographs and any cleaning or remediation assessment. Separate direct fire damage from possible smoke exposure and note where each finding came from.</p>
     <p class="text-slate-700">Compare the insurer’s scope with the assessment and record the items that differ. Keep receipts for displacement or temporary protection. In California, the Department of Insurance has a <a class="underline text-[#006775]" href="https://www.insurance.ca.gov/01-consumers/140-catastrophes/WildfireResources.cfm">wildfire recovery resource center</a>.</p>
   </div></section>}
@@ -77,11 +78,11 @@ const process = [
 
   <section class="section-muted"><div class="section-inner max-w-4xl">
     <h2 class="section-heading mb-5">Prepare for your next claim decision</h2>
-    {service === 'water-damage' && <p class="text-slate-600 mb-5">A plumbing leak, rain through a storm-damaged opening and rising water from outside can involve different policy provisions. Start by documenting the route the water took.</p>}
+    {service === 'water-damage' && <p class="text-slate-600 mb-5">A plumbing leak, rain through a storm-damaged opening and rising water from outside can involve different policy provisions. Start by documenting the route the water took with the <a class="underline text-[#006775]" href="/resources/water-damage-insurance-claim/">water damage claim checklist</a>. For damage involving a unit and common areas, the <a class="underline text-[#006775]" href="/service-areas/miami/">Miami water and condo claim review</a> explains which records to bring.</p>}
     <ul class="space-y-3">{reading[service].map(([slug, label]) => <li><a class="underline font-bold text-[#006775]" href={`/resources/${slug}/`}>{label}</a></li>)}</ul>
   </div></section>
 
-  {(service === 'fire-damage' || service === 'water-damage') && <section class="section-white"><div class="section-inner"><h2 class="section-heading mb-5">Discuss your property and local availability.</h2><p class="text-slate-600 leading-relaxed mb-5">Explore the relevant service area and confirm the professional and proposed services for your property.</p><div class="flex flex-wrap gap-6"><a class="font-bold text-[#006775] underline" href="/service-areas/sacramento/">Sacramento property claim services</a>{service === 'fire-damage' ? <a class="font-bold text-[#006775] underline" href="/service-areas/los-angeles/">Los Angeles fire and smoke claim services</a> : <a class="font-bold text-[#006775] underline" href="/service-areas/miami/">Miami water claim services</a>}</div></div></section>}
+  {(service === 'fire-damage' || service === 'water-damage') && <section class="section-white"><div class="section-inner"><h2 class="section-heading mb-5">Discuss your property and local availability</h2><p class="text-slate-600 leading-relaxed mb-5">In Sacramento County, see what records to bring and how to request a <a class="font-bold text-[#006775] underline" href="/service-areas/sacramento/">Sacramento property claim review</a>.</p></div></section>}
 
   <section class="section-white">
     <div class="section-inner max-w-4xl">

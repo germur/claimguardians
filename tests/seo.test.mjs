@@ -68,6 +68,36 @@ test('internal links and fragments resolve, and every indexable page is reachabl
   for (const [url] of indexable) assert.ok(reached.has(url), 'Orphan page: ' + url);
 });
 
+test('priority claim pages have descriptive links inside related content', () => {
+  const routes = [
+    ['/resources/claim-review-guide/', '/resources/'],
+    ['/resources/claim-review-guide/', '/service-areas/west-palm-beach/'],
+    ['/resources/', '/resources/what-is-a-public-adjuster/#verify-adjuster-license'],
+    ['/resources/what-is-a-public-adjuster/', '/services/'],
+    ['/resources/roof-damage-insurance-claim/', '/service-areas/boca-raton/'],
+    ['/resources/water-damage-insurance-claim/', '/services/mold-claims/'],
+    ['/services/denied-claims/', '/resources/home-insurance-claim-denied/'],
+    ['/services/fire-damage/', '/service-areas/los-angeles/'],
+    ['/services/water-damage/', '/resources/water-damage-insurance-claim/'],
+    ['/services/water-damage/', '/service-areas/miami/'],
+    ['/service-areas/los-angeles/', '/services/fire-damage/'],
+    ['/service-areas/west-palm-beach/', '/services/hurricane-damage/'],
+  ];
+  for (const [from, to] of routes) {
+    const link = pages.get(from).all.find(node => {
+      if (node.tagName !== 'a' || attr(node, 'href') !== to) return false;
+      let inParagraph = false;
+      for (let parent = node.parentNode; parent; parent = parent.parentNode) {
+        if (parent.tagName === 'p') inParagraph = true;
+        if (parent.tagName === 'main') return inParagraph;
+      }
+      return false;
+    });
+    assert.ok(link, `${from} must link to ${to} in a content paragraph`);
+    assert.ok(clean(text(link)).split(' ').length > 2, `${from} must use a descriptive anchor for ${to}`);
+  }
+});
+
 test('structured data keeps one company identity, valid service providers and visible FAQ content', () => {
   for (const [url, p] of pages) {
     if (url === '/__forms.html') continue;

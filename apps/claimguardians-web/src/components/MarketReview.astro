@@ -8,6 +8,7 @@ const { profile } = Astro.props as { profile: ReviewProfile };
       <span class="eyebrow">Your claim, your documents</span>
       <h2 id="market-review-heading" class="section-heading mb-5 scroll-mt-28">{profile.heading}</h2>
       <p class="text-lg text-slate-700 leading-relaxed">{profile.intro}</p>
+      <slot name="context" />
     </div>
     <div class="grid md:grid-cols-3 gap-6 mb-10">
       {profile.topics.map(topic => <article class="card-hover p-7"><h3 class="text-xl font-bold text-[#082142] mb-3">{topic.title}</h3><p class="text-slate-700 leading-relaxed">{topic.text}</p></article>)}

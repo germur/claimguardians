@@ -362,9 +362,13 @@ const pageTitle = isWestPalmBeach
 
   }
 
-  <MarketReview profile={profile} />
-  {city === "Miami" && <div class="section-inner max-w-4xl py-6"><p>Dealing with water that entered from outside? Read our <a class="underline text-[#006775]" href="/resources/how-to-file-a-flood-insurance-claim/">flood insurance filing guide</a> to identify the policy and records to check.</p></div>}
-  {isWestPalmBeach && <div class="section-inner max-w-4xl py-6"><p>For a disputed roof scope, use this <a class="underline text-[#006775]" href="/resources/roof-damage-insurance-claim/">roof damage insurance claim checklist</a> to organize estimates and records.</p></div>}
+  <MarketReview profile={profile}>
+    <Fragment slot="context">
+      {city === "Los Angeles" && <p class="mt-4 text-slate-700">If the insurer’s scope omits rooms, contents or cleaning, see how we <a class="underline text-[#006775]" href="/services/fire-damage/">review fire and smoke damage claims</a>.</p>}
+      {city === "Miami" && <p class="mt-4 text-slate-700">For a leak inside a home or condo, see our <a class="underline text-[#006775]" href="/services/water-damage/">water damage claim services</a>. If water entered from outside, the <a class="underline text-[#006775]" href="/resources/how-to-file-a-flood-insurance-claim/">flood insurance filing guide</a> explains which policy and records to check.</p>}
+      {isWestPalmBeach && <p class="mt-4 text-slate-700">If a storm damaged your property, see <a class="underline text-[#006775]" href="/services/hurricane-damage/">how we help with hurricane and wind claims</a>. For a disputed roof scope, use the <a class="underline text-[#006775]" href="/resources/roof-damage-insurance-claim/">roof damage insurance claim checklist</a> to compare estimates and organize the evidence.</p>}
+    </Fragment>
+  </MarketReview>
 
   <!-- 4. Our Process -->
   <section class="section-white">
